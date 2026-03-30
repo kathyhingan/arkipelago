@@ -70,12 +70,13 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0B1F3A;--navy-mid:#112847;--navy-light:#1A3A5C;--gold:#B8966E;--gold-bright:#D4A96A;--gold-pale:#F0E6D3;--warm-white:#FAF8F4;--sand:#F5EDD8;--slate:#4A5568}
-html{scroll-behavior:smooth}
-body{background:var(--navy);color:var(--warm-white);font-family:'EB Garamond',Georgia,serif;overflow-x:hidden;font-size:18px;line-height:1.75}
+:root{--navy:#0B1F3A;--navy-mid:#112847;--navy-light:#1A3A5C;--gold:#B8966E;--gold-bright:#D4A96A;--gold-pale:#F0E6D3;--warm-white:#FAF8F4;--sand:#F5EDD8;--slate:#4A5568;
+--body-size:19px;--body-line:1.9;--label-size:11px;--label-spacing:.22em}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--navy);color:var(--warm-white);font-family:'EB Garamond',Georgia,serif;overflow-x:hidden;font-size:var(--body-size);line-height:var(--body-line);font-weight:500}
 
 /* Cursor */
 .cursor,.cursor-ring{display:none}
@@ -84,6 +85,22 @@ body{cursor:none}
 .cursor{display:block;width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999}
 .cursor-ring{display:block;width:32px;height:32px;border:1px solid rgba(184,150,110,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all .3s}
 }
+
+/* ── GLOBAL WEIGHT OVERRIDE — accessibility for older readers ── */
+/* All Cormorant display text bumped from 300→500, Montserrat from 200/300→500 */
+.hero-title,.phil-title,.quiz-title,.result-title,.journey-title,.hiw-title,
+.section-title,.footer-brand-name{font-weight:500!important}
+.nav-logo-main,.footer-brand-name{font-weight:600!important}
+.hero-eyebrow,.quiz-eyebrow,.phil-label,.cred-label,.section-label,
+.journey-label,.hiw-label,.nav-links a,.nav-cta,.nav-logo-sub,.footer-brand-sub,
+.footer-col-title,.btn-primary,.btn-gold,.form-submit,.exp-cta,
+.quiz-btn-next,.quiz-btn-back,.dest-region,.footer-copy,.footer-coords-bottom,
+.post-meta,.breadcrumb,.scroll-label{font-weight:500!important}
+.phil-body,.hero-subtitle,.quiz-subtitle,.result-desc,.exp-body,.form-input,
+.form-select,.footer-links a,.footer-tagline,.promise-item,.journey-body,
+.hiw-step-body{font-weight:500!important}
+.opt-desc{font-weight:500!important;color:rgba(250,248,244,.55)!important}
+.opt-label{font-weight:600!important}
 
 /* Grain */
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.35}
@@ -105,7 +122,7 @@ nav.scrolled{background:rgba(11,31,58,.97);backdrop-filter:blur(12px);padding:14
 nav{padding:28px 60px}
 nav.scrolled{padding:18px 60px}
 .nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,248,244,.7);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.8);text-decoration:none;transition:color .3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
 .nav-links a:hover{color:var(--gold)}
 .nav-links a:hover::after{width:100%}
@@ -143,13 +160,22 @@ nav.scrolled{padding:18px 60px}
 .hero-vertical{display:block;position:absolute;left:20px;top:50%;transform:translateY(-50%) rotate(-90deg);font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.4em;color:rgba(184,150,110,.22);white-space:nowrap;text-transform:uppercase}
 }
 @media(min-width:1024px){.hero{padding:100px 60px 60px}}
-.hero-content{position:relative;z-index:10;max-width:760px;animation:hR 1.4s cubic-bezier(.16,1,.3,1) forwards;opacity:0;transform:translateY(24px)}
+/* HERO LAYOUT — two column on desktop */
+.hero-layout{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;gap:40px}
+@media(min-width:1024px){.hero-layout{flex-direction:row;align-items:center;gap:60px}}
+.hero-content{flex:1;animation:hR 1.4s cubic-bezier(.16,1,.3,1) forwards;opacity:0;transform:translateY(24px)}
 @keyframes hR{to{opacity:1;transform:translateY(0)}}
-.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+
+/* PHILIPPINES MAP */
+.hero-map{flex:0 0 auto;width:200px;opacity:0;animation:hR 1.8s cubic-bezier(.16,1,.3,1) .3s forwards;display:none}
+@media(min-width:1024px){.hero-map{display:block;width:260px}}
+@media(min-width:1280px){.hero-map{width:300px}}
+.ph-map{width:100%;height:auto;filter:drop-shadow(0 0 20px rgba(184,150,110,0.12))}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px}
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);opacity:.6}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,72px);font-weight:300;line-height:1.05;color:var(--warm-white);margin-bottom:18px}
 .hero-title em{font-style:italic;color:var(--gold)}
-.hero-subtitle{font-family:'EB Garamond',serif;font-size:clamp(15px,1.8vw,18px);font-style:italic;color:rgba(250,248,244,.62);line-height:1.65;max-width:480px;margin-bottom:32px}
+.hero-subtitle{font-family:'EB Garamond',serif;font-size:clamp(18px,2vw,22px);font-style:italic;color:rgba(250,248,244,.75);line-height:1.8;max-width:480px;margin-bottom:32px}
 .hero-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 @media(min-width:480px){.hero-actions{flex-direction:row;align-items:center;gap:28px}}
 .btn-primary{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:14px 32px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;min-height:48px;display:inline-flex;align-items:center}
@@ -222,7 +248,7 @@ nav.scrolled{padding:18px 60px}
 .phil-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold);opacity:.6}
 .phil-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,54px);font-weight:300;line-height:1.15;color:var(--warm-white);margin-bottom:28px}
 .phil-title em{font-style:italic;color:var(--gold)}
-.phil-body{font-family:'EB Garamond',serif;font-size:18px;line-height:1.85;color:rgba(250,248,244,.62);margin-bottom:20px}
+.phil-body{font-family:'EB Garamond',serif;font-size:20px;line-height:1.95;color:rgba(250,248,244,.75);margin-bottom:22px}
 .phil-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px}
 @media(min-width:1024px){.phil-stat-grid{margin-top:0}}
 .phil-stat{background:rgba(255,255,255,.03);border:1px solid rgba(184,150,110,.1);padding:28px 22px;transition:border-color .3s}
@@ -292,10 +318,10 @@ nav.scrolled{padding:18px 60px}
 .exp-card{background:var(--warm-white);padding:36px 28px;transition:background .3s}
 @media(min-width:1024px){.exp-card{padding:48px 32px}}
 .exp-card:hover{background:var(--sand)}
-.exp-icon{font-size:24px;margin-bottom:18px;display:block}
-.exp-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--navy);margin-bottom:10px;line-height:1.2}
-.exp-body{font-family:'EB Garamond',serif;font-size:16px;line-height:1.8;color:var(--slate);margin-bottom:22px}
-.exp-cta{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;transition:gap .3s;padding:0;min-height:44px}
+.exp-icon{font-size:26px;margin-bottom:18px;display:block}
+.exp-title{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.2}
+.exp-body{font-family:'EB Garamond',serif;font-size:18px;line-height:1.85;color:var(--slate);margin-bottom:22px}
+.exp-cta{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;transition:gap .3s;padding:0;min-height:48px}
 .exp-cta:hover{gap:16px}
 .exp-cta::after{content:'→';font-size:12px}
 
@@ -313,22 +339,22 @@ nav.scrolled{padding:18px 60px}
 .journey-cta{background:var(--gold-pale);padding:80px 24px}
 @media(min-width:768px){.journey-cta{padding:100px 40px}}
 @media(min-width:1024px){.journey-cta{padding:120px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}}
-.journey-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.journey-label{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .journey-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,54px);font-weight:300;line-height:1.15;color:var(--navy);margin-bottom:20px}
-.journey-body{font-family:'EB Garamond',serif;font-size:18px;line-height:1.8;color:var(--slate);margin-bottom:28px}
-.promise-item{display:flex;align-items:flex-start;gap:12px;font-family:'EB Garamond',serif;font-size:17px;color:var(--slate);line-height:1.6;margin-bottom:10px}
-.promise-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:10px}
+.journey-body{font-family:'EB Garamond',serif;font-size:20px;line-height:1.9;color:var(--slate);margin-bottom:28px}
+.promise-item{display:flex;align-items:flex-start;gap:12px;font-family:'EB Garamond',serif;font-size:19px;color:var(--slate);line-height:1.75;margin-bottom:12px}
+.promise-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:11px}
 .form-wrap{margin-top:48px}
 @media(min-width:1024px){.form-wrap{margin-top:0}}
-.form-group{margin-bottom:16px}
-.form-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy-light);display:block;margin-bottom:7px}
-.form-input,.form-select{width:100%;background:white;border:1px solid rgba(11,31,58,.15);padding:14px 16px;font-family:'EB Garamond',serif;font-size:17px;color:var(--navy);outline:none;transition:border-color .3s;appearance:none;min-height:52px}
+.form-group{margin-bottom:18px}
+.form-label{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy-light);display:block;margin-bottom:8px}
+.form-input,.form-select{width:100%;background:white;border:1px solid rgba(11,31,58,.2);padding:15px 18px;font-family:'EB Garamond',serif;font-size:19px;color:var(--navy);outline:none;transition:border-color .3s;appearance:none;min-height:56px}
 .form-input:focus,.form-select:focus{border-color:var(--gold)}
 .form-row{display:grid;grid-template-columns:1fr;gap:0}
-@media(min-width:640px){.form-row{grid-template-columns:1fr 1fr;gap:12px}}
-.form-submit{width:100%;background:var(--navy);color:var(--gold);border:none;padding:18px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;cursor:pointer;margin-top:8px;transition:background .3s;min-height:56px}
+@media(min-width:640px){.form-row{grid-template-columns:1fr 1fr;gap:14px}}
+.form-submit{width:100%;background:var(--navy);color:var(--gold);border:none;padding:20px;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;margin-top:8px;transition:background .3s;min-height:60px}
 .form-submit:hover{background:var(--navy-light)}
-.form-note{font-family:'EB Garamond',serif;font-size:14px;font-style:italic;color:var(--slate);margin-top:12px;text-align:center;opacity:.6}
+.form-note{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:var(--slate);margin-top:14px;text-align:center;opacity:.7}
 
 /* FOOTER */
 footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,150,110,.1)}
@@ -366,14 +392,12 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo"><div class="nav-logo-main">ARKIPELAGO</div><div class="nav-logo-sub">Luxury Tours Philippines</div></a>
+  <a href="/" class="nav-logo"><div class="nav-logo-main">ARKIPELAGO</div><div class="nav-logo-sub">Luxury Tours Philippines</div></a>
   <ul class="nav-links">
     <li><a href="#destinations">Destinations</a></li>
-    <li><a href="#quiz">Find My Journey</a></li>
     <li><a href="#experiences">Experiences</a></li>
-    <li><a href="#">Honeymoons</a></li>
-    <li><a href="#">Families</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="#quiz">Find My Journey</a></li>
+    <li><a href="https://luxurytoursphilippines.com/about/">Our Philosophy</a></li>
   </ul>
   <button class="nav-cta" onclick="scrollToForm()">Begin Your Journey</button>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -381,29 +405,118 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 
 <div class="nav-drawer" id="navDrawer">
   <a href="#destinations" onclick="toggleMenu()">Destinations</a>
-  <a href="#quiz" onclick="toggleMenu()">Find My Journey</a>
   <a href="#experiences" onclick="toggleMenu()">Experiences</a>
-  <a href="#" onclick="toggleMenu()">Honeymoons</a>
+  <a href="#quiz" onclick="toggleMenu()">Find My Journey</a>
+  <a href="/experiences/honeymoon-proposals/" onclick="toggleMenu()">Honeymoons &amp; Proposals</a>
   <a href="#" onclick="toggleMenu()">Families with Children</a>
   <a href="#" onclick="toggleMenu()">Retiree Journeys</a>
-  <a href="#" onclick="toggleMenu()">Corporate & MICE</a>
-  <a href="#" onclick="toggleMenu()">About</a>
-  <button class="dcta" onclick="scrollToForm();toggleMenu()">Begin Your Journey →</button>
+  <a href="#" onclick="toggleMenu()">Corporate &amp; MICE</a>
+  <a href="https://luxurytoursphilippines.com/about/" onclick="toggleMenu()">Our Philosophy</a>
+  <a href="#begin" class="dcta" onclick="toggleMenu()">Begin Your Journey →</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="hero-islands"><div class="island i1"></div><div class="island i2"></div><div class="island i3"></div><div class="island i4"></div><div class="island i5"></div><div class="island i6"></div></div>
-  <div class="hero-coords">9°30′N 118°30′E<br>Palawan Archipelago<br>Philippines<br><br>7,641 islands<br>One vision</div>
   <div class="hero-vertical">Arkipelago Luxury Tours · Est. 2025</div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Bespoke Multi-Destination Journeys</div>
-    <h1 class="hero-title">The Philippines,<br>as it was always<br>meant to be <em>experienced.</em></h1>
-    <p class="hero-subtitle">Private luxury tours and guided journeys through the Philippines — for couples, families, retirees, and discerning travellers who want the islands most people never reach.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="scrollToForm()"><span>Begin Your Journey</span></button>
-      <a href="#destinations" class="btn-ghost"><div class="btn-ghost-arrow"></div>Explore destinations</a>
+  <div class="hero-layout">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Bespoke Multi-Destination Journeys</div>
+      <h1 class="hero-title">The Philippines,<br>as it was always<br>meant to be <em>experienced.</em></h1>
+      <p class="hero-subtitle">Private luxury tours and guided journeys through the Philippines — for couples, families, retirees, and discerning travellers who want the islands most people never reach.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToForm()"><span>Begin Your Journey</span></button>
+        <a href="#destinations" class="btn-ghost"><div class="btn-ghost-arrow"></div>Explore destinations</a>
+      </div>
+    </div>
+    <!-- BRANDED PHILIPPINES MAP -->
+    <div class="hero-map" aria-hidden="true">
+      <svg viewBox="0 0 340 520" xmlns="http://www.w3.org/2000/svg" class="ph-map">
+        <!-- Grid lines -->
+        <defs>
+          <pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(184,150,110,0.08)" stroke-width="1"/>
+          </pattern>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <rect width="340" height="520" fill="url(#mapgrid)"/>
+
+        <!-- Luzon — main northern island -->
+        <path d="M155,20 L170,18 L188,24 L200,35 L205,50 L198,65 L192,80 L200,95 L205,112 L198,125 L188,132 L178,140 L172,155 L168,168 L160,178 L150,185 L142,178 L138,165 L132,152 L128,138 L122,125 L118,112 L122,98 L130,85 L135,70 L130,55 L138,42 L148,28 Z"
+          fill="rgba(184,150,110,0.18)" stroke="#B8966E" stroke-width="1.2"/>
+
+        <!-- Luzon — Bicol peninsula -->
+        <path d="M188,132 L198,125 L210,130 L218,142 L215,155 L208,162 L200,158 L192,148 L188,138 Z"
+          fill="rgba(184,150,110,0.15)" stroke="#B8966E" stroke-width="1"/>
+
+        <!-- Palawan — long western island -->
+        <path d="M72,195 L80,188 L88,192 L92,205 L90,220 L85,235 L80,250 L75,265 L68,278 L62,270 L60,255 L64,240 L68,225 L70,210 Z"
+          fill="rgba(184,150,110,0.22)" stroke="#B8966E" stroke-width="1.2"/>
+
+        <!-- Visayas cluster -->
+        <!-- Cebu -->
+        <path d="M195,230 L202,225 L208,232 L206,245 L200,250 L194,244 L193,235 Z"
+          fill="rgba(184,150,110,0.18)" stroke="#B8966E" stroke-width="1"/>
+        <!-- Bohol -->
+        <path d="M210,245 L222,240 L230,248 L228,260 L218,264 L210,258 Z"
+          fill="rgba(184,150,110,0.18)" stroke="#B8966E" stroke-width="1"/>
+        <!-- Leyte -->
+        <path d="M228,215 L238,210 L245,220 L242,238 L235,245 L228,238 L226,225 Z"
+          fill="rgba(184,150,110,0.15)" stroke="#B8966E" stroke-width="1"/>
+        <!-- Samar -->
+        <path d="M248,205 L260,200 L268,210 L265,225 L255,230 L246,222 Z"
+          fill="rgba(184,150,110,0.15)" stroke="#B8966E" stroke-width="1"/>
+        <!-- Panay -->
+        <path d="M162,225 L178,218 L188,228 L185,245 L172,250 L162,242 Z"
+          fill="rgba(184,150,110,0.18)" stroke="#B8966E" stroke-width="1"/>
+        <!-- Negros -->
+        <path d="M178,248 L188,242 L196,252 L192,268 L183,272 L176,262 Z"
+          fill="rgba(184,150,110,0.15)" stroke="#B8966E" stroke-width="1"/>
+
+        <!-- Mindanao — large southern island -->
+        <path d="M168,310 L185,300 L205,295 L225,298 L242,308 L255,322 L260,338 L255,355 L242,365 L228,370 L212,368 L198,360 L185,350 L172,340 L162,325 Z"
+          fill="rgba(184,150,110,0.22)" stroke="#B8966E" stroke-width="1.2"/>
+
+        <!-- Destination dots with gold glow -->
+        <!-- Coron/Palawan -->
+        <circle cx="82" cy="218" r="4" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="95" y="222" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">PALAWAN</text>
+
+        <!-- Batanes -->
+        <circle cx="168" cy="12" r="3.5" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="178" y="16" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">BATANES</text>
+
+        <!-- Baguio/Sagada -->
+        <circle cx="148" cy="72" r="3.5" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="158" y="76" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">BAGUIO</text>
+
+        <!-- Siargao -->
+        <circle cx="272" cy="290" r="3.5" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="280" y="294" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">SIARGAO</text>
+
+        <!-- Bohol -->
+        <circle cx="218" cy="252" r="3.5" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="228" y="256" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">BOHOL</text>
+
+        <!-- Bukidnon -->
+        <circle cx="210" cy="330" r="3.5" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="220" y="334" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">BUKIDNON</text>
+
+        <!-- Vigan -->
+        <circle cx="138" cy="55" r="3.5" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="148" y="59" font-family="Montserrat,sans-serif" font-size="7.5" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">VIGAN</text>
+
+        <!-- Puerto Galera -->
+        <circle cx="162" cy="175" r="3.5" fill="#B8966E" filter="url(#glow)" opacity="0.9"/>
+        <text x="172" y="179" font-family="Montserrat,sans-serif" font-size="7" fill="rgba(184,150,110,0.7)" letter-spacing="0.1em">P. GALERA</text>
+
+        <!-- Subtle coordinates text -->
+        <text x="10" y="510" font-family="Montserrat,sans-serif" font-size="7" fill="rgba(184,150,110,0.25)" letter-spacing="0.15em">7,641 ISLANDS · PHILIPPINE ARCHIPELAGO</text>
+      </svg>
     </div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div><div class="scroll-label">Scroll</div></div>
@@ -687,9 +800,9 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 <footer>
   <div class="footer-top">
     <div><div class="footer-brand-name">ARKIPELAGO</div><div class="footer-brand-sub">Luxury Tours Philippines</div><p class="footer-tagline">Curated. Sovereign. Unforgettable.</p></div>
-    <div><div class="footer-col-title">Experiences</div><ul class="footer-links"><li><a href="#">Private Journeys</a></li><li><a href="#">Honeymoons & Proposals</a></li><li><a href="#">Family Travel</a></li><li><a href="#">Retiree Journeys</a></li><li><a href="#">Corporate & MICE</a></li></ul></div>
-    <div><div class="footer-col-title">Destinations</div><ul class="footer-links"><li><a href="#">Coron & Port Barton</a></li><li><a href="#">Batanes</a></li><li><a href="#">Siargao</a></li><li><a href="#">Bohol & Cebu</a></li><li><a href="#">Baguio & Sagada</a></li><li><a href="#">Bukidnon</a></li><li><a href="#">Puerto Galera</a></li><li><a href="#">Vigan & Ilocos</a></li></ul></div>
-    <div><div class="footer-col-title">Arkipelago</div><ul class="footer-links"><li><a href="#">Our Philosophy</a></li><li><a href="#">The Team</a></li><li><a href="#">Journal</a></li><li><a href="#" onclick="scrollToForm();return false">Begin Your Journey</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    <div><div class="footer-col-title">Experiences</div><ul class="footer-links"><li><a href="#">Private Journeys</a></li><li><a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a></li><li><a href="#">Family Travel</a></li><li><a href="#">Retiree Journeys</a></li><li><a href="#">Corporate &amp; MICE</a></li></ul></div>
+    <div><div class="footer-col-title">Destinations</div><ul class="footer-links"><li><a href="#">Coron &amp; Port Barton</a></li><li><a href="#">Batanes</a></li><li><a href="#">Siargao</a></li><li><a href="#">Bohol &amp; Cebu</a></li><li><a href="#">Baguio &amp; Sagada</a></li><li><a href="#">Bukidnon</a></li><li><a href="#">Puerto Galera</a></li><li><a href="#">Vigan &amp; Ilocos</a></li></ul></div>
+    <div><div class="footer-col-title">Arkipelago</div><ul class="footer-links"><li><a href="https://luxurytoursphilippines.com/about/">Our Philosophy</a></li><li><a href="#">Journal</a></li><li><a href="#" onclick="scrollToForm();return false">Begin Your Journey</a></li></ul></div>
   </div>
   <div class="footer-bottom"><div class="footer-copy">© 2025 Arkipelago Luxury Tours Philippines. All rights reserved.</div><div class="footer-coords-bottom">9°30′N 118°30′E · Philippine Archipelago</div></div>
 </footer>
