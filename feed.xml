@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <channel>
+    <title>Arkipelago Journal — Luxury Tours Philippines</title>
+    <link>https://luxurytoursphilippines.com/journal/</link>
+    <description>Destination intelligence, private guides, and journey stories from Arkipelago Luxury Tours Philippines — bespoke private journeys across the Philippine archipelago.</description>
+    <language>en-PH</language>
+    <managingEditor>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</managingEditor>
+    <webMaster>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</webMaster>
+    <copyright>© 2025 Arkipelago Luxury Tours Philippines</copyright>
+    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <ttl>1440</ttl>
+    <image>
+      <url>https://luxurytoursphilippines.com/images/logo.png</url>
+      <title>Arkipelago Luxury Tours Philippines</title>
+      <link>https://luxurytoursphilippines.com</link>
+    </image>
+    <atom:link href="https://luxurytoursphilippines.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <!-- ═══════════════════════════════════════════════════════
+         ADD NEW POSTS ABOVE OLDER ONES (newest first)
+         Copy the <item> block below and fill in the details.
+         ═══════════════════════════════════════════════════════ -->
+
+    <item>
+      <title>El Nido vs Coron: Why We Always Recommend Coron First</title>
+      <link>https://luxurytoursphilippines.com/journal/el-nido-vs-coron/</link>
+      <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/el-nido-vs-coron/</guid>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Kathy, Arkipelago</dc:creator>
+      <category>Destination Guide</category>
+      <category>Palawan</category>
+      <description><![CDATA[El Nido built the legend. Coron inherited the soul. A private guide to why discerning travellers are choosing Coron — and what they find when they arrive.]]></description>
+      <content:encoded><![CDATA[
+        <p>El Nido built the legend. Coron inherited the soul. A private guide to why discerning travellers are choosing Coron — and what they find when they arrive.</p>
+        <p><a href="https://luxurytoursphilippines.com/journal/el-nido-vs-coron/">Read the full guide →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- TEMPLATE FOR FUTURE POSTS — copy, fill in, paste above this line
+
+    <item>
+      <title>[[Post title]]</title>
+      <link>https://luxurytoursphilippines.com/journal/[[post-slug]]/</link>
+      <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/[[post-slug]]/</guid>
+      <pubDate>[[Day, DD Mon YYYY 00:00:00 +0000 — e.g. Mon, 31 Mar 2025 00:00:00 +0000]]</pubDate>
+      <dc:creator>Kathy, Arkipelago</dc:creator>
+      <category>[[Category — e.g. Destination Guide]]</category>
+      <category>[[Destination — e.g. Batanes]]</category>
+      <description><![CDATA[[[Meta description / excerpt — 1–2 sentences]]]]></description>
+      <content:encoded><![CDATA[
+        <p>[[Excerpt paragraph]]</p>
+        <p><a href="https://luxurytoursphilippines.com/journal/[[post-slug]]/">Read the full guide →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    -->
+
+  </channel>
+</rss>
