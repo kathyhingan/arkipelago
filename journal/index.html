@@ -572,37 +572,49 @@ body {
 }
 .btn-gold:hover { background: var(--gold-bright); }
 
-/* ── FOOTER ──────────────────────── */
-.site-footer {
-  background: #070F1C;
-  padding: 48px 24px;
-  border-top: 1px solid rgba(184,150,110,.1);
-  text-align: center;
+/* ── NAV LINKS (desktop) ─────────────── */
+.site-nav-links { display: none; list-style: none; gap: 32px; }
+@media (min-width: 1024px) {
+  .site-nav { justify-content: space-between; }
+  .site-nav-links { display: flex; }
+  .site-nav-links a { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(250,248,244,.7); text-decoration: none; transition: color .2s; position: relative; }
+  .site-nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width .3s; }
+  .site-nav-links a:hover, .site-nav-links a.active { color: var(--gold); }
+  .site-nav-links a:hover::after, .site-nav-links a.active::after { width: 100%; }
+  .nav-hamburger { display: none; }
 }
-@media (min-width: 1024px) { .site-footer { padding: 64px 60px; } }
-.footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  color: var(--warm-white);
-  margin-bottom: 4px;
-}
-.footer-sub {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 7px;
-  letter-spacing: .32em;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.footer-copy {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  letter-spacing: .12em;
-  color: rgba(250,248,244,.25);
-  text-transform: uppercase;
-}
+
+/* ── NAV HAMBURGER ───────────────────── */
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-hamburger span { display: block; width: 24px; height: 1px; background: var(--warm-white); transition: all .3s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ── NAV DRAWER ──────────────────────── */
+.nav-drawer { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--navy); z-index: 490; transform: translateX(100%); transition: transform .4s cubic-bezier(.16,1,.3,1); padding: 100px 40px 60px; display: flex; flex-direction: column; overflow-y: auto; }
+.nav-drawer.open { transform: translateX(0); }
+.nav-drawer a { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--warm-white); text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(184,150,110,.1); display: block; transition: color .3s; }
+.nav-drawer a:hover { color: var(--gold); }
+.nav-drawer .dcta { font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-top: 28px; border: 1px solid rgba(184,150,110,.4) !important; padding: 16px 24px; text-align: center; background: none; cursor: pointer; display: block; width: 100%; transition: all .3s; text-decoration: none; }
+.nav-drawer .dcta:hover { background: var(--gold); color: var(--navy); }
+
+/* ── FOOTER COLUMNS ──────────────────── */
+.site-footer { background: #070F1C; padding: 64px 24px 36px; border-top: 1px solid rgba(184,150,110,.1); }
+@media (min-width: 768px) { .site-footer { padding: 80px 40px 40px; } }
+@media (min-width: 1024px) { .site-footer { padding: 80px 60px 40px; } }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(184,150,110,.08); margin-bottom: 32px; }
+@media (min-width: 640px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .footer-top { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; } }
+.footer-tagline { font-family: 'EB Garamond', serif; font-size: 15px; font-style: italic; color: rgba(250,248,244,.28); line-height: 1.7; margin-top: 8px; }
+.footer-col-title { font-family: 'Montserrat', sans-serif; font-size: 8px; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { font-family: 'EB Garamond', serif; font-size: 15px; color: rgba(250,248,244,.36); text-decoration: none; transition: color .3s; display: block; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { display: flex; flex-direction: column; gap: 8px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-coords-bottom { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: .18em; color: rgba(184,150,110,.18); }
 
 /* ── LOADING STATE ───────────────── */
 .loading-state {
@@ -629,13 +641,34 @@ body {
 <body>
 
 <!-- NAVIGATION -->
-<nav class="site-nav">
+<nav class="site-nav" id="nav">
   <a href="/" class="nav-logo">
     <span class="nav-logo-main">ARKIPELAGO</span>
     <span class="nav-logo-sub">Luxury Tours Philippines</span>
   </a>
+  <ul class="site-nav-links">
+    <li><a href="/#destinations">Destinations</a></li>
+    <li><a href="/#experiences">Experiences</a></li>
+    <li><a href="/#quiz">Find My Journey</a></li>
+    <li><a href="/journal/" class="active">Journal</a></li>
+    <li><a href="/about/">Our Philosophy</a></li>
+  </ul>
   <a href="/#begin" class="nav-cta">Begin Your Journey</a>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="/#destinations" onclick="toggleMenu()">Destinations</a>
+  <a href="/#experiences" onclick="toggleMenu()">Experiences</a>
+  <a href="/#quiz" onclick="toggleMenu()">Find My Journey</a>
+  <a href="/journal/" onclick="toggleMenu()">Journal</a>
+  <a href="/experiences/honeymoon-proposals/" onclick="toggleMenu()">Honeymoons &amp; Proposals</a>
+  <a href="#" onclick="toggleMenu()">Families with Children</a>
+  <a href="#" onclick="toggleMenu()">Retiree Journeys</a>
+  <a href="#" onclick="toggleMenu()">Corporate &amp; MICE</a>
+  <a href="/about/" onclick="toggleMenu()">Our Philosophy</a>
+  <a href="/#begin" class="dcta" onclick="toggleMenu()">Begin Your Journey →</a>
+</div>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
@@ -697,13 +730,55 @@ body {
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-brand">ARKIPELAGO</div>
-  <div class="footer-sub">Luxury Tours Philippines</div>
-  <div class="footer-copy">© 2025 Arkipelago Luxury Tours Philippines. All rights reserved.</div>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">ARKIPELAGO</div>
+      <div class="footer-sub">Luxury Tours Philippines</div>
+      <p class="footer-tagline">Curated. Sovereign. Unforgettable.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Experiences</div>
+      <ul class="footer-links">
+        <li><a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a></li>
+        <li><a href="#">Family Travel</a></li>
+        <li><a href="#">Retiree Journeys</a></li>
+        <li><a href="#">Corporate &amp; MICE</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Destinations</div>
+      <ul class="footer-links">
+        <li><a href="#">Coron &amp; Port Barton</a></li>
+        <li><a href="#">Batanes</a></li>
+        <li><a href="#">Siargao</a></li>
+        <li><a href="#">Bohol &amp; Cebu</a></li>
+        <li><a href="#">Baguio &amp; Sagada</a></li>
+        <li><a href="#">Vigan &amp; Ilocos</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Arkipelago</div>
+      <ul class="footer-links">
+        <li><a href="/about/">Our Philosophy</a></li>
+        <li><a href="/journal/">Journal</a></li>
+        <li><a href="/#begin">Begin Your Journey</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Arkipelago Luxury Tours Philippines. All rights reserved.</div>
+    <div class="footer-coords-bottom">9°30′N 118°30′E · Philippine Archipelago</div>
+  </div>
 </footer>
 
 <!-- ═══ JAVASCRIPT ═════════════════════════════════════════════ -->
 <script>
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+}
+
 (function () {
   const POSTS_URL = '/posts.json';
   const grid      = document.getElementById('postGrid');
