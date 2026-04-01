@@ -11,8 +11,8 @@
     <language>en-PH</language>
     <managingEditor>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</managingEditor>
     <webMaster>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</webMaster>
-    <copyright>© 2025 Arkipelago Luxury Tours Philippines</copyright>
-    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <copyright>© 2026 Arkipelago Luxury Tours Philippines</copyright>
+    <lastBuildDate>Tue, 01 Apr 2026 00:00:00 +0000</lastBuildDate>
     <ttl>1440</ttl>
     <image>
       <url>https://luxurytoursphilippines.com/images/logo.png</url>
@@ -25,6 +25,21 @@
          ADD NEW POSTS ABOVE OLDER ONES (newest first)
          Copy the <item> block below and fill in the details.
          ═══════════════════════════════════════════════════════ -->
+
+    <item>
+      <title>Private Tours in the Philippines: What They Actually Look Like</title>
+      <link>https://luxurytoursphilippines.com/journal/private-tours-philippines/</link>
+      <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/private-tours-philippines/</guid>
+      <pubDate>Tue, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Kathy, Arkipelago</dc:creator>
+      <category>Insight</category>
+      <category>Private Travel</category>
+      <description><![CDATA[Private tours in the Philippines look nothing like the brochures suggest. Here is what a genuinely private guided journey across the archipelago actually involves.]]></description>
+      <content:encoded><![CDATA[
+        <p>Private tours in the Philippines look nothing like the brochures suggest. Here is what a genuinely private guided journey across the archipelago actually involves.</p>
+        <p><a href="https://luxurytoursphilippines.com/journal/private-tours-philippines/">Read the full guide →</a></p>
+      ]]></content:encoded>
+    </item>
 
     <item>
       <title>El Nido vs Coron: Why We Always Recommend Coron First</title>
@@ -47,7 +62,7 @@
       <title>[[Post title]]</title>
       <link>https://luxurytoursphilippines.com/journal/[[post-slug]]/</link>
       <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/[[post-slug]]/</guid>
-      <pubDate>[[Day, DD Mon YYYY 00:00:00 +0000 — e.g. Mon, 31 Mar 2025 00:00:00 +0000]]</pubDate>
+      <pubDate>[[Day, DD Mon YYYY 00:00:00 +0000 — e.g. Tue, 01 Apr 2026 00:00:00 +0000]]</pubDate>
       <dc:creator>Kathy, Arkipelago</dc:creator>
       <category>[[Category — e.g. Destination Guide]]</category>
       <category>[[Destination — e.g. Batanes]]</category>
