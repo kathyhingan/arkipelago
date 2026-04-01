@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://luxurytoursphilippines.com/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,9 +20,17 @@
   <!-- Journal index -->
   <url>
     <loc>https://luxurytoursphilippines.com/journal/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Blog post: Private Tours Philippines -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/journal/private-tours-philippines/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Blog post: Coron vs El Nido -->
