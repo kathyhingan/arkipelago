@@ -780,6 +780,26 @@ h2.section-title--light .accent{color:var(--coral)}
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
   .reveal.visible{opacity:1;transform:translateY(0)}
 }
+
+/* ── PHOTOS ──────────────────────────────────────────────────────────── */
+.cred-photo-wrap{max-width:900px;margin:52px auto 0}
+.cred-photo-wrap img{
+  width:100%;height:auto;display:block;
+  max-height:520px;object-fit:cover;object-position:center 28%;
+}
+.photo-caption{
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
+  letter-spacing:.06em;padding:14px 0 0;margin-top:14px;
+  border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);
+}
+.photo-caption-dark{
+  color:var(--mid-text);border-top-color:rgba(0,0,0,.1);
+}
+.pets-photo{
+  width:100%;height:auto;display:block;
+  max-height:400px;object-fit:cover;object-position:center;
+  margin-bottom:20px;
+}
 </style>
 </head>
 
@@ -961,6 +981,18 @@ h2.section-title--light .accent{color:var(--coral)}
       </p>
     </div>
   </div>
+
+  <!-- Bohol family photo — Loboc River cruise -->
+  <div class="cred-photo-wrap">
+    <img
+      src="/images/Bohol-Tour-with-Seniors-and-Toddler.jpg"
+      alt="Multi-generational family on the Loboc River cruise, Bohol — grandparents, parents, and young children together on a private boat journey"
+      loading="lazy"
+    >
+    <p class="photo-caption">
+      Loboc River, Bohol — one family, three generations, one journey. This is what we design for.
+    </p>
+  </div>
 </section>
 
 
@@ -1124,6 +1156,12 @@ h2.section-title--light .accent{color:var(--coral)}
       </div>
     </div>
     <div>
+      <img
+        src="/images/el-nido-kayak-dog.jpg"
+        alt="Dog on a kayak in El Nido, Palawan — travelling with pets across the Philippine islands"
+        class="pets-photo"
+        loading="lazy"
+      >
       <ul class="pets-list">
         <li>Pet-friendly accommodation verified at every destination — not assumed, confirmed</li>
         <li>Private transport throughout — no shared vehicles where pets aren't welcome</li>
