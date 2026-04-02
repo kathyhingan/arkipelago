@@ -514,16 +514,28 @@ h2.section-title--light .accent{color:var(--coral)}
 /* ── PETS SECTION ────────────────────────────────────────────────────── */
 .pets-block{
   background:var(--teal-light);
-  padding:72px 32px;border-left:6px solid var(--teal);
+  padding:72px 32px;
 }
 @media(min-width:768px){.pets-block{padding:88px 48px}}
 @media(min-width:1100px){.pets-block{padding:88px 80px}}
 
+/* Left border only on desktop — doesn't clip on mobile */
+@media(min-width:768px){
+  .pets-block{border-left:6px solid var(--teal)}
+}
+
 .pets-inner{
-  max-width:900px;margin:0 auto;
+  max-width:1080px;margin:0 auto;
   display:grid;gap:40px;
 }
-@media(min-width:768px){.pets-inner{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
+/* Mobile: single column, tablet: text | (photo+list) */
+@media(min-width:768px){
+  .pets-inner{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+}
+/* Desktop: text | photo | list — three even columns */
+@media(min-width:1000px){
+  .pets-inner{grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:start}
+}
 
 .pets-headline{
   font-family:'Nunito',sans-serif;
@@ -782,23 +794,37 @@ h2.section-title--light .accent{color:var(--coral)}
 }
 
 /* ── PHOTOS ──────────────────────────────────────────────────────────── */
-.cred-photo-wrap{max-width:900px;margin:52px auto 0}
+/* Bohol photo — full-bleed, breaks out of section padding */
+.cred-photo-wrap{
+  margin:64px -24px 0;
+}
+@media(min-width:768px){.cred-photo-wrap{margin:72px -48px 0}}
+@media(min-width:1100px){.cred-photo-wrap{margin:80px -80px 0}}
+
 .cred-photo-wrap img{
   width:100%;height:auto;display:block;
-  max-height:520px;object-fit:cover;object-position:center 28%;
+  max-height:580px;object-fit:cover;object-position:center 30%;
 }
 .photo-caption{
   font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
-  letter-spacing:.06em;padding:14px 0 0;margin-top:14px;
+  letter-spacing:.06em;padding:14px 24px 0;
   border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);
 }
-.photo-caption-dark{
-  color:var(--mid-text);border-top-color:rgba(0,0,0,.1);
-}
+@media(min-width:768px){.photo-caption{padding-left:48px;padding-right:48px}}
+@media(min-width:1100px){.photo-caption{padding-left:80px;padding-right:80px}}
+
+.photo-caption-dark{color:var(--mid-text);border-top-color:rgba(0,0,0,.1)}
+
+/* Pets photo — fills column naturally */
 .pets-photo{
-  width:100%;height:auto;display:block;
-  max-height:400px;object-fit:cover;object-position:center;
-  margin-bottom:20px;
+  width:100%;display:block;
+  object-fit:cover;object-position:center top;
+  aspect-ratio:3/4;   /* portrait on desktop fills the middle column nicely */
+  max-height:480px;
+  margin-bottom:0;
+}
+@media(max-width:999px){
+  .pets-photo{aspect-ratio:16/9;max-height:320px;margin-bottom:24px}
 }
 </style>
 </head>
@@ -860,7 +886,7 @@ h2.section-title--light .accent{color:var(--coral)}
       No "kids' club" at a resort pool. No itinerary that falls apart on day two.
       No operator who says "family-friendly" and means they have a cot somewhere in the back.
       Real journeys, designed around how families actually travel — including the 4-month-olds,
-      the nap schedules, and the dogs.
+      the nap schedules, and the dogs and cats.
     </p>
 
     <div class="hero-actions">
@@ -985,7 +1011,7 @@ h2.section-title--light .accent{color:var(--coral)}
   <!-- Bohol family photo — Loboc River cruise -->
   <div class="cred-photo-wrap">
     <img
-      src="/images/Bohol-Tour-with-Seniors-and-Toddler.jpg"
+      src="/images/Bohol_Tour_with_Seniors_and_Toddler.jpg"
       alt="Multi-generational family on the Loboc River cruise, Bohol — grandparents, parents, and young children together on a private boat journey"
       loading="lazy"
     >
@@ -1137,6 +1163,8 @@ h2.section-title--light .accent{color:var(--coral)}
 ════════════════════════════════════════════════════════════════════════ -->
 <section class="pets-block" id="pets">
   <div class="pets-inner">
+
+    <!-- Col 1: Headline + body text -->
     <div>
       <div class="section-eyebrow section-eyebrow--navy" style="color:var(--teal)">
         <span style="display:block;width:20px;height:2px;background:var(--teal);flex-shrink:0;margin-right:12px"></span>
@@ -1155,6 +1183,8 @@ h2.section-title--light .accent{color:var(--coral)}
         </p>
       </div>
     </div>
+
+    <!-- Col 2: Photo (its own column on desktop) -->
     <div>
       <img
         src="/images/el-nido-kayak-dog.jpg"
@@ -1162,6 +1192,10 @@ h2.section-title--light .accent{color:var(--coral)}
         class="pets-photo"
         loading="lazy"
       >
+    </div>
+
+    <!-- Col 3: Checklist -->
+    <div>
       <ul class="pets-list">
         <li>Pet-friendly accommodation verified at every destination — not assumed, confirmed</li>
         <li>Private transport throughout — no shared vehicles where pets aren't welcome</li>
@@ -1172,6 +1206,7 @@ h2.section-title--light .accent{color:var(--coral)}
         <li>Pet-appropriate villa or accommodation confirmed — not just "pet-friendly," genuinely suitable</li>
       </ul>
     </div>
+
   </div>
 </section>
 
@@ -1528,7 +1563,7 @@ h2.section-title--light .accent{color:var(--coral)}
       <ul class="footer-links">
         <li><a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a></li>
         <li><a href="/experiences/family-tours/">Family Tours</a></li>
-        <li><a href="/experiences/retiree-journeys/">Retiree Journeys</a></li>
+        <li><a href="/experiences/retirement-travel/">Retiree Journeys</a></li>
         <li><a href="/#experiences">Corporate &amp; MICE</a></li>
       </ul>
     </div>
