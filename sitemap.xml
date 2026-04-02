@@ -49,4 +49,11 @@
     <priority>0.8</priority>
   </url>
 
+    <!-- Retirement Travel experience page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/experiences/retirement-travel/</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
