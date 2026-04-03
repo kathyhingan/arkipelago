@@ -24,12 +24,12 @@
 
 <title>Private Guided Tours Philippines | Bespoke Independent Travel | Arkipelago</title>
 <meta name="description" content="Arkipelago designs private guided tours across the Philippines for independent travellers — no groups, no fixed routes, no places everyone else goes. Access to the islands most people never find. 100% bespoke.">
-<link rel="canonical" href="https://luxurytoursphilippines.com/experiences/private-journeys/">
+<link rel="canonical" href="https://luxurytoursphilippines.com/experiences/private-tour-philippines/">
 
 <!-- ── Open Graph ── -->
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://luxurytoursphilippines.com/experiences/private-journeys/">
+<meta property="og:url" content="https://luxurytoursphilippines.com/experiences/private-tour-philippines/">
 <meta property="og:title" content="Private Guided Tours Philippines | Bespoke Independent Travel | Arkipelago">
 <meta property="og:description" content="Private guided tours across the Philippines for independent travellers — no groups, no fixed routes. Access to the islands most people never find.">
 <meta property="og:image" content="https://luxurytoursphilippines.com/images/private-journeys-og.jpg">
@@ -72,7 +72,7 @@
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://luxurytoursphilippines.com/"},
     {"@type": "ListItem", "position": 2, "name": "Experiences", "item": "https://luxurytoursphilippines.com/experiences/"},
-    {"@type": "ListItem", "position": 3, "name": "Private Journeys", "item": "https://luxurytoursphilippines.com/experiences/private-journeys/"}
+    {"@type": "ListItem", "position": 3, "name": "Private Journeys", "item": "https://luxurytoursphilippines.com/experiences/private-tour-philippines/"}
   ]
 }
 </script>
@@ -114,12 +114,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0B1F3A;--navy-mid:#112847;--navy-light:#1A3A5C;
-  --gold:#B8966E;--gold-bright:#D4A96A;--gold-pale:#F0E6D3;
-  --warm-white:#FAF8F4;--sand:#F5EDD8;--slate:#4A5568;
-  --body-size:19px;--body-line:1.9;--label-size:11px;--label-spacing:.22em
-}
+:root{--navy:#0B1F3A;--navy-mid:#112847;--navy-light:#1A3A5C;--gold:#B8966E;--gold-bright:#D4A96A;--gold-pale:#F0E6D3;--warm-white:#FAF8F4;--sand:#F5EDD8;--slate:#4A5568;
+--body-size:19px;--body-line:1.9;--label-size:11px;--label-spacing:.22em}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--navy);color:var(--warm-white);font-family:'EB Garamond',Georgia,serif;overflow-x:hidden;font-size:var(--body-size);line-height:var(--body-line);font-weight:500}
 
@@ -131,15 +127,22 @@ body{cursor:none}
 .cursor-ring{display:block;width:32px;height:32px;border:1px solid rgba(184,150,110,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all .3s}
 }
 
-/* Weight overrides */
-.hero-title,.section-title,.phil-title,.quiz-title,.result-title,.journey-title,.hiw-title{font-weight:500!important}
+/* ── GLOBAL WEIGHT OVERRIDE — accessibility for older readers ── */
+/* All Cormorant display text bumped from 300→500, Montserrat from 200/300→500 */
+.hero-title,.phil-title,.quiz-title,.result-title,.journey-title,.hiw-title,
+.section-title,.footer-brand-name{font-weight:500!important}
 .nav-logo-main,.footer-brand-name{font-weight:600!important}
-.hero-eyebrow,.quiz-eyebrow,.phil-label,.section-label,.journey-label,.hiw-label,
-.nav-links a,.nav-cta,.nav-logo-sub,.footer-brand-sub,.footer-col-title,
-.btn-primary,.btn-gold,.form-submit,.quiz-btn-next,.quiz-btn-back,.breadcrumb-nav,
-.scroll-label,.dest-region,.footer-copy,.footer-coords-bottom,.post-meta{font-weight:500!important}
-.phil-body,.hero-subtitle,.quiz-subtitle,.result-desc,.form-input,.form-select,
-.footer-links a,.footer-tagline,.promise-item,.journey-body,.hiw-step-body{font-weight:500!important}
+.hero-eyebrow,.quiz-eyebrow,.phil-label,.cred-label,.section-label,
+.journey-label,.hiw-label,.nav-links a,.nav-cta,.nav-logo-sub,.footer-brand-sub,
+.footer-col-title,.btn-primary,.btn-gold,.form-submit,.exp-cta,
+.quiz-btn-next,.quiz-btn-back,.dest-region,.footer-copy,.footer-coords-bottom,
+.post-meta,.breadcrumb-nav,.scroll-label,.journey-type,.journey-meta-item,
+.journey-cta-link,.dest-item-region,.result-destinations-label,.result-highlights-label,
+.faq-label,.hero-stat-label{font-weight:500!important}
+.phil-body,.hero-subtitle,.quiz-subtitle,.result-desc,.exp-body,.form-input,
+.form-select,.footer-links a,.footer-tagline,.promise-item,.journey-body,
+.hiw-step-body,.cred-body,.diff-body,.journey-desc,.dest-item-tagline,
+.result-tagline,.faq-a,.dest-note{font-weight:500!important}
 .opt-desc{font-weight:500!important;color:rgba(250,248,244,.55)!important}
 .opt-label{font-weight:600!important}
 
@@ -179,15 +182,15 @@ nav.scrolled{padding:18px 60px}
 .nav-drawer .dcta:hover{background:var(–gold);color:var(–navy)}
 
 /* BREADCRUMB */
-.breadcrumb-nav{background:var(–navy-light);padding:10px 24px;font-family:‘Montserrat’,sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(184,150,110,.5);display:flex;align-items:center;gap:8px;margin-top:60px}
-@media(min-width:1024px){.breadcrumb-nav{padding:10px 60px;margin-top:76px}}
+.breadcrumb-nav{background:var(–navy-light);padding:10px 24px;font-family:‘Montserrat’,sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(184,150,110,.5);display:flex;align-items:center;gap:8px;margin-top:64px}
+@media(min-width:1024px){.breadcrumb-nav{padding:10px 60px;margin-top:84px}}
 .breadcrumb-nav a{color:rgba(184,150,110,.5);text-decoration:none;transition:color .3s}
 .breadcrumb-nav a:hover{color:var(–gold)}
 
 /* HERO */
 .hero{position:relative;min-height:92vh;min-height:92svh;display:flex;flex-direction:column;justify-content:center;padding:60px 24px 80px;overflow:hidden}
 @media(min-width:768px){.hero{padding:60px 40px 80px}}
-@media(min-width:1024px){.hero{padding:80px 60px 100px}}
+@media(min-width:1024px){.hero{padding:60px 60px 100px}}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 30% 50%,rgba(26,58,92,.8) 0%,transparent 70%),linear-gradient(160deg,#0B1F3A 0%,#0d2544 40%,#091829 100%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:60px 60px;animation:gD 30s linear infinite}
 @keyframes gD{100%{transform:translate(60px,60px)}}
@@ -201,7 +204,7 @@ nav.scrolled{padding:18px 60px}
 .hero-subtitle{font-family:‘EB Garamond’,serif;font-size:clamp(18px,2vw,22px);font-style:italic;color:rgba(250,248,244,.7);line-height:1.85;max-width:560px;margin-bottom:36px}
 .hero-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 @media(min-width:480px){.hero-actions{flex-direction:row;align-items:center;gap:28px}}
-.btn-primary{font-family:‘Montserrat’,sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(–navy);background:var(–gold);padding:14px 32px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;min-height:48px;display:inline-flex;align-items:center;text-decoration:none}
+.btn-primary{font-family:‘Montserrat’,sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(–navy);background:var(–gold);padding:14px 32px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:all .3s;min-height:48px;display:inline-flex;align-items:center}
 .btn-primary::before{content:’’;position:absolute;inset:0;background:var(–gold-bright);transform:translateX(-100%);transition:transform .3s}
 @media(pointer:fine){.btn-primary:hover::before{transform:translateX(0)}}
 .btn-primary span{position:relative;z-index:1}
@@ -260,7 +263,7 @@ nav.scrolled{padding:18px 60px}
 .quiz-options{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:32px}
 @media(min-width:640px){.quiz-options{grid-template-columns:1fr 1fr}}
 @media(min-width:1024px){.quiz-options.three-col{grid-template-columns:1fr 1fr 1fr}}
-.quiz-option{background:rgba(255,255,255,.03);border:1px solid rgba(184,150,110,.13);padding:20px 20px;cursor:pointer;transition:all .22s;display:flex;align-items:flex-start;gap:14px;text-align:left;-webkit-tap-highlight-color:transparent}
+.quiz-option{background:rgba(255,255,255,.03);border:1px solid rgba(184,150,110,.13);padding:18px 20px;cursor:pointer;transition:all .22s;display:flex;align-items:flex-start;gap:14px;text-align:left;min-height:72px;-webkit-tap-highlight-color:transparent}
 .quiz-option:hover,.quiz-option:active{border-color:rgba(184,150,110,.45);background:rgba(184,150,110,.06)}
 .quiz-option.selected{border-color:var(–gold);background:rgba(184,150,110,.1)}
 .opt-icon{font-size:22px;flex-shrink:0;margin-top:1px}
@@ -451,14 +454,14 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
     <li><a href="/journal/">Journal</a></li>
     <li><a href="/about/">Our Philosophy</a></li>
   </ul>
-  <a href="#begin" class="nav-cta">Begin Your Journey</a>
+  <button class="nav-cta" onclick="scrollToForm()">Begin Your Journey</button>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="nav-drawer" id="navDrawer">
   <a href="/#destinations" onclick="toggleMenu()">Destinations</a>
   <a href="/#experiences" onclick="toggleMenu()">Experiences</a>
-  <a href="/experiences/private-journeys/" onclick="toggleMenu()">Private Journeys</a>
+  <a href="/experiences/private-tour-philippines/" onclick="toggleMenu()">Private Journeys</a>
   <a href="/experiences/honeymoon-proposals/" onclick="toggleMenu()">Honeymoons &amp; Proposals</a>
   <a href="/experiences/family-tours/" onclick="toggleMenu()">Families with Children</a>
   <a href="/experiences/retirement-travel/" onclick="toggleMenu()">Retiree Journeys</a>
@@ -997,7 +1000,7 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
     <div>
       <div class="footer-col-title">Experiences</div>
       <ul class="footer-links">
-        <li><a href="/experiences/private-journeys/">Private Journeys</a></li>
+        <li><a href="/experiences/private-tour-philippines/">Private Journeys</a></li>
         <li><a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a></li>
         <li><a href="/experiences/family-tours/">Family Travel</a></li>
         <li><a href="/experiences/retirement-travel/">Retiree Journeys</a></li>
