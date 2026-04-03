@@ -72,4 +72,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+    <!-- Independent Private Tours experience page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/experiences/private-tours/</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
