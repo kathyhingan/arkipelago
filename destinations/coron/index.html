@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <!-- Google Analytics -->
@@ -52,21 +53,24 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --navy: #0a1628;
-    --navy-mid: #122040;
-    --gold: #c9a84c;
-    --gold-light: #e8d5a3;
-    --gold-pale: #f5edd8;
-    --cream: #faf8f3;
-    --white: #ffffff;
-    --text-dark: #1a1a2e;
-    --text-mid: #4a4a6a;
-    --text-light: #8a8aaa;
-    --border: rgba(201,168,76,0.2);
+    --navy: #0B1F3A;
+    --navy-mid: #112847;
+    --navy-light: #1A3A5C;
+    --gold: #B8966E;
+    --gold-bright: #D4A96A;
+    --gold-pale: #F0E6D3;
+    --warm-white: #FAF8F4;
+    --sand: #F5EDD8;
+    --slate: #4A5568;
+    --white: #FAF8F4;
+    --cream: #FAF8F4;
+    --text-dark: #0B1F3A;
+    --text-mid: #4A5568;
+    --border: rgba(184,150,110,0.2);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -75,93 +79,61 @@
 
   body {
     font-family: 'EB Garamond', Georgia, serif;
-    background: var(--cream);
-    color: var(--text-dark);
+    background: var(--navy);
+    color: var(--warm-white);
     line-height: 1.7;
     overflow-x: hidden;
   }
 
   /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: rgba(10,22,40,0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-    padding: 0 2rem;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .5s}
+  nav.scrolled{background:rgba(11,31,58,.97);backdrop-filter:blur(12px);padding:14px 24px;border-bottom:1px solid rgba(184,150,110,.15)}
+  .nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+  .nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:.1em;color:var(--white)}
+  .nav-logo-sub{font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .nav-hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-hamburger span{display:block;width:24px;height:1px;background:var(--white);transition:all .3s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  @media(min-width:1024px){
+  nav{padding:28px 60px}
+  nav.scrolled{padding:18px 60px}
+  .nav-links{display:flex;gap:36px;list-style:none}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.8);text-decoration:none;transition:color .3s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,110,.5);padding:10px 22px;background:none;cursor:pointer;transition:all .3s}
+  .nav-cta:hover{background:var(--gold);color:var(--navy)}
+  .nav-hamburger{display:none}
   }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 300;
-    font-size: 1.25rem;
-    letter-spacing: 0.15em;
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  .nav-logo span { color: var(--gold); }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    background: transparent;
-    padding: 0.5rem 1.25rem;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .nav-cta:hover {
-    background: var(--gold);
-    color: var(--navy);
-  }
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 4px;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--white);
-    transition: all 0.3s;
-  }
+  /* Dropdown */
+  .nav-item-dropdown{position:relative}
+  .nav-dropdown{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(11,31,58,.98);backdrop-filter:blur(12px);border:1px solid rgba(184,150,110,.15);min-width:220px;padding:8px 0;z-index:600}
+  .nav-item-dropdown:hover .nav-dropdown{display:block}
+  .nav-dropdown a{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,244,.7);padding:12px 20px;text-decoration:none;transition:all .2s;border:none}
+  .nav-dropdown a::after{display:none}
+  .nav-dropdown a:hover{color:var(--gold);background:rgba(184,150,110,.07);padding-left:26px}
+  /* Drawer */
+  .nav-drawer{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);z-index:490;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);padding:100px 40px 60px;display:flex;flex-direction:column;overflow-y:auto}
+  .nav-drawer.open{transform:translateX(0)}
+  .nav-drawer a,.nav-drawer button.dl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--white);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(184,150,110,.1);display:block;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;text-align:left;transition:color .3s;width:100%}
+  .nav-drawer a:hover{color:var(--gold)}
+  .nav-drawer .dcta{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:28px;border:1px solid rgba(184,150,110,.4)!important;padding:16px 24px;text-align:center;background:none;cursor:pointer;display:block;width:100%;transition:all .3s;text-decoration:none}
+  .nav-drawer .dcta:hover{background:var(--gold);color:var(--navy)}
 
   /* ─── BREADCRUMB ─── */
   .breadcrumb {
-    margin-top: 70px;
-    padding: 1rem 2rem;
+    position: relative;
+    padding: 90px 2rem 1rem;
     background: var(--navy);
     border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  @media(min-width:1024px){
+    .breadcrumb { padding-top: 110px; }
   }
   .breadcrumb-inner {
     max-width: 1200px;
@@ -248,7 +220,7 @@
     font-weight: 300;
     font-size: clamp(3.5rem, 8vw, 7rem);
     line-height: 0.95;
-    color: var(--white);
+    color: var(--warm-white);
     letter-spacing: -0.01em;
     margin-bottom: 1.5rem;
   }
@@ -363,7 +335,7 @@
   /* ─── HIGHLIGHTS GRID ─── */
   .highlights { background: var(--navy); padding: 6rem 2rem; }
   .highlights .section-label { color: var(--gold); }
-  .highlights .section-title { color: var(--white); }
+  .highlights .section-title { color: var(--warm-white); }
   .highlights .section-title em { color: var(--gold); }
   .highlights-grid {
     display: grid;
@@ -393,8 +365,15 @@
     inset: 0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     transition: transform 0.6s ease;
+    z-index: 1;
   }
+  .hc-photo-overlay {
+    z-index: 2;
+  }
+  .hc-num { z-index: 3; }
+  .hc-title-wrap { z-index: 4; }
   .highlight-card:hover .hc-photo-bg { transform: scale(1.04); }
   .hc-photo-overlay {
     position: absolute;
@@ -437,7 +416,7 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.1rem, 2vw, 1.5rem);
     font-weight: 500;
-    color: var(--white);
+    color: var(--warm-white);
     line-height: 1.2;
     margin: 0;
   }
@@ -478,7 +457,7 @@
     background: var(--navy);
     padding: 5rem 2rem;
   }
-  .experience-strip .section-title { color: var(--white); }
+  .experience-strip .section-title { color: var(--warm-white); }
   .experience-strip .section-title em { color: var(--gold); }
   .exp-list {
     display: grid;
@@ -518,59 +497,19 @@
     line-height: 1.7;
   }
 
-  /* ─── LUXURY STAYS ─── */
-  .stays {
-    background: var(--white);
-  }
-  .stays-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .stay-card {
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: box-shadow 0.3s;
-  }
-  .stay-card:hover {
-    box-shadow: 0 12px 40px rgba(10,22,40,0.1);
-  }
-  .stay-card-img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    display: block;
-    background: var(--gold-pale);
-  }
-  .stay-card-body {
-    padding: 1.75rem;
-  }
-  .stay-tier {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  .stay-name {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-    line-height: 1.2;
-  }
-  .stay-desc {
-    font-size: 0.93rem;
-    color: var(--text-mid);
-    line-height: 1.7;
-  }
+
+
+
+
+
+
+
+
+
 
   /* ─── PRACTICAL INFO ─── */
   .practical {
-    background: var(--cream);
+    background: var(--navy);
   }
   .practical-grid {
     display: grid;
@@ -616,7 +555,7 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 300;
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--white);
+    color: var(--warm-white);
     margin-bottom: 1rem;
     position: relative;
   }
@@ -666,49 +605,24 @@
   }
 
   /* ─── FOOTER ─── */
-  footer {
-    background: var(--navy);
-    border-top: 1px solid rgba(201,168,76,0.1);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 300;
-    font-size: 1.1rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-  }
-  .footer-logo span { color: var(--gold); }
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    list-style: none;
-  }
-  .footer-links a {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-copy {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.2);
-    text-transform: uppercase;
-  }
+  footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,150,110,.1)}
+  @media(min-width:768px){footer{padding:80px 40px 40px}}
+  @media(min-width:1024px){footer{padding:80px 60px 40px}}
+  .footer-top{display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(184,150,110,.08);margin-bottom:32px}
+  @media(min-width:640px){.footer-top{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}}
+  .footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.1em;color:var(--white);margin-bottom:4px}
+  .footer-brand-sub{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+  .footer-tagline{font-family:'EB Garamond',serif;font-size:15px;font-style:italic;color:rgba(250,248,244,.28);line-height:1.7}
+  .footer-col-title{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .footer-links{list-style:none}
+  .footer-links li{margin-bottom:10px}
+  .footer-links a{font-family:'EB Garamond',serif;font-size:15px;color:rgba(250,248,244,.36);text-decoration:none;transition:color .3s;display:block}
+  .footer-links a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;flex-direction:column;gap:8px}
+  @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center}}
+  .footer-copy{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.13em;color:rgba(250,248,244,.15)}
+  .footer-coords-bottom{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(184,150,110,.18)}
 
   /* ─── MOBILE ─── */
   @media (max-width: 900px) {
@@ -721,9 +635,9 @@
     .highlight-card.feature .hc-photo { aspect-ratio: 4/3; }
     .exp-list { grid-template-columns: 1fr; }
     .exp-item:nth-child(even) { padding-left: 0; border-left: none; }
-    .stays-grid { grid-template-columns: 1fr; }
+  
     .practical-grid { grid-template-columns: 1fr; }
-    .breadcrumb { margin-top: 70px; }
+    .breadcrumb { margin-top: 0; padding-top: 90px; }
     .btn-outline { margin-left: 0; margin-top: 0.75rem; display: block; text-align: center; }
   }
   @media (max-width: 600px) {
@@ -734,25 +648,46 @@
     .cta-band { padding: 4rem 1.25rem; }
   }
 </style>
+
 </head>
 <body>
 
 <!-- ─── NAV ─── -->
-<nav>
-  <a href="/" class="nav-logo">Arkip<span>e</span>lago</a>
+
+<nav id="nav">
+  <a href="/" class="nav-logo"><div class="nav-logo-main">ARKIPELAGO</div><div class="nav-logo-sub">Luxury Tours Philippines</div></a>
   <ul class="nav-links">
-    <li><a href="/experiences/">Experiences</a></li>
-    <li><a href="/destinations/">Destinations</a></li>
-    <li><a href="/about/">About</a></li>
+    <li class="nav-item-dropdown">
+      <a href="/#destinations">Destinations</a>
+      <div class="nav-dropdown">
+        <a href="/destinations/coron/">Coron, Palawan</a>
+        <a href="/destinations/port-barton/">Port Barton, Palawan</a>
+        <a href="/destinations/el-nido/">El Nido, Palawan</a>
+      </div>
+    </li>
+    <li><a href="/#experiences">Experiences</a></li>
+    <li><a href="/#quiz">Find My Journey</a></li>
     <li><a href="/journal/">Journal</a></li>
+    <li><a href="/about/">Our Philosophy</a></li>
   </ul>
-  <button class="nav-cta" onclick="window.location.href='/#begin'">Plan My Journey</button>
-  <button class="nav-hamburger" aria-label="Menu" onclick="this.closest('nav').querySelector('.nav-links').style.display='flex',this.closest('nav').querySelector('.nav-links').style.flexDirection='column',this.closest('nav').querySelector('.nav-links').style.position='fixed',this.closest('nav').querySelector('.nav-links').style.top='70px',this.closest('nav').querySelector('.nav-links').style.left='0',this.closest('nav').querySelector('.nav-links').style.right='0',this.closest('nav').querySelector('.nav-links').style.background='rgba(10,22,40,0.98)',this.closest('nav').querySelector('.nav-links').style.padding='2rem'">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-cta" onclick="window.location.href='/#begin'">Begin Your Journey</button>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
+<div class="nav-drawer" id="navDrawer">
+  <a href="/#destinations" onclick="toggleMenu()">Destinations</a>
+  <a href="/destinations/coron/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Coron, Palawan</a>
+  <a href="/destinations/port-barton/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Port Barton, Palawan</a>
+  <a href="/destinations/el-nido/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ El Nido, Palawan</a>
+  <a href="/#experiences" onclick="toggleMenu()">Experiences</a>
+  <a href="/#quiz" onclick="toggleMenu()">Find My Journey</a>
+  <a href="/journal/" onclick="toggleMenu()">Journal</a>
+  <a href="/about/" onclick="toggleMenu()">Our Philosophy</a>
+  <a href="/#begin" class="dcta" onclick="toggleMenu()">Begin Your Journey →</a>
+</div>
+
 <!-- ─── BREADCRUMB ─── -->
+
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <div class="breadcrumb-inner">
     <a href="/">Home</a>
@@ -764,6 +699,7 @@
 </nav>
 
 <!-- ─── HERO ─── -->
+
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-latline"></div>
@@ -795,6 +731,7 @@
 </section>
 
 <!-- ─── INTRO ─── -->
+
 <section class="section intro">
   <div class="section-inner">
     <div class="intro-grid">
@@ -814,161 +751,166 @@
 </section>
 
 <!-- ─── HIGHLIGHTS ─── -->
+
 <section class="section highlights">
   <div class="section-inner">
     <p class="section-label">Signature Experiences</p>
     <h2 class="section-title">What Coron does<br><em>differently</em></h2>
     <div class="highlights-grid">
 
-      <!-- 01 — KAYANGAN LAKE · feature (spans 2 cols) -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(135deg, #0d3d3a 0%, #1a5c55 35%, #0a2a28 70%, #071e1c 100%), url('/images/coron-kayangan-lake.jpg'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">01</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Coron Island · Sacred Tagbanua Domain</span>
-            <h3 class="hc-title">Kayangan Lake</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Often called the cleanest lake in Asia, Kayangan is a freshwater lake enclosed within Coron Island's limestone ramparts. The viewpoint above — a short, steep climb — frames a panorama that photographs cannot capture honestly. The water below shifts from aquamarine to deep jade depending on cloud and angle.</p>
-        </div>
+```
+  <!-- 01 — KAYANGAN LAKE · feature (spans 2 cols) -->
+  <div class="highlight-card feature">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/coron-kayangan-lake.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">01</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Coron Island · Sacred Tagbanua Domain</span>
+        <h3 class="hc-title">Kayangan Lake</h3>
       </div>
-
-      <!-- 02 — TWIN LAGOON -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(160deg, #0a2a3d 0%, #1a4a6a 50%, #0d3050 100%), url('/images/coron-twin-lagoon-family.jpg'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">02</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Coron Island</span>
-            <h3 class="hc-title">Twin Lagoon</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Two separate bodies of water connected by a submerged cave passage you swim through at low tide. The inner lagoon is warmer — a thermocline effect — and surrounded so completely by cliff that the sky feels like a skylight. You will want to float here for a very long time.</p>
-        </div>
-      </div>
-
-      <!-- 03 — WWII WRECKS -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(160deg, #1a1a0a 0%, #2d2a10 40%, #1a1500 100%), url('/images/coron-wreck-diving.png'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">03</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Coron Bay · 12 Diveable Wrecks</span>
-            <h3 class="hc-title">WWII Wreck Diving</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">In September 1944, a fleet of Japanese ships was sunk in Coron Bay by American aircraft. Today, at least 12 wrecks are diveable, each one a coral garden. The Okikawa Maru, the Kogyo Maru, the Skeleton Wreck for snorkellers — history and marine life inseparable now.</p>
-        </div>
-      </div>
-
-      <!-- 04 — BARRACUDA LAKE -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(160deg, #0a1a2a 0%, #152840 50%, #0a1520 100%), url('/images/barracuda-lake.png'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">04</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Coron Island · Thermocline Diving</span>
-            <h3 class="hc-title">Barracuda Lake</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Named for its resident barracuda and known for a dramatic thermocline at 14 metres — the water temperature shifts abruptly from warm surface to cold depths, creating an eerie, disorienting sensation. The underwater limestone pinnacles are extraordinary.</p>
-        </div>
-      </div>
-
-      <!-- 05 — MALCAPUYA ISLAND · feature -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(120deg, #0a2a1a 0%, #1a4a30 35%, #0d3020 70%, #071a10 100%), url('/images/Malcapuya-Island.jpg'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">05</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Calamian Islands · Farthest & Most Pristine</span>
-            <h3 class="hc-title">Malcapuya Island</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">The farthest island from Coron town and, by that distance, the most pristine. Powder-white sand, warm turquoise water, and almost no one. One of those beaches that makes other beaches feel crowded by comparison. Best reached on a private boat so you can arrive early and linger late.</p>
-        </div>
-      </div>
-
-      <!-- 06 — CALAUIT SAFARI -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(160deg, #1a2a0a 0%, #2a3d10 50%, #1a2800 100%), url('/images/coron-calauit-safari-giraffe.jpg'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">06</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Calauit Island · Wildlife Sanctuary</span>
-            <h3 class="hc-title">Calauit Safari Park</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">A genuine oddity and genuine delight: African wildlife — giraffes, zebras, Watusi cattle — on a Philippine island, introduced in the 1970s alongside endemic Calamian deer and bearcat. A two-hour boat ride from Coron town, best as a half-day adventure.</p>
-        </div>
-      </div>
-
-      <!-- 07 — MOUNT TAPYAS -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(160deg, #1a1020 0%, #2a1a35 50%, #150d28 100%), url('/images/coron-mount-tapyas.jpg'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">07</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Coron Town · 723 Steps</span>
-            <h3 class="hc-title">Mount Tapyas</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Seven hundred and twenty-three steps. At the top, the word CORON spells itself across the hillside in giant white letters, and beyond it, the town, the bay, and the improbable geography of hundreds of small islands dissolving into haze. Climb at dusk.</p>
-        </div>
-      </div>
-
-      <!-- 08 — SIETE PECADOS -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(160deg, #0d2a3a 0%, #1a4050 50%, #0a2230 100%), url('/images/coron-siete-pecados.png'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">08</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Coron Bay · Marine Park</span>
-            <h3 class="hc-title">Siete Pecados</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Seven small islets standing watch over some of the healthiest coral in the Calamian Islands. Abundant reef fish, living coral formations, and often sea turtles passing through. The name translates to Seven Sins — a satisfying place to feel entirely virtuous.</p>
-        </div>
-      </div>
-
-      <!-- 09 — PRIVATE ISLAND-HOPPING · feature -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image: linear-gradient(120deg, #0a1e2a 0%, #122d3d 40%, #0a2030 70%, #071520 100%), url('/images/coron-twin-lagoon-couple.jpg'); background-size: auto, cover; background-position: center; background-repeat: no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">09</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Calamian Islands · Private Vessel</span>
-            <h3 class="hc-title">Private Island-Hopping</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">With a private bangka and a hand-picked guide, Coron becomes a different place entirely. Arrive at Kayangan before the tour boats. Stay on Malcapuya until sunset. Bring fresh provisions from the market and have your captain cook lunch on a deserted beach. This is the version of Coron that stays with you.</p>
-        </div>
-      </div>
-
     </div>
+    <div class="hc-body">
+      <p class="hc-text">Often called the cleanest lake in Asia, Kayangan is a freshwater lake enclosed within Coron Island's limestone ramparts. The viewpoint above — a short, steep climb — frames a panorama that photographs cannot capture honestly. The water below shifts from aquamarine to deep jade depending on cloud and angle.</p>
+    </div>
+  </div>
+
+  <!-- 02 — TWIN LAGOON -->
+  <div class="highlight-card">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/coron-twin-lagoon-family.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">02</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Coron Island</span>
+        <h3 class="hc-title">Twin Lagoon</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">Two separate bodies of water connected by a submerged cave passage you swim through at low tide. The inner lagoon is warmer — a thermocline effect — and surrounded so completely by cliff that the sky feels like a skylight. You will want to float here for a very long time.</p>
+    </div>
+  </div>
+
+  <!-- 03 — WWII WRECKS -->
+  <div class="highlight-card">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/coron-wreck-diving.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">03</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Coron Bay · 12 Diveable Wrecks</span>
+        <h3 class="hc-title">WWII Wreck Diving</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">In September 1944, a fleet of Japanese ships was sunk in Coron Bay by American aircraft. Today, at least 12 wrecks are diveable, each one a coral garden. The Okikawa Maru, the Kogyo Maru, the Skeleton Wreck for snorkellers — history and marine life inseparable now.</p>
+    </div>
+  </div>
+
+  <!-- 04 — BARRACUDA LAKE -->
+  <div class="highlight-card">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/barracuda-lake.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">04</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Coron Island · Thermocline Diving</span>
+        <h3 class="hc-title">Barracuda Lake</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">Named for its resident barracuda and known for a dramatic thermocline at 14 metres — the water temperature shifts abruptly from warm surface to cold depths, creating an eerie, disorienting sensation. The underwater limestone pinnacles are extraordinary.</p>
+    </div>
+  </div>
+
+  <!-- 05 — MALCAPUYA ISLAND · feature -->
+  <div class="highlight-card feature">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/Malcapuya-Island.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">05</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Calamian Islands · Farthest & Most Pristine</span>
+        <h3 class="hc-title">Malcapuya Island</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">The farthest island from Coron town and, by that distance, the most pristine. Powder-white sand, warm turquoise water, and almost no one. One of those beaches that makes other beaches feel crowded by comparison. Best reached on a private boat so you can arrive early and linger late.</p>
+    </div>
+  </div>
+
+  <!-- 06 — CALAUIT SAFARI -->
+  <div class="highlight-card">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/coron-calauit-safari-giraffe.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">06</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Calauit Island · Wildlife Sanctuary</span>
+        <h3 class="hc-title">Calauit Safari Park</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">A genuine oddity and genuine delight: African wildlife — giraffes, zebras, Watusi cattle — on a Philippine island, introduced in the 1970s alongside endemic Calamian deer and bearcat. A two-hour boat ride from Coron town, best as a half-day adventure.</p>
+    </div>
+  </div>
+
+  <!-- 07 — MOUNT TAPYAS -->
+  <div class="highlight-card">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/coron-mount-tapyas.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">07</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Coron Town · 723 Steps</span>
+        <h3 class="hc-title">Mount Tapyas</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">Seven hundred and twenty-three steps. At the top, the word CORON spells itself across the hillside in giant white letters, and beyond it, the town, the bay, and the improbable geography of hundreds of small islands dissolving into haze. Climb at dusk.</p>
+    </div>
+  </div>
+
+  <!-- 08 — SIETE PECADOS -->
+  <div class="highlight-card">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/coron-siete-pecados.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">08</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Coron Bay · Marine Park</span>
+        <h3 class="hc-title">Siete Pecados</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">Seven small islets standing watch over some of the healthiest coral in the Calamian Islands. Abundant reef fish, living coral formations, and often sea turtles passing through. The name translates to Seven Sins — a satisfying place to feel entirely virtuous.</p>
+    </div>
+  </div>
+
+  <!-- 09 — PRIVATE ISLAND-HOPPING · feature -->
+  <div class="highlight-card feature">
+    <div class="hc-photo">
+      <div class="hc-photo-bg" style="background-image: url('/images/coron-twin-lagoon-couple.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="hc-photo-overlay"></div>
+      <div class="hc-num">09</div>
+      <div class="hc-title-wrap">
+        <span class="hc-location-tag">Calamian Islands · Private Vessel</span>
+        <h3 class="hc-title">Private Island-Hopping</h3>
+      </div>
+    </div>
+    <div class="hc-body">
+      <p class="hc-text">With a private bangka and a hand-picked guide, Coron becomes a different place entirely. Arrive at Kayangan before the tour boats. Stay on Malcapuya until sunset. Bring fresh provisions from the market and have your captain cook lunch on a deserted beach. This is the version of Coron that stays with you.</p>
+    </div>
+  </div>
+
+</div>
+```
+
   </div>
 </section>
 
 <!-- ─── EXPERIENCE STRIP ─── -->
+
 <section class="experience-strip">
   <div class="section-inner">
     <p class="section-label" style="color:var(--gold);">For Every Traveller</p>
@@ -1020,50 +962,8 @@
   </div>
 </section>
 
-<!-- ─── WHERE TO STAY ─── -->
-<section class="section stays">
-  <div class="section-inner">
-    <p class="section-label">Where to Stay</p>
-    <h2 class="section-title">Accommodation that<br><em>earns its setting</em></h2>
-    <p class="section-lead">Coron's best properties understand that the island itself is the experience. They facilitate rather than compete.</p>
-    <div class="stays-grid">
-      <div class="stay-card">
-        <div class="stay-card-img" style="background: linear-gradient(160deg, #071828 0%, #0d2840 50%, #0a1e35 100%) center/cover no-repeat; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(255,255,255,0.2); letter-spacing:0.15em; text-transform:uppercase;">Photo · Coming Soon</span></div>
-        <div class="stay-card-body">
-          <p class="stay-tier">5-Star Island Resort · Dimakya Island</p>
-          <h3 class="stay-name">Discovery Coron Resort</h3>
-          <p class="stay-desc">Formerly Club Paradise, set on the private island of Dimakya — 55 cottages and villas in a setting surrounded by pristine reef. Full diving operation, spa, and the rare combination of genuine seclusion with professional service. The house reef is diveable from the beach. Dugong sightings in the adjacent bay are common.</p>
-        </div>
-      </div>
-      <div class="stay-card">
-        <img class="stay-card-img" src="https://twoseasonsresorts.com/coron/wp-content/uploads/sites/3/2025/10/Drone-1-1024x767.jpg" alt="Two Seasons Coron Island Resort — aerial view, Bulalacao Island" loading="lazy">
-        <div class="stay-card-body">
-          <p class="stay-tier">Luxury Resort · Bulalacao Island</p>
-          <h3 class="stay-name">Two Seasons Coron Island Resort</h3>
-          <p class="stay-desc">Forty-two villas on Bulalacao Island, 30 minutes by boat from Coron town. Beachfront and mountain-view options, island-hopping and diving arranged on request. For guests who want luxury infrastructure without sacrificing proximity to the main sites — this is the balance.</p>
-        </div>
-      </div>
-      <div class="stay-card">
-        <img class="stay-card-img" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/DcBMbGxtCGUvPrwZ/corto-del-mar-22-YrD4D6ZpwOUV9qOj.jpg" alt="Corto del Mar Hotel — pool and gardens, Coron Town" loading="lazy">
-        <div class="stay-card-body">
-          <p class="stay-tier">Boutique Hotel · Coron Town</p>
-          <h3 class="stay-name">Corto del Mar Hotel</h3>
-          <p class="stay-desc">The most comfortable base in Coron town — a Mediterranean-influenced property with a striking pool and on-site restaurant. Walking distance to restaurants, tour operators, and the pier. A practical, stylish anchor for those who want to maximise time on the water each day.</p>
-        </div>
-      </div>
-      <div class="stay-card">
-        <div class="stay-card-img" style="background: linear-gradient(160deg, #0a1a10 0%, #152812 50%, #0a1a0d 100%) center/cover no-repeat; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(255,255,255,0.2); letter-spacing:0.15em; text-transform:uppercase;">Photo · Coming Soon</span></div>
-        <div class="stay-card-body">
-          <p class="stay-tier">Boutique Resort · Coron Town</p>
-          <h3 class="stay-name">Bacau Bay Resort</h3>
-          <p class="stay-desc">Lush gardens, private jetty, outdoor pool, and spa services in a serene setting just outside town. Spacious rooms, unhurried atmosphere, and helpful staff who treat every guest as if the island belongs to them. An underrated option for guests who value calm over scene.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ─── PRACTICAL ─── -->
+
 <section class="section practical">
   <div class="section-inner">
     <p class="section-label">Planning Notes</p>
@@ -1098,6 +998,7 @@
 </section>
 
 <!-- ─── CTA ─── -->
+
 <section class="cta-band">
   <h2>Ready to explore<br><em>Coron?</em></h2>
   <p>We build private itineraries around your dates, interests, and pace — from a four-night diving escape to a week-long expedition north to El Nido.</p>
@@ -1106,17 +1007,27 @@
 </section>
 
 <!-- ─── FOOTER ─── -->
+
 <footer>
-  <a href="/" class="footer-logo">Arkip<span>e</span>lago</a>
-  <ul class="footer-links">
-    <li><a href="/experiences/">Experiences</a></li>
-    <li><a href="/destinations/">Destinations</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/journal/">Journal</a></li>
-    <li><a href="/#begin">Contact</a></li>
-  </ul>
-  <p class="footer-copy">&copy; 2026 Arkipelago Luxury Tours Philippines &nbsp;·&nbsp; luxurytoursphilippines.com</p>
+  <div class="footer-top">
+    <div><div class="footer-brand-name">ARKIPELAGO</div><div class="footer-brand-sub">Luxury Tours Philippines</div><p class="footer-tagline">Curated. Sovereign. Unforgettable.</p></div>
+    <div><div class="footer-col-title">Experiences</div><ul class="footer-links"><li><a href="/experiences/private-tours/">Private Journeys</a></li><li><a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a></li><li><a href="/experiences/family-tours/">Family Travel</a></li><li><a href="/experiences/retirement-travel/">Retiree Journeys</a></li><li><a href="/experiences/corporate-mice/">Corporate &amp; MICE</a></li></ul></div>
+    <div><div class="footer-col-title">Destinations</div><ul class="footer-links"><li><a href="/destinations/coron/">Coron, Palawan</a></li><li><a href="/destinations/port-barton/">Port Barton, Palawan</a></li><li><a href="/destinations/el-nido/">El Nido, Palawan</a></li><li><a href="#">Batanes</a></li><li><a href="#">Siargao</a></li><li><a href="#">Bohol &amp; Cebu</a></li><li><a href="#">Baguio &amp; Sagada</a></li><li><a href="#">Vigan &amp; Ilocos</a></li></ul></div>
+    <div><div class="footer-col-title">Arkipelago</div><ul class="footer-links"><li><a href="/about/">Our Philosophy</a></li><li><a href="/journal/">Journal</a></li><li><a href="/#begin">Begin Your Journey</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Arkipelago Luxury Tours Philippines. All rights reserved.</div><div class="footer-coords-bottom">9°30′N 118°30′E · Philippine Archipelago</div></div>
 </footer>
+
+<script>
+/* Nav scroll */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+/* Nav drawer toggle */
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('navDrawer').classList.contains('open')?'hidden':'';
+}
+</script>
 
 </body>
 </html>
