@@ -57,27 +57,45 @@ body{overflow-x:hidden;background:#FAF8F4;color:#2D2D2D;font-family:'EB Garamond
   --warm-white:#FAF8F4;--sand:#F5EDD8;--slate:#4A5568;
 }
 
-/* NAV */
-.site-nav{background:var(--navy);padding:0 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;height:64px;border-bottom:1px solid rgba(184,150,110,.1)}
-@media(min-width:1024px){.site-nav{padding:0 60px}}
-.nav-logo{text-decoration:none;flex-shrink:0}
-.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;letter-spacing:.12em;color:var(--warm-white);display:block;line-height:1.1}
-.nav-logo-sub{font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:block;margin-top:2px}
-.nav-links{display:none;list-style:none;gap:24px;align-items:center;margin:0;padding:0}
-@media(min-width:1024px){.nav-links{display:flex}}
-.nav-links a{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,248,244,.65);text-decoration:none;transition:color .2s;white-space:nowrap}
-.nav-links a:hover{color:var(--gold)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.nav-cta{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;background:var(--gold);padding:9px 16px;text-decoration:none;color:#0B1F3A;-webkit-text-fill-color:#0B1F3A;white-space:nowrap;transition:background .2s}
-.nav-cta:hover{background:var(--gold-bright)}
-.hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:4px;background:none;border:none;flex-shrink:0}
-@media(min-width:1024px){.hamburger{display:none}}
-.hamburger span{display:block;width:22px;height:1px;background:rgba(250,248,244,.7)}
-.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--navy);z-index:99;padding:28px 24px;display:none;flex-direction:column;overflow-y:auto;border-top:1px solid rgba(184,150,110,.12)}
-.mobile-drawer.open{display:flex}
-.mobile-drawer a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.7);text-decoration:none;padding:15px 0;border-bottom:1px solid rgba(184,150,110,.08)}
-.mobile-drawer a:hover{color:var(--gold)}
-.drawer-cta{margin-top:22px;background:var(--gold);text-align:center;padding:16px;color:#0B1F3A !important;-webkit-text-fill-color:#0B1F3A;font-weight:500;border:none !important}
+  /* ─── NAV ─── */
+  #nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .5s}
+  #nav.scrolled{background:rgba(11,31,58,.97);backdrop-filter:blur(12px);padding:14px 24px;border-bottom:1px solid rgba(184,150,110,.15)}
+  .nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+  .nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:.1em;color:#FAF8F4}
+  .nav-logo-sub{font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:.3em;color:#B8966E;text-transform:uppercase}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .nav-hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-hamburger span{display:block;width:24px;height:1px;background:#FAF8F4;transition:all .3s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  @media(min-width:1024px){
+  #nav{padding:28px 60px}
+  #nav.scrolled{padding:18px 60px}
+  .nav-links{display:flex;gap:36px;list-style:none}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.8);text-decoration:none;transition:color .3s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#B8966E;transition:width .3s}
+  .nav-links a:hover{color:#B8966E}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B8966E;border:1px solid rgba(184,150,110,.5);padding:10px 22px;background:none;cursor:pointer;transition:all .3s}
+  .nav-cta:hover{background:#B8966E;color:#0B1F3A}
+  .nav-hamburger{display:none}
+  }
+  /* Dropdown */
+  .nav-item-dropdown{position:relative}
+  .nav-dropdown{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(11,31,58,.98);backdrop-filter:blur(12px);border:1px solid rgba(184,150,110,.15);min-width:220px;padding:8px 0;z-index:600}
+  .nav-item-dropdown:hover .nav-dropdown{display:block}
+  .nav-dropdown a{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,244,.7);padding:12px 20px;text-decoration:none;transition:all .2s;border:none}
+  .nav-dropdown a::after{display:none}
+  .nav-dropdown a:hover{color:#B8966E;background:rgba(184,150,110,.07);padding-left:26px}
+  /* Drawer */
+  .nav-drawer{position:fixed;top:0;left:0;right:0;bottom:0;background:#0B1F3A;z-index:490;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);padding:100px 40px 60px;display:flex;flex-direction:column;overflow-y:auto}
+  .nav-drawer.open{transform:translateX(0)}
+  .nav-drawer a,.nav-drawer button.dl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#FAF8F4;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(184,150,110,.1);display:block;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;text-align:left;transition:color .3s;width:100%}
+  .nav-drawer a:hover{color:#B8966E}
+  .nav-drawer .dcta{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#B8966E;margin-top:28px;border:1px solid rgba(184,150,110,.4)!important;padding:16px 24px;text-align:center;background:none;cursor:pointer;display:block;width:100%;transition:all .3s;text-decoration:none}
+  .nav-drawer .dcta:hover{background:#B8966E;color:#0B1F3A}
 
 /* BREADCRUMB */
 .breadcrumb{background:var(--navy-light);padding:10px 20px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;color:rgba(250,248,244,.45)}
@@ -174,35 +192,40 @@ body{overflow-x:hidden;background:#FAF8F4;color:#2D2D2D;font-family:'EB Garamond
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="site-nav">
-  <a href="https://luxurytoursphilippines.com/" class="nav-logo">
-    <span class="nav-logo-main">ARKIPELAGO</span>
-    <span class="nav-logo-sub">Luxury Tours Philippines</span>
-  </a>
+<!-- ─── NAV ─── -->
+
+<nav id="nav">
+  <a href="/" class="nav-logo"><div class="nav-logo-main">ARKIPELAGO</div><div class="nav-logo-sub">Luxury Tours Philippines</div></a>
   <ul class="nav-links">
-    <li><a href="https://luxurytoursphilippines.com/#destinations">Destinations</a></li>
-    <li><a href="https://luxurytoursphilippines.com/#experiences">Experiences</a></li>
-    <li><a href="https://luxurytoursphilippines.com/#quiz">Find My Journey</a></li>
-    <li><a href="https://luxurytoursphilippines.com/journal/">Journal</a></li>
-    <li><a href="https://luxurytoursphilippines.com/about/">Our Philosophy</a></li>
+    <li class="nav-item-dropdown">
+      <a href="/#destinations">Destinations</a>
+      <div class="nav-dropdown">
+        <a href="/destinations/coron/">Coron, Palawan</a>
+        <a href="/destinations/port-barton/">Port Barton, Palawan</a>
+        <a href="/destinations/el-nido/">El Nido, Palawan</a>
+        <a href="/destinations/palawan/">Palawan</a>
+      </div>
+    </li>
+    <li><a href="/#experiences">Experiences</a></li>
+    <li><a href="/#quiz">Find My Journey</a></li>
+    <li><a href="/journal/">Journal</a></li>
+    <li><a href="/about/">Our Philosophy</a></li>
   </ul>
-  <div class="nav-right">
-    <a href="https://luxurytoursphilippines.com/#begin" class="nav-cta">Begin Your Journey</a>
-    <button class="hamburger" onclick="document.getElementById('mobileDrawer').classList.toggle('open')" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+  <button class="nav-cta" onclick="window.location.href='/#begin'">Begin Your Journey</button>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE DRAWER -->
-<div class="mobile-drawer" id="mobileDrawer">
-  <a href="https://luxurytoursphilippines.com/#destinations">Destinations</a>
-  <a href="https://luxurytoursphilippines.com/#experiences">Experiences</a>
-  <a href="https://luxurytoursphilippines.com/#quiz">Find My Journey</a>
-  <a href="https://luxurytoursphilippines.com/journal/">Journal</a>
-  <a href="https://luxurytoursphilippines.com/about/">Our Philosophy</a>
-  <a href="https://luxurytoursphilippines.com/#begin" class="drawer-cta">Begin Your Journey →</a>
+<div class="nav-drawer" id="navDrawer">
+  <a href="/#destinations" onclick="toggleMenu()">Destinations</a>
+  <a href="/destinations/coron/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Coron, Palawan</a>
+  <a href="/destinations/port-barton/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Port Barton, Palawan</a>
+  <a href="/destinations/el-nido/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ El Nido, Palawan</a>
+  <a href="/destinations/palawan/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Palawan</a>
+  <a href="/#experiences" onclick="toggleMenu()">Experiences</a>
+  <a href="/#quiz" onclick="toggleMenu()">Find My Journey</a>
+  <a href="/journal/" onclick="toggleMenu()">Journal</a>
+  <a href="/about/" onclick="toggleMenu()">Our Philosophy</a>
+  <a href="/#begin" class="dcta" onclick="toggleMenu()">Begin Your Journey →</a>
 </div>
 
 <!-- BREADCRUMB -->
@@ -424,6 +447,17 @@ body{overflow-x:hidden;background:#FAF8F4;color:#2D2D2D;font-family:'EB Garamond
     <div class="footer-copy">© 2026 Arkipelago Luxury Tours Philippines. All rights reserved.</div>
   </div>
 </footer>
+
+<script>
+/* Nav scroll */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+/* Nav drawer toggle */
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('navDrawer').classList.contains('open')?'hidden':'';
+}
+</script>
 
 </body>
 </html>
