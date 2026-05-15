@@ -709,7 +709,7 @@ function submitForm(e){
   e.preventDefault();
   const form=e.target;
   const data=new URLSearchParams(new FormData(form)).toString();
-  fetch('https://script.google.com/macros/s/AKfycbznGmt3RYVEtawKZv2gEkHTv3j8n4RP4aaTUrFMRMO6FP0u2V5Q7E3q_uT31gz96qo/exec',{
+  fetch('https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec',{
     method:'POST',body:data,mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'}
   }).then(()=>{
     form.style.display='none';
