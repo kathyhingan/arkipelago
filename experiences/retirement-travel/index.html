@@ -1756,13 +1756,14 @@ form.addEventListener('submit', async (e) => {
   data.forEach((v, k) => payload[k] = v);
   payload.timestamp = new Date().toISOString();
   payload.page = window.location.href;
+  const body = Object.entries(payload).map(([k,v]) => encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&');
 
   try {
     await fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body
     });
     form.style.display = 'none';
     formSuccess.style.display = 'block';
