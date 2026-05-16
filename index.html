@@ -780,14 +780,18 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
     <div class="promise-item"><div class="promise-dot"></div>We respond within 24 hours — always.</div>
     <div class="promise-item"><div class="promise-dot"></div>Just a conversation with people who know these islands the way only locals can.</div>
   </div>
+  <iframe name="formSink" style="display:none" aria-hidden="true" tabindex="-1"></iframe>
   <div class="form-wrap reveal reveal-delay-2">
-    <form id="journeyForm" onsubmit="submitForm(event)">
+    <form id="journeyForm" action="https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec" method="POST" target="formSink" onsubmit="submitForm(event)">
       <input type="hidden" id="quizWho" name="quiz_who">
       <input type="hidden" id="quizDraw" name="quiz_draw">
       <input type="hidden" id="quizPace" name="quiz_pace">
       <input type="hidden" id="quizDest" name="quiz_dest">
       <input type="hidden" id="quizLuxury" name="quiz_luxury">
       <input type="hidden" id="quizArchetype" name="quiz_archetype">
+      <input type="hidden" name="source" value="arkipelago-homepage">
+      <input type="hidden" name="timestamp" id="formTimestamp">
+      <input type="hidden" name="page" id="formPage">
       <div class="form-group">
         <label class="form-label" for="fieldName">Your Name</label>
         <input type="text" id="fieldName" name="name" class="form-input" placeholder="First & last name" required>
@@ -949,11 +953,9 @@ function restartQuiz(){
   document.getElementById('quiz').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-/* Form — Google Apps Script backend */
-const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec';
-
-async function submitForm(e){
-  e.preventDefault();
+/* Form — Native POST to Google Apps Script via hidden iframe.
+   Browsers submit form-encoded data reliably this way; no fetch/CORS issues. */
+function submitForm(e){
   const btn=document.getElementById('formSubmitBtn');
   const note=document.getElementById('formNote');
   const form=document.getElementById('journeyForm');
@@ -961,47 +963,24 @@ async function submitForm(e){
   const name=document.getElementById('fieldName').value.trim();
   const email=document.getElementById('fieldEmail').value.trim();
   if(!name||!email){
+    e.preventDefault();
     note.textContent='Please enter your name and email address.';
     note.style.color='#c0392b';
     return;
   }
+
+  // Populate client-side hidden fields before native submit
+  document.getElementById('formTimestamp').value=new Date().toISOString();
+  document.getElementById('formPage').value=window.location.href;
 
   btn.textContent='Sending...';
   btn.disabled=true;
   note.textContent='Submitting your inquiry...';
   note.style.color='var(--slate)';
 
-  const payload={
-    name,
-    email,
-    journey_type:document.getElementById('journeyTypeSelect').value,
-    dates:document.getElementById('fieldDates').value.trim(),
-    group_size:document.getElementById('fieldGroup').value.trim(),
-    message:document.getElementById('fieldMessage').value.trim(),
-    quiz_who:document.getElementById('quizWho').value,
-    quiz_draw:document.getElementById('quizDraw').value,
-    quiz_pace:document.getElementById('quizPace').value,
-    quiz_dest:document.getElementById('quizDest').value,
-    quiz_luxury:document.getElementById('quizLuxury').value,
-    quiz_archetype:document.getElementById('quizArchetype').value,
-    source:'arkipelago-homepage',
-    timestamp:new Date().toISOString()
-  };
-
-  try{
-    // URL-encoded body — most reliable method for Apps Script cross-origin POST
-    const encoded = Object.entries(payload)
-      .map(([k,v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v))
-      .join('&');
-
-    await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: encoded
-    });
-
-    // Show success state
+  // Native form submission proceeds (target=formSink hidden iframe).
+  // We can't read the cross-origin response, so show success after a short delay.
+  setTimeout(()=>{
     form.style.display='none';
     const wrap=document.getElementById('journeyForm').parentElement;
     wrap.innerHTML=`
@@ -1012,13 +991,7 @@ async function submitForm(e){
           Thank you, ${name}. We've received your inquiry and will be in touch within 24 hours with our initial thoughts for your journey.
         </p>
       </div>`;
-  }catch(err){
-    console.error('Form error:', err);
-    btn.textContent='Request My Journey Consultation';
-    btn.disabled=false;
-    note.textContent='Error: ' + err.message + ' — please email us directly at hello@luxurytoursphilippines.com';
-    note.style.color='#c0392b';
-  }
+  },1500);
 }
 </script>
 </body>
