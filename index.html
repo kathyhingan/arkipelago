@@ -322,7 +322,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hc-carousel:active{cursor:grabbing}
 .hc-carousel::-webkit-scrollbar{display:none}
 .hc-carousel{scrollbar-width:none}
-.hc-card{flex:0 0 320px;height:460px;position:relative;overflow:hidden;scroll-snap-align:start;cursor:pointer;background:var(--navy-mid)}
+.hc-card{flex:0 0 320px;height:460px;position:relative;overflow:hidden;scroll-snap-align:start;background:var(--navy-mid)}
+.hc-card-link{display:block;text-decoration:none;color:inherit;cursor:pointer}
+.hc-card-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 @media(min-width:640px){.hc-card{flex:0 0 360px;height:500px}}
 @media(min-width:1024px){.hc-card{flex:0 0 400px;height:540px}}
 .hc-card-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .7s cubic-bezier(.25,.46,.45,.94);z-index:1}
@@ -712,25 +714,64 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
   <div class="hc-carousel-wrap reveal reveal-delay-1">
     <div class="hc-carousel" id="hcCarousel">
 
-      <!-- 01 — CORON & PORT BARTON -->
-      <div class="hc-card" aria-label="Coron and Port Barton, Palawan">
-        <div class="hc-card-img" style="background-image:url('/coron.jpg')"></div>
+      <!-- 01 — EL NIDO -->
+      <a class="hc-card hc-card-link" href="/destinations/el-nido/" aria-label="El Nido, Palawan">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-kayak-dog.jpg')"></div>
         <div class="hc-card-base"></div>
         <div class="hc-card-hover-overlay"></div>
         <div class="hc-card-num">01</div>
         <div class="hc-card-content">
           <span class="hc-card-tag">Mimaropa Region</span>
-          <h3 class="hc-card-title">Coron & Port Barton</h3>
-          <p class="hc-card-desc">Palawan without the crowd. Shipwrecks, karst lakes, and the version of this island that hasn't been discovered yet.</p>
+          <h3 class="hc-card-title">El Nido</h3>
+          <p class="hc-card-desc">Towering limestone, hidden lagoons, the most photographed islands in the Philippines — on a private boat, almost alone.</p>
         </div>
-      </div>
+      </a>
 
-      <!-- 02 — BATANES -->
-      <div class="hc-card" aria-label="Batanes, northernmost Philippines">
-        <div class="hc-card-img" style="background-image:url('/batanes.jpg')"></div>
+      <!-- 02 — CORON -->
+      <a class="hc-card hc-card-link" href="/destinations/coron/" aria-label="Coron, Palawan">
+        <div class="hc-card-img" style="background-image:url('/images/coron-twin-lagoon-couple.jpg')"></div>
         <div class="hc-card-base"></div>
         <div class="hc-card-hover-overlay"></div>
         <div class="hc-card-num">02</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Coron</h3>
+          <p class="hc-card-desc">Shipwrecks beneath glass-clear water, karst lakes carved from cathedral cliffs. The most cinematic island in the country.</p>
+        </div>
+      </a>
+
+      <!-- 03 — PORT BARTON -->
+      <a class="hc-card hc-card-link" href="/destinations/port-barton/" aria-label="Port Barton, Palawan">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-beach.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">03</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Port Barton</h3>
+          <p class="hc-card-desc">What El Nido was twenty years ago. Coconut beaches, river mouths, and only a handful of guests.</p>
+        </div>
+      </a>
+
+      <!-- 04 — PALAWAN (regional) -->
+      <a class="hc-card hc-card-link" href="/destinations/palawan/" aria-label="Palawan — Puerto Princesa, Honda Bay, and beyond">
+        <div class="hc-card-img" style="background-image:url('/images/palawan-whale-shark.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">04</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Palawan</h3>
+          <p class="hc-card-desc">Whale sharks in Honda Bay, fireflies in Irawan, the ancient Tabon Caves. The Palawan most travelers never reach.</p>
+        </div>
+      </a>
+
+      <!-- 05 — BATANES -->
+      <div class="hc-card" aria-label="Batanes, northernmost Philippines">
+        <div class="hc-card-img" style="background-image:url('/images/batanes.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">05</div>
         <div class="hc-card-content">
           <span class="hc-card-tag">Cagayan Valley</span>
           <h3 class="hc-card-title">Batanes</h3>
@@ -738,51 +779,103 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
         </div>
       </div>
 
-      <!-- 03 — BAGUIO & SAGADA -->
-      <div class="hc-card" aria-label="Baguio and Sagada, Cordillera highlands Philippines">
-        <div class="hc-card-img" style="background-image:url('/baguio.jpg')"></div>
-        <div class="hc-card-base"></div>
-        <div class="hc-card-hover-overlay"></div>
-        <div class="hc-card-num">03</div>
-        <div class="hc-card-content">
-          <span class="hc-card-tag">Cordillera Region</span>
-          <h3 class="hc-card-title">Baguio & Sagada</h3>
-          <p class="hc-card-desc">Cool mountain air, pine forests, and the ancient rice terraces of the highlands.</p>
-        </div>
-      </div>
-
-      <!-- 04 — SIARGAO -->
-      <div class="hc-card" aria-label="Siargao Island Philippines">
-        <div class="hc-card-img" style="background-image:url('/Siargao.jpg')"></div>
-        <div class="hc-card-base"></div>
-        <div class="hc-card-hover-overlay"></div>
-        <div class="hc-card-num">04</div>
-        <div class="hc-card-content">
-          <span class="hc-card-tag">Caraga Region</span>
-          <h3 class="hc-card-title">Siargao</h3>
-          <p class="hc-card-desc">Beyond the surf break — private mangroves and sunsets that demand silence.</p>
-        </div>
-      </div>
-
-      <!-- 05 — BOHOL & CEBU -->
-      <div class="hc-card" aria-label="Bohol and Cebu, Central Visayas Philippines">
-        <div class="hc-card-img" style="background-image:url('/bohol.jpg')"></div>
-        <div class="hc-card-base"></div>
-        <div class="hc-card-hover-overlay"></div>
-        <div class="hc-card-num">05</div>
-        <div class="hc-card-content">
-          <span class="hc-card-tag">Central Visayas</span>
-          <h3 class="hc-card-title">Bohol & Cebu</h3>
-          <p class="hc-card-desc">Chocolate hills at dawn. Whale sharks at dusk.</p>
-        </div>
-      </div>
-
-      <!-- 06 — BUKIDNON HIGHLANDS -->
-      <div class="hc-card" aria-label="Bukidnon Highlands, Northern Mindanao Philippines">
-        <div class="hc-card-img" style="background-image:url('/bukidnon.jpg')"></div>
+      <!-- 06 — VIGAN -->
+      <div class="hc-card" aria-label="Vigan, UNESCO heritage city">
+        <div class="hc-card-img" style="background-image:url('/images/vigan.jpg')"></div>
         <div class="hc-card-base"></div>
         <div class="hc-card-hover-overlay"></div>
         <div class="hc-card-num">06</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Ilocos Region</span>
+          <h3 class="hc-card-title">Vigan</h3>
+          <p class="hc-card-desc">The best-preserved Spanish colonial city in Asia. Cobblestones, kalesas, and three centuries of stories.</p>
+        </div>
+      </div>
+
+      <!-- 07 — ILOCOS -->
+      <div class="hc-card" aria-label="Ilocos Norte — Pagudpud, Bangui windmills, and the northern coast">
+        <div class="hc-card-img" style="background-image:url('/images/ilocos.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">07</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Ilocos Region</span>
+          <h3 class="hc-card-title">Ilocos</h3>
+          <p class="hc-card-desc">Windmills above the sea, the white-sand coves of Pagudpud, and Spanish-era churches scattered through the north.</p>
+        </div>
+      </div>
+
+      <!-- 08 — BAGUIO -->
+      <div class="hc-card" aria-label="Baguio, the Philippines' first hill station">
+        <div class="hc-card-img" style="background-image:url('/images/baguio.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">08</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cordillera Region</span>
+          <h3 class="hc-card-title">Baguio</h3>
+          <p class="hc-card-desc">Pine forests, cool air, and the artist enclaves of the country's first hill station.</p>
+        </div>
+      </div>
+
+      <!-- 09 — SAGADA -->
+      <div class="hc-card" aria-label="Sagada, Mountain Province">
+        <div class="hc-card-img" style="background-image:url('/images/sagada.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">09</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cordillera Region</span>
+          <h3 class="hc-card-title">Sagada</h3>
+          <p class="hc-card-desc">Hanging coffins, cave cathedrals, and a stillness no other Philippine destination delivers.</p>
+        </div>
+      </div>
+
+      <!-- 10 — PUERTO GALERA -->
+      <div class="hc-card" aria-label="Puerto Galera, Oriental Mindoro">
+        <div class="hc-card-img" style="background-image:url('/images/galera.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">10</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Puerto Galera</h3>
+          <p class="hc-card-desc">World-class diving, hidden coves, a quieter rhythm just hours from Manila.</p>
+        </div>
+      </div>
+
+      <!-- 11 — BOHOL -->
+      <div class="hc-card" aria-label="Bohol, Central Visayas">
+        <div class="hc-card-img" style="background-image:url('/images/Bohol-Tour-with-Seniors-and-Toddler.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">11</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Central Visayas</span>
+          <h3 class="hc-card-title">Bohol</h3>
+          <p class="hc-card-desc">Chocolate Hills at dawn, the world's smallest primates by lunch, and a river snake at sunset.</p>
+        </div>
+      </div>
+
+      <!-- 12 — CEBU -->
+      <div class="hc-card" aria-label="Cebu, Central Visayas">
+        <div class="hc-card-img" style="background-image:url('/images/cebu.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">12</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Central Visayas</span>
+          <h3 class="hc-card-title">Cebu</h3>
+          <p class="hc-card-desc">Whale sharks at sunrise, waterfalls at noon, and the country's deepest colonial roots.</p>
+        </div>
+      </div>
+
+      <!-- 13 — BUKIDNON HIGHLANDS -->
+      <div class="hc-card" aria-label="Bukidnon Highlands, Northern Mindanao">
+        <div class="hc-card-img" style="background-image:url('/images/bukidnon.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">13</div>
         <div class="hc-card-content">
           <span class="hc-card-tag">Northern Mindanao</span>
           <h3 class="hc-card-title">Bukidnon Highlands</h3>
@@ -790,29 +883,16 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
         </div>
       </div>
 
-      <!-- 07 — PUERTO GALERA -->
-      <div class="hc-card" aria-label="Puerto Galera, Oriental Mindoro Philippines">
-        <div class="hc-card-img" style="background-image:url('/galera.jpg')"></div>
+      <!-- 14 — SIARGAO -->
+      <div class="hc-card" aria-label="Siargao, Caraga Region">
+        <div class="hc-card-img" style="background-image:url('/images/siargao.jpg')"></div>
         <div class="hc-card-base"></div>
         <div class="hc-card-hover-overlay"></div>
-        <div class="hc-card-num">07</div>
+        <div class="hc-card-num">14</div>
         <div class="hc-card-content">
-          <span class="hc-card-tag">Mimaropa</span>
-          <h3 class="hc-card-title">Puerto Galera</h3>
-          <p class="hc-card-desc">World-class diving, hidden coves, a quieter rhythm just hours from Manila.</p>
-        </div>
-      </div>
-
-      <!-- 08 — VIGAN & ILOCOS -->
-      <div class="hc-card" aria-label="Vigan and Ilocos, UNESCO heritage city Philippines">
-        <div class="hc-card-img" style="background-image:url('/vigan.jpg')"></div>
-        <div class="hc-card-base"></div>
-        <div class="hc-card-hover-overlay"></div>
-        <div class="hc-card-num">08</div>
-        <div class="hc-card-content">
-          <span class="hc-card-tag">Ilocos Region</span>
-          <h3 class="hc-card-title">Vigan & Ilocos</h3>
-          <p class="hc-card-desc">The best-preserved Spanish colonial city in Asia and three centuries of stories.</p>
+          <span class="hc-card-tag">Caraga Region</span>
+          <h3 class="hc-card-title">Siargao</h3>
+          <p class="hc-card-desc">Beyond the surf break — private mangroves and sunsets that demand silence.</p>
         </div>
       </div>
 
