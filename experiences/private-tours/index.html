@@ -932,14 +932,18 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
     <div class="promise-item"><div class="promise-dot"></div>We respond within 24 hours — always.</div>
     <div class="promise-item"><div class="promise-dot"></div>A conversation with people who know these islands the way only locals can.</div>
   </div>
+  <iframe name="formSink" style="display:none" aria-hidden="true" tabindex="-1"></iframe>
   <div class="form-wrap reveal reveal-delay-2">
-    <form id="journeyForm" onsubmit="submitForm(event)">
+    <form id="journeyForm" action="https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec" method="POST" target="formSink" onsubmit="submitForm(event)">
       <!-- Hidden quiz data fields -->
       <input type="hidden" id="quizDraw" name="quiz_draw">
       <input type="hidden" id="quizPace" name="quiz_pace">
       <input type="hidden" id="quizDest" name="quiz_dest">
       <input type="hidden" id="quizLuxury" name="quiz_luxury">
       <input type="hidden" id="quizArchetype" name="quiz_archetype">
+      <input type="hidden" name="source" value="arkipelago-private-journeys">
+      <input type="hidden" name="timestamp" id="formTimestamp">
+      <input type="hidden" name="page" id="formPage">
       <div class="form-group">
         <label class="form-label" for="fieldName">Your Name</label>
         <input type="text" id="fieldName" name="name" class="form-input" placeholder="First & last name" required>
@@ -1219,11 +1223,8 @@ function restartQuiz(){
   document.getElementById('journey-finder').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-/* Form submission */
-const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec';
-
-async function submitForm(e){
-  e.preventDefault();
+/* Form submission — native POST via hidden iframe (no fetch/CORS) */
+function submitForm(e){
   const btn=document.getElementById('formSubmitBtn');
   const note=document.getElementById('formNote');
   const form=document.getElementById('journeyForm');
@@ -1231,34 +1232,21 @@ async function submitForm(e){
   const name=document.getElementById('fieldName').value.trim();
   const email=document.getElementById('fieldEmail').value.trim();
   if(!name||!email){
+    e.preventDefault();
     note.textContent='Please enter your name and email address.';
     note.style.color='#c0392b';
     return;
   }
+
+  document.getElementById('formTimestamp').value=new Date().toISOString();
+  document.getElementById('formPage').value=window.location.href;
 
   btn.textContent='Sending...';
   btn.disabled=true;
   note.textContent='Submitting your inquiry...';
   note.style.color='var(--slate)';
 
-  const payload={
-    name,email,
-    journey_type:document.getElementById('journeyTypeSelect').value,
-    dates:document.getElementById('fieldDates').value.trim(),
-    group_size:document.getElementById('fieldGroup').value.trim(),
-    message:document.getElementById('fieldMessage').value.trim(),
-    quiz_draw:document.getElementById('quizDraw').value,
-    quiz_pace:document.getElementById('quizPace').value,
-    quiz_dest:document.getElementById('quizDest').value,
-    quiz_luxury:document.getElementById('quizLuxury').value,
-    quiz_archetype:document.getElementById('quizArchetype').value,
-    source:'arkipelago-private-journeys',
-    timestamp:new Date().toISOString()
-  };
-
-  try{
-    const encoded=Object.entries(payload).map(([k,v])=>encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&');
-    await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:encoded});
+  setTimeout(()=>{
     form.style.display='none';
     const wrap=document.getElementById('journeyForm').parentElement;
     wrap.innerHTML=`
@@ -1269,12 +1257,7 @@ async function submitForm(e){
           Thank you, ${name}. We've received your inquiry and will be in touch within 24 hours with our initial thoughts for your private journey.
         </p>
       </div>`;
-  }catch(err){
-    btn.textContent='Request My Journey Consultation';
-    btn.disabled=false;
-    note.textContent='Something went wrong — please email us directly at hello@luxurytoursphilippines.com';
-    note.style.color='#c0392b';
-  }
+  },1500);
 }
 </script>
 </body>

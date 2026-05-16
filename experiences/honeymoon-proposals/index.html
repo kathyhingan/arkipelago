@@ -603,10 +603,13 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
     <p class="cta-body" style="font-style:italic;color:rgba(74,85,104,.7)">If you're planning a proposal and want to keep this confidential, say so in your message. We are very good at discretion.</p>
     <div class="cta-promise">24-hour response guaranteed</div>
   </div>
+  <iframe name="formSink" style="display:none" aria-hidden="true" tabindex="-1"></iframe>
   <div class="form-wrap">
-    <form id="journeyForm" onsubmit="submitForm(event)">
-      <input type="hidden" name="page" value="honeymoon-proposals">
+    <form id="journeyForm" action="https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec" method="POST" target="formSink" onsubmit="submitForm(event)">
+      <input type="hidden" name="source" value="arkipelago-honeymoon-proposals">
       <input type="hidden" name="segment" value="couples">
+      <input type="hidden" name="timestamp" id="formTimestamp">
+      <input type="hidden" name="page" id="formPage">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="fname">Your name</label>
@@ -704,20 +707,16 @@ const obs=new IntersectionObserver((entries)=>{
 },{threshold:0.05});
 reveals.forEach(r=>obs.observe(r));
 
-// FORM
+// FORM — native POST via hidden iframe
 function submitForm(e){
-  e.preventDefault();
   const form=e.target;
-  const data=new URLSearchParams(new FormData(form)).toString();
-  fetch('https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec',{
-    method:'POST',body:data,mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'}
-  }).then(()=>{
+  document.getElementById('formTimestamp').value=new Date().toISOString();
+  document.getElementById('formPage').value=window.location.href;
+  // Native submission proceeds. Show success after a short delay.
+  setTimeout(()=>{
     form.style.display='none';
     document.getElementById('formSuccess').style.display='block';
-  }).catch(()=>{
-    form.style.display='none';
-    document.getElementById('formSuccess').style.display='block';
-  });
+  },1500);
 }
 </script>
 </body>

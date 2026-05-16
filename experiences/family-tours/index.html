@@ -1405,7 +1405,10 @@ h2.section-title--light .accent{color:var(--coral)}
       the better the journey we can design. We'll come back within 24 hours.
     </p>
 
-    <form id="journeyForm">
+    <iframe name="formSink" style="display:none" aria-hidden="true" tabindex="-1"></iframe>
+    <form id="journeyForm" action="https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec" method="POST" target="formSink">
+      <input type="hidden" name="timestamp" id="formTimestamp">
+      <input type="hidden" name="page" id="formPage">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="name">Your name</label>
@@ -1555,30 +1558,20 @@ if(window.innerWidth >= 641){
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
-// Form
+// Form — native POST via hidden iframe (no fetch/CORS)
 const form = document.getElementById('journeyForm');
 const submitBtn = document.getElementById('submitBtn');
 const formSuccess = document.getElementById('formSuccess');
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec';
 
-form.addEventListener('submit', async e => {
-  e.preventDefault();
+form.addEventListener('submit', () => {
+  document.getElementById('formTimestamp').value = new Date().toISOString();
+  document.getElementById('formPage').value = window.location.href;
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending…';
-  const payload = {};
-  new FormData(form).forEach((v,k) => payload[k]=v);
-  payload.timestamp = new Date().toISOString();
-  payload.page = window.location.href;
-  const body = Object.entries(payload).map(([k,v]) => encodeURIComponent(k)+'='+encodeURIComponent(v)).join('&');
-  try {
-    await fetch(SCRIPT_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body});
-    form.style.display='none';
-    formSuccess.style.display='block';
-  } catch(err) {
-    submitBtn.disabled=false;
-    submitBtn.textContent='Send Our Family\'s Enquiry →';
-    alert('Something went wrong. Please try again or email us directly.');
-  }
+  setTimeout(() => {
+    form.style.display = 'none';
+    formSuccess.style.display = 'block';
+  }, 1500);
 });
 </script>
 </body>
