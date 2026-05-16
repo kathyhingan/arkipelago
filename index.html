@@ -112,7 +112,7 @@ body{cursor:none}
 .hero-eyebrow,.quiz-eyebrow,.phil-label,.cred-label,.section-label,
 .journey-label,.hiw-label,.nav-links a,.nav-cta,.nav-logo-sub,.footer-brand-sub,
 .footer-col-title,.btn-primary,.btn-gold,.form-submit,.exp-cta,
-.quiz-btn-next,.quiz-btn-back,.dest-region,.footer-copy,.footer-coords-bottom,
+.quiz-btn-next,.quiz-btn-back,.hc-card-tag,.footer-copy,.footer-coords-bottom,
 .post-meta,.breadcrumb,.scroll-label{font-weight:500!important}
 .phil-body,.hero-subtitle,.quiz-subtitle,.result-desc,.exp-body,.form-input,
 .form-select,.footer-links a,.footer-tagline,.promise-item,.journey-body,
@@ -301,36 +301,52 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hiw-cta-note{font-family:'EB Garamond',serif;font-size:15px;font-style:italic;color:var(--slate);margin-top:14px;opacity:.6}
 
 /* DESTINATIONS */
-.destinations{padding:72px 24px 80px}
-@media(min-width:768px){.destinations{padding:100px 40px 100px}}
-@media(min-width:1024px){.destinations{padding:120px 60px 140px}}
+.destinations{background:var(--navy);padding:72px 0 80px}
+@media(min-width:768px){.destinations{padding:100px 0 100px}}
+@media(min-width:1024px){.destinations{padding:120px 0 140px}}
 .section-header{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
 @media(min-width:640px){.section-header{flex-direction:row;justify-content:space-between;align-items:flex-end;margin-bottom:56px}}
+.destinations .section-header{padding:0 24px}
+@media(min-width:768px){.destinations .section-header{padding:0 40px}}
+@media(min-width:1024px){.destinations .section-header{padding:0 60px}}
 .section-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,46px);font-weight:300;color:var(--warm-white)}
 .section-link{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.22em;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:8px;opacity:.65;transition:opacity .3s;white-space:nowrap;align-self:flex-end}
 .section-link:hover{opacity:1}
-.destinations-grid{display:grid;grid-template-columns:1fr;gap:3px}
-@media(min-width:640px){.destinations-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:1024px){.destinations-grid{grid-template-columns:2fr 1fr 1fr;grid-template-rows:300px 220px 220px}}
-@media(min-width:1024px){.dest-card.featured{grid-row:1/3}.dest-card.wide{grid-column:2/4}}
-.dest-card{position:relative;overflow:hidden;cursor:pointer;height:240px}
-@media(min-width:640px){.dest-card{height:260px}}
-@media(min-width:1024px){.dest-card{height:auto}}
-.dest-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.25,.46,.45,.94);filter:brightness(.52)}
-@media(pointer:fine){.dest-card:hover .dest-bg{transform:scale(1.05);filter:brightness(.62)}}
-.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,31,58,.94) 0%,rgba(11,31,58,.08) 65%,transparent 100%)}
-.dest-content{position:absolute;bottom:0;left:0;right:0;padding:22px 24px;z-index:10}
-.dest-region{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
-.dest-name{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,28px);font-weight:400;color:var(--warm-white);margin-bottom:4px}
-@media(min-width:1024px){.dest-card.featured .dest-name{font-size:38px}}
-.dest-tagline{font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:rgba(250,248,244,.5);line-height:1.45;display:none}
-@media(pointer:fine){
-.dest-region{opacity:0;transform:translateY(6px);transition:all .3s .04s}
-.dest-tagline{display:block;opacity:0;transform:translateY(8px);transition:all .32s .08s}
-.dest-card:hover .dest-region,.dest-card:hover .dest-tagline{opacity:1;transform:translateY(0)}
-}
-@media(pointer:coarse){.dest-region{opacity:1}}
+
+/* Highlights-style carousel */
+.hc-carousel-wrap{position:relative;margin-top:3rem}
+.hc-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:3px;cursor:grab;scroll-padding-left:24px;padding:0 24px 0}
+@media(min-width:768px){.hc-carousel{padding:0 40px 0;scroll-padding-left:40px}}
+@media(min-width:1024px){.hc-carousel{padding:0 60px 0;scroll-padding-left:60px}}
+.hc-carousel:active{cursor:grabbing}
+.hc-carousel::-webkit-scrollbar{display:none}
+.hc-carousel{scrollbar-width:none}
+.hc-card{flex:0 0 320px;height:460px;position:relative;overflow:hidden;scroll-snap-align:start;background:var(--navy-mid)}
+.hc-card-link{display:block;text-decoration:none;color:inherit;cursor:pointer}
+.hc-card-link:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(min-width:640px){.hc-card{flex:0 0 360px;height:500px}}
+@media(min-width:1024px){.hc-card{flex:0 0 400px;height:540px}}
+.hc-card-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .7s cubic-bezier(.25,.46,.45,.94);z-index:1}
+.hc-card:hover .hc-card-img{transform:scale(1.08)}
+.hc-card-base{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,0.3) 50%,rgba(10,22,40,0.85) 100%);z-index:2;transition:opacity .4s}
+.hc-card-hover-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,0.5) 35%,rgba(10,22,40,0.97) 100%);z-index:3;opacity:0;transition:opacity .4s}
+.hc-card:hover .hc-card-hover-overlay{opacity:1}
+.hc-card-num{position:absolute;top:1.25rem;right:1.25rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:4.5rem;font-weight:300;line-height:1;color:rgba(255,255,255,.12);z-index:4;pointer-events:none;transition:color .4s}
+.hc-card:hover .hc-card-num{color:rgba(184,150,110,.2)}
+.hc-card-content{position:absolute;bottom:0;left:0;right:0;z-index:5;padding:1.5rem}
+.hc-card-tag{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+.hc-card-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:500;color:var(--warm-white);line-height:1.15;margin:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.hc-card-desc{font-family:'EB Garamond',Georgia,serif;font-size:.95rem;color:rgba(250,248,244,.75);line-height:1.7;margin-top:.75rem;max-height:0;overflow:hidden;opacity:0;transform:translateY(8px);transition:max-height .45s cubic-bezier(.25,.46,.45,.94),opacity .35s ease .08s,transform .35s ease .08s}
+.hc-card:hover .hc-card-desc{max-height:160px;opacity:1;transform:translateY(0)}
+.hc-card:hover .hc-card-title{transform:translateY(-4px)}
+.hc-nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 .5rem;pointer-events:none;z-index:20}
+.hc-arrow{width:48px;height:48px;background:rgba(11,31,58,.75);backdrop-filter:blur(8px);border:1px solid rgba(184,150,110,.3);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;pointer-events:all;transition:all .25s;flex-shrink:0}
+.hc-arrow:hover{background:rgba(184,150,110,.25);border-color:var(--gold)}
+.hc-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem;padding:0 24px}
+.hc-dot{width:5px;height:5px;border-radius:50%;background:rgba(184,150,110,.25);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+.hc-dot.active{background:var(--gold);transform:scale(1.3)}
+@media(max-width:640px){.hc-card{flex:0 0 85vw;height:420px}.hc-arrow{display:none}}
 
 /* EXPERIENCES */
 .experiences{background:var(--warm-white);padding:80px 24px}
@@ -692,59 +708,203 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 </section>
 
 <!-- DESTINATIONS -->
-<section class="destinations" id="destinations" style="background:var(--navy)" aria-label="Luxury tour destinations Philippines">
+<section class="destinations" id="destinations" aria-label="Luxury tour destinations Philippines">
   <div class="section-header reveal"><div><div class="section-label">Where We Take You</div><h2 class="section-title">The Destinations</h2></div><a href="#" class="section-link">View all →</a></div>
-  <div class="destinations-grid reveal reveal-delay-1">
 
-    <div class="dest-card featured" aria-label="Coron and Port Barton, Palawan">
-      <div class="dest-bg" style="background-image:url('/coron.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">Mimaropa Region</div><div class="dest-name">Coron & Port Barton</div><div class="dest-tagline">Palawan without the crowd. Shipwrecks, karst lakes, and the version of this island that hasn't been discovered yet.</div></div>
+  <div class="hc-carousel-wrap reveal reveal-delay-1">
+    <div class="hc-carousel" id="hcCarousel">
+
+      <!-- 01 — EL NIDO -->
+      <a class="hc-card hc-card-link" href="/destinations/el-nido/" aria-label="El Nido, Palawan">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-kayak-dog.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">01</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">El Nido</h3>
+          <p class="hc-card-desc">Towering limestone, hidden lagoons, the most photographed islands in the Philippines — on a private boat, almost alone.</p>
+        </div>
+      </a>
+
+      <!-- 02 — CORON -->
+      <a class="hc-card hc-card-link" href="/destinations/coron/" aria-label="Coron, Palawan">
+        <div class="hc-card-img" style="background-image:url('/images/coron-twin-lagoon-couple.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">02</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Coron</h3>
+          <p class="hc-card-desc">Shipwrecks beneath glass-clear water, karst lakes carved from cathedral cliffs. The most cinematic island in the country.</p>
+        </div>
+      </a>
+
+      <!-- 03 — PORT BARTON -->
+      <a class="hc-card hc-card-link" href="/destinations/port-barton/" aria-label="Port Barton, Palawan">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-beach.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">03</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Port Barton</h3>
+          <p class="hc-card-desc">What El Nido was twenty years ago. Coconut beaches, river mouths, and only a handful of guests.</p>
+        </div>
+      </a>
+
+      <!-- 04 — PALAWAN (regional) -->
+      <a class="hc-card hc-card-link" href="/destinations/palawan/" aria-label="Palawan — Puerto Princesa, Honda Bay, and beyond">
+        <div class="hc-card-img" style="background-image:url('/images/palawan-whale-shark.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">04</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Palawan</h3>
+          <p class="hc-card-desc">Whale sharks in Honda Bay, fireflies in Irawan, the ancient Tabon Caves. The Palawan most travelers never reach.</p>
+        </div>
+      </a>
+
+      <!-- 05 — BATANES -->
+      <div class="hc-card" aria-label="Batanes, northernmost Philippines">
+        <div class="hc-card-img" style="background-image:url('/images/batanes.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">05</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cagayan Valley</span>
+          <h3 class="hc-card-title">Batanes</h3>
+          <p class="hc-card-desc">Stone houses, rolling hills, and a pace of life that stopped in 1890.</p>
+        </div>
+      </div>
+
+      <!-- 06 — VIGAN -->
+      <div class="hc-card" aria-label="Vigan, UNESCO heritage city">
+        <div class="hc-card-img" style="background-image:url('/images/vigan.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">06</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Ilocos Region</span>
+          <h3 class="hc-card-title">Vigan</h3>
+          <p class="hc-card-desc">The best-preserved Spanish colonial city in Asia. Cobblestones, kalesas, and three centuries of stories.</p>
+        </div>
+      </div>
+
+      <!-- 07 — ILOCOS -->
+      <div class="hc-card" aria-label="Ilocos Norte — Pagudpud, Bangui windmills, and the northern coast">
+        <div class="hc-card-img" style="background-image:url('/images/ilocos.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">07</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Ilocos Region</span>
+          <h3 class="hc-card-title">Ilocos</h3>
+          <p class="hc-card-desc">Windmills above the sea, the white-sand coves of Pagudpud, and Spanish-era churches scattered through the north.</p>
+        </div>
+      </div>
+
+      <!-- 08 — BAGUIO -->
+      <div class="hc-card" aria-label="Baguio, the Philippines' first hill station">
+        <div class="hc-card-img" style="background-image:url('/images/baguio.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">08</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cordillera Region</span>
+          <h3 class="hc-card-title">Baguio</h3>
+          <p class="hc-card-desc">Pine forests, cool air, and the artist enclaves of the country's first hill station.</p>
+        </div>
+      </div>
+
+      <!-- 09 — SAGADA -->
+      <div class="hc-card" aria-label="Sagada, Mountain Province">
+        <div class="hc-card-img" style="background-image:url('/images/sagada.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">09</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cordillera Region</span>
+          <h3 class="hc-card-title">Sagada</h3>
+          <p class="hc-card-desc">Hanging coffins, cave cathedrals, and a stillness no other Philippine destination delivers.</p>
+        </div>
+      </div>
+
+      <!-- 10 — PUERTO GALERA -->
+      <div class="hc-card" aria-label="Puerto Galera, Oriental Mindoro">
+        <div class="hc-card-img" style="background-image:url('/images/galera.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">10</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Mimaropa Region</span>
+          <h3 class="hc-card-title">Puerto Galera</h3>
+          <p class="hc-card-desc">World-class diving, hidden coves, a quieter rhythm just hours from Manila.</p>
+        </div>
+      </div>
+
+      <!-- 11 — BOHOL -->
+      <div class="hc-card" aria-label="Bohol, Central Visayas">
+        <div class="hc-card-img" style="background-image:url('/images/Bohol-Tour-with-Seniors-and-Toddler.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">11</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Central Visayas</span>
+          <h3 class="hc-card-title">Bohol</h3>
+          <p class="hc-card-desc">Chocolate Hills at dawn, the world's smallest primates by lunch, and a river snake at sunset.</p>
+        </div>
+      </div>
+
+      <!-- 12 — CEBU -->
+      <div class="hc-card" aria-label="Cebu, Central Visayas">
+        <div class="hc-card-img" style="background-image:url('/images/cebu.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">12</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Central Visayas</span>
+          <h3 class="hc-card-title">Cebu</h3>
+          <p class="hc-card-desc">Whale sharks at sunrise, waterfalls at noon, and the country's deepest colonial roots.</p>
+        </div>
+      </div>
+
+      <!-- 13 — BUKIDNON HIGHLANDS -->
+      <div class="hc-card" aria-label="Bukidnon Highlands, Northern Mindanao">
+        <div class="hc-card-img" style="background-image:url('/images/bukidnon.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">13</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Northern Mindanao</span>
+          <h3 class="hc-card-title">Bukidnon Highlands</h3>
+          <p class="hc-card-desc">Vast plateaus, tribal heritage, and cool highland air that surprises every visitor who expected only beaches.</p>
+        </div>
+      </div>
+
+      <!-- 14 — SIARGAO -->
+      <div class="hc-card" aria-label="Siargao, Caraga Region">
+        <div class="hc-card-img" style="background-image:url('/images/siargao.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">14</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Caraga Region</span>
+          <h3 class="hc-card-title">Siargao</h3>
+          <p class="hc-card-desc">Beyond the surf break — private mangroves and sunsets that demand silence.</p>
+        </div>
+      </div>
+
+    </div><!-- /hc-carousel -->
+
+    <div class="hc-nav">
+      <button class="hc-arrow" id="hcPrev" aria-label="Previous">&#8592;</button>
+      <button class="hc-arrow" id="hcNext" aria-label="Next">&#8594;</button>
     </div>
+  </div><!-- /hc-carousel-wrap -->
 
-    <div class="dest-card" aria-label="Batanes, northernmost Philippines">
-      <div class="dest-bg" style="background-image:url('/batanes.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">Cagayan Valley</div><div class="dest-name">Batanes</div><div class="dest-tagline">Stone houses, rolling hills, and a pace of life that stopped in 1890.</div></div>
-    </div>
-
-    <div class="dest-card" aria-label="Baguio and Sagada, Cordillera highlands Philippines">
-      <div class="dest-bg" style="background-image:url('/baguio.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">Cordillera Region</div><div class="dest-name">Baguio & Sagada</div><div class="dest-tagline">Cool mountain air, pine forests, and the ancient rice terraces of the highlands.</div></div>
-    </div>
-
-    <div class="dest-card" aria-label="Siargao Island Philippines">
-      <div class="dest-bg" style="background-image:url('/Siargao.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">Caraga Region</div><div class="dest-name">Siargao</div><div class="dest-tagline">Beyond the surf break — private mangroves and sunsets that demand silence.</div></div>
-    </div>
-
-    <div class="dest-card" aria-label="Bohol and Cebu, Central Visayas Philippines">
-      <div class="dest-bg" style="background-image:url('/bohol.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">Central Visayas</div><div class="dest-name">Bohol & Cebu</div><div class="dest-tagline">Chocolate hills at dawn. Whale sharks at dusk.</div></div>
-    </div>
-
-    <div class="dest-card wide" aria-label="Bukidnon Highlands, Northern Mindanao Philippines">
-      <div class="dest-bg" style="background-image:url('/bukidnon.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">Northern Mindanao</div><div class="dest-name">Bukidnon Highlands</div><div class="dest-tagline">Vast plateaus, tribal heritage, and cool highland air that surprises every visitor who expected only beaches.</div></div>
-    </div>
-
-    <div class="dest-card" aria-label="Puerto Galera, Oriental Mindoro Philippines">
-      <div class="dest-bg" style="background-image:url('/galera.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">MIMAROPA</div><div class="dest-name">Puerto Galera</div><div class="dest-tagline">World-class diving, hidden coves, a quieter rhythm just hours from Manila.</div></div>
-    </div>
-
-    <div class="dest-card" aria-label="Vigan and Ilocos, UNESCO heritage city Philippines">
-      <div class="dest-bg" style="background-image:url('/vigan.jpg')"></div>
-      <div class="dest-overlay"></div>
-      <div class="dest-content"><div class="dest-region">Ilocos Region</div><div class="dest-name">Vigan & Ilocos</div><div class="dest-tagline">The best-preserved Spanish colonial city in Asia and three centuries of stories.</div></div>
-    </div>
-
-  </div>
+  <div class="hc-dots" id="hcDots"></div>
 </section>
 
 <!-- WHO WE DESIGN FOR -->
@@ -993,6 +1153,66 @@ function submitForm(e){
       </div>`;
   },1500);
 }
+</script>
+
+<script>
+/* ── Destinations Carousel ── */
+(function(){
+  const carousel = document.getElementById('hcCarousel');
+  const dotsWrap = document.getElementById('hcDots');
+  const cards    = carousel ? carousel.querySelectorAll('.hc-card') : [];
+  if(!carousel || !cards.length) return;
+
+  const total = cards.length;
+  let current = 0;
+
+  cards.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'hc-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = ()=>goTo(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function getDots(){ return dotsWrap.querySelectorAll('.hc-dot'); }
+
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, total-1));
+    const card = cards[current];
+    carousel.scrollTo({ left: card.offsetLeft - carousel.offsetLeft, behavior:'smooth' });
+    getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+
+  document.getElementById('hcPrev').onclick = ()=>goTo(current-1);
+  document.getElementById('hcNext').onclick = ()=>goTo(current+1);
+
+  let scrollTimer;
+  carousel.addEventListener('scroll',()=>{
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(()=>{
+      const scrollLeft = carousel.scrollLeft;
+      let closest = 0, minDist = Infinity;
+      cards.forEach((c,i)=>{
+        const dist = Math.abs(c.offsetLeft - carousel.offsetLeft - scrollLeft);
+        if(dist < minDist){ minDist=dist; closest=i; }
+      });
+      current = closest;
+      getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+    },80);
+  });
+
+  let startX=0;
+  carousel.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx)>50) goTo(dx<0 ? current+1 : current-1);
+  },{passive:true});
+
+  let isDown=false, startScrollLeft=0, startPageX=0;
+  carousel.addEventListener('mousedown',e=>{ isDown=true; startScrollLeft=carousel.scrollLeft; startPageX=e.pageX; carousel.style.userSelect='none'; });
+  window.addEventListener('mouseup',()=>{ isDown=false; carousel.style.userSelect=''; });
+  carousel.addEventListener('mousemove',e=>{ if(!isDown)return; e.preventDefault(); carousel.scrollLeft=startScrollLeft-(e.pageX-startPageX); });
+})();
 </script>
 </body>
 </html>
