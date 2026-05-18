@@ -139,23 +139,34 @@
   .highlights .section-label{color:var(--gold)}
   .highlights .section-title{color:var(--warm-white)}
   .highlights .section-title em{color:var(--gold)}
-  .highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem}
-  .highlight-card.feature{grid-column:span 2}
-  .highlight-card{position:relative;overflow:hidden;background:var(--navy-mid);cursor:default;display:flex;flex-direction:column}
-  .hc-photo{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;flex-shrink:0}
-  .highlight-card.feature .hc-photo{aspect-ratio:16/9}
-  .hc-photo-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .6s ease;z-index:1}
-  .hc-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,.1) 0%,rgba(10,22,40,.25) 50%,rgba(10,22,40,.72) 100%);transition:opacity .4s;z-index:2}
-  .highlight-card:hover .hc-photo-bg{transform:scale(1.04)}
-  .highlight-card:hover .hc-photo-overlay{opacity:.85}
-  .hc-num{position:absolute;top:1rem;right:1.25rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:5rem;font-weight:300;line-height:1;color:rgba(255,255,255,.12);pointer-events:none;transition:color .4s;z-index:3}
-  .highlight-card:hover .hc-num{color:rgba(184,150,110,.22)}
-  .hc-title-wrap{position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1.5rem 1rem;z-index:4}
-  .hc-location-tag{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;display:block}
-  .hc-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:500;color:var(--warm-white);line-height:1.2;margin:0}
-  .highlight-card.feature .hc-title{font-size:clamp(1.3rem,2.5vw,1.9rem)}
-  .hc-body{padding:1.25rem 1.5rem 1.5rem;background:#0d1e36;flex:1;border-top:1px solid rgba(184,150,110,.1)}
-  .hc-text{font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.75}
+  .hc-carousel-wrap{position:relative;margin-top:3rem}
+  .hc-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:3px;cursor:grab;scroll-padding-left:2rem;padding:0 2rem 0}
+  @media(min-width:1024px){.hc-carousel{padding:0 60px 0;scroll-padding-left:60px}}
+  .hc-carousel:active{cursor:grabbing}
+  .hc-carousel::-webkit-scrollbar{display:none}
+  .hc-carousel{scrollbar-width:none}
+  .hc-card{flex:0 0 320px;height:460px;position:relative;overflow:hidden;scroll-snap-align:start;background:var(--navy-mid)}
+  @media(min-width:640px){.hc-card{flex:0 0 360px;height:500px}}
+  @media(min-width:1024px){.hc-card{flex:0 0 400px;height:540px}}
+  .hc-card-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .7s cubic-bezier(.25,.46,.45,.94);z-index:1}
+  .hc-card:hover .hc-card-img{transform:scale(1.08)}
+  .hc-card-base{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,0.3) 50%,rgba(10,22,40,0.85) 100%);z-index:2;transition:opacity .4s}
+  .hc-card-hover-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,0.5) 35%,rgba(10,22,40,0.97) 100%);z-index:3;opacity:0;transition:opacity .4s}
+  .hc-card:hover .hc-card-hover-overlay{opacity:1}
+  .hc-card-num{position:absolute;top:1.25rem;right:1.25rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:4.5rem;font-weight:300;line-height:1;color:rgba(255,255,255,.12);z-index:4;pointer-events:none;transition:color .4s}
+  .hc-card:hover .hc-card-num{color:rgba(184,150,110,.2)}
+  .hc-card-content{position:absolute;bottom:0;left:0;right:0;z-index:5;padding:1.5rem}
+  .hc-card-tag{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+  .hc-card-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:500;color:var(--warm-white);line-height:1.15;margin:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+  .hc-card-desc{font-family:'EB Garamond',Georgia,serif;font-size:.95rem;color:rgba(250,248,244,.75);line-height:1.7;margin-top:.75rem;max-height:0;overflow:hidden;opacity:0;transform:translateY(8px);transition:max-height .45s cubic-bezier(.25,.46,.45,.94),opacity .35s ease .08s,transform .35s ease .08s}
+  .hc-card:hover .hc-card-desc{max-height:200px;opacity:1;transform:translateY(0)}
+  .hc-card:hover .hc-card-title{transform:translateY(-4px)}
+  .hc-nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 .5rem;pointer-events:none;z-index:20}
+  .hc-arrow{width:48px;height:48px;background:rgba(11,31,58,.75);backdrop-filter:blur(8px);border:1px solid rgba(184,150,110,.3);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;pointer-events:all;transition:all .25s;flex-shrink:0}
+  .hc-arrow:hover{background:rgba(184,150,110,.25);border-color:var(--gold)}
+  .hc-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem;padding:0 2rem}
+  .hc-dot{width:5px;height:5px;border-radius:50%;background:rgba(184,150,110,.25);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+  .hc-dot.active{background:var(--gold);transform:scale(1.3)}
 
   /* EXPERIENCE STRIP */
   .experience-strip{background:var(--navy);padding:5rem 2rem}
@@ -210,9 +221,8 @@
   @media(max-width:900px){
     .intro-grid{grid-template-columns:1fr;gap:2.5rem}
     .intro-image-caption{position:static;margin-top:.75rem;max-width:100%}
-    .highlights-grid{grid-template-columns:1fr}
-    .highlight-card.feature{grid-column:span 1}
-    .highlight-card.feature .hc-photo{aspect-ratio:4/3}
+    .hc-card{flex:0 0 85vw;height:420px}
+    .hc-arrow{display:none}
     .exp-list{grid-template-columns:1fr}
     .exp-item:nth-child(even){padding-left:0;border-left:none}
     .practical-grid{grid-template-columns:1fr}
@@ -322,125 +332,114 @@
 
 <!-- HIGHLIGHTS -->
 <section class="section highlights">
-  <div class="section-inner">
+  <div>
     <p class="section-label">Signature Experiences</p>
     <h2 class="section-title">What Port Barton<br><em>gives you</em></h2>
-    <div class="highlights-grid">
+  </div>
 
-      <!-- 01 — SNORKELLING · feature -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/port-barton-snorkeling.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">01</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Port Barton Bay · Reef Systems</span>
-            <h3 class="hc-title">The Living Reef</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">The reef systems around Port Barton are among the healthiest remaining in Palawan. Underwater cliff walls drop into deep blue — thick with coral, clownfish darting through anemones, stonefish resting motionless on the bottom, and on a good morning a sea turtle moving slowly through it all as if time does not apply to it. No dive certification needed. The best of it is in the top five metres.</p>
+  <div class="hc-carousel-wrap">
+    <div class="hc-carousel" id="hcCarousel">
+
+      <!-- 01 — THE LIVING REEF -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-snorkeling.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">01</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Port Barton Bay · Reef Systems</span>
+          <h3 class="hc-card-title">The Living Reef</h3>
+          <p class="hc-card-desc">Among the healthiest remaining reef systems in Palawan. Underwater cliff walls drop into deep blue — thick with coral, clownfish, and on a good morning a sea turtle moving slowly through it all as if time does not apply. No dive certification needed; the best of it is in the top five metres.</p>
         </div>
       </div>
 
-      <!-- 02 — MOONRISE -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/port-barton-moonrise-beach.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">02</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Port Barton · Full Moon</span>
-            <h3 class="hc-title">Moonrise on the Shore</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">The main beach sits in calm, shallow water — safe for children, magical at a full moon. When the moon rises over the bay and the water goes silver and still, there are few things in the Philippines that equal it. We build Port Barton itineraries around the lunar calendar when we can.</p>
+      <!-- 02 — MOONRISE ON THE SHORE -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-moonrise-beach.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">02</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Port Barton · Full Moon</span>
+          <h3 class="hc-card-title">Moonrise on the Shore</h3>
+          <p class="hc-card-desc">The main beach sits in calm, shallow water — safe for children, magical at a full moon. When the moon rises over the bay and the water goes silver and still, there are few things in the Philippines that equal it. We build itineraries around the lunar calendar when we can.</p>
         </div>
       </div>
 
       <!-- 03 — WHITE BEACH -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/port-barton-white-beach.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">03</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Island Hop · By Kayak</span>
-            <h3 class="hc-title">White Beach</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">A short kayak paddle from the village brings you to White Beach — a crescent of fine sand with shade trees at the back and a shallow reef at the water's edge. No bangka drops of tour groups. Just you, the reef, and the sound of nothing worth hurrying back from.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-white-beach.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">03</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Island Hop · By Kayak</span>
+          <h3 class="hc-card-title">White Beach</h3>
+          <p class="hc-card-desc">A short kayak paddle from the village brings you to White Beach — a crescent of fine sand with shade trees at the back and a shallow reef at the water's edge. No bangka drops of tour groups. Just you, the reef, and the sound of nothing worth hurrying back from.</p>
         </div>
       </div>
 
       <!-- 04 — COCONUT BEACH -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/port-barton-coconut-beach.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">04</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Around the Headland</span>
-            <h3 class="hc-title">Coconut Beach</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Around the rocky headland from the main beach, Coconut Beach is wilder and less visited. Pigs wander the tree line. Coconuts fall without asking permission. The snorkelling on the headland's reef edge is some of the best in the area — and it is almost always empty.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-coconut-beach.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">04</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Around the Headland</span>
+          <h3 class="hc-card-title">Coconut Beach</h3>
+          <p class="hc-card-desc">Around the rocky headland from the main beach, Coconut Beach is wilder and less visited. Pigs wander the tree line. Coconuts fall without asking permission. The snorkelling on the headland's reef edge is some of the best in the area — and almost always empty.</p>
         </div>
       </div>
 
-      <!-- 05 — PAMUAYAN WATERFALL · feature -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/port-barton-pamuayan-waterfall.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">05</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Forest Trail · 4km Return</span>
-            <h3 class="hc-title">Pamuayan Waterfall</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">A four-kilometre trail through primary forest leads to one of Palawan's most quietly spectacular waterfalls. The walk itself is the point — cathedral-canopy jungle, birdsong, and the gradual deepening of quiet as you move away from the coast. The pool at the base is cold and clear. We pair this with a morning on the reef so the afternoon feels earned.</p>
+      <!-- 05 — PAMUAYAN WATERFALL -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-pamuayan-waterfall.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">05</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Forest Trail · 4km Return</span>
+          <h3 class="hc-card-title">Pamuayan Waterfall</h3>
+          <p class="hc-card-desc">A four-kilometre trail through primary forest leads to one of Palawan's most quietly spectacular waterfalls. Cathedral-canopy jungle, birdsong, and the gradual deepening of quiet as you move away from the coast. The pool at the base is cold and clear.</p>
         </div>
       </div>
 
       <!-- 06 — ISLAND HOPPING -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-kayak-dog.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">06</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Private Bangka · Sea Turtles</span>
-            <h3 class="hc-title">Island Hopping</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Port Barton's bay is ringed by uninhabited islands with white-sand beaches and reef systems that reward patient snorkellers. Sea turtle sightings are common — not guaranteed, but common enough that we build extra time into every island hop. A private bangka means the schedule is yours.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-kayak-dog.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">06</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Private Bangka · Sea Turtles</span>
+          <h3 class="hc-card-title">Island Hopping</h3>
+          <p class="hc-card-desc">Port Barton's bay is ringed by uninhabited islands with white-sand beaches and reef systems that reward patient snorkellers. Sea turtle sightings are common — not guaranteed, but common enough that we build extra time into every island hop.</p>
         </div>
       </div>
 
       <!-- 07 — LONG BEACH -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/port-barton-beach.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">07</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">San Vicente · 20 Minutes</span>
-            <h3 class="hc-title">Long Beach</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Fourteen kilometres of unbroken white sand — the longest in the Philippines, and still largely empty. Long Beach in nearby San Vicente is a half-day excursion that puts scale into perspective. We include it in itineraries of four nights or more as an afternoon drive and sunset walk.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/port-barton-beach.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">07</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">San Vicente · 20 Minutes</span>
+          <h3 class="hc-card-title">Long Beach</h3>
+          <p class="hc-card-desc">Fourteen kilometres of unbroken white sand — the longest in the Philippines, and still largely empty. Long Beach in nearby San Vicente is a half-day excursion that puts scale into perspective. We include it in itineraries of four nights or more as an afternoon drive and sunset walk.</p>
         </div>
       </div>
 
+    </div><!-- /hc-carousel -->
+
+    <div class="hc-nav">
+      <button class="hc-arrow" id="hcPrev" aria-label="Previous">&#8592;</button>
+      <button class="hc-arrow" id="hcNext" aria-label="Next">&#8594;</button>
     </div>
-  </div>
+  </div><!-- /hc-carousel-wrap -->
+
+  <div class="hc-dots" id="hcDots"></div>
 </section>
 
 <!-- EXPERIENCE STRIP -->
@@ -559,6 +558,56 @@ function toggleMenu(){
   document.getElementById('navDrawer').classList.toggle('open');
   document.body.style.overflow=document.getElementById('navDrawer').classList.contains('open')?'hidden':'';
 }
+
+/* Highlights carousel */
+(function(){
+  const carousel = document.getElementById('hcCarousel');
+  const dotsWrap = document.getElementById('hcDots');
+  const cards    = carousel ? carousel.querySelectorAll('.hc-card') : [];
+  if(!carousel || !cards.length) return;
+  const total = cards.length;
+  let current = 0;
+  cards.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'hc-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = ()=>goTo(i);
+    dotsWrap.appendChild(d);
+  });
+  function getDots(){ return dotsWrap.querySelectorAll('.hc-dot'); }
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, total-1));
+    const card = cards[current];
+    carousel.scrollTo({ left: card.offsetLeft - carousel.offsetLeft, behavior:'smooth' });
+    getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+  document.getElementById('hcPrev').onclick = ()=>goTo(current-1);
+  document.getElementById('hcNext').onclick = ()=>goTo(current+1);
+  let scrollTimer;
+  carousel.addEventListener('scroll',()=>{
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(()=>{
+      const scrollLeft = carousel.scrollLeft;
+      let closest = 0, minDist = Infinity;
+      cards.forEach((c,i)=>{
+        const dist = Math.abs(c.offsetLeft - carousel.offsetLeft - scrollLeft);
+        if(dist < minDist){ minDist=dist; closest=i; }
+      });
+      current = closest;
+      getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+    },80);
+  });
+  let startX=0;
+  carousel.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx)>50) goTo(dx<0 ? current+1 : current-1);
+  },{passive:true});
+  let isDown=false, startScrollLeft=0, startPageX=0;
+  carousel.addEventListener('mousedown',e=>{ isDown=true; startScrollLeft=carousel.scrollLeft; startPageX=e.pageX; carousel.style.userSelect='none'; });
+  window.addEventListener('mouseup',()=>{ isDown=false; carousel.style.userSelect=''; });
+  carousel.addEventListener('mousemove',e=>{ if(!isDown)return; e.preventDefault(); carousel.scrollLeft=startScrollLeft-(e.pageX-startPageX); });
+})();
 </script>
 </body>
 </html>
