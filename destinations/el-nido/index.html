@@ -134,28 +134,39 @@
   .personal-body{font-size:1.05rem;color:rgba(250,248,244,.65);line-height:1.85;max-width:720px}
   .personal-body+.personal-body{margin-top:1.25rem}
 
-  /* HIGHLIGHTS */
+  /* HIGHLIGHTS — carousel */
   .highlights{background:var(--navy);padding:6rem 2rem}
   .highlights .section-label{color:var(--gold)}
   .highlights .section-title{color:var(--warm-white)}
   .highlights .section-title em{color:var(--gold)}
-  .highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem}
-  .highlight-card.feature{grid-column:span 2}
-  .highlight-card{position:relative;overflow:hidden;background:var(--navy-mid);cursor:default;display:flex;flex-direction:column}
-  .hc-photo{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;flex-shrink:0}
-  .highlight-card.feature .hc-photo{aspect-ratio:16/9}
-  .hc-photo-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .6s ease;z-index:1}
-  .hc-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,.1) 0%,rgba(10,22,40,.25) 50%,rgba(10,22,40,.72) 100%);transition:opacity .4s;z-index:2}
-  .highlight-card:hover .hc-photo-bg{transform:scale(1.04)}
-  .highlight-card:hover .hc-photo-overlay{opacity:.85}
-  .hc-num{position:absolute;top:1rem;right:1.25rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:5rem;font-weight:300;line-height:1;color:rgba(255,255,255,.12);pointer-events:none;transition:color .4s;z-index:3}
-  .highlight-card:hover .hc-num{color:rgba(184,150,110,.22)}
-  .hc-title-wrap{position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1.5rem 1rem;z-index:4}
-  .hc-location-tag{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;display:block}
-  .hc-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:500;color:var(--warm-white);line-height:1.2;margin:0}
-  .highlight-card.feature .hc-title{font-size:clamp(1.3rem,2.5vw,1.9rem)}
-  .hc-body{padding:1.25rem 1.5rem 1.5rem;background:#0d1e36;flex:1;border-top:1px solid rgba(184,150,110,.1)}
-  .hc-text{font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.75}
+  .hc-carousel-wrap{position:relative;margin-top:3rem}
+  .hc-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:3px;cursor:grab;scroll-padding-left:2rem;padding:0 2rem 0}
+  @media(min-width:1024px){.hc-carousel{padding:0 60px 0;scroll-padding-left:60px}}
+  .hc-carousel:active{cursor:grabbing}
+  .hc-carousel::-webkit-scrollbar{display:none}
+  .hc-carousel{scrollbar-width:none}
+  .hc-card{flex:0 0 320px;height:460px;position:relative;overflow:hidden;scroll-snap-align:start;background:var(--navy-mid)}
+  @media(min-width:640px){.hc-card{flex:0 0 360px;height:500px}}
+  @media(min-width:1024px){.hc-card{flex:0 0 400px;height:540px}}
+  .hc-card-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .7s cubic-bezier(.25,.46,.45,.94);z-index:1}
+  .hc-card:hover .hc-card-img{transform:scale(1.08)}
+  .hc-card-base{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,0.3) 50%,rgba(10,22,40,0.85) 100%);z-index:2;transition:opacity .4s}
+  .hc-card-hover-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,0.5) 35%,rgba(10,22,40,0.97) 100%);z-index:3;opacity:0;transition:opacity .4s}
+  .hc-card:hover .hc-card-hover-overlay{opacity:1}
+  .hc-card-num{position:absolute;top:1.25rem;right:1.25rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:4.5rem;font-weight:300;line-height:1;color:rgba(255,255,255,.12);z-index:4;pointer-events:none;transition:color .4s}
+  .hc-card:hover .hc-card-num{color:rgba(184,150,110,.2)}
+  .hc-card-content{position:absolute;bottom:0;left:0;right:0;z-index:5;padding:1.5rem}
+  .hc-card-tag{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+  .hc-card-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:500;color:var(--warm-white);line-height:1.15;margin:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+  .hc-card-desc{font-family:'EB Garamond',Georgia,serif;font-size:.95rem;color:rgba(250,248,244,.75);line-height:1.7;margin-top:.75rem;max-height:0;overflow:hidden;opacity:0;transform:translateY(8px);transition:max-height .45s cubic-bezier(.25,.46,.45,.94),opacity .35s ease .08s,transform .35s ease .08s}
+  .hc-card:hover .hc-card-desc{max-height:200px;opacity:1;transform:translateY(0)}
+  .hc-card:hover .hc-card-title{transform:translateY(-4px)}
+  .hc-nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 .5rem;pointer-events:none;z-index:20}
+  .hc-arrow{width:48px;height:48px;background:rgba(11,31,58,.75);backdrop-filter:blur(8px);border:1px solid rgba(184,150,110,.3);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;pointer-events:all;transition:all .25s;flex-shrink:0}
+  .hc-arrow:hover{background:rgba(184,150,110,.25);border-color:var(--gold)}
+  .hc-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem;padding:0 2rem}
+  .hc-dot{width:5px;height:5px;border-radius:50%;background:rgba(184,150,110,.25);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+  .hc-dot.active{background:var(--gold);transform:scale(1.3)}
 
   /* EXPERIENCE STRIP */
   .experience-strip{background:var(--navy);padding:5rem 2rem}
@@ -210,9 +221,8 @@
   @media(max-width:900px){
     .intro-grid{grid-template-columns:1fr;gap:2.5rem}
     .intro-image-caption{position:static;margin-top:.75rem;max-width:100%}
-    .highlights-grid{grid-template-columns:1fr}
-    .highlight-card.feature{grid-column:span 1}
-    .highlight-card.feature .hc-photo{aspect-ratio:4/3}
+    .hc-card{flex:0 0 85vw;height:420px}
+    .hc-arrow{display:none}
     .exp-list{grid-template-columns:1fr}
     .exp-item:nth-child(even){padding-left:0;border-left:none}
     .practical-grid{grid-template-columns:1fr}
@@ -322,141 +332,127 @@
 
 <!-- HIGHLIGHTS -->
 <section class="section highlights">
-  <div class="section-inner">
+  <div>
     <p class="section-label">Signature Experiences</p>
     <h2 class="section-title">What El Nido<br><em>actually is</em></h2>
-    <div class="highlights-grid">
+  </div>
 
-      <!-- 01 — BIG LAGOON · feature -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-big-lagoon.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">01</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Miniloc Island · Tour A</span>
-            <h3 class="hc-title">Big Lagoon</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">The one image everyone has seen before coming to El Nido — and it still does not prepare you. A narrow passage in the limestone cliff opens into an enclosed lagoon of impossible turquoise, the walls rising straight from the water. At 7am on a private kayak, before the group tours arrive, the silence is total. The photographs you take here will be the ones you keep.</p>
+  <div class="hc-carousel-wrap">
+    <div class="hc-carousel" id="hcCarousel">
+
+      <!-- 01 — BIG LAGOON -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-big-lagoon.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">01</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Miniloc Island · Tour A</span>
+          <h3 class="hc-card-title">Big Lagoon</h3>
+          <p class="hc-card-desc">The one image everyone has seen before coming to El Nido — and it still does not prepare you. A narrow passage in the limestone cliff opens into an enclosed lagoon of impossible turquoise. At 7am on a private kayak, before the group tours arrive, the silence is total.</p>
         </div>
       </div>
 
       <!-- 02 — SMALL LAGOON -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/images/el-nido-kayak-bow-dog.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">02</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Miniloc Island · Kayak Only</span>
-            <h3 class="hc-title">Small Lagoon</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Accessible only by kayak through a low passage in the cliff face — no motorised boats can enter. The inner lagoon is smaller and more enclosed than its neighbour, the walls even taller, the water a shade of green that shifts with the cloud. This is the one that the group tour passengers on motor bangkas cannot reach. Early departure is the key.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-kayak-bow-dog.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">02</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Miniloc Island · Kayak Only</span>
+          <h3 class="hc-card-title">Small Lagoon</h3>
+          <p class="hc-card-desc">Accessible only by kayak through a low passage in the cliff face — no motorised boats can enter. The inner lagoon is smaller and more enclosed, the walls taller, the water a shade of green that shifts with the cloud. Early departure is the key.</p>
         </div>
       </div>
 
       <!-- 03 — SECRET LAGOON -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-secret-lagoon.png');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">03</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Miniloc Island · Low Tide Only</span>
-            <h3 class="hc-title">Secret Lagoon</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Accessible only at low tide through a crack in the limestone barely wide enough to pass through sideways. Inside: a completely enclosed pool, coral on the floor, a rim of white sand, and cliffs on every side. Our guide checks the tide tables the night before and times the route accordingly. If the timing is wrong, we come back — or we go somewhere else equally extraordinary.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-secret-lagoon.png')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">03</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Miniloc Island · Low Tide Only</span>
+          <h3 class="hc-card-title">Secret Lagoon</h3>
+          <p class="hc-card-desc">Accessible only at low tide through a crack in the limestone barely wide enough to pass through sideways. Inside: a completely enclosed pool, coral on the floor, a rim of white sand, and cliffs on every side. Our guide checks the tide tables the night before and times the route accordingly.</p>
         </div>
       </div>
 
-      <!-- 04 — NACPAN BEACH · feature -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-nacpan-beach.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">04</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">North El Nido · 40 minutes</span>
-            <h3 class="hc-title">Nacpan Beach</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Four kilometres of white sand with almost no development and a gentle shore break that makes it one of the only swimmable beaches in the El Nido area. We go in the late afternoon when the light is amber and the day-trippers have left. North of Nacpan, past where the rental motorbike crowd turns around, Duli Beach has almost nobody on it — the El Nido that people imagined when they booked the flight.</p>
+      <!-- 04 — NACPAN BEACH -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-nacpan-beach.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">04</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">North El Nido · 40 minutes</span>
+          <h3 class="hc-card-title">Nacpan Beach</h3>
+          <p class="hc-card-desc">Four kilometres of white sand with almost no development and a gentle shore break — one of the only swimmable beaches in the El Nido area. We go in the late afternoon when the light is amber and the day-trippers have left.</p>
         </div>
       </div>
 
       <!-- 05 — PAYONG-PAYONG SANDBAR -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-sandbar.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">05</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Bacuit Bay · Tidal · Private</span>
-            <h3 class="hc-title">Payong-Payong Sandbar</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">When the tide pulls back, a sandbar appears between two limestone outcrops for roughly ninety minutes before the water reclaims it. It appears on no tour schedule because no shared tour can time it reliably. A private guide checks the tides the night before and routes accordingly. We set a private breakfast here for honeymooners when the timing aligns. It always does.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-sandbar.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">05</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Bacuit Bay · Tidal · Private</span>
+          <h3 class="hc-card-title">Payong-Payong Sandbar</h3>
+          <p class="hc-card-desc">When the tide pulls back, a sandbar appears between two limestone outcrops for roughly ninety minutes before the water reclaims it. It appears on no shared tour schedule because no shared tour can time it reliably. We set a private breakfast here when the timing aligns.</p>
         </div>
       </div>
 
       <!-- 06 — CUDUGNON CAVE -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-cudugnon-cave.webp');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">06</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Bacuit Bay · First Light Only</span>
-            <h3 class="hc-title">Cudugnon Cave</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Most Tour B itineraries visit Cudugnon in the late morning, when the light is harsh. At first light — 7am, before any other boat has left the beach — the sun enters the cave mouth at a low angle and throws a pale shaft across the Neolithic burial chamber inside. This cave was used continuously by humans for 50,000 years. At that hour, with no one else there, the weight of that history arrives in a way it simply does not at 10:30am with twenty other tourists. This is what private departure times make possible.</p>
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-cudugnon-cave.webp')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">06</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Bacuit Bay · First Light Only</span>
+          <h3 class="hc-card-title">Cudugnon Cave</h3>
+          <p class="hc-card-desc">At first light — 7am, before any other boat has left the beach — the sun enters the cave mouth at a low angle and throws a pale shaft across the Neolithic burial chamber inside. This cave was used continuously by humans for 50,000 years. The weight of that history arrives.</p>
         </div>
       </div>
 
-      <!-- 07 — LIO BEACH & CHARLIE'S -->
-      <div class="highlight-card">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-lio-beach.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">07</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Lio Beach · Our Base of Choice</span>
-            <h3 class="hc-title">Lio Beach</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Wide, open, and calm in a way that El Nido town beach never quite manages. The airport sits practically on it — AirSWIFT flights land and you walk out to a beach. Charlie's El Nido anchors this end of the island: our genuinely recommended base, with outstanding facilities, a generous buffet, and excellent food. Your private vehicle is on call from here each morning — Bacuit Bay is minutes away.</p>
+      <!-- 07 — LIO BEACH -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-lio-beach.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">07</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Lio Beach · Our Base of Choice</span>
+          <h3 class="hc-card-title">Lio Beach</h3>
+          <p class="hc-card-desc">Wide, open, and calm in a way that El Nido town beach never quite manages. Charlie's El Nido anchors this end of the island: our genuinely recommended base, with outstanding facilities and excellent food. Bacuit Bay is minutes away.</p>
         </div>
       </div>
 
-      <!-- 08 — LAS CABANAS SUNSET · feature -->
-      <div class="highlight-card feature">
-        <div class="hc-photo">
-          <div class="hc-photo-bg" style="background-image:url('/images/el-nido-las-cabanas-sunset.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div>
-          <div class="hc-photo-overlay"></div>
-          <div class="hc-num">08</div>
-          <div class="hc-title-wrap">
-            <span class="hc-location-tag">Las Cabanas Beach · Sunset</span>
-            <h3 class="hc-title">Las Cabanas at Dusk</h3>
-          </div>
-        </div>
-        <div class="hc-body">
-          <p class="hc-text">Los Cabanos restaurant at Las Cabanas sits on a headland with an unobstructed western horizon. The sunset here is one of the reasons people fly to Palawan. We build an evening here into almost every El Nido itinerary — a long dinner, the light going gold then pink then deep purple over the South China Sea, a nightcap when the stars come out. The food is secondary; the light is the point.</p>
+      <!-- 08 — LAS CABANAS AT DUSK -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/el-nido-las-cabanas-sunset.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">08</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Las Cabanas Beach · Sunset</span>
+          <h3 class="hc-card-title">Las Cabanas at Dusk</h3>
+          <p class="hc-card-desc">Los Cabanos restaurant sits on a headland with an unobstructed western horizon. The sunset here is one of the reasons people fly to Palawan. The light goes gold then pink then deep purple over the South China Sea — the food is secondary; the light is the point.</p>
         </div>
       </div>
 
+    </div><!-- /hc-carousel -->
+
+    <div class="hc-nav">
+      <button class="hc-arrow" id="hcPrev" aria-label="Previous">&#8592;</button>
+      <button class="hc-arrow" id="hcNext" aria-label="Next">&#8594;</button>
     </div>
-  </div>
+  </div><!-- /hc-carousel-wrap -->
+
+  <div class="hc-dots" id="hcDots"></div>
 </section>
 
 <!-- EXPERIENCE STRIP -->
@@ -575,6 +571,56 @@ function toggleMenu(){
   document.getElementById('navDrawer').classList.toggle('open');
   document.body.style.overflow=document.getElementById('navDrawer').classList.contains('open')?'hidden':'';
 }
+
+/* Highlights carousel */
+(function(){
+  const carousel = document.getElementById('hcCarousel');
+  const dotsWrap = document.getElementById('hcDots');
+  const cards    = carousel ? carousel.querySelectorAll('.hc-card') : [];
+  if(!carousel || !cards.length) return;
+  const total = cards.length;
+  let current = 0;
+  cards.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'hc-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = ()=>goTo(i);
+    dotsWrap.appendChild(d);
+  });
+  function getDots(){ return dotsWrap.querySelectorAll('.hc-dot'); }
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, total-1));
+    const card = cards[current];
+    carousel.scrollTo({ left: card.offsetLeft - carousel.offsetLeft, behavior:'smooth' });
+    getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+  document.getElementById('hcPrev').onclick = ()=>goTo(current-1);
+  document.getElementById('hcNext').onclick = ()=>goTo(current+1);
+  let scrollTimer;
+  carousel.addEventListener('scroll',()=>{
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(()=>{
+      const scrollLeft = carousel.scrollLeft;
+      let closest = 0, minDist = Infinity;
+      cards.forEach((c,i)=>{
+        const dist = Math.abs(c.offsetLeft - carousel.offsetLeft - scrollLeft);
+        if(dist < minDist){ minDist=dist; closest=i; }
+      });
+      current = closest;
+      getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+    },80);
+  });
+  let startX=0;
+  carousel.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx)>50) goTo(dx<0 ? current+1 : current-1);
+  },{passive:true});
+  let isDown=false, startScrollLeft=0, startPageX=0;
+  carousel.addEventListener('mousedown',e=>{ isDown=true; startScrollLeft=carousel.scrollLeft; startPageX=e.pageX; carousel.style.userSelect='none'; });
+  window.addEventListener('mouseup',()=>{ isDown=false; carousel.style.userSelect=''; });
+  carousel.addEventListener('mousemove',e=>{ if(!isDown)return; e.preventDefault(); carousel.scrollLeft=startScrollLeft-(e.pageX-startPageX); });
+})();
 </script>
 </body>
 </html>
