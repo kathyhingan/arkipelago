@@ -437,43 +437,173 @@ body{
   font-style:normal;
 }
 
-/* ── EXPERIENCES GRID ───────────────────────────────────────── */
-.experiences-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:1px;
-  background:rgba(184,150,110,.15);
-  border:1px solid rgba(184,150,110,.15);
-  margin:2em 0;
-}
-@media(min-width:640px){.experiences-grid{grid-template-columns:1fr 1fr}}
-.exp-item{
-  background:white;
-  padding:24px 28px;
-}
-.exp-item-num{
+/* ── HIGHLIGHTS CAROUSEL ────────────────────────────────────── */
+.section-label{
   font-family:'Montserrat',sans-serif;
-  font-size:9px;
-  letter-spacing:.3em;
-  color:var(--gold);
-  margin-bottom:8px;
-  display:block;
-}
-.exp-item-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;
+  font-size:.6rem;
   font-weight:600;
-  color:var(--navy);
-  margin-bottom:6px;
-  display:block;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.2rem;
 }
-.exp-item-desc{
-  font-family:'EB Garamond',serif;
-  font-size:16px;
-  color:#4A5568;
-  line-height:1.7;
+.section-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:300;
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  line-height:1.1;
+  color:var(--warm-white);
   margin:0;
 }
+.section-title em{font-style:italic;color:var(--gold)}
+
+.highlights{background:var(--navy);padding:80px 0}
+.highlights .section-label,
+.highlights .section-title{padding:0 24px}
+@media(min-width:768px){
+  .highlights .section-label,
+  .highlights .section-title{padding:0 40px}
+}
+@media(min-width:1024px){
+  .highlights{padding:104px 0}
+  .highlights .section-label,
+  .highlights .section-title{padding:0 60px}
+}
+
+.hc-carousel-wrap{position:relative;margin-top:3rem}
+.hc-carousel{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  gap:3px;
+  cursor:grab;
+  scroll-padding-left:24px;
+  padding:0 24px;
+}
+@media(min-width:768px){.hc-carousel{padding:0 40px;scroll-padding-left:40px}}
+@media(min-width:1024px){.hc-carousel{padding:0 60px;scroll-padding-left:60px}}
+.hc-carousel:active{cursor:grabbing}
+.hc-carousel::-webkit-scrollbar{display:none}
+.hc-carousel{scrollbar-width:none}
+
+.hc-card{
+  flex:0 0 320px;
+  height:460px;
+  position:relative;
+  overflow:hidden;
+  scroll-snap-align:start;
+  cursor:pointer;
+  background:var(--navy-mid);
+}
+@media(min-width:640px){.hc-card{flex:0 0 360px;height:500px}}
+@media(min-width:1024px){.hc-card{flex:0 0 400px;height:540px}}
+
+.hc-card-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  transition:transform .7s cubic-bezier(.25,.46,.45,.94);
+  z-index:1;
+}
+.hc-card:hover .hc-card-img{transform:scale(1.08)}
+
+.hc-card-base{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,.3) 50%,rgba(10,22,40,.85) 100%);
+  z-index:2;
+  transition:opacity .4s;
+}
+.hc-card-hover-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,.5) 35%,rgba(10,22,40,.97) 100%);
+  z-index:3;
+  opacity:0;
+  transition:opacity .4s;
+}
+.hc-card:hover .hc-card-hover-overlay{opacity:1}
+
+.hc-card-num{
+  position:absolute;top:1.25rem;right:1.25rem;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:4.5rem;font-weight:300;line-height:1;
+  color:rgba(255,255,255,.12);
+  z-index:4;pointer-events:none;
+  transition:color .4s;
+}
+.hc-card:hover .hc-card-num{color:rgba(184,150,110,.2)}
+
+.hc-card-content{
+  position:absolute;bottom:0;left:0;right:0;
+  z-index:5;
+  padding:1.5rem;
+}
+.hc-card-tag{
+  font-family:'Montserrat',sans-serif;
+  font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.5rem;display:block;
+}
+.hc-card-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(1.2rem,2vw,1.6rem);font-weight:500;
+  color:var(--warm-white);line-height:1.15;margin:0;
+  transition:transform .4s cubic-bezier(.25,.46,.45,.94);
+}
+.hc-card-desc{
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:.95rem;color:rgba(250,248,244,.75);line-height:1.7;
+  margin-top:.75rem;
+  max-height:0;overflow:hidden;
+  opacity:0;
+  transform:translateY(8px);
+  transition:max-height .45s cubic-bezier(.25,.46,.45,.94),
+             opacity .35s ease .08s,
+             transform .35s ease .08s;
+}
+.hc-card:hover .hc-card-desc{max-height:220px;opacity:1;transform:translateY(0)}
+.hc-card:hover .hc-card-title{transform:translateY(-4px)}
+
+.hc-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:0 .5rem;
+  pointer-events:none;
+  z-index:20;
+}
+.hc-arrow{
+  width:48px;height:48px;
+  background:rgba(11,31,58,.75);backdrop-filter:blur(8px);
+  border:1px solid rgba(184,150,110,.3);
+  color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;cursor:pointer;
+  pointer-events:all;
+  transition:all .25s;
+  flex-shrink:0;
+}
+.hc-arrow:hover{background:rgba(184,150,110,.25);border-color:var(--gold)}
+
+.hc-dots{
+  display:flex;justify-content:center;gap:.5rem;
+  margin-top:1.5rem;padding:0 24px;
+}
+.hc-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(184,150,110,.25);
+  border:none;cursor:pointer;padding:0;
+  transition:background .3s,transform .3s;
+}
+.hc-dot.active{background:var(--gold);transform:scale(1.3)}
+
+@media(max-width:640px){
+  .hc-card{flex:0 0 85vw;height:420px}
+  .hc-arrow{display:none}
+}
+
+/* post-wrap spacing around the full-width carousel */
+.post-wrap.pw-flush-bottom{padding-bottom:0}
+.post-wrap.pw-flush-bottom > *:last-child{margin-bottom:2.5em}
+.post-wrap.pw-flush-top{padding-top:72px}
+@media(min-width:768px){.post-wrap.pw-flush-top{padding-top:80px}}
 
 /* ── SEGMENT CALLOUT ────────────────────────────────────────── */
 .segment-callout{
@@ -697,7 +827,7 @@ body{
 </div>
 
 <!-- ── MAIN CONTENT ──────────────────────────────────────────── -->
-<div class="post-wrap">
+<div class="post-wrap pw-flush-bottom">
 
   <div class="gold-rule"></div>
 
@@ -711,40 +841,108 @@ body{
     <p>"The lagoon appears without warning — you round a limestone wall and the water turns <em>luminescent green</em>, impossibly still, the jungle coming straight to the edge."</p>
   </div>
 
-  <h2>Key Experiences</h2>
+</div><!-- /post-wrap -->
 
-  <div class="experiences-grid">
-    <div class="exp-item">
-      <span class="exp-item-num">01</span>
-      <span class="exp-item-title">Naked Island, Daku & Guyam</span>
-      <p class="exp-item-desc">The classic trio — a sandbar, a coconut island, and a palm-fringed speck the size of a tennis court — by private boat before the day-tripper fleet arrives. Yours alone until 9am.</p>
-    </div>
-    <div class="exp-item">
-      <span class="exp-item-num">02</span>
-      <span class="exp-item-title">Sugba Lagoon</span>
-      <p class="exp-item-desc">An enclosed emerald lagoon accessible only by boat through a narrow mangrove channel. Calm, deep, and extraordinary — one of the most beautiful enclosed waters in the Philippines.</p>
-    </div>
-    <div class="exp-item">
-      <span class="exp-item-num">03</span>
-      <span class="exp-item-title">Sohoton Cove — Bioluminescent Jellyfish</span>
-      <p class="exp-item-desc">A night crossing to Bucas Grande, where a cave pool holds thousands of non-stinging jellyfish that glow at night. One of the genuinely rare experiences left in Philippine waters.</p>
-    </div>
-    <div class="exp-item">
-      <span class="exp-item-num">04</span>
-      <span class="exp-item-title">Del Carmen Mangrove</span>
-      <p class="exp-item-desc">The largest mangrove forest in the Philippines, navigated by small bangka at dawn. Absolute silence. The birdlife — kingfishers, egrets, hornbills — is extraordinary.</p>
-    </div>
-    <div class="exp-item">
-      <span class="exp-item-num">05</span>
-      <span class="exp-item-title">The Outer Islands</span>
-      <p class="exp-item-desc">Beyond the named stops, the Siargao archipelago has dozens of uninhabited islands between the main island and the open sea. Your guide knows which ones are worth a morning. Almost no one else goes there.</p>
-    </div>
-    <div class="exp-item">
-      <span class="exp-item-num">06</span>
-      <span class="exp-item-title">Nay Palad Hideaway</span>
-      <p class="exp-item-desc">Siargao's finest property — a barefoot luxury resort on a private stretch of beach, with individual huts connected by shell-path walkways. The benchmark for accommodation on the island at the Arkipelago level.</p>
-    </div>
+<!-- ── KEY EXPERIENCES CAROUSEL ──────────────────────────────── -->
+<section class="highlights">
+  <div>
+    <p class="section-label">Key Experiences</p>
+    <h2 class="section-title">What Siargao does<br><em>differently</em></h2>
   </div>
+
+  <div class="hc-carousel-wrap">
+    <div class="hc-carousel" id="hcCarousel">
+
+      <!-- 01 — NAKED, DAKU & GUYAM -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/siargao-naked-island-daku-guyam.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">01</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">General Luna · The Classic Trio</span>
+          <h3 class="hc-card-title">Naked Island, Daku &amp; Guyam</h3>
+          <p class="hc-card-desc">The classic trio — a sandbar, a coconut island, and a palm-fringed speck the size of a tennis court — by private boat before the day-tripper fleet arrives. Yours alone until 9am.</p>
+        </div>
+      </div>
+
+      <!-- 02 — SUGBA LAGOON -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/siargao-sugba-lagoon.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">02</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Del Carmen · Enclosed Lagoon</span>
+          <h3 class="hc-card-title">Sugba Lagoon</h3>
+          <p class="hc-card-desc">An enclosed emerald lagoon accessible only by boat through a narrow mangrove channel. Calm, deep, and extraordinary — one of the most beautiful enclosed waters in the Philippines.</p>
+        </div>
+      </div>
+
+      <!-- 03 — SOHOTON COVE -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/siargao-sohoton-cove.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">03</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Bucas Grande · Night Crossing</span>
+          <h3 class="hc-card-title">Sohoton Cove — Bioluminescent Jellyfish</h3>
+          <p class="hc-card-desc">A night crossing to Bucas Grande, where a cave pool holds thousands of non-stinging jellyfish that glow at night. One of the genuinely rare experiences left in Philippine waters.</p>
+        </div>
+      </div>
+
+      <!-- 04 — DEL CARMEN MANGROVE -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/siargao-del-carmen-mangrove.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">04</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Del Carmen · Largest in the Philippines</span>
+          <h3 class="hc-card-title">Del Carmen Mangrove</h3>
+          <p class="hc-card-desc">The largest mangrove forest in the Philippines, navigated by small bangka at dawn. Absolute silence. The birdlife — kingfishers, egrets, hornbills — is extraordinary.</p>
+        </div>
+      </div>
+
+      <!-- 05 — THE OUTER ISLANDS -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/siargao-outer-islands.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">05</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Siargao Archipelago · Uninhabited</span>
+          <h3 class="hc-card-title">The Outer Islands</h3>
+          <p class="hc-card-desc">Beyond the named stops, the Siargao archipelago has dozens of uninhabited islands between the main island and the open sea. Your guide knows which ones are worth a morning. Almost no one else goes there.</p>
+        </div>
+      </div>
+
+      <!-- 06 — NAY PALAD HIDEAWAY -->
+      <div class="hc-card">
+        <div class="hc-card-img" style="background-image:url('/images/siargao-nay-palad-hideaway.jpg')"></div>
+        <div class="hc-card-base"></div>
+        <div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">06</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">General Luna · Barefoot Luxury</span>
+          <h3 class="hc-card-title">Nay Palad Hideaway</h3>
+          <p class="hc-card-desc">Siargao's finest property — a barefoot luxury resort on a private stretch of beach, with individual huts connected by shell-path walkways. The benchmark for accommodation on the island at the Arkipelago level.</p>
+        </div>
+      </div>
+
+    </div><!-- /hc-carousel -->
+
+    <div class="hc-nav">
+      <button class="hc-arrow" id="hcPrev" aria-label="Previous">&#8592;</button>
+      <button class="hc-arrow" id="hcNext" aria-label="Next">&#8594;</button>
+    </div>
+  </div><!-- /hc-carousel-wrap -->
+
+  <div class="hc-dots" id="hcDots"></div>
+</section>
+
+<div class="post-wrap pw-flush-top">
 
   <h2>Why Siargao for Private Travel</h2>
 
@@ -842,6 +1040,66 @@ body{
   </ul>
   <div class="footer-copy">© 2025 Arkipelago Luxury Tours Philippines. All rights reserved.</div>
 </footer>
+
+<script>
+/* ── Key Experiences Carousel ── */
+(function(){
+  const carousel = document.getElementById('hcCarousel');
+  const dotsWrap = document.getElementById('hcDots');
+  const cards    = carousel ? carousel.querySelectorAll('.hc-card') : [];
+  if(!carousel || !cards.length) return;
+
+  const total = cards.length;
+  let current = 0;
+
+  cards.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'hc-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = ()=>goTo(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function getDots(){ return dotsWrap.querySelectorAll('.hc-dot'); }
+
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, total-1));
+    const card = cards[current];
+    carousel.scrollTo({ left: card.offsetLeft - carousel.offsetLeft, behavior:'smooth' });
+    getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+
+  document.getElementById('hcPrev').onclick = ()=>goTo(current-1);
+  document.getElementById('hcNext').onclick = ()=>goTo(current+1);
+
+  let scrollTimer;
+  carousel.addEventListener('scroll',()=>{
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(()=>{
+      const scrollLeft = carousel.scrollLeft;
+      let closest = 0, minDist = Infinity;
+      cards.forEach((c,i)=>{
+        const dist = Math.abs(c.offsetLeft - carousel.offsetLeft - scrollLeft);
+        if(dist < minDist){ minDist=dist; closest=i; }
+      });
+      current = closest;
+      getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+    },80);
+  });
+
+  let startX=0;
+  carousel.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx)>50) goTo(dx<0 ? current+1 : current-1);
+  },{passive:true});
+
+  let isDown=false, startScrollLeft=0, startPageX=0;
+  carousel.addEventListener('mousedown',e=>{ isDown=true; startScrollLeft=carousel.scrollLeft; startPageX=e.pageX; carousel.style.userSelect='none'; });
+  window.addEventListener('mouseup',()=>{ isDown=false; carousel.style.userSelect=''; });
+  carousel.addEventListener('mousemove',e=>{ if(!isDown)return; e.preventDefault(); carousel.scrollLeft=startScrollLeft-(e.pageX-startPageX); });
+})();
+</script>
 
 </body>
 </html>
