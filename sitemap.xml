@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://luxurytoursphilippines.com/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -49,7 +49,7 @@
     <priority>0.8</priority>
   </url>
 
-    <!-- Retirement Travel experience page -->
+  <!-- Retirement Travel experience page -->
   <url>
     <loc>https://luxurytoursphilippines.com/experiences/retirement-travel/</loc>
     <lastmod>2026-04-02</lastmod>
@@ -57,7 +57,7 @@
     <priority>0.8</priority>
   </url>
 
-     <!-- Family Tours experience page -->
+  <!-- Family Tours experience page -->
   <url>
     <loc>https://luxurytoursphilippines.com/experiences/family-tours/</loc>
     <lastmod>2026-04-02</lastmod>
@@ -65,7 +65,7 @@
     <priority>0.8</priority>
   </url>
 
-     <!-- Corporate / MICE experience page -->
+  <!-- Corporate / MICE experience page -->
   <url>
     <loc>https://luxurytoursphilippines.com/experiences/corporate-mice/</loc>
     <lastmod>2026-04-03</lastmod>
@@ -73,38 +73,52 @@
     <priority>0.8</priority>
   </url>
 
-    <!-- Independent Private Tours experience page -->
+  <!-- Independent Private Tours experience page -->
   <url>
     <loc>https://luxurytoursphilippines.com/experiences/private-tours/</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-</urlset>
 
-<!-- Coron Palawan destination page -->
+  <!-- Coron, Palawan destination page -->
   <url>
     <loc>https://luxurytoursphilippines.com/destinations/coron/</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-</urlset>
 
-<!-- Port Barton Palawan destination page -->
+  <!-- Port Barton, Palawan destination page -->
   <url>
     <loc>https://luxurytoursphilippines.com/destinations/port-barton/</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-</urlset>
 
-<!-- El Nido Palawan destination page -->
+  <!-- El Nido, Palawan destination page -->
   <url>
     <loc>https://luxurytoursphilippines.com/destinations/el-nido/</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Palawan destination page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/palawan/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Siargao destination page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/siargao/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
