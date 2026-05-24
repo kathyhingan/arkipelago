@@ -157,151 +157,77 @@ body{
 }
 
 /* ── NAVIGATION ──────────────────────────────────────────────── */
-.site-nav{
-  background:var(--navy);
-  padding:18px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid rgba(184,150,110,.15);
+/* shared nav — matches Coron / El Nido / Port Barton */
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .5s}
+#nav.scrolled{background:rgba(11,31,58,.97);backdrop-filter:blur(12px);padding:14px 24px;border-bottom:1px solid rgba(184,150,110,.15)}
+.nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:.1em;color:#FAF8F4}
+.nav-logo-sub{font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:.3em;color:#B8966E;text-transform:uppercase}
+.nav-links{display:none}
+.nav-cta{display:none}
+.nav-hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:24px;height:1px;background:#FAF8F4;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(min-width:1024px){
+  #nav{padding:28px 60px}
+  #nav.scrolled{padding:18px 60px}
+  .nav-links{display:flex;gap:36px;list-style:none}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.8);text-decoration:none;transition:color .3s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#B8966E;transition:width .3s}
+  .nav-links a:hover{color:#B8966E}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B8966E;border:1px solid rgba(184,150,110,.5);padding:10px 22px;background:none;cursor:pointer;transition:all .3s}
+  .nav-cta:hover{background:#B8966E;color:#0B1F3A}
+  .nav-hamburger{display:none}
 }
-@media(min-width:768px){.site-nav{padding:18px 40px}}
-@media(min-width:1024px){.site-nav{padding:18px 60px}}
-.nav-logo{text-decoration:none;display:flex;flex-direction:column;gap:2px}
-.nav-logo-main{
-  font-family:'Cormorant Garamond',serif;
-  font-size:18px;
-  font-weight:600;
-  letter-spacing:.12em;
-  color:#FAF8F4;
-  line-height:1;
-}
-.nav-logo-sub{
-  font-family:'Montserrat',sans-serif;
-  font-size:7px;
-  letter-spacing:.32em;
-  text-transform:uppercase;
-  color:var(--gold);
-  line-height:1;
-}
-.nav-links{
-  display:none;
-  gap:32px;
-  list-style:none;
-}
-@media(min-width:768px){.nav-links{display:flex}}
-.nav-links a{
-  font-family:'Montserrat',sans-serif;
-  font-size:9px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(250,248,244,.6);
-  text-decoration:none;
-  transition:color .2s;
-}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{
-  font-family:'Montserrat',sans-serif;
-  font-size:9px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--navy);
-  background:var(--gold);
-  border:none;
-  padding:10px 20px;
-  cursor:pointer;
-  text-decoration:none;
-  transition:background .2s;
-  white-space:nowrap;
-}
-.nav-cta:hover{background:var(--gold-bright)}
+/* Dropdown */
+.nav-item-dropdown{position:relative}
+.nav-dropdown{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(11,31,58,.98);backdrop-filter:blur(12px);border:1px solid rgba(184,150,110,.15);min-width:220px;padding:8px 0;z-index:600}
+.nav-item-dropdown:hover .nav-dropdown{display:block}
+.nav-dropdown a{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,244,.7);padding:12px 20px;text-decoration:none;transition:all .2s;border:none}
+.nav-dropdown a::after{display:none}
+.nav-dropdown a:hover{color:#B8966E;background:rgba(184,150,110,.07);padding-left:26px}
+/* Drawer */
+.nav-drawer{position:fixed;top:0;left:0;right:0;bottom:0;background:#0B1F3A;z-index:490;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);padding:100px 40px 60px;display:flex;flex-direction:column;overflow-y:auto}
+.nav-drawer.open{transform:translateX(0)}
+.nav-drawer a,.nav-drawer button.dl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#FAF8F4;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(184,150,110,.1);display:block;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;text-align:left;transition:color .3s;width:100%}
+.nav-drawer a:hover{color:#B8966E}
+.nav-drawer .dcta{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#B8966E;margin-top:28px;border:1px solid rgba(184,150,110,.4)!important;padding:16px 24px;text-align:center;background:none;cursor:pointer;display:block;width:100%;transition:all .3s;text-decoration:none}
+.nav-drawer .dcta:hover{background:#B8966E;color:#0B1F3A}
 
 /* ── BREADCRUMB ──────────────────────────────────────────────── */
-.breadcrumb{
-  background:var(--navy-light);
-  padding:10px 24px;
-  font-family:'Montserrat',sans-serif;
-  font-size:9px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:rgba(250,248,244,.4);
-}
-@media(min-width:1024px){.breadcrumb{padding:10px 60px}}
-.breadcrumb a{color:rgba(184,150,110,.6);text-decoration:none}
-.breadcrumb a:hover{color:var(--gold)}
-.breadcrumb span{margin:0 8px}
+.breadcrumb{position:relative;padding:90px 2rem 1rem;background:var(--navy);border-bottom:1px solid rgba(201,168,76,.1)}
+@media(min-width:1024px){.breadcrumb{padding-top:110px}}
+.breadcrumb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:.5rem;font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.breadcrumb-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .3s}
+.breadcrumb-inner a:hover{color:var(--gold)}
+.breadcrumb-inner .sep{color:var(--gold);opacity:.4}
+.breadcrumb-inner .current{color:var(--gold)}
 
-/* ── DESTINATION HERO ───────────────────────────────────────── */
-.dest-hero{
-  background:linear-gradient(160deg,#071629,#0d2a45);
-  padding:80px 24px 72px;
-  position:relative;
-  overflow:hidden;
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero{position:relative;height:92vh;min-height:600px;background:var(--navy);display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom,rgba(10,22,40,.2) 0%,rgba(10,22,40,.7) 70%,rgba(10,22,40,.92) 100%),
+    url('/images/siargao-hero.jpg') center/cover no-repeat;
+  transform:scale(1.02);
+  animation:heroZoom 12s ease-out forwards;
 }
-@media(min-width:768px){.dest-hero{padding:100px 40px 80px}}
-@media(min-width:1024px){.dest-hero{padding:120px 60px 100px}}
-
-/* cartographic grid overlay */
-.dest-hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);
-  background-size:48px 48px;
-}
-/* gold bottom rule */
-.dest-hero::after{
-  content:'';
-  position:absolute;
-  bottom:0;left:0;right:0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-
-.dest-hero-inner{
-  position:relative;
-  z-index:2;
-  max-width:900px;
-}
-.dest-eyebrow{
-  font-family:'Montserrat',sans-serif;
-  font-size:9px;
-  letter-spacing:.4em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:20px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.dest-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
-.dest-hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(42px,7vw,80px);
-  font-weight:300;
-  color:#FAF8F4;
-  line-height:1.0;
-  margin-bottom:20px;
-  letter-spacing:-.01em;
-}
-.dest-hero h1 em{
-  font-style:italic;
-  color:var(--gold);
-}
-.dest-hero-tagline{
-  font-family:'EB Garamond',serif;
-  font-size:clamp(18px,2.5vw,22px);
-  font-style:italic;
-  color:rgba(250,248,244,.7);
-  max-width:600px;
-  margin-bottom:36px;
-  line-height:1.6;
-}
+@keyframes heroZoom{from{transform:scale(1.06)}to{transform:scale(1.0)}}
+.hero-latline{position:absolute;top:38%;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.18),transparent)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 2rem 7rem;width:100%}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:.6}
+.hero-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(3.5rem,8vw,7rem);line-height:.95;color:var(--warm-white);letter-spacing:-.01em;margin-bottom:1.5rem}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-subtitle{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:560px;line-height:1.75;font-style:italic;margin-bottom:2.5rem}
+.hero-meta{display:flex;gap:2.5rem;flex-wrap:wrap}
+.hero-meta-item{font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.hero-meta-item strong{display:block;font-size:.8rem;font-weight:500;color:var(--gold);letter-spacing:.05em;margin-bottom:.2rem}
+@media(max-width:600px){.hero-content{padding:0 1.25rem 5rem}.hero-meta{gap:1.5rem}}
 .btn-gold{
   display:inline-block;
   font-family:'Montserrat',sans-serif;
@@ -730,89 +656,107 @@ body{
 }
 
 /* ── FOOTER ─────────────────────────────────────────────────── */
-.site-footer{
-  background:#070F1C;
-  padding:48px 24px;
-  border-top:1px solid rgba(184,150,110,.1);
-  text-align:center;
-}
-@media(min-width:1024px){.site-footer{padding:64px 60px}}
-.footer-brand{
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;
-  font-weight:600;
-  letter-spacing:.12em;
-  color:#FAF8F4;
-  margin-bottom:4px;
-}
-.footer-sub{
-  font-family:'Montserrat',sans-serif;
-  font-size:7px;
-  letter-spacing:.35em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:20px;
-}
-.footer-nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px 32px;
-  margin-bottom:24px;
-  list-style:none;
-}
-.footer-nav a{
-  font-family:'Montserrat',sans-serif;
-  font-size:8px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:rgba(250,248,244,.35);
-  text-decoration:none;
-  transition:color .2s;
-}
-.footer-nav a:hover{color:var(--gold)}
-.footer-copy{
-  font-family:'Montserrat',sans-serif;
-  font-size:9px;
-  letter-spacing:.12em;
-  color:rgba(250,248,244,.2);
-}
+footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,150,110,.1)}
+@media(min-width:768px){footer{padding:80px 40px 40px}}
+@media(min-width:1024px){footer{padding:80px 60px 40px}}
+.footer-top{display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(184,150,110,.08);margin-bottom:32px}
+@media(min-width:640px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.1em;color:var(--warm-white);margin-bottom:4px}
+.footer-brand-sub{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.footer-tagline{font-family:'EB Garamond',serif;font-size:15px;font-style:italic;color:rgba(250,248,244,.28);line-height:1.7}
+.footer-col-title{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{font-family:'EB Garamond',serif;font-size:15px;color:rgba(250,248,244,.36);text-decoration:none;transition:color .3s;display:block}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{display:flex;flex-direction:column;gap:8px}
+@media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center}}
+.footer-copy{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.13em;color:rgba(250,248,244,.2)}
+.footer-coords-bottom{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(184,150,110,.18)}
 </style>
 </head>
 
 <body>
 
-<!-- ── NAVIGATION ───────────────────────────────────────────── -->
-<nav class="site-nav">
-  <a href="/" class="nav-logo">
-    <span class="nav-logo-main">ARKIPELAGO</span>
-    <span class="nav-logo-sub">Luxury Tours Philippines</span>
-  </a>
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="/" class="nav-logo"><div class="nav-logo-main">ARKIPELAGO</div><div class="nav-logo-sub">Luxury Tours Philippines</div></a>
   <ul class="nav-links">
-    <li><a href="/destinations/">Destinations</a></li>
-    <li><a href="/experiences/">Experiences</a></li>
-    <li><a href="/about/">About</a></li>
+    <li class="nav-item-dropdown">
+      <a href="/#destinations">Destinations</a>
+      <div class="nav-dropdown">
+        <a href="/destinations/coron/">Coron, Palawan</a>
+        <a href="/destinations/port-barton/">Port Barton, Palawan</a>
+        <a href="/destinations/el-nido/">El Nido, Palawan</a>
+        <a href="/destinations/palawan/">Palawan</a>
+        <a href="/destinations/siargao/">Siargao</a>
+      </div>
+    </li>
+    <li><a href="/#experiences">Experiences</a></li>
+    <li><a href="/#quiz">Find My Journey</a></li>
     <li><a href="/journal/">Journal</a></li>
+    <li><a href="/about/">Our Philosophy</a></li>
   </ul>
-  <a href="/#begin" class="nav-cta">Begin Your Journey</a>
+  <button class="nav-cta" onclick="window.location.href='/#begin'">Begin Your Journey</button>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ── BREADCRUMB ────────────────────────────────────────────── -->
-<div class="breadcrumb">
-  <a href="/">Home</a><span>›</span>
-  <a href="/destinations/">Destinations</a><span>›</span>
-  Siargao
+<div class="nav-drawer" id="navDrawer">
+  <a href="/#destinations" onclick="toggleMenu()">Destinations</a>
+  <a href="/destinations/coron/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Coron, Palawan</a>
+  <a href="/destinations/port-barton/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Port Barton, Palawan</a>
+  <a href="/destinations/el-nido/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ El Nido, Palawan</a>
+  <a href="/destinations/palawan/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Palawan</a>
+  <a href="/destinations/siargao/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Siargao</a>
+  <a href="/#experiences" onclick="toggleMenu()">Experiences</a>
+  <a href="/#quiz" onclick="toggleMenu()">Find My Journey</a>
+  <a href="/journal/" onclick="toggleMenu()">Journal</a>
+  <a href="/about/" onclick="toggleMenu()">Our Philosophy</a>
+  <a href="/#begin" class="dcta" onclick="toggleMenu()">Begin Your Journey →</a>
 </div>
 
-<!-- ── DESTINATION HERO ──────────────────────────────────────── -->
-<header class="dest-hero">
-  <div class="dest-hero-inner">
-    <div class="dest-eyebrow">Caraga Region · Mindanao</div>
-    <h1>Beyond the<br><em>Surf Break</em></h1>
-    <p class="dest-hero-tagline">Private mangroves, vanishing islands, and sunsets that demand silence.</p>
-    <a href="/#begin" class="btn-gold">Plan My Siargao Journey</a>
+<!-- ── BREADCRUMB ────────────────────────────────────────────── -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/">Home</a>
+    <span class="sep">—</span>
+    <a href="/destinations/">Destinations</a>
+    <span class="sep">—</span>
+    <span class="current">Siargao</span>
   </div>
-</header>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-latline"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Caraga Region · Mindanao</p>
+    <h1 class="hero-title">
+      Beyond the<br><em>Surf Break</em>
+    </h1>
+    <p class="hero-subtitle">Where the world comes for the surf, but the true Siargao reveals itself in mangrove dawns, jellyfish caves, and outer islands almost no one reaches.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <strong>Best Season</strong>
+        Mar – Oct
+      </div>
+      <div class="hero-meta-item">
+        <strong>From Manila</strong>
+        ~2.5 hrs by air
+      </div>
+      <div class="hero-meta-item">
+        <strong>Ideal Stay</strong>
+        5 – 8 nights
+      </div>
+      <div class="hero-meta-item">
+        <strong>Character</strong>
+        Wild · Tidal · Untouched
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── BEST-FOR STRIP ────────────────────────────────────────── -->
 <div class="best-for-strip">
@@ -1028,18 +972,26 @@ body{
 </div><!-- /post-wrap -->
 
 <!-- ── FOOTER ─────────────────────────────────────────────────── -->
-<footer class="site-footer">
-  <div class="footer-brand">ARKIPELAGO</div>
-  <div class="footer-sub">Luxury Tours Philippines</div>
-  <ul class="footer-nav">
-    <li><a href="/destinations/">Destinations</a></li>
-    <li><a href="/experiences/">Experiences</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/journal/">Journal</a></li>
-    <li><a href="/#begin">Begin Your Journey</a></li>
-  </ul>
-  <div class="footer-copy">© 2025 Arkipelago Luxury Tours Philippines. All rights reserved.</div>
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand-name">ARKIPELAGO</div><div class="footer-brand-sub">Luxury Tours Philippines</div><p class="footer-tagline">Curated. Sovereign. Unforgettable.</p></div>
+    <div><div class="footer-col-title">Experiences</div><ul class="footer-links"><li><a href="/experiences/private-tours/">Private Journeys</a></li><li><a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a></li><li><a href="/experiences/family-tours/">Family Travel</a></li><li><a href="/experiences/retirement-travel/">Retiree Journeys</a></li><li><a href="/experiences/corporate-mice/">Corporate &amp; MICE</a></li></ul></div>
+    <div><div class="footer-col-title">Destinations</div><ul class="footer-links"><li><a href="/destinations/coron/">Coron, Palawan</a></li><li><a href="/destinations/port-barton/">Port Barton, Palawan</a></li><li><a href="/destinations/el-nido/">El Nido, Palawan</a></li><li><a href="/destinations/palawan/">Palawan</a></li><li><a href="#">Batanes</a></li><li><a href="/destinations/siargao/">Siargao</a></li><li><a href="#">Bohol &amp; Cebu</a></li><li><a href="#">Baguio &amp; Sagada</a></li><li><a href="#">Vigan &amp; Ilocos</a></li></ul></div>
+    <div><div class="footer-col-title">Arkipelago</div><ul class="footer-links"><li><a href="/about/">Our Philosophy</a></li><li><a href="/journal/">Journal</a></li><li><a href="/#begin">Begin Your Journey</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Arkipelago Luxury Tours Philippines. All rights reserved.</div><div class="footer-coords-bottom">9°48′N 126°1′E · Philippine Archipelago</div></div>
 </footer>
+
+<script>
+/* Nav scroll */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+/* Nav drawer toggle */
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('navDrawer').classList.contains('open')?'hidden':'';
+}
+</script>
 
 <script>
 /* ── Key Experiences Carousel ── */
