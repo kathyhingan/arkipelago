@@ -73,6 +73,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Corporate / MICE — One-Day Executive Intensive -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/experiences/corporate-mice/one-day-executive-intensive/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Independent Private Tours experience page -->
   <url>
     <loc>https://luxurytoursphilippines.com/experiences/private-tours/</loc>
