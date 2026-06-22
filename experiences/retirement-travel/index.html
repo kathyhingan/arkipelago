@@ -1595,8 +1595,8 @@ h2.section-title--light em{color:#ffffff}
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="phone">Phone number (optional)</label>
-        <input class="form-input" type="tel" id="phone" name="phone" placeholder="+1 or +61 with country code">
+        <label class="form-label" for="phone">Phone number</label>
+        <input class="form-input" type="tel" id="phone" name="phone" placeholder="+1 or +61 with country code" pattern="\+[0-9][0-9 ()\-]{6,}" title="Please include your full number with country code, e.g. +1 555 123 4567" inputmode="tel" required>
       </div>
 
       <div class="form-row">

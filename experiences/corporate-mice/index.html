@@ -1450,7 +1450,7 @@ h2.title--light em{color:var(--gold)}
         </div>
         <div class="form-group">
           <label class="form-label" for="phone">Phone number</label>
-          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+65 or +61 with country code">
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+65 or +61 with country code" pattern="\+[0-9][0-9 ()\-]{6,}" title="Please include your full number with country code, e.g. +65 1234 5678" inputmode="tel" required>
         </div>
       </div>
 
