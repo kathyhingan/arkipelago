@@ -161,4 +161,44 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Bohol & Cebu destination page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/bohol-cebu-private-tour/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Puerto Galera diving destination page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/puerto-galera-diving-tour/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Batanes destination page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/batanes-private-tour/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Bukidnon Highlands destination page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/bukidnon-highlands-tour/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vigan & Ilocos heritage destination page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/vigan-ilocos-heritage-tour/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
