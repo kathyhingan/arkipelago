@@ -346,6 +346,46 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 .img-placeholder .ip-note{font-family:'EB Garamond',serif;font-size:14px;font-style:italic;color:rgba(250,248,244,.5);line-height:1.6;max-width:380px}
 .img-placeholder .ip-dims{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;color:rgba(184,150,110,.4);margin-top:2px}
 .img-caption{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.05em;color:var(--slate);font-style:italic;text-align:center;margin:-1.8em 0 2.6em}
+
+/* ── SIGNATURE VISUALS — big-tile carousel (Coron pattern) ──── */
+.highlights{background:var(--navy);padding:64px 0}
+@media(min-width:1024px){.highlights{padding:88px 0}}
+.highlights-head{max-width:1200px;margin:0 auto;padding:0 24px}
+@media(min-width:1024px){.highlights-head{padding:0 60px}}
+.highlights .hl-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.highlights .hl-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;color:var(--warm-white);margin:0}
+.highlights .hl-title em{font-style:italic;color:var(--gold)}
+.hc-carousel-wrap{position:relative;margin-top:2.4rem}
+.hc-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:3px;cursor:grab;scroll-padding-left:24px;padding:0 24px}
+@media(min-width:1024px){.hc-carousel{padding:0 60px;scroll-padding-left:60px}}
+.hc-carousel:active{cursor:grabbing}
+.hc-carousel::-webkit-scrollbar{display:none}
+.hc-carousel{scrollbar-width:none}
+.hc-card{flex:0 0 320px;height:460px;position:relative;overflow:hidden;scroll-snap-align:start;background:var(--navy-mid)}
+@media(min-width:640px){.hc-card{flex:0 0 360px;height:500px}}
+@media(min-width:1024px){.hc-card{flex:0 0 400px;height:540px}}
+.hc-card-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .7s cubic-bezier(.25,.46,.45,.94);z-index:1}
+.hc-card:hover .hc-card-img{transform:scale(1.08)}
+.hc-card-img.placeholder{background:linear-gradient(150deg,var(--navy-light) 0%,var(--navy-mid) 60%,var(--navy) 100%);display:flex;align-items:center;justify-content:center}
+.hc-card-img.placeholder::after{content:'\25C7  Image to come';font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:rgba(184,150,110,.45)}
+.hc-card-base{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,.3) 50%,rgba(10,22,40,.85) 100%);z-index:2;transition:opacity .4s}
+.hc-card-hover-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,22,40,0) 0%,rgba(10,22,40,.5) 35%,rgba(10,22,40,.97) 100%);z-index:3;opacity:0;transition:opacity .4s}
+.hc-card:hover .hc-card-hover-overlay{opacity:1}
+.hc-card-num{position:absolute;top:1.25rem;right:1.25rem;font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;line-height:1;color:rgba(255,255,255,.12);z-index:4;pointer-events:none;transition:color .4s}
+.hc-card:hover .hc-card-num{color:rgba(184,150,110,.2)}
+.hc-card-content{position:absolute;bottom:0;left:0;right:0;z-index:5;padding:1.5rem}
+.hc-card-tag{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+.hc-card-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:500;color:var(--warm-white);line-height:1.15;margin:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.hc-card-desc{font-family:'EB Garamond',serif;font-size:.95rem;color:rgba(250,248,244,.75);line-height:1.7;margin-top:.75rem;max-height:0;overflow:hidden;opacity:0;transform:translateY(8px);transition:max-height .45s cubic-bezier(.25,.46,.45,.94),opacity .35s ease .08s,transform .35s ease .08s}
+.hc-card:hover .hc-card-desc{max-height:220px;opacity:1;transform:translateY(0)}
+.hc-card:hover .hc-card-title{transform:translateY(-4px)}
+.hc-nav{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 .5rem;pointer-events:none;z-index:20}
+.hc-arrow{width:48px;height:48px;background:rgba(11,31,58,.75);backdrop-filter:blur(8px);border:1px solid rgba(184,150,110,.3);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;pointer-events:all;transition:all .25s;flex-shrink:0}
+.hc-arrow:hover{background:rgba(184,150,110,.25);border-color:var(--gold)}
+.hc-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem;padding:0 24px}
+.hc-dot{width:5px;height:5px;border-radius:50%;background:rgba(184,150,110,.25);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+.hc-dot.active{background:var(--gold);transform:scale(1.3)}
+@media(max-width:640px){.hc-card{flex:0 0 85vw;height:420px}.hc-arrow{display:none}}
 </style>
 </head>
 <body>
@@ -472,6 +512,114 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
   <span class="best-for-tag">Divers</span>
   <span class="best-for-tag">First-Time Philippines</span>
 </div>
+
+<!-- ── SIGNATURE VISUALS — big-tile carousel ─────────────────── -->
+<!-- To add a photo: on a tile, replace `class="hc-card-img placeholder"` with
+     `class="hc-card-img" style="background-image:url('IMAGE_PATH')"` (path shown in each tile's data-img). -->
+<section class="highlights">
+  <div class="highlights-head">
+    <p class="hl-label">In Pictures</p>
+    <h2 class="hl-title">A Journey Through<br><em>Bohol &amp; Cebu</em></h2>
+  </div>
+  <div class="hc-carousel-wrap">
+    <div class="hc-carousel" id="hcCarousel">
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/bohol-chocolate-hills.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">01</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Carmen, Bohol</span>
+          <h3 class="hc-card-title">Chocolate Hills</h3>
+          <p class="hc-card-desc">1,268 conical mounds rising from the plains, best seen from the viewing deck before seven in the morning, when the light is soft and the tour groups have not yet arrived.</p>
+        </div>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/bohol-tarsier.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">02</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Corella Sanctuary</span>
+          <h3 class="hc-card-title">Philippine Tarsier</h3>
+          <p class="hc-card-desc">The world's smallest primate, clinging to a branch two feet from your face. No flash, voices low, and the quieter morning window arranged so the forest is still at its most alert.</p>
+        </div>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/bohol-loboc-river.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">03</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Private Boat · Bohol</span>
+          <h3 class="hc-card-title">Loboc River</h3>
+          <p class="hc-card-desc">A slow journey by private boat through forest, farmland, and village, with lunch taken on the water. The stillness of a place that has never been asked to perform for visitors.</p>
+        </div>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/bohol-balicasag.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">04</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Bohol Sea · Wall Dive</span>
+          <h3 class="hc-card-title">Balicasag Island</h3>
+          <p class="hc-card-desc">One of the finest wall dives in the Central Philippines, dropping steeply into deep blue with resident sea turtles and visibility regularly past twenty metres.</p>
+        </div>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/bohol-panglao.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">05</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Beaches &amp; Reef</span>
+          <h3 class="hc-card-title">Panglao Island</h3>
+          <p class="hc-card-desc">Flat-calm, shallow, white-sand water with easy reef snorkelling straight off the sand. Arkipelago uses the quieter stretches away from the Alona Beach strip.</p>
+        </div>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/cebu-basilica-santo-nino.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">06</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cebu City</span>
+          <h3 class="hc-card-title">Basilica del Santo Niño</h3>
+          <p class="hc-card-desc">The oldest Catholic church in the Philippines, home to the 16th-century image of the child Jesus brought by Magellan, drawing pilgrims and travellers with equal reverence.</p>
+        </div>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/cebu-magellans-cross.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">07</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cebu City</span>
+          <h3 class="hc-card-title">Magellan's Cross</h3>
+          <p class="hc-card-desc">Planted in 1521 and still standing in its original location, marking the moment the Philippines entered the history of European exploration.</p>
+        </div>
+      </div>
+
+      <div class="hc-card">
+        <div class="hc-card-img placeholder" data-img="/images/cebu-fort-san-pedro.jpg"></div>
+        <div class="hc-card-base"></div><div class="hc-card-hover-overlay"></div>
+        <div class="hc-card-num">08</div>
+        <div class="hc-card-content">
+          <span class="hc-card-tag">Cebu Harbour</span>
+          <h3 class="hc-card-title">Fort San Pedro</h3>
+          <p class="hc-card-desc">The oldest triangular bastion fort in the country, looking out over a harbour that once received galleons from Spain and China alike.</p>
+        </div>
+      </div>
+
+    </div><!-- /hc-carousel -->
+    <div class="hc-nav">
+      <button class="hc-arrow" id="hcPrev" aria-label="Previous">&#8592;</button>
+      <button class="hc-arrow" id="hcNext" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+  <div class="hc-dots" id="hcDots"></div>
+</section>
 
 <!-- ── MAIN CONTENT ──────────────────────────────────────────── -->
 <div class="post-wrap">
@@ -611,35 +759,6 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 
 </div><!-- /post-wrap -->
 
-<!-- ── PHOTO GALLERY SECTION ─────────────────────────────────── -->
-<section class="purpose-section">
-  <div class="purpose-inner">
-    <div class="purpose-eyebrow">Visual Storytelling</div>
-    <h2 class="purpose-title">A Journey Through<br><em>Bohol &amp; Cebu</em></h2>
-    <p class="purpose-body">From the Chocolate Hills at dawn to the wall dives off Balicasag, from the Loboc River to the five-century-old streets of Cebu's historic quarter — the gallery below marks where photography will carry the story. Each frame is a placeholder ready for the right image.</p>
-
-    <!-- PHOTO CAROUSEL — placeholder slides, swap for real imagery -->
-    <div class="carousel-wrap" id="purposeCarousel">
-      <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Chocolate Hills · Carmen</span></div></div>
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Philippine Tarsier · Corella</span></div></div>
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Loboc River · Private Boat</span></div></div>
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Balicasag · Wall Dive</span></div></div>
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Panglao · Beach &amp; Reef</span></div></div>
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Basilica del Santo Niño · Cebu</span></div></div>
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Magellan's Cross · Cebu</span></div></div>
-        <div class="carousel-slide"><div class="slide-placeholder"><span>Fort San Pedro · Cebu Harbour</span></div></div>
-      </div>
-    </div>
-
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)" disabled>&#8592; Previous</button>
-      <div class="carousel-dots" id="carouselDots"></div>
-      <button class="carousel-btn" id="nextBtn" onclick="moveCarousel(1)">Next &#8594;</button>
-    </div>
-  </div>
-</section>
-
 <!-- ── CLOSING CTA SECTION ───────────────────────────────────── -->
 <section style="background:var(--navy);padding:80px 24px;text-align:center">
   <div style="max-width:640px;margin:0 auto">
@@ -673,62 +792,62 @@ function toggleMenu(){
 </script>
 
 <script>
-/* Travel With Purpose photo carousel */
+/* ── Signature Visuals big-tile carousel (Coron pattern) ── */
 (function(){
-  var track = document.getElementById('carouselTrack');
-  var slides = track ? track.querySelectorAll('.carousel-slide') : [];
-  var dotsContainer = document.getElementById('carouselDots');
-  var prevBtn = document.getElementById('prevBtn');
-  var nextBtn = document.getElementById('nextBtn');
-  var current = 0;
+  const carousel = document.getElementById('hcCarousel');
+  const dotsWrap = document.getElementById('hcDots');
+  const cards    = carousel ? carousel.querySelectorAll('.hc-card') : [];
+  if(!carousel || !cards.length) return;
 
-  function getSlidesVisible(){
-    var w = window.innerWidth;
-    if(w >= 1024) return 4;
-    if(w >= 640) return 3;
-    return 2;
-  }
+  const total = cards.length;
+  let current = 0;
 
-  function getMaxIndex(){
-    return Math.max(0, slides.length - getSlidesVisible());
-  }
+  cards.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'hc-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick = ()=>goTo(i);
+    dotsWrap.appendChild(d);
+  });
 
-  function buildDots(){
-    if(!dotsContainer) return;
-    dotsContainer.innerHTML = '';
-    var max = getMaxIndex();
-    for(var i = 0; i <= max; i++){
-      var d = document.createElement('div');
-      d.className = 'carousel-dot' + (i === current ? ' active' : '');
-      (function(idx){
-        d.addEventListener('click', function(){ goTo(idx); });
-      })(i);
-      dotsContainer.appendChild(d);
-    }
-  }
+  function getDots(){ return dotsWrap.querySelectorAll('.hc-dot'); }
 
   function goTo(idx){
-    var max = getMaxIndex();
-    current = Math.max(0, Math.min(idx, max));
-    var slideW = slides[0] ? slides[0].offsetWidth + 12 : 0;
-    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
-    if(prevBtn) prevBtn.disabled = current === 0;
-    if(nextBtn) nextBtn.disabled = current >= max;
-    var dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
-    dots.forEach(function(d,i){ d.classList.toggle('active', i === current); });
+    current = Math.max(0, Math.min(idx, total-1));
+    const card = cards[current];
+    carousel.scrollTo({ left: card.offsetLeft - carousel.offsetLeft, behavior:'smooth' });
+    getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
   }
 
-  window.moveCarousel = function(dir){
-    goTo(current + dir);
-  };
+  document.getElementById('hcPrev').onclick = ()=>goTo(current-1);
+  document.getElementById('hcNext').onclick = ()=>goTo(current+1);
 
-  buildDots();
-  goTo(0);
-
-  window.addEventListener('resize', function(){
-    buildDots();
-    goTo(Math.min(current, getMaxIndex()));
+  let scrollTimer;
+  carousel.addEventListener('scroll',()=>{
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(()=>{
+      const scrollLeft = carousel.scrollLeft;
+      let closest = 0, minDist = Infinity;
+      cards.forEach((c,i)=>{
+        const dist = Math.abs(c.offsetLeft - carousel.offsetLeft - scrollLeft);
+        if(dist < minDist){ minDist=dist; closest=i; }
+      });
+      current = closest;
+      getDots().forEach((d,i)=>d.classList.toggle('active',i===current));
+    },80);
   });
+
+  let startX=0;
+  carousel.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx)>50) goTo(dx<0 ? current+1 : current-1);
+  },{passive:true});
+
+  let isDown=false, startScrollLeft=0, startPageX=0;
+  carousel.addEventListener('mousedown',e=>{ isDown=true; startScrollLeft=carousel.scrollLeft; startPageX=e.pageX; carousel.style.userSelect='none'; });
+  window.addEventListener('mouseup',()=>{ isDown=false; carousel.style.userSelect=''; });
+  carousel.addEventListener('mousemove',e=>{ if(!isDown)return; e.preventDefault(); carousel.scrollLeft=startScrollLeft-(e.pageX-startPageX); });
 })();
 </script>
 
