@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Susan Fromer, Three Journeys Through the Philippines | Arkipelago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#0B1F3A;
+    --navy-mid:#112847;
+    --navy-light:#1A3A5C;
+    --gold:#B8966E;
+    --gold-bright:#D4A96A;
+    --gold-pale:#F0E6D3;
+    --warm-white:#FAF8F4;
+    --sand:#F5EDD8;
+    --slate:#4A5568;
+    --near-black:#2D2D2D;
+    --tier1:#7B9E87;
+    --tier2:#B8966E;
+    --tier3:#8B7355;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--warm-white);color:var(--near-black);font-family:'EB Garamond',Georgia,serif;font-size:17px;line-height:1.75}
+
+  /* ── LOGIN GATE ── */
+  #gate{
+    position:fixed;inset:0;z-index:9999;
+    background:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+  }
+  #gate.hidden{display:none}
+  .gate-box{
+    width:100%;max-width:400px;
+    text-align:center;
+  }
+  .gate-logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:13px;font-weight:300;letter-spacing:.35em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:40px;
+  }
+  .gate-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;font-weight:300;color:var(--warm-white);
+    line-height:1.25;margin-bottom:8px;
+  }
+  .gate-title em{font-style:italic;color:var(--gold)}
+  .gate-sub{
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(250,248,244,.4);margin-bottom:36px;
+  }
+  .gate-field{
+    width:100%;background:rgba(255,255,255,.06);
+    border:1px solid rgba(184,150,110,.3);
+    color:var(--warm-white);
+    font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.04em;
+    padding:14px 16px;margin-bottom:12px;
+    outline:none;
+    transition:border-color .2s;
+  }
+  .gate-field::placeholder{color:rgba(250,248,244,.35)}
+  .gate-field:focus{border-color:var(--gold)}
+  .gate-btn{
+    width:100%;background:var(--gold);
+    border:none;cursor:pointer;
+    font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--navy);padding:15px;margin-top:4px;
+    transition:background .2s;
+  }
+  .gate-btn:hover{background:var(--gold-bright)}
+  .gate-error{
+    font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.08em;
+    color:#e07070;margin-top:14px;
+    min-height:18px;
+  }
+  .gate-divider{
+    width:40px;height:1px;background:rgba(184,150,110,.3);
+    margin:0 auto 36px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  #content{display:none}
+  #content.visible{display:block}
+
+  .doc-header{background:var(--navy);padding:56px 32px 44px;position:relative;overflow:hidden}
+  .doc-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:40px 40px}
+  .doc-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .header-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
+  .doc-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .doc-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+  .doc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,50px);font-weight:300;color:var(--warm-white);line-height:1.15;margin-bottom:12px}
+  .doc-title em{font-style:italic;color:var(--gold)}
+  .doc-subtitle{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-top:14px}
+  .brief-box{margin-top:26px;padding:18px 22px;border-left:2px solid var(--gold);background:rgba(184,150,110,.08)}
+  .brief-box p{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.02em;color:rgba(250,248,244,.75);line-height:1.9}
+  .brief-box strong{color:var(--gold);font-weight:600}
+
+  .doc-nav{background:var(--navy-mid);padding:0 32px;border-bottom:1px solid rgba(184,150,110,.15);position:sticky;top:0;z-index:100}
+  .nav-inner{max-width:900px;margin:0 auto;display:flex;gap:0;overflow-x:auto}
+  .nav-inner::-webkit-scrollbar{display:none}
+  .nav-link{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,244,.55);padding:16px 18px;white-space:nowrap;text-decoration:none;border-bottom:2px solid transparent}
+  .nav-link:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+  .wrap{max-width:900px;margin:0 auto;padding:48px 32px}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,38px);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:6px}
+  .section-sub{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .lede{font-size:18px;color:var(--slate);margin-bottom:24px;line-height:1.8}
+  .lede em{font-style:italic;color:var(--navy)}
+
+  .journey-block{margin-top:64px;padding-top:8px;border-top:1px solid rgba(184,150,110,.2)}
+  .journey-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .journey-narrative{color:var(--slate);margin-bottom:8px}
+  .journey-meta-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 28px}
+  .meta-pill{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--navy);background:var(--sand);padding:6px 14px;border:1px solid rgba(184,150,110,.3)}
+
+  .itin-tabs{display:flex;gap:0;margin-bottom:0;flex-wrap:wrap}
+  .itin-tab{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:10px 18px;border:1px solid rgba(184,150,110,.3);cursor:pointer;color:var(--slate);background:white;transition:all .2s}
+  .itin-tab:hover,.itin-tab.active{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+
+  .itin-card{background:white;border:1px solid rgba(184,150,110,.15);margin-bottom:16px;overflow:hidden;display:none}
+  .itin-card.visible{display:block}
+  .itin-card-header{background:var(--navy);padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .itin-card-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--warm-white)}
+  .itin-card-meta{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,244,.45);margin-top:5px}
+  .itin-tier-badge{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--gold);color:var(--gold);white-space:nowrap;align-self:flex-start}
+  .itin-body{padding:26px}
+  .itin-day{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(184,150,110,.1)}
+  .itin-day:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .day-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+  .day-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .day-content{color:var(--near-black)}
+  .day-note{margin-top:10px;padding:10px 14px;border-left:2px solid var(--gold);background:var(--sand);font-size:13px;color:#4A5568;font-style:italic}
+  .day-note.travel{border-left-color:#7B9E87}
+  .itin-footer{background:#f5edd8;padding:18px 24px;border-top:1px solid rgba(184,150,110,.2)}
+  .itin-footer h4{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--navy);margin-bottom:8px}
+  .itin-footer ul{list-style:none;font-family:'Montserrat',sans-serif;font-size:11px;color:var(--slate);line-height:2}
+  .itin-footer li::before{content:'•';color:var(--gold);margin-right:8px}
+  .price-block{background:var(--navy);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .price-label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,248,244,.5)}
+  .price-value{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);font-weight:400}
+  .price-note{font-family:'Montserrat',sans-serif;font-size:9px;color:rgba(250,248,244,.4);width:100%;margin-top:4px}
+  .ext-note{margin-top:10px;padding:12px 14px;border-left:2px solid var(--gold-bright);background:#fbf3e6;font-size:13px;color:#4A5568}
+  .ext-note strong{color:var(--navy);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+
+  .closing{margin-top:64px;padding:32px 28px;background:var(--navy);text-align:center}
+  .closing p{color:rgba(250,248,244,.85);font-size:17px;line-height:1.8}
+  .closing strong{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:22px;display:block;margin-bottom:12px;font-weight:400}
+  .closing a{color:var(--gold);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;display:inline-block;margin-top:16px;border-bottom:1px solid var(--gold);padding-bottom:2px}
+
+  @media(max-width:600px){.itin-body{padding:18px}.wrap{padding:32px 18px}}
+</style>
+</head>
+<body>
+
+<!-- ── LOGIN GATE ── -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-logo">Arkipelago</div>
+    <div class="gate-divider"></div>
+    <h1 class="gate-title">Your Journey Through<br><em>the Philippines</em></h1>
+    <p class="gate-sub">Private Itinerary · Susan Fromer</p>
+    <input class="gate-field" id="gate-user" type="text" placeholder="Username" autocomplete="username" />
+    <input class="gate-field" id="gate-pass" type="password" placeholder="Password" autocomplete="current-password" />
+    <button class="gate-btn" onclick="checkLogin()">View Itinerary</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<!-- ── ITINERARY CONTENT ── -->
+<div id="content">
+
+<div class="doc-header">
+  <div class="header-inner">
+    <div class="doc-eyebrow">Prepared exclusively for Susan Fromer</div>
+    <h1 class="doc-title">Three Journeys for <em>Susan Fromer</em></h1>
+    <div class="doc-subtitle">2 Adults · 15–23 Days · January 20, 2027 · Source: Arkipelago Homepage Quote Form</div>
+    <div class="brief-box">
+      <p><strong>The brief:</strong> Beach, mountains, city, and countryside, a total experience. Active but not rushed: hiking yes, diving no, mild snorkelling only. Wellness retreat included. Food tours, culture, and local interaction are the priority throughout, <strong>this couple are foodies and every leg should reflect that</strong>. Luxury but not extravagant. Beach days are for rest, not itineraries, private island hopping only if they want it, never scheduled. <strong>Susan's partner has motion sensitivity</strong>, every transfer below is routed to minimise rough water and turbulence. They've said plainly they don't enjoy the mechanics of travel, so each journey favours fewer, longer stays over constant movement. Investment estimates below are all-in ranges for two, pending final property and flight confirmation.</p>
+    </div>
+  </div>
+</div>
+
+<div class="doc-nav">
+  <div class="nav-inner">
+    <a class="nav-link" href="#j1">Journey One: El Nido &amp; The North</a>
+    <a class="nav-link" href="#j2">Journey Two: Coron &amp; The Visayas</a>
+    <a class="nav-link" href="#j3">Journey Three: The Grand Archipelago</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <h2 class="section-title">Three Ways Into the Same Story</h2>
+  <div class="section-sub">How to read this document</div>
+  <p class="lede">Each journey below is a complete route, a different way of stitching together <em>wellness, coastline, and heritage</em> across 2.5 to 3 weeks. Within each journey, three tiers show how the same route deepens as accommodation and pace are elevated: more time in each place, fewer moving parts, more that is arranged exclusively for the two of them. Nothing here is fixed. Pick a route, a tier, or pieces of both, we'll build the final version around exactly what Susan and her partner want after a call.</p>
+
+  <!-- ================= JOURNEY ONE ================= -->
+  <div class="journey-block" id="j1">
+    <div class="journey-eyebrow">Journey One</div>
+    <h2 class="section-title">El Nido &amp; The North</h2>
+    <p class="journey-narrative">This route trades constant movement for depth: a wellness reset inland, one long stay on the water at Seda Lio in El Nido, and a slower final week in Vigan's Spanish colonial north. It's the most restful of the three routes, fewer transfers, longer stays, and a rhythm built entirely around rest, food, and walking rather than logistics.</p>
+    <div class="journey-meta-row">
+      <span class="meta-pill">Manila → Farm at San Benito → El Nido → Vigan &amp; Ilocos → Manila</span>
+      <span class="meta-pill">13–17 Days</span>
+      <span class="meta-pill">2 Transfers Total</span>
+    </div>
+
+    <div class="itin-tabs">
+      <div class="itin-tab active" onclick="showTier('j1','r',this)">Refined</div>
+      <div class="itin-tab" onclick="showTier('j1','e',this)">Elevated</div>
+      <div class="itin-tab" onclick="showTier('j1','s',this)">Sovereign</div>
+    </div>
+
+    <!-- J1 REFINED -->
+    <div class="itin-card visible" id="j1-r">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Refined Circuit</div><div class="itin-card-meta">13 Days · 12 Nights · 2 Pax · Boutique 4-Star</div></div>
+        <div class="itin-tier-badge">Tier 1</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Day 1</div>
+          <div class="day-title">Arrival: A Taste of Manila</div>
+          <div class="day-content">Private airport meet-and-greet, no queues, straight to the hotel. That afternoon, a private guide walks you through Intramuros, the old walled city, cobblestone streets, Spanish-era churches, and the bastion walls, timed for late day once the crowds have thinned. From there it's a short crossing into Binondo, the world's oldest Chinatown, for a walking food trail through its side streets: century-old dumpling houses, fresh lumpia, and the noodle shops that have fed the district for generations.
+          <div class="day-note">[FOODIE NOTE: Binondo rewards moving between four or five small, unglamorous places rather than one sit-down restaurant. This is the one evening built around grazing, not a table.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 2</div>
+          <div class="day-title">South to the Farm</div>
+          <div class="day-content">A two-hour private drive south into Batangas, the city dropping away into coconut groves and volcano views. Arrival at [ACCOMMODATION: The Farm at San Benito, Lipa, wellness suite tier] in time for a late lunch from their organic garden kitchen.
+          <div class="day-note travel">[TRAVEL NOTE: This leg is entirely overland, no boats, no flights, the smoothest transfer in the entire journey.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–4</div>
+          <div class="day-title">The Wellness Reset</div>
+          <div class="day-content">Two unhurried days built around the Farm's own rhythm. Day 3 stays entirely on the property: a guided forest trail on the lower slopes of Mt. Malarayat in the cool of the morning, hydrotherapy and native massage in the afternoon, plant-based tasting menus built from what was picked that morning. Day 4 crosses into Tagaytay, forty minutes north, for the overlook across Taal Lake and its volcano island rising out of the water, with dinner that evening at Balay Dako, the Filipino comfort-food house known as much for its cooking as for that same view across the caldera.
+          <div class="day-note">[FOODIE NOTE: Balay Dako's menu is built around Filipino home cooking done properly, kare-kare, crispy pata, grilled seafood, the kind of table this couple will actually want after two lighter days at the Farm.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 5</div>
+          <div class="day-title">North to the Lagoon Coast</div>
+          <div class="day-content">Private transfer to Manila's domestic terminal, then a direct flight to El Nido, the calmest scheduled departure of the day, chosen specifically for smoother air. A private transfer delivers you to [ACCOMMODATION: Seda Lio, El Nido, beachfront suite] by early afternoon, with the rest of the day entirely open.
+          <div class="day-note travel">[TRAVEL NOTE: We book the earliest, calmest-weather flight window into El Nido and request a seat away from the propellers, the smoothest configuration available on this route.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 6–10</div>
+          <div class="day-title">Lio Beach: Five Days of Doing Very Little</div>
+          <div class="day-content">This stretch has no fixed programme. Lio Beach itself is calm and shallow, good for slow mornings and no currents to think about. Bacuit Bay has more calm, sheltered islands than most guests ever see, and on the two or three mornings you choose, a private outrigger can reach any combination of them: the Big and Small Lagoons and the Secret Lagoon for flat, glass-still water with mild snorkelling over the reef edges, Shimizu Island for one of the bay's best coral gardens in shallow, protected water, Star Beach and Helicopter Island for wide sweeps of sand with almost no one on them outside peak hours, and the Matinloc Shrine and Hidden Beach for a quieter, more scenic run further south. None of it is more strenuous than a short swim from the boat. The rest of the days are yours: the beach, the Lio Estate's small design district for coffee and browsing, long lunches. Dinners rotate between the resort's own kitchen and two or three private chef set-ups on the sand, arranged the day of.
+          <div class="day-note">[FOODIE NOTE: El Nido's better tables are small and reservation-only, we'll pre-arrange two dinners rather than leave them to chance.]</div>
+          <div class="day-note travel">[TRAVEL NOTE: Island hopping here uses a single stable outrigger, not a shared speedboat tour, and only on the days you choose, this is never scheduled by default.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 11</div>
+          <div class="day-title">North to Vigan</div>
+          <div class="day-content">Morning flight back to Manila, connecting same-day to a short flight north to Laoag, then a 40-minute private transfer into Vigan. This is the routing we'd recommend by default: the overland alternative runs closer to seven hours by private vehicle and adds a full day of driving neither of you needs. Afternoon arrival at [ACCOMMODATION: heritage boutique hotel, Vigan UNESCO quarter].
+          <div class="day-note travel">[TRAVEL NOTE: Flying via Laoag keeps this connection under two hours in the air combined, against a full day overland. Given the preference to avoid unnecessary travel time, this is the routing we'd book by default.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 12–13</div>
+          <div class="day-title">Cobblestones and Countryside</div>
+          <div class="day-content">Morning walks through Calle Crisologo before the day-trippers arrive, a kalesa ride through the old quarter, and a full afternoon food tour, Vigan longganisa, bagnet, empanada at the stall your guide has used for fifteen years. One day extends into the Ilocos countryside: the Kapurpurawan rock formations, Paoay's colonial church, and a short, flat hike up to the Bantay Bell Tower viewpoint for sunset over the plain.
+          <div class="day-note">[FOODIE NOTE: Vigan is arguably the strongest food destination on this entire route for a couple who cook and eat seriously, we'd suggest a private cooking session with a local family as an easy addition.]</div>
+          Departure transfer to Manila for the international flight home closes Day 13.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 9,800 &ndash; 11,800</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>4-star boutique and resort-tier accommodation throughout</li>
+          <li>Private transfers and guides at every stage, standard scheduling</li>
+          <li>No buffer days, a well-paced but efficient version of the route</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- J1 ELEVATED -->
+    <div class="itin-card" id="j1-e">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Elevated Circuit</div><div class="itin-card-meta">15 Days · 14 Nights · 2 Pax · 5-Star &amp; Luxury Villa</div></div>
+        <div class="itin-tier-badge">Tier 2</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Day 1</div>
+          <div class="day-title">Arrival: A Taste of Manila</div>
+          <div class="day-content">Same private welcome, Intramuros walk, and Binondo food trail as above, at [ACCOMMODATION: 5-star hotel, Makati or BGC]. One addition: a private car and driver held for the full afternoon rather than point-to-point transfers, so the pace through both districts is entirely unhurried.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 2</div>
+          <div class="day-title">South to the Farm</div>
+          <div class="day-content">Private drive south to [ACCOMMODATION: The Farm at San Benito, deluxe pool villa]. Same smooth overland route.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–5</div>
+          <div class="day-title">The Wellness Reset, Extended</div>
+          <div class="day-content">The forest trail, spa programme, and farm-to-table dining continue as in the Refined tier, with treatments upgraded to the Farm's full signature programme, plus the same crossing into Tagaytay for Taal Lake and dinner at Balay Dako. A third day is added purely as a rest buffer, no programme at all, villa and gardens only, ahead of the more active stretch to come.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 6</div>
+          <div class="day-title">North to the Lagoon Coast</div>
+          <div class="day-content">Same calm-weather flight routing to El Nido. Arrival at [ACCOMMODATION: Seda Lio, El Nido, Club Room with lagoon access, or beachfront pool villa].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 7–12</div>
+          <div class="day-title">Lio Beach: Six Days, One Rest Day Built In</div>
+          <div class="day-content">The same unstructured rhythm as the Refined tier across all of Bacuit Bay's calm islands, extended by one full day, with a private chef available on-call rather than pre-arranged, and one sunset outing on a larger private speedboat past Pinagbuyutan Island, steadier than a traditional outrigger in open water, and a better option given motion sensitivity if you'd like an evening on the water.
+          <div class="day-note travel">[TRAVEL NOTE: A larger private speedboat is the more comfortable choice over a traditional outrigger for anything beyond the sheltered lagoons, flag this preference and we'll route accordingly.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Optional Extension</div>
+          <div class="day-title">Port Barton, If You Want a Second Coast</div>
+          <div class="day-content">Two or three nights can be added here as a side trip to Port Barton, a two-and-a-half-hour private overland transfer south of El Nido: undeveloped, quiet, closer to what El Nido looked like twenty years ago. Its own set of islands, Exotic, Fulvic, and Cacnipa among them, are calmer and even less visited than Bacuit Bay's. This sits outside the day count below and would be priced and scheduled separately if it's of interest.
+          <div class="ext-note"><strong>Optional Add-On</strong><br>+2 to 3 nights · adds approx. USD 2,400 to 3,600 to the investment range below · flag on the call if this appeals</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 13</div>
+          <div class="day-title">North to Vigan</div>
+          <div class="day-content">Flight via Laoag, then a short private transfer into Vigan, the routing we'd book by default given the seven-hour overland alternative adds a full day of driving for no real benefit. Arrival at [ACCOMMODATION: restored heritage ancestral house, Vigan, full buyout for two].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 14</div>
+          <div class="day-title">Cobblestones and Countryside</div>
+          <div class="day-content">Same heritage walks, food tour, and Ilocos countryside day as the Refined tier, with a private cooking class added as standard rather than optional, and a slower final morning before the departure transfer.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 17,500 &ndash; 20,500</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.<br>Port Barton extension, if added, is priced separately above.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>5-star and villa-tier accommodation, including a full ancestral house buyout in Vigan</li>
+          <li>Two additional rest/buffer days built into the pace (Farm + El Nido)</li>
+          <li>On-call private chef at El Nido; private cooking class in Vigan included as standard</li>
+          <li>Upgraded, larger vessel offered for any open-water time, given motion sensitivity</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- J1 SOVEREIGN -->
+    <div class="itin-card" id="j1-s">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Sovereign Circuit</div><div class="itin-card-meta">17 Days · 16 Nights · 2 Pax · Ultra Luxury, Fully Private</div></div>
+        <div class="itin-tier-badge">Tier 3</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Day 1</div>
+          <div class="day-title">Arrival: A Taste of Manila</div>
+          <div class="day-content">Same welcome, at [ACCOMMODATION: top-tier suite, Manila]. The Intramuros and Binondo walk is joined by a second night's reservation at one of Manila's tasting-menu-only dining rooms, secured in advance.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 2</div>
+          <div class="day-title">South to the Farm</div>
+          <div class="day-content">Private drive south to [ACCOMMODATION: The Farm at San Benito, top-tier private villa with dedicated butler].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–6</div>
+          <div class="day-title">The Wellness Reset, in Full</div>
+          <div class="day-content">Four days, including two full rest days with no programme at all. The Farm's complete signature spa and detox programme is built around you by their own wellness team, coordinated in advance by Arkipelago, alongside the forest trail, farm-to-table dining, and a private car held for the day to Tagaytay for the Taal Lake overlook, with dinner reserved at Balay Dako.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 7</div>
+          <div class="day-title">North to the Lagoon Coast</div>
+          <div class="day-content">Direct commercial flight to El Nido, the calmest scheduled departure of the day, booked in business class where the route offers it. Arrival at [ACCOMMODATION: Seda Lio, El Nido, full beachfront pool villa, or a private villa buyout on request].
+          <div class="day-note travel">[TRAVEL NOTE: Same calm-weather flight window and away-from-propeller seating as the other tiers, upgraded here to business class where available rather than a private charter.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 8–14</div>
+          <div class="day-title">Lio Beach: Seven Days, Two Built-In Rest Days</div>
+          <div class="day-content">The longest, slowest stretch of any of the three journeys. A private chef is on staff for the full stay. Two or three mornings are held for the calm lagoon and island outings as before, drawing on the full run of Bacuit Bay: the Big and Small Lagoons, Shimizu, Star Beach, Helicopter Island, Matinloc Shrine, and Hidden Beach, chosen day by day depending on the mood and the weather. The rest of the week has genuinely nothing on it. One evening is arranged as a private dinner on a quiet stretch of sand, staff only, no other guests in sight.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Optional Extension</div>
+          <div class="day-title">Port Barton, If You Want a Second Coast</div>
+          <div class="day-content">The same Port Barton side trip described in the Elevated tier, upgraded here to a private villa with dedicated staff for the extension nights, reached by private vehicle rather than any shared transport. This sits outside the day count below and would be priced and scheduled separately if it's of interest.
+          <div class="ext-note"><strong>Optional Add-On</strong><br>+2 to 3 nights · adds approx. USD 4,200 to 6,300 to the investment range below · flag on the call if this appeals</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 15</div>
+          <div class="day-title">North to Vigan</div>
+          <div class="day-content">Direct commercial flight to Laoag, then a short private transfer into Vigan. Arrival at [ACCOMMODATION: fully restored ancestral house, private buyout, Vigan].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 16–17</div>
+          <div class="day-title">Cobblestones and Countryside, Unhurried</div>
+          <div class="day-content">Two full days rather than one and a half: the heritage walk, the food tour, the countryside day, and the cooking class, with a full rest morning added before departure and no fixed wake-up time.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 23,500 &ndash; 28,000</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.<br>Port Barton extension, if added, is priced separately above.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>Business-class commercial flights booked on the calmest scheduled departures throughout</li>
+          <li>Villa buyouts at both El Nido and Vigan, no other guests in your accommodation</li>
+          <li>Private chef on staff throughout the El Nido stay</li>
+          <li>Four additional rest/buffer days built into the pace versus the Refined tier</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JOURNEY TWO ================= -->
+  <div class="journey-block" id="j2">
+    <div class="journey-eyebrow">Journey Two</div>
+    <h2 class="section-title">Coron &amp; The Visayas</h2>
+    <p class="journey-narrative">Coron trades El Nido's open-water drama for something calmer and, for this couple specifically, more comfortable: its signature experiences are inland lakes and sheltered bays rather than long open-sea crossings, and the town itself has a quieter, less trafficked feel. This route pairs it with Bohol and Cebu, hills, hiking, and one of the country's strongest food cities, for the "mountains and city" half of the brief that Journey One leaves lighter.</p>
+    <div class="journey-meta-row">
+      <span class="meta-pill">Manila → Farm at San Benito → Coron → Bohol &amp; Cebu → Manila</span>
+      <span class="meta-pill">16–20 Days</span>
+      <span class="meta-pill">3 Transfers Total</span>
+    </div>
+
+    <div class="itin-tabs">
+      <div class="itin-tab active" onclick="showTier('j2','r',this)">Refined</div>
+      <div class="itin-tab" onclick="showTier('j2','e',this)">Elevated</div>
+      <div class="itin-tab" onclick="showTier('j2','s',this)">Sovereign</div>
+    </div>
+
+    <!-- J2 REFINED -->
+    <div class="itin-card visible" id="j2-r">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Refined Circuit</div><div class="itin-card-meta">16 Days · 15 Nights · 2 Pax · Boutique 4-Star</div></div>
+        <div class="itin-tier-badge">Tier 1</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Day 1</div>
+          <div class="day-title">Arrival: A Taste of Manila</div>
+          <div class="day-content">Same private welcome, Intramuros walk, and Binondo food trail as Journey One, at [ACCOMMODATION: 4-star hotel, Makati or BGC].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 2</div>
+          <div class="day-title">South to the Farm</div>
+          <div class="day-content">Private overland transfer to [ACCOMMODATION: The Farm at San Benito, wellness suite tier].
+          <div class="day-note travel">[TRAVEL NOTE: Overland, no boats or flights, the smoothest transfer of the trip.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–4</div>
+          <div class="day-title">The Wellness Reset</div>
+          <div class="day-content">The same forest trail, spa programme, and plant-based tasting menus as Journey One's Farm stretch, including the day trip north to Tagaytay for the Taal Lake overlook and dinner at Balay Dako.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 5</div>
+          <div class="day-title">West to Busuanga</div>
+          <div class="day-content">Private transfer to Manila, then a direct flight to Busuanga on a full-size turboprop, the more comfortable aircraft on this route compared with El Nido's smaller planes. Private transfer to [ACCOMMODATION: 4-star lodge, Coron].
+          <div class="day-note travel">[TRAVEL NOTE: We book this on the larger ATR-class aircraft specifically, noticeably steadier than the smaller El Nido-bound planes.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 6–9</div>
+          <div class="day-title">Coron: Lakes Before the Sea</div>
+          <div class="day-content">Coron's signature experience is Kayangan Lake, flat, sheltered, freshwater, no swell at all, reached by a short private outrigger ride across calm harbour water rather than open sea. The neighbouring Twin Lagoon, split by a limestone wall you can swim or paddle through at low tide, is calm enough to pair with it on the same morning. One morning, a moderate hike up Mt. Tapyas for sunset views over the town and harbour, well within an easygoing pace. The rest of the days are open, with a wider run of calm islands to choose from as the mood strikes: the wide, shallow reef at Siete Pecados for the mildest snorkelling in the area, the white sand at CYC and Banol Beach, and Malcapuya and Bulog Dos further out for a full day of quiet, protected water and almost no other boats. Nothing here is scheduled by default.
+          <div class="day-note">[FOODIE NOTE: Coron town has a genuinely good, low-key seafood scene, we'll arrange one dinner where your guide simply walks you to the market to choose the catch, then to the grill stall of their choice.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 10</div>
+          <div class="day-title">South to Bohol</div>
+          <div class="day-content">Private transfer to Busuanga airport, connecting via Manila or Cebu to Tagbilaran. Private transfer to [ACCOMMODATION: 4-star resort, Panglao, Bohol].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 11–13</div>
+          <div class="day-title">Bohol's Hills and Cebu's Table</div>
+          <div class="day-content">An early departure to beat the crowds at the Chocolate Hills viewpoint, followed by a gentle countryside walk through the surrounding farmland and a slow lunch cruise on the Loboc River, calm, flat water throughout. A day trip crosses to Cebu City for its food scene specifically: lechon at the source, a street food crawl through Carbon Market with a guide who knows which stalls matter, and a heritage walk through the old Spanish quarter.
+          <div class="day-note">[FOODIE NOTE: Cebu is the strongest single food day of this entire journey, we'd suggest keeping the Bohol-to-Cebu day light on sightseeing and heavy on eating.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 14–15</div>
+          <div class="day-title">Final Beach Days</div>
+          <div class="day-content">Back at the resort in Panglao with nothing scheduled, the beach, the pool, a final private dinner on the sand. Departure transfer to Manila for the international flight home closes Day 16.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 12,000 &ndash; 14,000</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>4-star accommodation throughout, private transfers and guides at every stage</li>
+          <li>No buffer days, a well-paced but efficient version of the route</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- J2 ELEVATED -->
+    <div class="itin-card" id="j2-e">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Elevated Circuit</div><div class="itin-card-meta">18 Days · 17 Nights · 2 Pax · 5-Star &amp; Luxury Villa</div></div>
+        <div class="itin-tier-badge">Tier 2</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Days 1–2</div>
+          <div class="day-title">Manila, Then South to the Farm</div>
+          <div class="day-content">As Refined, at [ACCOMMODATION: 5-star hotel, Manila] and [ACCOMMODATION: The Farm at San Benito, deluxe pool villa].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–5</div>
+          <div class="day-title">The Wellness Reset, Extended</div>
+          <div class="day-content">The forest trail, spa programme, and the Tagaytay day for Taal Lake and dinner at Balay Dako continue as in the Refined tier, with treatments upgraded to the Farm's full signature programme. A third day is added purely as a rest buffer, no programme at all.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 6</div>
+          <div class="day-title">West to Busuanga</div>
+          <div class="day-content">Same steady turboprop routing to Coron. Arrival at [ACCOMMODATION: 5-star resort or private villa, Coron].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 7–11</div>
+          <div class="day-title">Coron: Five Days, One Rest Day Built In</div>
+          <div class="day-content">Kayangan Lake, Twin Lagoon, the Mt. Tapyas hike, and the full run of calm islands, Siete Pecados, CYC and Banol Beach, Malcapuya, and Bulog Dos, continue as in Refined, extended by a full unstructured day, with a private chef on-call and a larger private speedboat offered for any evening outing.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 12</div>
+          <div class="day-title">South to Bohol</div>
+          <div class="day-content">Private transfer via Cebu, arrival at [ACCOMMODATION: 5-star resort or private beach villa, Panglao].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 13–16</div>
+          <div class="day-title">Bohol's Hills and Cebu's Table</div>
+          <div class="day-content">Same Chocolate Hills, Loboc River, and Cebu food-crawl day as Refined, with a private guided cooking class in Cebu added, and one additional unstructured beach day at Panglao.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 17–18</div>
+          <div class="day-title">Final Beach Days, Then Departure</div>
+          <div class="day-content">A slower final stretch with nothing scheduled, closing with a private dinner on the sand before the departure transfer to Manila.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 20,500 &ndash; 24,000</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>5-star and private villa-tier accommodation throughout</li>
+          <li>Two additional rest/buffer days built into the pace (Farm + Coron)</li>
+          <li>Private cooking class in Cebu included as standard</li>
+          <li>Larger, steadier vessel offered for any open-water time</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- J2 SOVEREIGN -->
+    <div class="itin-card" id="j2-s">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Sovereign Circuit</div><div class="itin-card-meta">20 Days · 19 Nights · 2 Pax · Ultra Luxury, Fully Private</div></div>
+        <div class="itin-tier-badge">Tier 3</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Days 1–2</div>
+          <div class="day-title">Manila, Then South to the Farm</div>
+          <div class="day-content">As Elevated, at [ACCOMMODATION: top-tier suite, Manila] and [ACCOMMODATION: The Farm at San Benito, top-tier private villa with dedicated butler].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–6</div>
+          <div class="day-title">The Wellness Reset, in Full</div>
+          <div class="day-content">Four days including two full rest days, the Farm's complete signature programme coordinated in advance, plus a private car held for the day to Tagaytay for the Taal Lake overlook, with dinner reserved at Balay Dako.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 7</div>
+          <div class="day-title">West to Busuanga</div>
+          <div class="day-content">Direct commercial flight on the calmest scheduled departure, booked in business class where available. Arrival at [ACCOMMODATION: private island resort or full villa buyout, Coron].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 8–14</div>
+          <div class="day-title">Coron: Seven Days, Two Built-In Rest Days</div>
+          <div class="day-content">The longest stay of any leg in either Coron journey. A private chef is on staff throughout. Kayangan Lake, Twin Lagoon, the Mt. Tapyas hike, and the full run of calm islands, Siete Pecados, CYC and Banol Beach, Malcapuya, and Bulog Dos, continue as before, alongside two full days with nothing on them at all, and a full-day private island day-use buyout at a resort of your choosing for total privacy.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 15</div>
+          <div class="day-title">South to Bohol</div>
+          <div class="day-content">Commercial connection via Cebu, business class where available. Arrival at [ACCOMMODATION: private beachfront villa, full buyout, Panglao].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 16–19</div>
+          <div class="day-title">Bohol's Hills and Cebu's Table, Unhurried</div>
+          <div class="day-content">The same countryside and food programme as Elevated, with a private chef-led tasting dinner arranged in Cebu with one of the city's leading chefs, and a full rest day added before the return to Manila.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 27,500 &ndash; 32,500</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>Business-class commercial flights booked on the calmest scheduled departures throughout</li>
+          <li>Villa buyouts at Coron and Panglao, no other guests in your accommodation</li>
+          <li>Private chef on staff throughout the Coron stay; chef-led dinner arranged in Cebu</li>
+          <li>Four additional rest/buffer days built into the pace versus the Refined tier</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JOURNEY THREE ================= -->
+  <div class="journey-block" id="j3">
+    <div class="journey-eyebrow">Journey Three</div>
+    <h2 class="section-title">The Grand Archipelago</h2>
+    <p class="journey-narrative">For a couple with three full weeks and no urgency to be anywhere, this is the complete answer: both Palawan bases rather than a choice between them, plus the northern Farm and the Bohol/Cebu leg. It's the longest and most varied of the three routes, El Nido's lagoons, Coron's lakes, and the full mountains-city-countryside arc all in one trip, while keeping the same unhurried, rest-first pacing throughout.</p>
+    <div class="journey-meta-row">
+      <span class="meta-pill">Manila → Farm at San Benito → El Nido → Coron → Bohol &amp; Cebu → Manila</span>
+      <span class="meta-pill">19–23 Days</span>
+      <span class="meta-pill">4 Transfers Total</span>
+    </div>
+
+    <div class="itin-tabs">
+      <div class="itin-tab active" onclick="showTier('j3','r',this)">Refined</div>
+      <div class="itin-tab" onclick="showTier('j3','e',this)">Elevated</div>
+      <div class="itin-tab" onclick="showTier('j3','s',this)">Sovereign</div>
+    </div>
+
+    <!-- J3 REFINED -->
+    <div class="itin-card visible" id="j3-r">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Refined Circuit</div><div class="itin-card-meta">19 Days · 18 Nights · 2 Pax · Boutique 4-Star</div></div>
+        <div class="itin-tier-badge">Tier 1</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Days 1–2</div>
+          <div class="day-title">Manila, Then South to the Farm</div>
+          <div class="day-content">The Intramuros walk and Binondo food trail on arrival, then the same overland transfer to [ACCOMMODATION: The Farm at San Benito, wellness suite tier] as both other routes.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–4</div>
+          <div class="day-title">The Wellness Reset</div>
+          <div class="day-content">The forest trail, spa programme, and farm-to-table dining, as in Journeys One and Two, including the day trip to Tagaytay for Taal Lake and dinner at Balay Dako.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 5</div>
+          <div class="day-title">North to the Lagoon Coast</div>
+          <div class="day-content">Calm-weather flight to El Nido, arrival at [ACCOMMODATION: Seda Lio, El Nido, beachfront suite].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 6–8</div>
+          <div class="day-title">Lio Beach</div>
+          <div class="day-content">Three days across Bacuit Bay's calm islands, the Big and Small Lagoons, Shimizu Island, Star Beach, Helicopter Island, and Matinloc Shrine and Hidden Beach on the mornings you choose, otherwise entirely open.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 9</div>
+          <div class="day-title">To Coron</div>
+          <div class="day-content">A direct flight connects El Nido to Coron on a full-size turboprop rather than backtracking through Manila, the more comfortable and more efficient of the two options. Arrival at [ACCOMMODATION: 4-star lodge, Coron].
+          <div class="day-note travel">[TRAVEL NOTE: This direct routing avoids a second Manila connection entirely, one fewer transfer than going back through the capital.]</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 10–12</div>
+          <div class="day-title">Coron</div>
+          <div class="day-content">Kayangan Lake, Twin Lagoon, the Mt. Tapyas hike, and Coron's own calm islands, Siete Pecados, CYC and Banol Beach, and Malcapuya, as in Journey Two, at the same easy pace.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 13</div>
+          <div class="day-title">South to Bohol</div>
+          <div class="day-content">Private transfer via Cebu. Arrival at [ACCOMMODATION: 4-star resort, Panglao, Bohol].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 14–17</div>
+          <div class="day-title">Bohol's Hills and Cebu's Table</div>
+          <div class="day-content">The Chocolate Hills, the Loboc River, and the Cebu food-and-heritage day as in Journey Two.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 18–19</div>
+          <div class="day-title">Final Beach Days, Then Departure</div>
+          <div class="day-content">Nothing scheduled at Panglao, a final private dinner on the sand, and the departure transfer to Manila.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 14,500 &ndash; 17,000</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>4-star accommodation throughout, private transfers and guides at every stage</li>
+          <li>No buffer days, a well-paced but efficient version of the route</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- J3 ELEVATED -->
+    <div class="itin-card" id="j3-e">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Elevated Circuit</div><div class="itin-card-meta">21 Days · 20 Nights · 2 Pax · 5-Star &amp; Luxury Villa</div></div>
+        <div class="itin-tier-badge">Tier 2</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Days 1–2</div>
+          <div class="day-title">Manila, Then South to the Farm</div>
+          <div class="day-content">As Refined, at [ACCOMMODATION: 5-star hotel, Manila] and [ACCOMMODATION: The Farm at San Benito, deluxe pool villa].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–6</div>
+          <div class="day-title">The Wellness Reset, Extended</div>
+          <div class="day-content">The forest trail, spa programme, and the Tagaytay day for Taal Lake and dinner at Balay Dako continue as in the Refined tier. A fourth day is added as a pure rest buffer ahead of the longer coastal stretch to come.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 7</div>
+          <div class="day-title">North to the Lagoon Coast</div>
+          <div class="day-content">Arrival at [ACCOMMODATION: Seda Lio, El Nido, beachfront pool villa].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 8–11</div>
+          <div class="day-title">Lio Beach</div>
+          <div class="day-content">Four days across the full run of Bacuit Bay's calm islands, Big and Small Lagoons, Shimizu, Star Beach, Helicopter Island, Matinloc Shrine, and Hidden Beach, with a private chef on-call and a larger private speedboat offered for any evening outing.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Optional Extension</div>
+          <div class="day-title">Port Barton, If You Want a Second Coast</div>
+          <div class="day-content">Two or three nights can be added here as a side trip south to Port Barton, quieter and less developed than El Nido, with its own calm islands, Exotic, Fulvic, and Cacnipa. This sits outside the day count below and would be priced and scheduled separately if it's of interest.
+          <div class="ext-note"><strong>Optional Add-On</strong><br>+2 to 3 nights · adds approx. USD 2,600 to 3,900 to the investment range below · flag on the call if this appeals</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 12</div>
+          <div class="day-title">To Coron</div>
+          <div class="day-content">Same direct turboprop connection. Arrival at [ACCOMMODATION: 5-star resort or private villa, Coron].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 13–17</div>
+          <div class="day-title">Coron</div>
+          <div class="day-content">Five days, one more than Refined, across Kayangan Lake, Twin Lagoon, Siete Pecados, CYC and Banol Beach, and Malcapuya, with the private island day-use option available and a genuinely open rest day mid-stay.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 18</div>
+          <div class="day-title">South to Bohol</div>
+          <div class="day-content">Arrival at [ACCOMMODATION: 5-star resort or private beach villa, Panglao].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 19–21</div>
+          <div class="day-title">Bohol's Hills and Cebu's Table, Then Departure</div>
+          <div class="day-content">The full countryside and food programme, a private cooking class in Cebu, and a slower final morning before departure.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 24,500 &ndash; 28,500</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.<br>Port Barton extension, if added, is priced separately above.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>5-star and private villa-tier accommodation throughout</li>
+          <li>Two additional rest/buffer days built into the pace (Farm + El Nido)</li>
+          <li>Private cooking class in Cebu included as standard</li>
+          <li>Larger, steadier vessel offered wherever there is open-water time</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- J3 SOVEREIGN -->
+    <div class="itin-card" id="j3-s">
+      <div class="itin-card-header">
+        <div><div class="itin-card-title">The Sovereign Circuit</div><div class="itin-card-meta">23 Days · 22 Nights · 2 Pax · Ultra Luxury, Fully Private</div></div>
+        <div class="itin-tier-badge">Tier 3</div>
+      </div>
+      <div class="itin-body">
+        <div class="itin-day">
+          <div class="day-label">Days 1–2</div>
+          <div class="day-title">Manila, Then South to the Farm</div>
+          <div class="day-content">As Elevated, at [ACCOMMODATION: top-tier suite, Manila] and [ACCOMMODATION: The Farm at San Benito, top-tier private villa with dedicated butler].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 3–6</div>
+          <div class="day-title">The Wellness Reset, in Full</div>
+          <div class="day-content">Four days including two full rest days, the Farm's complete signature programme, plus a private car held for the day to Tagaytay for the Taal Lake overlook, with dinner reserved at Balay Dako.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 7</div>
+          <div class="day-title">North to the Lagoon Coast</div>
+          <div class="day-content">Direct commercial flight, timed to the calmest scheduled departure, booked in business class where available. Arrival at [ACCOMMODATION: Seda Lio, El Nido, full villa buyout on request].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 8–12</div>
+          <div class="day-title">Lio Beach</div>
+          <div class="day-content">Five days with a private chef on staff throughout, ranging across the full run of Bacuit Bay, Big and Small Lagoons, Shimizu, Star Beach, Helicopter Island, Matinloc Shrine, and Hidden Beach, two of which are entirely unstructured, and one private sand dinner arranged away from the resort's other guests.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Optional Extension</div>
+          <div class="day-title">Port Barton, If You Want a Second Coast</div>
+          <div class="day-content">The same Port Barton side trip described in the Elevated tier, upgraded to a private villa with dedicated staff and a private vehicle transfer. This sits outside the day count below and would be priced and scheduled separately if it's of interest.
+          <div class="ext-note"><strong>Optional Add-On</strong><br>+2 to 3 nights · adds approx. USD 4,600 to 6,900 to the investment range below · flag on the call if this appeals</div></div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 13</div>
+          <div class="day-title">To Coron</div>
+          <div class="day-content">Direct commercial flight to Busuanga, business class where available. Arrival at [ACCOMMODATION: private island resort or full villa buyout, Coron].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 14–18</div>
+          <div class="day-title">Coron</div>
+          <div class="day-content">Five days, private chef on staff, ranging across Kayangan Lake, Twin Lagoon, Siete Pecados, CYC and Banol Beach, and Malcapuya, a full-day private island buyout for total privacy, and two entirely open rest days.</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Day 19</div>
+          <div class="day-title">South to Bohol</div>
+          <div class="day-content">Commercial connection via Cebu, business class where available. Arrival at [ACCOMMODATION: private beachfront villa, full buyout, Panglao].</div>
+        </div>
+        <div class="itin-day">
+          <div class="day-label">Days 20–23</div>
+          <div class="day-title">Bohol's Hills and Cebu's Table, Unhurried</div>
+          <div class="day-content">The full countryside programme, a chef-led tasting dinner in Cebu with one of the city's leading chefs, and two full rest days built in before the international departure, the longest, slowest close of any of the nine itineraries in this document.</div>
+        </div>
+      </div>
+      <div class="itin-footer">
+        <div class="price-block">
+          <div><div class="price-label">Investment Estimate &middot; 2 Pax &middot; All-In</div><div class="price-value">USD 32,000 &ndash; 38,000</div></div>
+          <div class="price-note">Estimate pending final property and flight confirmation, discussed in detail on your call with Kathy. Includes all domestic commercial airfare; excludes their confirmed Philippine Airlines Toronto to Manila flights.<br>Port Barton extension, if added, is priced separately above.</div>
+        </div>
+        <h4>What's Different at This Tier</h4>
+        <ul>
+          <li>Business-class commercial flights booked on the calmest scheduled departures throughout</li>
+          <li>Villa buyouts at El Nido, Coron, and Panglao, no other guests, at any stage</li>
+          <li>Private chef on staff for the entire Palawan portion of the trip</li>
+          <li>Four additional rest/buffer days built into the pace versus the Refined tier</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <p><strong>None of this is booked.</strong> Every element here, the route, the tier, the properties, the pace, the number of nights in each place, is a starting point, not a fixed plan. Once we've spoken with Susan directly, we'll redesign whichever journey resonates most around exactly what she and her partner want. Nothing is confirmed until she says so.</p>
+    <a href="#">Begin the conversation &rarr;</a>
+  </div>
+</div><!-- /wrap -->
+
+</div><!-- /content -->
+
+<script>
+(function(){
+  // Check session on load
+  if(sessionStorage.getItem('ark_auth')==='1'){unlock()}
+
+  document.getElementById('gate-pass').addEventListener('keydown',function(e){
+    if(e.key==='Enter') checkLogin();
+  });
+  document.getElementById('gate-user').addEventListener('keydown',function(e){
+    if(e.key==='Enter') document.getElementById('gate-pass').focus();
+  });
+})();
+
+function checkLogin(){
+  var u=document.getElementById('gate-user').value.trim().toLowerCase();
+  var p=document.getElementById('gate-pass').value;
+  if(u==='susan'&&p==='philippines2027'){
+    sessionStorage.setItem('ark_auth','1');
+    unlock();
+  } else {
+    var err=document.getElementById('gate-error');
+    err.textContent='Incorrect username or password.';
+    document.getElementById('gate-pass').value='';
+    document.getElementById('gate-pass').focus();
+  }
+}
+
+function unlock(){
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('content').classList.add('visible');
+}
+
+function showTier(group,tier,el){
+  var cards=document.querySelectorAll('[id^="'+group+'-"]');
+  cards.forEach(function(c){c.classList.remove('visible')});
+  document.getElementById(group+'-'+tier).classList.add('visible');
+  var tabs=el.parentElement.querySelectorAll('.itin-tab');
+  tabs.forEach(function(t){t.classList.remove('active')});
+  el.classList.add('active');
+}
+</script>
+
+</body>
+</html>
