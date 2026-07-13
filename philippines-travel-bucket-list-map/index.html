@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philippines Travel Bucket List Map | Arkipelago</title>
+<meta name="description" content="See how much of the Philippines you have explored, and where to go next. Map every province you have visited, then discover what remains. Begin your journey.">
+<link rel="canonical" href="https://luxurytoursphilippines.com/philippines-travel-bucket-list-map">
+<meta property="og:title" content="Philippines Travel Bucket List Map | Arkipelago">
+<meta property="og:description" content="Map every province you have visited across Luzon, Visayas, and Mindanao, then discover where to go next in the Philippines.">
+<meta property="og:image" content="https://luxurytoursphilippines.com/images/explorer-map-preview.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://luxurytoursphilippines.com/philippines-travel-bucket-list-map">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://luxurytoursphilippines.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Philippines Travel Bucket List Map", "item": "https://luxurytoursphilippines.com/philippines-travel-bucket-list-map" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How many provinces are there in the Philippines?", "acceptedAnswer": { "@type": "Answer", "text": "There are 82 provinces, grouped across three island regions: Luzon in the north, the Visayas in the centre, and Mindanao in the south. Most travellers, even frequent visitors, have been to fewer than thirty." } },
+      { "@type": "Question", "name": "Where should I go in the Philippines for my first trip?", "acceptedAnswer": { "@type": "Answer", "text": "For a first visit, the classic choice is Palawan for islands and water, paired with either Cebu and Bohol for variety or Manila for history and food. If you want somewhere quieter, Coron and Port Barton in Palawan offer the same beauty with far fewer crowds." } },
+      { "@type": "Question", "name": "What are the most underrated places to visit in the Philippines?", "acceptedAnswer": { "@type": "Answer", "text": "Batanes, Bukidnon, Vigan and the Ilocos region, and Siquijor tend to surprise travellers most, because they sit outside the standard circuit." } },
+      { "@type": "Question", "name": "When is the best time to visit the Philippines?", "acceptedAnswer": { "@type": "Answer", "text": "The dry season from November to May suits most of the country. The eastern seaboard, including Siargao, follows a different pattern and is often best from March to October." } }
+    ]
+  }
+]
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=swap');
+:root{
+  --navy:#0B1F3A; --navy-mid:#112847; --navy-light:#1A3A5C;
+  --gold:#B8966E; --gold-bright:#D4A96A; --gold-pale:#F0E6D3;
+  --warm-white:#FAF8F4; --sand:#F5EDD8;
+  --land:#1e3d28; --land-stroke:#2a5a3a; --ocean:#0a1e30;
+  --text:#FAF8F4; --text2:#C8B49A; --text3:rgba(250,248,244,0.45);
+  --border:rgba(184,150,110,0.2); --bg:#0B1F3A; --bg2:#112847;
+  --cream:#FAF8F4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'EB Garamond',Georgia,serif;font-size:17px;color:var(--text);background:var(--bg);line-height:1.7}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.06;pointer-events:none;z-index:9999}
+.container{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem}
+.brand-head{text-align:center;margin-bottom:2rem;padding-top:1.5rem;border-top:1px solid var(--border);position:relative}
+.nav-cta{position:absolute;right:0;top:1.5rem;padding:8px 18px;border-radius:8px;background:var(--gold);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background 0.15s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold-bright)}
+@media(max-width:560px){.nav-cta{position:static;display:inline-block;margin-top:12px}}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--warm-white);letter-spacing:0.1em;text-transform:uppercase}
+.brand-sub{font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-top:3px}
+.brand-tag{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-top:6px}
+.gold-rule{width:48px;height:1px;background:var(--gold);margin:14px auto}
+.prog-bar{height:2px;background:rgba(184,150,110,0.15);border-radius:2px;margin-bottom:1.5rem}
+.prog-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s;width:12%}
+.step{display:none}.step.active{display:block;animation:fade 0.3s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.step-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;opacity:0.7}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--warm-white);margin-bottom:4px;line-height:1.2}
+.step-sub{font-family:'EB Garamond',serif;font-size:15px;color:var(--text2);margin-bottom:1.25rem;line-height:1.6}
+.layout{display:grid;grid-template-columns:1fr 260px;gap:20px;align-items:start}
+.island-tabs{display:flex;gap:6px;margin-bottom:10px}
+.itab{flex:1;padding:7px 4px;border-radius:20px;border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;color:var(--text2);background:transparent;text-align:center;transition:all 0.15s;font-weight:500}
+.itab.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.map-wrap{position:relative;border-radius:14px;border:1px solid var(--border);background:var(--ocean);overflow:hidden}
+.map-wrap svg{display:block;width:100%;height:auto}
+.sidebar{display:flex;flex-direction:column;gap:9px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px}
+.select-hint{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.prov-scroll{max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;padding-right:3px}
+.prov-scroll::-webkit-scrollbar{width:4px}
+.prov-scroll::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;opacity:0.5}
+.pchip{padding:8px 10px;border-radius:9px;border:1px solid var(--border);font-size:12px;cursor:pointer;color:var(--text);background:var(--bg2);transition:all 0.12s;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.pchip:hover{border-color:var(--gold)}
+.pchip.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.pname{font-size:12px;font-weight:500}
+.pregion{font-size:9px;opacity:0.65;margin-top:1px}
+.pcnt{font-size:10px;opacity:0.6;white-space:nowrap;flex-shrink:0}
+.city-panel{margin-top:4px;border-top:1px solid var(--border);padding-top:10px}
+.city-prov-title{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:7px}
+.city-chips{display:flex;flex-direction:column;gap:4px;max-height:220px;overflow-y:auto;padding-right:3px}
+.city-chips::-webkit-scrollbar{width:4px}
+.city-chips::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;opacity:0.5}
+.cchip{padding:6px 9px;border-radius:7px;border:1px solid var(--border);font-size:11px;cursor:pointer;color:var(--text2);background:var(--bg2);transition:all 0.12s;display:flex;align-items:center;gap:7px}
+.cchip:hover{border-color:var(--gold);color:var(--warm-white)}
+.cchip.sel{background:var(--navy-light);border-color:var(--gold);color:var(--warm-white)}
+.cchip-dot{width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor;flex-shrink:0}
+.cchip.sel .cchip-dot{background:var(--gold);border-color:var(--gold)}
+.map-legend{display:flex;gap:14px;margin-top:8px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
+.leg-dot{width:9px;height:9px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:4px}
+.btn-row{display:flex;gap:8px;margin-top:1.5rem;align-items:center;flex-wrap:wrap}
+.btn-next{padding:10px 22px;border-radius:9px;background:var(--gold);color:var(--navy);border:none;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.15s;font-weight:600}
+.btn-next:hover{background:var(--gold-bright)}
+.btn-next:disabled{opacity:0.3;cursor:default}
+.btn-back{padding:10px 16px;border-radius:9px;background:transparent;color:var(--text2);border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.08em;cursor:pointer}
+.count-badge{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.1em;color:var(--text3)}
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px}
+.exp-card{padding:13px;border-radius:11px;border:1px solid var(--border);cursor:pointer;transition:all 0.15s;background:var(--bg2)}
+.exp-card:hover{border-color:var(--gold)}
+.exp-card.sel{border:2px solid var(--gold);background:var(--navy-light);padding:12px}
+.exp-icon{font-size:22px;margin-bottom:6px}
+.exp-name{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.06em;font-weight:600;color:var(--warm-white)}
+.exp-desc{font-size:13px;color:var(--text2);margin-top:3px;line-height:1.35}
+.gate-card{max-width:480px;margin:0 auto;padding:2rem 1.75rem;border-radius:14px;border:1px solid var(--border);background:var(--bg2);box-shadow:0 8px 40px rgba(0,0,0,0.4)}
+.gate-eyebrow{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:8px}
+.gate-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--warm-white);text-align:center;margin-bottom:6px;line-height:1.25}
+.gate-sub{font-size:15px;color:var(--text2);text-align:center;margin-bottom:1.5rem;line-height:1.6}
+.gate-stats{display:flex;gap:9px;margin-bottom:1.5rem}
+.gate-stat{flex:1;padding:11px;border-radius:9px;background:var(--navy);border:1px solid var(--border);text-align:center}
+.gate-stat-num{font-size:26px;font-weight:300;color:var(--gold);font-family:'Cormorant Garamond',serif}
+.gate-stat-lbl{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-top:2px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg.full{grid-column:1/-1}
+.fg label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);font-weight:500}
+.fg input,.fg select{padding:10px;border-radius:8px;border:1px solid var(--border);font-size:15px;font-family:'EB Garamond',Georgia,serif;background:var(--navy);color:var(--text)}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--gold)}
+.err-msg{font-family:'Montserrat',sans-serif;font-size:11px;color:#e07070;text-align:center;margin-top:10px;min-height:16px;letter-spacing:0.04em}
+.submit-btn{width:100%;margin-top:14px;padding:12px;border-radius:9px;background:var(--gold);color:var(--navy);border:none;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.15s;font-weight:600}
+.submit-btn:hover{background:var(--gold-bright)}
+.submit-btn:disabled{opacity:0.5;cursor:default}
+.privacy-note{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.06em;color:var(--text3);text-align:center;margin-top:10px;line-height:1.6}
+.result-hero{text-align:center;padding:1rem 0 0.5rem}
+.result-tagline{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.result-hero h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--warm-white);margin-bottom:10px;line-height:1.2}
+.result-hero p{font-size:16px;color:var(--text2);line-height:1.7;max-width:560px;margin:0 auto}
+.result-map-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin:1.25rem 0}
+.stats-row{display:flex;gap:9px;margin-bottom:12px}
+.stat-box{flex:1;padding:12px;border-radius:9px;background:var(--bg2);border:1px solid var(--border);text-align:center}
+.stat-num{font-size:28px;font-weight:300;color:var(--gold);font-family:'Cormorant Garamond',serif}
+.stat-lbl{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-top:2px}
+.vtags{display:flex;flex-wrap:wrap;gap:5px}
+.vtag{padding:3px 9px;border-radius:11px;background:var(--navy-light);border:1px solid var(--border);color:var(--text2);font-size:11px}
+.recs-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin:1.25rem 0 8px}
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.rec-card{padding:14px;border-radius:11px;border:1px solid var(--border);background:var(--bg2);transition:border-color 0.15s}
+.rec-card:hover{border-color:rgba(184,150,110,0.5)}
+.rec-tag{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.rec-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--warm-white);margin-bottom:4px}
+.rec-why{font-size:14px;color:var(--text2);line-height:1.5}
+.cta-block{margin-top:1.5rem;padding:22px;border-radius:14px;border:1px solid var(--border);border-top:2px solid var(--gold);background:var(--bg2);text-align:center}
+.cta-block p{font-size:15px;color:var(--text2);margin-bottom:14px;line-height:1.6}
+.cta-main{display:inline-block;padding:12px 28px;border-radius:9px;background:var(--gold);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;font-weight:600;transition:background 0.15s}
+.cta-main:hover{background:var(--gold-bright)}
+.restart-row{text-align:center;margin-top:14px}
+@media(max-width:680px){
+  .layout{grid-template-columns:1fr}
+  .result-map-row{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .sidebar{margin-top:8px}
+  .container{padding:1.5rem 1rem}
+  .step-title{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div style="height:2px;background:linear-gradient(90deg,transparent,#B8966E 30%,#D4A96A 50%,#B8966E 70%,transparent)"></div>
+<div class="container">
+  <div class="brand-head">
+    <a class="nav-cta" href="https://luxurytoursphilippines.com/#begin">Begin Your Journey</a>
+    <div class="brand-logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-bottom:10px">
+        <rect width="32" height="32" rx="6" fill="#0B1F3A"/>
+        <polygon points="16,4 18,13 16,11 14,13" fill="#B8966E"/>
+        <polygon points="16,28 18,19 16,21 14,19" fill="rgba(250,248,244,0.35)"/>
+        <polygon points="4,16 13,14 11,16 13,18" fill="rgba(250,248,244,0.35)"/>
+        <polygon points="28,16 19,14 21,16 19,18" fill="rgba(250,248,244,0.35)"/>
+        <circle cx="16" cy="16" r="2" fill="#B8966E"/>
+      </svg>
+    </div>
+    <div class="brand-name">Arkipelago</div>
+    <div class="brand-sub">Luxury Tours Philippines</div>
+    <div class="gold-rule"></div>
+    <div class="brand-tag">Designed entirely around you</div>
+  </div>
+
+  <div class="prog-bar"><div class="prog-fill" id="prog"></div></div>
+
+  <!-- STEP 1 -->
+  <div class="step active" id="s1">
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:300;color:var(--warm-white);line-height:1.15;margin-bottom:1rem">Your Philippines Travel Bucket List, Mapped</h1>
+    <p style="font-size:16px;color:var(--text2);line-height:1.75;max-width:680px;margin-bottom:1.75rem">Most people who love the Philippines have seen a handful of its provinces and assumed they knew the country. Then they look at a map of everywhere they have not been, and the number stops them cold. There are 82 provinces across Luzon, Visayas, and Mindanao, and even seasoned travellers rarely pass thirty.<br><br>This map is a way to see your own Philippines travel bucket list clearly: mark every place you have set foot, watch it light up, and find out where to go in the Philippines next. Start below.</p>
+    <div class="step-label">Step 1 of 4</div>
+    <div class="step-title">Which corners of the Philippines have you explored?</div>
+    <div class="step-sub">Select a province, then mark the exact places you have visited. Each one lights up on the map.</div>
+    <div class="layout">
+      <div>
+        <div class="island-tabs">
+          <div class="itab active" data-island="luzon" onclick="setIsland('luzon')">Luzon</div>
+          <div class="itab" data-island="visayas" onclick="setIsland('visayas')">Visayas</div>
+          <div class="itab" data-island="mindanao" onclick="setIsland('mindanao')">Mindanao</div>
+        </div>
+        <div class="map-wrap" id="map-host"></div>
+        <div class="map-legend">
+          <span><span class="leg-dot" style="background:#1e3d28;border:1px solid #2a5a3a"></span>Not visited</span>
+          <span><span class="leg-dot" style="background:var(--gold)"></span>Visited</span>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="select-hint">Tap a province to see its cities</div>
+        <div class="prov-scroll" id="prov-list"></div>
+        <div class="city-panel" id="city-panel" style="display:none">
+          <div class="city-prov-title" id="city-prov-title"></div>
+          <div class="city-chips" id="city-chip-list"></div>
+        </div>
+        <div class="count-badge" id="s1-counts">0 cities visited</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-next" onclick="goTo(2)">Next: your travel style &rarr;</button>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step" id="s2">
+    <div class="step-label">Step 2 of 4</div>
+    <div class="step-title">What kind of traveller are you?</div>
+    <div class="step-sub">Choose everything that speaks to you. This shapes what we suggest next.</div>
+    <div class="exp-grid" id="exp-grid"></div>
+    <div class="btn-row">
+      <button class="btn-back" onclick="goTo(1)">&larr; Back</button>
+      <button class="btn-next" id="s2next" onclick="goTo(3)" disabled>Next: your details &rarr;</button>
+      <span class="count-badge" id="exp-count">0 selected</span>
+    </div>
+  </div>
+
+  <!-- STEP 3: GATE -->
+  <div class="step" id="s3">
+    <div class="step-label" style="text-align:center">Step 3 of 4</div>
+    <div class="gate-card">
+      <div class="gate-eyebrow">Almost there</div>
+      <div class="gate-title">Your Philippines story is ready.</div>
+      <div class="gate-sub">Leave your details and we will reveal your personalised journey, along with what we would design for you next.</div>
+      <div class="gate-stats" id="gate-stats"></div>
+      <div class="form-grid">
+        <div class="fg"><label for="f-name">First name</label><input type="text" id="f-name" placeholder="e.g. Maria" autocomplete="given-name"></div>
+        <div class="fg"><label for="f-email">Email address</label><input type="email" id="f-email" placeholder="you@example.com" autocomplete="email"></div>
+        <div class="fg"><label for="f-window">When might you travel?</label>
+          <select id="f-window"><option value="">Select a window</option><option>Next 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>Just exploring for now</option></select></div>
+        <div class="fg"><label for="f-group">Group size</label>
+          <select id="f-group"><option value="">Select size</option><option>Solo</option><option>2 people</option><option>3 to 4 people</option><option>5 to 8 people</option><option>9 or more</option></select></div>
+      </div>
+      <div class="err-msg" id="err-msg"></div>
+      <button class="submit-btn" id="submit-btn" onclick="submitLead()">Reveal my journey &rarr;</button>
+      <div class="privacy-note">No spam. No packages. Just a conversation about your journey.<br>Your details go directly to the Arkipelago team.</div>
+    </div>
+    <div class="btn-row" style="justify-content:center"><button class="btn-back" onclick="goTo(2)">&larr; Back</button></div>
+  </div>
+
+  <!-- STEP 4: RESULT -->
+  <div class="step" id="s4"><div id="result-content"></div></div>
+</div>
+
+<!-- SEO SUPPORTING CONTENT -->
+<div style="max-width:960px;margin:0 auto;padding:3rem 1.5rem 1rem">
+
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--warm-white);margin-bottom:1rem;line-height:1.2">Why Most Travellers See So Little of the Philippines</h2>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:2rem">The Philippines holds more distinct places than almost any country its size, spread across roughly 7,600 islands. The practical effect is that the well-known circuit — Boracay, Palawan, Cebu, Bohol — absorbs the overwhelming majority of visitors, while entire regions stay quiet.<br><br>That is not a criticism of the popular spots. It is an observation we make constantly: a traveller can visit the Philippines five times, always land somewhere excellent, and still miss island groups that would have moved them more. The map above exists to make that gap visible. Once you see how much of the archipelago is still unmarked, the question shifts from "have I done the Philippines" to "where do I go that I have not already seen."</p>
+
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--warm-white);margin-bottom:1rem;line-height:1.2">Where to Go in the Philippines, by What You Are Looking For</h2>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:0.75rem">The honest answer to where to go in the Philippines depends entirely on what you want from the trip. A few starting points, drawn from places we design journeys around:</p>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:0.75rem"><strong style="color:var(--warm-white)">For quiet over crowds:</strong> <a href="/destinations/coron" style="color:var(--gold);text-decoration:none">Coron and Port Barton in Palawan</a> deliver the limestone drama and clear water people associate with El Nido, with a fraction of the foot traffic. Port Barton in particular resembles El Nido two decades ago, before the development.</p>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:0.75rem"><strong style="color:var(--warm-white)">For heritage:</strong> <a href="/destinations/vigan" style="color:var(--gold);text-decoration:none">Vigan in Ilocos</a> is the best-preserved Spanish colonial city in Asia. Pair it with the 2,000-year-old rice terraces of the Cordillera around Banaue and Sagada.</p>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:0.75rem"><strong style="color:var(--warm-white)">For the edge of the map:</strong> <a href="/destinations/batanes" style="color:var(--gold);text-decoration:none">Batanes, the northernmost province</a>, reachable only by propeller plane, with stone houses and rolling hills that feel closer to the North Atlantic than the tropics.</p>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:0.75rem"><strong style="color:var(--warm-white)">For highland cool:</strong> <a href="/destinations/bukidnon" style="color:var(--gold);text-decoration:none">Bukidnon in northern Mindanao</a> is a vast plateau of grassland and pine — a side of the country most first-time visitors never imagine exists.</p>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:2rem"><strong style="color:var(--warm-white)">For diving:</strong> <a href="/destinations/puerto-galera" style="color:var(--gold);text-decoration:none">Puerto Galera</a> sits a few hours from Manila and offers some of the most consistent diving in the country, hidden coves included.</p>
+
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--warm-white);margin-bottom:1rem;line-height:1.2">How Many Provinces Should Be on Your Philippines Bucket List</h2>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:2rem">There is no correct number. But a useful way to think about it: if you have visited fewer than ten provinces, you have essentially sampled the country. Between ten and thirty, you have begun to understand its range. Past thirty, you are among a small group of travellers who have genuinely explored the archipelago — and even then, the remaining provinces tend to be the ones that surprise people most, because expectations are lowest.<br><br>The map tracks this for you. It shows your provinces visited, your city count, and the percentage of the country you have covered, so your bucket list becomes something you can actually measure rather than a vague intention.</p>
+
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--warm-white);margin-bottom:1rem;line-height:1.2">What to Know Before You Plan</h2>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:2rem">Seasonality matters more here than in most destinations. Broadly, the dry months from November to May suit most of the country, while the eastern seaboard — Siargao and the surf coast — runs on a different calendar. Domestic connections often route through Manila or Cebu, which shapes how you sequence multiple islands in a single trip. And the gap between the popular islands and the quiet ones is not about quality; it is about access, which is precisely the problem a well-planned private journey solves.</p>
+
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--warm-white);margin-bottom:1rem;line-height:1.2">How Arkipelago Uses Your Map</h2>
+  <p style="font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:2rem">When you complete the map, you are not just producing a personal keepsake. You are producing a brief. We can see at a glance where you have already been, which means we never suggest a place you have outgrown, and we can build a journey aimed squarely at the parts of the Philippines still waiting for you. Thirty years of personal travel across these islands sits behind every recommendation we make.<br><br>That is the whole idea. Your history becomes the starting point, and the rest of the archipelago becomes the plan.</p>
+
+  <div style="border-top:2px solid var(--gold);border-radius:14px;border:1px solid var(--border);border-top-width:2px;background:var(--bg2);padding:24px;text-align:center;margin-bottom:3rem">
+    <p style="font-size:16px;color:var(--text2);margin-bottom:16px;line-height:1.6">Plan where to go next in the Philippines with a journey designed entirely around you.</p>
+    <a href="https://luxurytoursphilippines.com/#begin" style="display:inline-block;padding:13px 30px;border-radius:9px;background:var(--gold);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background 0.15s" onmouseover="this.style.background='#D4A96A'" onmouseout="this.style.background='#B8966E'">Begin Your Journey &rarr;</a>
+  </div>
+
+  <!-- FAQ -->
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--warm-white);margin-bottom:1.5rem;line-height:1.2">Philippines Travel Bucket List: Common Questions</h2>
+  <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:3rem">
+    <details style="border:1px solid var(--border);border-radius:10px;padding:16px 20px;background:var(--bg2)">
+      <summary style="font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.08em;color:var(--warm-white);cursor:pointer;font-weight:600;list-style:none">How many provinces are there in the Philippines?</summary>
+      <p style="font-size:15px;color:var(--text2);line-height:1.75;margin-top:10px">There are 82 provinces, grouped across three island regions: Luzon in the north, the Visayas in the centre, and Mindanao in the south. Most travellers, even frequent visitors, have been to fewer than thirty.</p>
+    </details>
+    <details style="border:1px solid var(--border);border-radius:10px;padding:16px 20px;background:var(--bg2)">
+      <summary style="font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.08em;color:var(--warm-white);cursor:pointer;font-weight:600;list-style:none">Where should I go in the Philippines for my first trip?</summary>
+      <p style="font-size:15px;color:var(--text2);line-height:1.75;margin-top:10px">For a first visit, the classic choice is Palawan for islands and water, paired with either Cebu and Bohol for variety or Manila for history and food. If you want somewhere quieter from the start, Coron and Port Barton in Palawan offer the same beauty with far fewer crowds.</p>
+    </details>
+    <details style="border:1px solid var(--border);border-radius:10px;padding:16px 20px;background:var(--bg2)">
+      <summary style="font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.08em;color:var(--warm-white);cursor:pointer;font-weight:600;list-style:none">What are the most underrated places to visit in the Philippines?</summary>
+      <p style="font-size:15px;color:var(--text2);line-height:1.75;margin-top:10px">Batanes, Bukidnon, Vigan and the Ilocos region, and Siquijor tend to surprise travellers most, precisely because they sit outside the standard circuit. These are often the places that stay with people long after the trip.</p>
+    </details>
+    <details style="border:1px solid var(--border);border-radius:10px;padding:16px 20px;background:var(--bg2)">
+      <summary style="font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.08em;color:var(--warm-white);cursor:pointer;font-weight:600;list-style:none">When is the best time to visit the Philippines?</summary>
+      <p style="font-size:15px;color:var(--text2);line-height:1.75;margin-top:10px">The dry season from November to May suits most of the country. The eastern seaboard, including Siargao, follows a different pattern and is often best from March to October. Timing a multi-island trip well is one of the details a private itinerary handles for you.</p>
+    </details>
+  </div>
+
+</div>
+<footer style="text-align:center;padding:2rem 1rem 1.5rem;border-top:1px solid rgba(184,150,110,0.15);margin-top:2rem">
+  <p style="font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(250,248,244,0.3)">© Arkipelago Luxury Tours Philippines</p>
+</footer>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1VUkrRAZwgSk22E7WyCfQp7ieUFdBuhSsA8Q46Uak5zZIN-FkUP-26yhhWw4yWAeF/exec";
+const QUOTE_PAGE_URL = "https://luxurytoursphilippines.com/#begin";
+
+const PROVINCES=[
+{prov:'Metro Manila',region:'NCR',island:'luzon',cities:[{name:'Intramuros',lat:14.589,lng:120.975},{name:'Binondo',lat:14.599,lng:120.973},{name:'BGC (Taguig)',lat:14.551,lng:121.052},{name:'Makati CBD',lat:14.556,lng:121.023},{name:'Quezon City',lat:14.676,lng:121.044},{name:'Pasay / MOA',lat:14.537,lng:121.002},{name:'Marikina',lat:14.652,lng:121.103}]},
+{prov:'Batanes',region:'Region II',island:'luzon',cities:[{name:'Basco',lat:20.447,lng:121.974},{name:'Itbayat Island',lat:20.789,lng:121.847},{name:'Sabtang Island',lat:20.322,lng:121.861},{name:'Ivana',lat:20.374,lng:121.938}]},
+{prov:'Cagayan',region:'Region II',island:'luzon',cities:[{name:'Tuguegarao',lat:17.613,lng:121.726},{name:'Aparri',lat:18.355,lng:121.636},{name:'Callao Cave',lat:17.829,lng:121.832}]},
+{prov:'Isabela',region:'Region II',island:'luzon',cities:[{name:'Ilagan',lat:17.149,lng:121.889},{name:'Cauayan',lat:16.929,lng:121.769},{name:'Palanan',lat:17.069,lng:122.454}]},
+{prov:'Ilocos Norte',region:'Region I',island:'luzon',cities:[{name:'Laoag',lat:18.197,lng:120.593},{name:'Pagudpud',lat:18.555,lng:120.852},{name:'Bangui Windmills',lat:18.529,lng:120.760},{name:'Paoay',lat:18.068,lng:120.527}]},
+{prov:'Ilocos Sur',region:'Region I',island:'luzon',cities:[{name:'Vigan',lat:17.575,lng:120.387},{name:'Candon',lat:17.197,lng:120.448},{name:'Santa Maria (Ilocos)',lat:17.360,lng:120.472}]},
+{prov:'La Union',region:'Region I',island:'luzon',cities:[{name:'San Fernando (La Union)',lat:16.616,lng:120.317},{name:'San Juan (surfing)',lat:16.671,lng:120.330},{name:'Bauang',lat:16.526,lng:120.330}]},
+{prov:'Pangasinan',region:'Region I',island:'luzon',cities:[{name:'Dagupan',lat:16.043,lng:120.333},{name:'Alaminos (Hundred Islands)',lat:16.156,lng:119.981},{name:'San Carlos',lat:15.926,lng:120.353},{name:'Bolinao',lat:16.368,lng:119.891}]},
+{prov:'Benguet',region:'CAR',island:'luzon',cities:[{name:'Baguio City',lat:16.412,lng:120.593},{name:'La Trinidad',lat:16.461,lng:120.588},{name:'Kabayan',lat:16.604,lng:120.844}]},
+{prov:'Ifugao',region:'CAR',island:'luzon',cities:[{name:'Banaue',lat:16.919,lng:121.059},{name:'Hungduan',lat:16.843,lng:120.970},{name:'Lagawe',lat:16.836,lng:121.112}]},
+{prov:'Mountain Province',region:'CAR',island:'luzon',cities:[{name:'Sagada',lat:17.088,lng:120.902},{name:'Bontoc',lat:17.088,lng:120.978}]},
+{prov:'Kalinga',region:'CAR',island:'luzon',cities:[{name:'Tabuk',lat:17.410,lng:121.445},{name:'Tinglayan',lat:17.488,lng:121.115}]},
+{prov:'Aurora',region:'Region III',island:'luzon',cities:[{name:'Baler',lat:15.759,lng:121.564},{name:'Casiguran',lat:16.278,lng:122.116}]},
+{prov:'Bataan',region:'Region III',island:'luzon',cities:[{name:'Balanga',lat:14.675,lng:120.536},{name:'Mariveles',lat:14.435,lng:120.483},{name:'Las Casas Filipinas',lat:14.676,lng:120.553}]},
+{prov:'Bulacan',region:'Region III',island:'luzon',cities:[{name:'Malolos',lat:14.843,lng:120.811},{name:'San Jose del Monte',lat:14.814,lng:121.045}]},
+{prov:'Pampanga',region:'Region III',island:'luzon',cities:[{name:'San Fernando (Pampanga)',lat:15.029,lng:120.689},{name:'Angeles City',lat:15.144,lng:120.585},{name:'Clark',lat:15.186,lng:120.543}]},
+{prov:'Zambales',region:'Region III',island:'luzon',cities:[{name:'Olongapo',lat:14.833,lng:120.283},{name:'Subic Bay',lat:14.799,lng:120.268},{name:'Iba',lat:15.329,lng:119.979}]},
+{prov:'Batangas',region:'Region IV-A',island:'luzon',cities:[{name:'Batangas City',lat:13.756,lng:121.058},{name:'Tagaytay',lat:14.103,lng:120.962},{name:'Nasugbu',lat:14.064,lng:120.636},{name:'Anilao',lat:13.803,lng:120.912},{name:'Taal',lat:13.876,lng:120.935},{name:'Lipa',lat:13.941,lng:121.163}]},
+{prov:'Cavite',region:'Region IV-A',island:'luzon',cities:[{name:'Cavite City',lat:14.482,lng:120.897},{name:'Dasmariñas',lat:14.330,lng:120.937}]},
+{prov:'Laguna',region:'Region IV-A',island:'luzon',cities:[{name:'Santa Cruz (Laguna)',lat:14.280,lng:121.417},{name:'San Pablo (7 Lakes)',lat:14.068,lng:121.325},{name:'Los Baños',lat:14.167,lng:121.242},{name:'Pagsanjan',lat:14.270,lng:121.456}]},
+{prov:'Rizal',region:'Region IV-A',island:'luzon',cities:[{name:'Antipolo',lat:14.585,lng:121.176},{name:'Tanay',lat:14.497,lng:121.287}]},
+{prov:'Quezon (province)',region:'Region IV-A',island:'luzon',cities:[{name:'Lucena',lat:13.933,lng:121.617},{name:'Padre Burgos',lat:13.869,lng:121.826},{name:'Real',lat:14.655,lng:121.602}]},
+{prov:'Marinduque',region:'MIMAROPA',island:'luzon',cities:[{name:'Boac',lat:13.446,lng:121.838},{name:'Gasan',lat:13.324,lng:121.847}]},
+{prov:'Oriental Mindoro',region:'MIMAROPA',island:'luzon',cities:[{name:'Calapan',lat:13.412,lng:121.180},{name:'Puerto Galera',lat:13.504,lng:120.954}]},
+{prov:'Occidental Mindoro',region:'MIMAROPA',island:'luzon',cities:[{name:'Mamburao',lat:13.224,lng:120.599},{name:'Sablayan',lat:12.836,lng:120.765}]},
+{prov:'Palawan',region:'MIMAROPA',island:'luzon',cities:[{name:'Puerto Princesa',lat:9.740,lng:118.736},{name:'El Nido',lat:11.185,lng:119.413},{name:'Coron',lat:11.998,lng:120.204},{name:'Port Barton',lat:10.626,lng:119.194},{name:'Busuanga',lat:12.102,lng:120.082},{name:'San Vicente (Palawan)',lat:10.517,lng:119.273}]},
+{prov:'Albay',region:'Region V',island:'luzon',cities:[{name:'Legazpi',lat:13.139,lng:123.735},{name:'Cagsawa Ruins (Daraga)',lat:13.157,lng:123.687},{name:'Tabaco',lat:13.356,lng:123.736}]},
+{prov:'Camarines Sur',region:'Region V',island:'luzon',cities:[{name:'Naga',lat:13.621,lng:123.194},{name:'Iriga',lat:13.418,lng:123.411},{name:'Caramoan',lat:13.778,lng:123.862}]},
+{prov:'Catanduanes',region:'Region V',island:'luzon',cities:[{name:'Virac',lat:13.576,lng:124.235}]},
+{prov:'Sorsogon',region:'Region V',island:'luzon',cities:[{name:'Sorsogon City',lat:12.974,lng:124.006},{name:'Donsol (whale sharks)',lat:12.907,lng:123.594},{name:'Matnog',lat:12.583,lng:124.082}]},
+{prov:'Masbate',region:'Region V',island:'luzon',cities:[{name:'Masbate City',lat:12.369,lng:123.619}]},
+{prov:'Aklan',region:'Region VI',island:'visayas',cities:[{name:'Kalibo',lat:11.707,lng:122.364},{name:'Boracay Island',lat:11.967,lng:121.924},{name:'Malay',lat:11.896,lng:121.952}]},
+{prov:'Antique',region:'Region VI',island:'visayas',cities:[{name:'San Jose de Buenavista',lat:10.753,lng:121.932},{name:'Tibiao',lat:11.283,lng:122.025},{name:'Culasi',lat:11.428,lng:122.058}]},
+{prov:'Capiz',region:'Region VI',island:'visayas',cities:[{name:'Roxas City',lat:11.585,lng:122.752},{name:'Panay town',lat:11.549,lng:122.789}]},
+{prov:'Guimaras',region:'Region VI',island:'visayas',cities:[{name:'Jordan (Guimaras)',lat:10.600,lng:122.597},{name:'San Lorenzo (Guimaras)',lat:10.528,lng:122.498}]},
+{prov:'Iloilo',region:'Region VI',island:'visayas',cities:[{name:'Iloilo City',lat:10.720,lng:122.562},{name:'Miagao',lat:10.642,lng:122.234},{name:'Carles (Islas de Gigantes)',lat:11.559,lng:123.130}]},
+{prov:'Negros Occidental',region:'Region VI',island:'visayas',cities:[{name:'Bacolod',lat:10.678,lng:122.955},{name:'Silay',lat:10.800,lng:122.974},{name:'Sagay',lat:10.895,lng:123.424},{name:'Hinoba-an',lat:9.479,lng:122.328}]},
+{prov:'Bohol',region:'Region VII',island:'visayas',cities:[{name:'Tagbilaran',lat:9.650,lng:123.854},{name:'Chocolate Hills (Carmen)',lat:9.814,lng:124.164},{name:'Panglao Island',lat:9.573,lng:123.754},{name:'Loboc',lat:9.643,lng:124.022},{name:'Anda (Bohol)',lat:9.756,lng:124.599}]},
+{prov:'Cebu',region:'Region VII',island:'visayas',cities:[{name:'Cebu City',lat:10.317,lng:123.891},{name:'Oslob (whale sharks)',lat:9.518,lng:123.417},{name:'Moalboal',lat:9.933,lng:123.397},{name:'Bantayan Island',lat:11.168,lng:123.720},{name:'Malapascua Island',lat:11.328,lng:124.108},{name:'Kawasan Falls',lat:9.861,lng:123.368},{name:'Mactan Island',lat:10.313,lng:123.980}]},
+{prov:'Negros Oriental',region:'Region VII',island:'visayas',cities:[{name:'Dumaguete',lat:9.308,lng:123.307},{name:'Apo Island',lat:9.078,lng:123.271},{name:'Dauin',lat:9.209,lng:123.267},{name:'Bais City',lat:9.593,lng:123.124}]},
+{prov:'Siquijor',region:'Region VII',island:'visayas',cities:[{name:'Siquijor town',lat:9.204,lng:123.512},{name:'San Juan (Siquijor)',lat:9.179,lng:123.502},{name:'Lazi',lat:9.123,lng:123.627}]},
+{prov:'Leyte',region:'Region VIII',island:'visayas',cities:[{name:'Tacloban',lat:11.244,lng:124.999},{name:'Ormoc',lat:11.006,lng:124.608},{name:'Baybay',lat:10.678,lng:124.802}]},
+{prov:'Samar',region:'Region VIII',island:'visayas',cities:[{name:'Catbalogan',lat:11.774,lng:124.886},{name:'Calbayog',lat:12.069,lng:124.601}]},
+{prov:'Eastern Samar',region:'Region VIII',island:'visayas',cities:[{name:'Borongan',lat:11.609,lng:125.433},{name:'Guiuan',lat:11.031,lng:125.724}]},
+{prov:'Northern Samar',region:'Region VIII',island:'visayas',cities:[{name:'Catarman (N. Samar)',lat:12.502,lng:124.643},{name:'Allen',lat:12.499,lng:124.287}]},
+{prov:'Biliran',region:'Region VIII',island:'visayas',cities:[{name:'Naval (Biliran)',lat:11.579,lng:124.406},{name:'Almeria',lat:11.632,lng:124.366}]},
+{prov:'Southern Leyte',region:'Region VIII',island:'visayas',cities:[{name:'Maasin',lat:10.130,lng:124.843},{name:'Sogod',lat:10.381,lng:124.992}]},
+{prov:'Misamis Oriental',region:'Region X',island:'mindanao',cities:[{name:'Cagayan de Oro',lat:8.478,lng:124.647},{name:'El Salvador (Mis. Or.)',lat:8.565,lng:124.521},{name:'Gingoog',lat:8.821,lng:125.106}]},
+{prov:'Bukidnon',region:'Region X',island:'mindanao',cities:[{name:'Malaybalay',lat:8.158,lng:125.128},{name:'Manolo Fortich',lat:8.371,lng:124.862},{name:'Valencia (Bukidnon)',lat:7.904,lng:125.094},{name:'Kitanglad Range',lat:8.192,lng:124.887},{name:'Dahilayan',lat:8.326,lng:124.829}]},
+{prov:'Camiguin',region:'Region X',island:'mindanao',cities:[{name:'Mambajao',lat:9.254,lng:124.718},{name:'White Island (Camiguin)',lat:9.283,lng:124.657},{name:'Catarman (Camiguin)',lat:9.171,lng:124.664}]},
+{prov:'Lanao del Norte',region:'Region X',island:'mindanao',cities:[{name:'Iligan',lat:8.229,lng:124.244},{name:'Linamon',lat:8.183,lng:124.162}]},
+{prov:'Misamis Occidental',region:'Region X',island:'mindanao',cities:[{name:'Oroquieta',lat:8.486,lng:123.806},{name:'Ozamiz',lat:8.149,lng:123.845},{name:'Tangub',lat:8.064,lng:123.749}]},
+{prov:'Davao del Sur',region:'Region XI',island:'mindanao',cities:[{name:'Davao City',lat:7.190,lng:125.455},{name:'Digos',lat:6.750,lng:125.357},{name:'Santa Cruz (Davao)',lat:6.887,lng:125.414}]},
+{prov:'Davao del Norte',region:'Region XI',island:'mindanao',cities:[{name:'Tagum',lat:7.449,lng:125.808},{name:'Sto. Tomas / Mt. Apo',lat:7.115,lng:125.278}]},
+{prov:'Davao Oriental',region:'Region XI',island:'mindanao',cities:[{name:'Mati',lat:6.955,lng:126.216},{name:'Cateel',lat:7.793,lng:126.454}]},
+{prov:'Sarangani',region:'Region XII',island:'mindanao',cities:[{name:'Alabel',lat:6.102,lng:125.163},{name:'Glan',lat:5.817,lng:125.202}]},
+{prov:'South Cotabato',region:'Region XII',island:'mindanao',cities:[{name:'Koronadal',lat:6.503,lng:124.846},{name:'General Santos City',lat:6.112,lng:125.171},{name:'Lake Sebu',lat:6.344,lng:124.659},{name:'Surallah',lat:6.371,lng:124.741}]},
+{prov:'Sultan Kudarat',region:'Region XII',island:'mindanao',cities:[{name:'Isulan',lat:6.634,lng:124.610},{name:'Tacurong',lat:6.693,lng:124.677}]},
+{prov:'Cotabato (North)',region:'Region XII',island:'mindanao',cities:[{name:'Kidapawan',lat:7.008,lng:125.088},{name:'Kabacan',lat:7.095,lng:124.823}]},
+{prov:'Zamboanga del Sur',region:'Region IX',island:'mindanao',cities:[{name:'Pagadian',lat:7.827,lng:123.436},{name:'Zamboanga City',lat:6.910,lng:122.073},{name:'Molave',lat:8.079,lng:123.290}]},
+{prov:'Zamboanga del Norte',region:'Region IX',island:'mindanao',cities:[{name:'Dipolog',lat:8.587,lng:123.341},{name:'Dapitan',lat:8.655,lng:123.423},{name:'Sindangan',lat:8.231,lng:122.994}]},
+{prov:'Surigao del Norte',region:'CARAGA',island:'mindanao',cities:[{name:'Surigao City',lat:9.783,lng:125.497},{name:'Siargao Island',lat:9.849,lng:126.047},{name:'General Luna (Siargao)',lat:9.802,lng:126.104},{name:'Dapa',lat:9.758,lng:125.965}]},
+{prov:'Surigao del Sur',region:'CARAGA',island:'mindanao',cities:[{name:'Tandag',lat:9.072,lng:126.197},{name:'Bislig',lat:8.196,lng:126.323},{name:'Hinatuan (enchanted river)',lat:8.377,lng:126.337}]},
+{prov:'Agusan del Norte',region:'CARAGA',island:'mindanao',cities:[{name:'Butuan',lat:8.951,lng:125.544},{name:'Cabadbaran',lat:9.122,lng:125.534}]},
+{prov:'Agusan del Sur',region:'CARAGA',island:'mindanao',cities:[{name:'Prosperidad',lat:8.605,lng:125.914},{name:'Bayugan',lat:8.712,lng:125.749}]},
+{prov:'Dinagat Islands',region:'CARAGA',island:'mindanao',cities:[{name:'San Jose (Dinagat)',lat:10.107,lng:125.602},{name:'Loreto (Dinagat)',lat:10.387,lng:125.535}]},
+];
+
+const EXPERIENCES=[
+{id:'beach',icon:'🏝️',name:'Beaches & coastlines',desc:'Secluded shores, hidden coves'},
+{id:'dive',icon:'🤿',name:'Diving & snorkelling',desc:'Reefs, wrecks, marine life'},
+{id:'culture',icon:'🏛️',name:'History & heritage',desc:'UNESCO sites, colonial cities'},
+{id:'nature',icon:'🌿',name:'Nature & wildlife',desc:'Forests, highlands, endemic birds'},
+{id:'island',icon:'⛵',name:'Island hopping',desc:'Private boat, uninhabited islands'},
+{id:'highland',icon:'⛰️',name:'Mountain & highlands',desc:'Rice terraces, cool air, tribes'},
+{id:'food',icon:'🍤',name:'Culinary discovery',desc:'Regional cuisine, local markets'},
+{id:'luxury',icon:'💎',name:'Pure luxury',desc:'Private villas, bespoke service'},
+{id:'adventure',icon:'🥾',name:'Active adventure',desc:'Trekking, kayaking, surfing'},
+{id:'romance',icon:'💛',name:'Romance & intimacy',desc:'Sunset sails, private dining'},
+{id:'family',icon:'👨‍👩‍👧',name:'Family travel',desc:'Safe waters, all ages welcome'},
+{id:'offgrid',icon:'🧭',name:'Off the map',desc:'No crowds, real discovery'},
+];
+
+const RECS={
+beach:[{name:'Coron, Palawan',tag:'Undiscovered Palawan',why:'Twin lakes, WWII wrecks. El Nido before the crowds arrived.'},{name:'Port Barton, Palawan',tag:'The quiet Palawan',why:'What El Nido was 20 years ago. Undeveloped, genuinely remote.'}],
+dive:[{name:'Coron wrecks',tag:'Wreck diving',why:'Ten Japanese WWII shipwrecks among the finest dive sites on earth.'},{name:'Moalboal, Cebu',tag:'The sardine run',why:'A million sardines in formation. Dive in and disappear.'}],
+culture:[{name:'Vigan, Ilocos',tag:'UNESCO World Heritage',why:'The only surviving Spanish colonial planned city in Asia. Cobblestones at dawn.'},{name:'Banaue & Sagada',tag:'2,000-year heritage',why:'Rice terraces carved by the Ifugao, still farmed by hand today.'}],
+nature:[{name:'Batanes',tag:'The edge of the Philippines',why:'Stone houses, rolling green hills, a pace of life that stopped in 1890.'},{name:'Bukidnon Highlands',tag:'Mindanao highlands',why:'Cool plateaus, tribal heritage, forests almost no luxury traveller has seen.'}],
+island:[{name:'Bacuit Archipelago, El Nido',tag:'Private charter',why:'The outer islands by private boat, lagoons no group tour reaches.'},{name:'Calamian Group, Coron',tag:'Island constellation',why:'45 islands. Your private banca. No itinerary, just the sea.'}],
+highland:[{name:'Sagada & Bontoc',tag:'Cordillera highlands',why:'Hanging coffins, echo valley, cave connections. A world apart.'},{name:'Bukidnon Plateau',tag:'Northern Mindanao',why:"The country's largest highland plateau, almost unknown to tourists."}],
+food:[{name:'Iloilo City',tag:'Culinary capital of the Visayas',why:'La Paz batchoy, fresh seafood, a food culture older than Manila.'},{name:'Pampanga',tag:'Cradle of Filipino cuisine',why:'Where Filipino cooking was born, and where its finest cooks still live.'}],
+luxury:[{name:'Amanpulo, Pamalican',tag:'Private island resort',why:"The Philippines' most private resort. 40 casitas, one island, your own schedule."},{name:'Private villa, Coron',tag:'Exclusive-use property',why:'Entirely yours for the duration. Your crew, your cook, your cove.'}],
+adventure:[{name:'Siargao',tag:'Surf & explore',why:'Cloud 9 for the wave, plus kayaking, island runs, and jungle trails.'},{name:'Camiguin Island',tag:'Volcano island',why:'Seven volcanoes, a sunken cemetery, a white island that vanishes at high tide.'}],
+romance:[{name:'Port Barton, Palawan',tag:'Most romantic Palawan',why:'Undeveloped, quiet, remote. The kind of place that becomes a story you tell forever.'},{name:'Siargao at sunset',tag:'Couples escape',why:'The kind of sunset that stops the conversation mid-sentence.'}],
+family:[{name:'Bohol & Cebu',tag:'Best family destination',why:'Chocolate Hills, tarsiers, whale sharks, calm beaches. Every age covered.'},{name:'Puerto Galera',tag:'Family gateway',why:'Two hours from Manila. Serious diving for adults, calm coves for children.'}],
+offgrid:[{name:'Batanes',tag:'The unpublished Philippines',why:'Propeller plane only. Rolling hills, stone villages. Not a single group tour in sight.'},{name:'Port Barton',tag:'Before it is discovered',why:'No resort strip. No clutter. Just the sea, a few guesthouses, and time.'}],
+};
+
+const LNG_MIN=116.9,LNG_MAX=126.6,LAT_MIN=4.5,LAT_MAX=21.2,VBW=500,VBH=900,PX=20,PY=30;
+const lngToX=l=>((l-LNG_MIN)/(LNG_MAX-LNG_MIN))*(VBW-PX*2)+PX;
+const latToY=l=>((LAT_MAX-l)/(LAT_MAX-LAT_MIN))*(VBH-PY*2)+PY;
+
+const PH_MAP_PATHS = "M213.1,161.8L211.0,162.8L209.6,162.2L206.5,158.9L204.0,160.1L203.9,163.1L202.1,164.2L196.2,163.9L194.2,167.8L194.9,175.4L191.5,181.9L190.6,185.2L189.7,187.0L189.8,190.1L190.2,191.8L187.5,195.7L188.5,200.1L186.2,202.0L186.7,203.3L186.9,204.6L183.7,209.8L184.3,214.3L187.1,215.8L188.8,221.4L187.3,225.3L186.7,231.0L188.1,242.6L184.7,248.4L182.8,250.4L182.8,257.8L180.9,260.8L180.6,261.0L182.1,264.2L181.6,266.7L182.9,269.9L182.7,272.6L183.5,277.4L186.3,279.9L186.6,284.1L179.1,289.5L172.4,288.8L171.4,285.5L171.0,283.3L168.4,282.0L166.7,281.4L163.3,277.8L162.6,272.5L160.2,273.0L157.4,274.3L156.6,276.3L155.8,281.0L156.1,283.2L155.8,285.9L155.6,289.5L155.8,291.0L155.6,294.4L156.3,295.4L158.1,293.8L160.4,293.8L162.9,299.8L164.3,301.3L166.3,300.9L169.6,299.1L172.4,300.2L174.2,300.8L175.4,304.9L179.6,309.7L182.0,308.8L184.6,304.8L186.9,304.1L191.8,303.8L193.4,303.0L195.6,298.6L198.9,300.0L202.5,299.4L206.6,300.9L210.6,292.4L205.0,282.1L193.5,280.6L191.5,279.0L189.8,274.1L188.5,271.6L190.2,264.4L191.5,263.0L195.0,254.0L195.9,249.3L198.8,245.7L204.1,243.1L203.8,235.8L205.2,232.6L201.8,232.8L199.6,232.0L198.6,228.0L195.2,225.7L193.4,225.3L192.5,223.3L194.3,216.6L189.2,216.3L189.6,214.4L191.5,208.6L195.6,200.6L200.8,198.0L202.3,195.9L205.2,194.5L207.3,192.8L210.7,193.2L211.5,190.3L211.8,184.8L211.5,179.8L212.0,171.8L213.1,161.8Z M166.5,273.9L163.3,277.2L164.9,278.3L167.7,279.9L167.5,276.3L166.9,275.3L166.5,273.9Z M252.5,55.7L255.8,50.5L255.7,48.5L254.1,48.8L251.9,54.9L252.5,55.7Z M257.8,72.5L260.0,71.9L260.7,70.4L261.0,69.0L262.0,65.7L260.0,67.5L257.8,72.5Z M259.9,116.7L261.6,113.9L259.7,112.4L257.1,114.2L259.9,116.7Z M238.7,128.4L240.0,126.2L238.9,121.1L237.3,122.0L233.0,121.1L231.9,122.5L230.9,122.7L233.1,124.9L235.1,126.7L238.7,128.4Z M225.8,140.0L226.2,137.6L225.6,134.3L224.4,133.5L224.8,138.8L225.8,140.0Z M255.0,150.1L257.6,146.7L261.5,142.7L257.9,140.5L255.5,142.5L255.4,145.0L255.3,146.6L254.0,148.5L255.0,150.1Z M229.4,148.7L237.2,147.1L236.2,146.5L233.4,145.4L228.9,146.8L227.8,147.1L228.2,148.5L229.4,148.7Z M273.0,267.0L276.5,262.5L282.4,250.6L283.6,246.4L284.4,241.5L286.4,235.6L285.4,234.7L282.6,235.1L281.3,233.3L282.4,228.2L282.7,227.5L280.5,224.1L279.7,225.4L280.3,224.6L278.8,223.6L277.1,224.0L275.5,224.2L274.6,223.1L273.5,222.4L269.6,209.9L269.0,204.9L268.9,203.3L269.2,200.3L269.7,196.8L270.4,194.9L270.6,189.7L270.5,185.1L274.5,181.6L277.1,177.9L277.5,175.1L276.7,171.4L273.7,167.7L272.2,164.7L268.8,165.5L267.4,172.1L266.5,172.6L261.0,176.8L255.9,177.0L244.3,172.8L243.2,172.3L228.1,164.0L220.3,159.3L213.1,161.8L214.6,167.5L218.9,163.7L220.1,163.6L222.5,163.8L224.9,166.7L226.2,169.4L229.5,171.5L236.3,175.1L236.5,176.6L237.6,180.0L234.7,189.2L231.0,189.6L231.4,194.9L229.7,200.8L234.1,202.9L235.8,208.0L236.8,208.1L238.8,211.6L243.0,212.9L244.4,214.4L245.0,217.1L243.2,220.1L241.0,223.6L239.6,227.4L241.3,236.9L240.9,246.3L240.0,247.4L238.3,249.6L230.8,252.9L227.5,257.9L222.8,259.4L216.1,260.9L213.2,262.9L209.3,263.5L208.7,270.4L206.3,275.5L204.2,279.1L205.0,282.1L207.7,285.0L210.5,285.0L217.4,284.9L223.2,287.9L225.0,298.0L228.9,302.5L232.2,300.0L236.7,296.1L255.4,277.9L272.0,267.4L273.0,267.0Z M273.0,267.0L263.0,268.1L251.5,281.8L236.7,296.1L232.9,299.5L229.4,301.7L227.7,303.3L223.6,294.4L221.8,286.7L214.4,284.7L208.5,286.9L210.3,294.2L205.1,300.7L201.7,299.1L196.0,299.7L194.5,299.5L192.7,303.7L188.3,304.5L184.6,304.8L181.3,309.5L178.6,310.1L172.4,300.2L169.6,299.1L167.9,298.0L165.8,301.4L162.3,303.1L162.5,304.2L162.0,306.1L163.8,308.3L162.8,311.2L163.5,313.1L164.7,313.6L165.1,315.6L165.2,316.5L163.4,318.0L162.3,317.8L161.9,320.4L167.5,329.9L169.6,340.1L169.8,347.9L170.7,350.2L171.4,350.8L171.9,351.5L171.3,352.8L173.3,353.6L175.1,354.5L176.5,353.2L178.1,348.1L180.5,351.2L180.9,352.0L179.9,352.7L178.8,354.2L179.3,355.2L179.4,358.0L182.6,360.2L185.7,363.0L185.1,366.2L186.6,369.2L190.0,370.6L194.3,370.4L195.9,368.1L193.9,358.0L193.1,354.7L194.0,350.7L195.6,351.1L198.6,353.5L206.7,354.6L212.2,357.2L211.4,355.1L213.4,355.2L216.3,352.7L220.0,352.6L223.3,350.7L230.3,349.5L231.6,338.2L233.1,335.9L233.2,333.7L233.1,333.1L234.2,330.8L232.7,323.9L234.1,323.0L234.9,322.7L236.9,320.0L238.4,315.1L243.7,308.8L242.9,307.5L244.6,304.2L240.9,302.2L241.4,296.0L250.4,287.7L252.1,288.0L257.5,285.1L260.7,284.4L263.6,282.8L265.1,281.4L266.8,278.3L268.0,280.2L266.2,282.0L264.9,284.7L261.6,289.4L262.3,289.7L264.0,288.3L266.9,284.0L271.4,278.9L272.5,276.3L271.0,275.5L272.8,270.6L271.9,271.1L271.8,269.5L273.0,267.0Z M276.5,387.0L275.9,385.4L274.7,385.0L273.6,380.3L272.8,382.6L269.9,385.6L271.8,388.0L275.4,391.0L276.5,391.6L276.5,392.1L276.0,394.2L274.4,393.7L270.4,392.8L273.4,396.6L271.7,397.0L266.4,395.6L257.9,391.8L249.2,383.5L249.2,378.8L248.6,375.2L245.6,371.5L243.4,358.2L245.9,357.6L248.1,355.6L243.4,349.1L238.1,338.2L236.4,331.8L233.8,331.1L233.3,333.3L232.7,333.7L233.2,334.6L232.6,336.9L231.1,340.1L226.4,350.4L222.2,351.2L219.6,353.7L220.0,354.5L220.4,358.5L220.5,359.8L219.3,361.2L219.1,364.3L220.0,366.2L221.6,366.1L223.2,367.9L225.0,370.7L225.5,367.8L226.3,367.1L227.5,367.2L229.9,369.6L230.2,372.5L228.8,377.3L229.8,377.3L233.9,373.1L234.7,372.6L235.7,372.5L237.2,374.5L235.2,375.2L235.2,375.8L234.3,377.5L233.4,377.6L227.9,382.3L223.3,381.0L217.5,373.8L216.9,373.5L214.8,373.5L212.1,368.6L209.0,368.9L209.9,367.7L209.0,368.6L207.8,370.9L203.1,375.5L198.1,378.2L196.5,379.4L196.3,381.1L194.8,381.5L195.7,383.4L195.2,384.4L195.0,385.0L195.1,386.0L196.3,387.7L196.7,393.7L196.6,401.0L198.6,403.7L198.5,399.2L201.3,399.7L200.2,396.8L201.6,395.8L210.0,398.0L210.3,401.6L210.1,404.5L209.5,407.9L213.4,403.1L216.2,404.1L217.0,407.1L216.9,410.5L218.7,411.1L223.5,410.2L228.4,412.2L233.8,408.9L235.3,409.0L236.0,407.2L235.2,402.6L238.0,399.5L247.8,396.0L247.4,394.1L249.4,393.9L253.2,395.8L253.8,397.2L256.7,398.8L257.4,399.4L260.9,400.8L261.4,402.1L262.5,402.2L264.8,403.5L266.7,403.7L271.3,410.6L272.2,411.9L275.0,412.3L275.3,412.9L277.9,413.6L278.6,414.9L281.2,416.9L286.6,425.9L287.4,431.4L291.4,433.8L295.1,430.6L294.2,427.8L293.6,422.9L289.3,415.8L288.8,414.0L292.1,416.3L290.9,415.3L287.9,412.5L285.7,408.8L284.9,405.8L286.6,405.0L285.9,401.0L282.5,395.0L284.1,395.5L286.7,395.4L288.0,394.9L298.4,391.1L283.0,385.4L279.0,389.0L276.5,387.0Z M258.8,338.9L256.1,340.1L253.7,340.8L252.6,345.6L253.9,345.4L254.7,346.3L257.9,352.7L258.7,356.6L257.3,356.6L257.7,359.7L259.5,360.5L263.2,355.5L262.2,350.6L260.3,347.6L260.8,346.4L262.4,344.3L261.9,343.9L262.6,342.3L264.5,343.1L263.5,341.2L262.9,340.5L261.4,339.5L258.8,338.9Z M271.8,349.8L266.9,351.0L267.8,352.1L273.3,355.0L274.1,355.6L273.3,352.2L271.5,350.9L271.8,349.8Z M281.0,355.2L277.2,356.9L277.1,358.2L282.6,356.8L281.0,355.2Z M258.5,380.3L258.4,382.5L261.6,386.9L269.2,391.7L270.9,391.6L266.6,387.1L258.5,380.3Z M209.9,411.0L211.9,410.3L210.1,409.3L207.0,409.7L209.9,411.0Z M320.5,462.5L321.4,470.0L322.5,471.2L322.5,472.4L320.1,481.8L322.3,480.8L322.9,482.7L322.0,483.4L322.2,484.7L320.2,486.7L319.3,486.9L317.9,492.6L316.0,496.3L317.2,497.6L324.3,489.7L330.7,482.2L336.1,483.6L337.8,488.6L339.0,489.2L343.8,494.0L343.6,495.3L344.7,496.7L350.2,497.9L353.9,500.2L360.2,506.3L359.4,502.6L359.4,499.1L356.7,492.8L357.4,492.5L358.9,494.0L351.1,481.7L349.1,481.8L346.6,480.9L345.2,481.0L341.1,475.3L339.3,474.6L338.9,473.7L337.0,474.2L336.8,472.3L335.1,469.7L333.1,468.8L328.4,466.5L327.1,468.9L325.0,470.1L325.7,468.8L326.3,467.9L326.4,465.6L325.7,465.0L320.5,462.5Z M338.8,457.9L337.7,459.0L337.5,460.5L337.0,461.2L338.2,462.5L342.5,470.2L347.0,475.1L342.9,461.7L338.8,457.9Z M309.0,434.4L306.7,437.7L307.4,440.7L309.7,442.0L312.5,442.9L314.8,446.4L316.9,448.0L319.3,450.1L322.0,451.8L326.9,457.9L327.1,456.7L323.8,452.9L322.0,447.7L317.2,445.5L310.8,435.4L309.0,434.4Z M362.9,430.6L361.4,432.9L366.8,432.9L365.5,431.5L362.9,430.6Z M355.6,427.8L352.6,428.7L355.4,430.8L359.2,431.0L360.2,428.8L357.5,428.1L356.6,428.8L355.9,428.6L355.6,427.8Z M349.6,424.6L349.9,429.6L352.0,430.4L352.2,427.2L353.0,425.8L349.6,424.6Z M339.8,393.2L338.9,394.2L338.3,396.3L339.6,396.5L341.1,393.9L339.8,393.2Z M366.5,387.1L364.0,389.6L362.7,389.7L363.5,397.2L361.7,405.3L359.7,407.6L358.6,410.5L360.0,412.1L366.9,416.1L366.8,414.2L368.4,412.8L371.7,413.0L373.0,413.7L373.6,409.8L376.2,408.0L375.2,406.3L375.7,399.3L375.7,398.5L373.5,396.7L372.6,395.3L371.4,396.3L370.1,394.2L368.6,390.2L366.5,387.1Z M288.0,394.9L290.2,397.4L292.8,399.6L293.9,401.7L294.4,400.9L297.4,402.4L302.1,406.7L302.3,408.3L301.3,410.3L304.9,413.8L308.8,416.3L318.8,421.4L321.0,428.0L324.7,432.9L323.1,435.7L323.6,440.0L325.3,441.9L327.8,440.6L330.0,441.0L334.7,445.1L340.5,448.0L341.5,446.4L341.4,447.4L342.2,449.2L343.8,449.0L344.6,450.2L346.3,449.1L350.0,446.4L350.9,445.1L351.8,443.8L353.3,444.2L355.3,444.6L358.5,445.2L356.9,448.7L353.9,449.2L352.4,449.9L350.2,449.4L349.4,452.7L350.1,458.2L353.1,461.7L353.7,461.8L356.5,465.2L359.1,465.6L361.2,463.8L361.6,461.9L362.1,460.0L363.1,459.0L363.2,455.4L364.1,451.0L363.5,447.5L362.5,447.6L362.8,446.8L364.5,442.1L365.8,440.9L365.6,439.1L361.8,439.5L360.1,441.9L354.9,437.4L350.3,435.5L346.9,440.1L345.6,438.7L346.1,437.5L345.8,436.0L345.4,432.2L346.6,430.5L349.6,430.0L348.6,429.0L348.1,429.1L347.3,427.5L344.4,425.7L340.8,418.4L337.8,416.2L335.6,414.4L335.3,412.5L335.5,408.4L338.7,406.0L349.9,406.3L351.8,405.9L355.5,405.3L352.8,402.6L349.7,401.4L346.3,399.3L344.8,398.0L343.1,395.6L341.0,398.0L337.3,396.8L334.9,396.3L332.4,395.9L332.3,395.1L330.4,394.7L329.1,395.5L327.1,391.1L325.7,390.7L326.1,389.4L325.7,387.5L325.6,388.1L323.5,389.7L322.2,389.3L321.4,390.9L321.5,391.2L320.1,392.8L321.2,393.9L323.9,395.6L325.4,394.4L323.3,398.6L324.6,401.9L323.8,403.2L319.0,405.9L314.8,405.4L311.6,401.2L313.4,398.1L313.5,397.1L313.0,392.8L310.7,390.1L310.8,387.1L309.8,386.6L301.1,377.8L299.1,377.5L298.9,376.7L298.1,376.0L295.7,376.0L294.7,375.1L293.5,375.2L293.3,377.0L290.2,376.9L288.9,375.8L286.0,374.8L285.7,375.5L283.9,375.7L280.5,378.1L279.5,379.1L279.3,380.5L279.6,381.5L278.3,381.2L278.2,382.6L277.9,382.9L278.0,386.3L277.3,389.0L280.6,387.9L287.4,386.3L293.4,393.0L288.0,394.9Z M232.9,493.6L234.5,490.9L233.3,488.8L233.1,487.3L232.0,486.5L231.6,488.5L232.5,489.5L232.1,491.8L232.9,493.6Z M265.8,516.9L264.7,521.0L264.4,526.2L263.3,528.4L264.1,530.7L263.7,535.5L263.7,542.2L260.7,548.3L258.8,556.3L260.8,559.4L260.3,562.9L258.0,571.5L260.9,572.1L264.7,567.7L266.9,564.0L268.7,563.6L273.8,561.3L276.3,560.4L284.6,558.7L290.0,557.9L289.9,555.3L291.8,554.0L294.3,553.4L297.2,553.2L299.1,549.2L298.5,545.0L300.8,543.0L302.1,542.6L304.1,541.6L305.3,541.1L306.1,539.7L306.5,541.6L307.5,540.6L307.2,539.6L310.1,535.8L311.9,534.5L313.8,535.2L313.8,534.8L315.3,533.9L313.8,530.6L314.2,525.9L315.3,524.9L316.1,523.0L315.9,521.4L316.6,518.6L315.8,518.3L315.4,516.9L316.6,514.1L315.5,513.9L306.6,518.9L305.4,520.1L304.1,521.0L304.9,518.0L304.6,516.5L302.8,515.1L299.8,512.5L295.7,513.4L294.1,514.8L293.5,515.5L292.0,515.4L292.1,516.2L290.3,517.1L285.3,513.1L284.4,515.2L283.0,514.8L283.7,513.9L284.2,513.7L280.8,510.6L282.3,510.3L284.5,512.6L285.2,512.4L280.7,508.1L279.6,505.9L274.9,504.4L272.0,502.4L264.6,500.2L259.4,496.9L256.3,498.6L255.3,503.8L255.3,505.0L259.1,504.8L266.4,507.2L265.8,516.9Z M235.9,499.3L234.6,500.9L239.3,501.1L238.6,499.7L235.9,499.3Z M325.2,574.1L327.2,570.5L330.5,567.7L331.5,565.0L333.7,557.5L335.7,552.2L335.3,551.3L334.7,550.6L333.3,546.8L330.5,546.2L326.2,545.3L323.5,544.9L320.4,543.3L318.0,543.4L315.0,545.2L312.5,547.4L310.0,547.4L307.3,548.8L306.6,559.1L303.2,565.1L300.3,567.9L302.9,575.5L301.8,582.8L302.1,589.5L298.6,590.3L291.1,594.6L283.2,595.4L281.7,598.9L280.2,601.6L280.6,607.0L280.7,608.9L281.2,609.4L281.8,610.3L283.6,611.2L283.1,612.4L283.7,613.0L285.8,615.7L289.8,621.3L309.5,594.8L315.4,583.9L318.5,579.7L317.2,578.0L317.9,577.1L316.9,573.8L319.6,571.2L325.2,574.1Z M286.3,572.7L288.1,572.4L290.0,571.0L290.1,571.7L291.7,571.0L294.1,567.5L295.8,560.3L294.4,556.6L292.6,555.7L290.8,557.9L289.9,559.5L288.6,560.7L286.1,564.1L287.3,565.8L286.8,566.6L286.7,567.4L284.7,567.9L284.4,569.2L285.9,570.7L286.3,572.7Z M343.6,535.3L344.0,536.1L347.3,534.3L343.4,528.8L342.0,532.1L343.6,535.3Z M330.5,616.2L334.0,605.9L334.7,605.2L335.8,602.6L337.0,600.1L338.2,599.0L340.4,588.8L341.7,587.6L346.5,581.8L351.1,579.8L357.3,573.9L356.9,572.2L357.8,565.0L357.2,554.7L359.2,548.4L358.2,545.7L357.2,540.1L356.4,540.0L356.4,538.3L358.4,534.5L359.4,529.8L358.5,529.1L356.5,529.7L356.1,531.8L354.0,535.0L354.4,538.6L353.5,538.5L352.7,542.6L353.3,544.1L352.2,546.3L347.3,557.0L343.0,565.6L342.6,569.0L339.8,573.1L338.4,575.0L336.8,577.1L336.3,580.9L332.8,586.9L328.5,592.2L327.8,594.6L326.7,594.1L327.1,596.7L328.1,599.6L326.7,600.6L326.6,603.0L325.6,604.4L324.6,622.9L327.1,620.8L330.5,616.2Z M383.5,552.4L380.1,555.9L381.2,556.5L383.1,553.5L383.5,552.4Z M377.4,557.2L374.6,559.8L373.8,558.3L371.4,558.9L370.1,563.8L372.1,563.1L375.7,561.7L381.2,560.1L378.6,557.7L377.4,557.2Z M325.2,574.1L320.9,571.6L319.6,571.2L315.5,572.6L318.0,576.4L317.2,578.0L318.5,579.7L315.8,583.4L309.5,594.8L306.1,600.8L290.0,620.8L291.4,622.4L294.5,624.5L301.0,626.1L303.4,627.8L303.5,632.0L306.5,639.9L310.6,641.3L314.2,640.6L316.1,640.2L319.3,637.6L323.2,631.8L323.9,628.0L323.4,625.8L321.6,624.4L318.4,619.8L316.3,616.2L315.6,614.3L316.0,613.7L314.6,611.5L315.4,610.8L316.4,609.5L316.5,607.0L315.9,601.5L316.7,597.6L320.0,592.5L322.6,586.3L324.8,578.1L325.2,574.1Z M358.8,576.5L356.5,577.3L354.8,577.4L353.6,578.7L354.2,581.2L356.3,579.7L358.8,576.5Z M383.0,602.2L381.8,600.5L383.7,598.0L382.8,596.9L382.7,594.2L383.7,593.5L382.0,591.2L380.4,590.1L377.6,589.1L375.3,587.1L373.9,586.5L372.9,586.4L370.4,585.1L366.1,585.8L363.5,586.5L360.8,590.2L359.4,591.7L357.3,595.1L350.5,598.8L347.4,601.8L346.6,606.5L349.8,607.5L349.9,608.5L349.8,611.6L352.8,612.4L360.7,614.1L367.1,613.3L369.5,613.3L375.7,610.6L377.0,607.4L380.3,605.3L384.1,606.2L384.0,602.9L383.0,602.2Z M385.9,585.7L382.7,587.5L381.9,587.3L381.4,588.1L382.9,590.5L384.4,588.8L385.5,588.4L385.2,586.5L385.9,585.7Z M349.3,614.1L350.2,612.1L348.1,611.6L344.8,614.9L346.5,615.9L349.3,614.1Z M338.3,628.5L335.4,632.4L331.1,633.0L330.9,634.5L338.0,638.8L342.4,635.7L340.4,634.0L340.9,632.0L339.3,628.8L338.3,628.5Z M407.1,458.2L405.5,459.2L406.4,460.2L406.5,461.5L408.4,461.7L407.1,458.2Z M369.3,464.5L376.4,483.7L382.6,489.8L385.9,489.9L389.4,492.6L390.9,495.6L392.5,497.6L394.3,498.1L394.5,499.9L396.5,501.9L396.3,503.1L397.7,502.9L399.4,505.1L400.3,505.7L405.2,504.5L405.2,506.4L403.0,510.1L403.4,512.0L401.7,514.3L398.4,514.5L398.8,516.2L397.0,515.8L396.1,518.0L398.2,519.3L399.7,518.1L399.9,519.4L402.5,520.7L403.7,523.6L403.6,528.7L404.7,529.2L412.5,531.3L415.6,538.4L417.8,536.1L418.5,536.4L423.2,538.4L423.8,538.6L425.4,537.1L426.7,537.3L428.6,538.6L431.2,535.6L432.5,537.2L435.7,537.2L436.7,538.4L436.7,539.5L439.1,542.2L440.1,540.6L435.0,532.7L432.1,531.6L432.0,533.6L429.7,532.2L431.0,529.4L433.1,527.3L433.7,524.5L430.2,522.3L428.2,519.8L428.1,517.7L426.3,514.4L425.4,513.4L425.1,511.7L425.4,509.7L426.2,509.2L427.1,508.8L425.1,505.5L423.8,504.7L426.6,502.9L424.9,500.8L424.7,496.0L426.0,492.8L428.2,489.5L426.6,487.3L424.9,487.2L425.0,486.0L425.7,484.9L426.3,484.5L428.6,483.7L428.1,482.4L427.1,481.6L423.7,478.6L421.3,478.8L420.9,477.6L419.3,478.8L420.4,478.1L419.2,477.7L417.8,477.7L418.6,476.0L417.7,474.8L419.5,472.6L419.3,472.0L417.8,470.4L416.9,468.7L410.9,463.9L408.9,464.1L407.6,464.2L407.0,465.7L405.3,466.0L403.6,465.0L400.8,464.2L398.2,463.8L398.0,465.5L396.0,466.1L393.4,466.2L384.6,466.5L383.0,466.4L380.1,465.9L378.5,466.1L373.7,465.0L372.1,465.4L370.0,463.4L369.3,464.5Z M363.8,472.1L365.7,473.2L365.3,471.4L363.2,469.0L363.8,472.1Z M367.2,488.5L363.9,490.1L364.3,490.6L365.2,490.7L367.9,488.9L367.2,488.5Z M373.3,503.1L370.9,502.5L371.5,504.6L373.3,503.9L373.3,503.1Z M390.2,507.5L393.6,512.9L393.7,514.5L394.7,515.0L394.8,515.7L396.5,515.4L396.2,512.7L394.0,511.8L394.6,510.4L393.4,508.3L392.4,507.8L390.7,506.6L390.9,507.4L390.2,507.5Z M397.7,508.6L396.5,509.4L398.5,511.6L398.3,510.0L398.9,508.8L397.7,508.6Z M375.2,512.8L375.5,515.1L379.8,519.7L385.9,517.3L385.3,515.1L381.4,508.8L377.4,507.8L373.5,509.6L375.2,512.8Z M405.7,546.4L405.1,538.1L404.6,534.6L405.3,531.1L404.4,531.9L403.9,530.6L402.5,527.9L402.9,523.3L401.8,522.8L401.2,521.7L399.7,521.8L398.2,521.7L395.1,522.3L394.6,524.1L389.6,527.9L382.9,526.0L379.9,520.7L378.8,521.6L378.8,523.2L371.8,514.8L370.2,516.4L372.6,522.6L372.9,523.2L372.7,524.2L372.9,524.8L373.7,527.9L374.9,528.7L375.7,537.8L374.8,540.6L375.4,544.8L375.1,547.4L376.4,545.7L376.8,546.6L378.1,548.6L380.3,549.9L382.0,548.4L382.6,546.0L382.7,543.9L385.3,542.8L389.5,546.7L394.0,555.2L394.7,560.6L392.9,564.9L392.4,567.1L390.9,569.3L393.1,575.5L394.2,578.2L392.5,584.8L394.9,586.8L399.0,587.4L400.3,588.9L405.0,591.9L404.7,588.1L403.2,582.2L403.3,574.1L405.4,575.3L409.0,583.6L410.6,584.9L410.8,579.4L415.9,580.5L416.7,576.8L415.2,573.5L414.1,573.8L412.7,571.4L412.4,567.7L412.4,565.9L412.1,563.0L409.1,559.5L409.0,558.0L406.0,556.7L404.3,553.4L405.7,546.4Z M436.9,552.0L435.5,554.4L436.4,556.0L440.9,558.5L443.0,557.2L438.3,555.5L437.4,552.1L436.9,552.0Z M413.8,593.2L417.8,597.7L416.2,592.2L413.7,587.0L409.7,585.7L410.8,590.4L413.2,591.9L413.8,593.2Z M335.5,662.9L332.4,660.7L332.7,658.8L331.4,659.3L327.7,657.4L327.3,658.5L328.1,659.9L328.4,662.1L325.8,662.5L323.1,668.0L316.2,667.6L311.2,669.3L310.4,670.2L308.6,672.9L308.2,673.8L308.1,677.9L306.7,679.3L309.0,682.3L308.8,683.8L304.0,686.6L295.3,688.2L292.8,686.6L288.7,690.0L280.9,691.5L278.7,692.0L272.5,696.7L272.2,699.2L269.4,701.6L267.1,706.5L266.6,706.5L266.5,707.8L267.8,709.5L267.8,712.6L267.6,714.9L268.5,715.9L265.3,718.4L265.4,719.7L263.6,727.8L264.7,729.8L260.1,732.4L257.3,738.0L257.3,741.1L260.0,746.8L269.0,749.0L269.3,748.1L270.6,745.6L272.6,739.9L273.9,737.6L274.3,734.0L276.3,727.3L278.8,727.6L280.2,724.4L278.6,723.5L279.0,720.4L283.6,717.4L283.7,718.3L285.2,716.3L284.7,715.6L282.3,715.0L283.6,713.5L288.9,706.7L292.4,705.1L296.2,705.0L297.8,706.3L300.1,707.0L299.6,712.2L300.3,715.0L300.6,718.2L299.5,718.0L298.9,720.6L300.1,719.6L300.6,721.3L300.9,721.9L303.3,719.9L302.9,718.9L305.6,717.3L307.4,720.4L308.1,720.2L308.9,720.6L310.7,715.3L311.9,712.4L312.2,710.9L315.5,708.3L315.3,710.4L316.6,711.7L318.1,714.9L315.6,714.3L314.2,714.1L314.1,716.2L315.9,719.1L317.0,720.0L318.0,720.6L318.4,719.4L318.8,718.3L320.1,717.2L323.9,718.0L322.8,720.8L326.4,724.0L329.2,726.0L330.8,725.4L329.9,721.5L328.0,720.7L326.8,717.1L325.3,715.6L326.9,715.3L328.0,715.7L329.1,713.2L331.3,711.6L332.1,709.3L331.0,706.9L329.7,705.0L330.4,703.0L337.6,702.3L338.9,702.5L340.0,700.1L340.5,699.0L339.6,696.7L340.6,693.8L339.8,693.5L337.8,692.6L335.8,691.3L335.5,662.9Z M301.3,730.3L302.9,728.6L306.1,727.0L307.0,726.7L305.6,725.6L307.3,724.7L304.9,722.6L303.9,723.5L302.6,724.7L300.9,722.2L299.5,724.6L299.4,727.2L301.3,730.3Z M271.4,748.3L272.3,747.4L275.3,745.5L273.5,744.7L271.8,746.5L271.4,748.3Z M263.4,757.3L261.0,758.2L258.5,760.9L257.9,762.5L259.2,764.0L260.1,766.2L263.8,764.6L263.6,762.2L264.0,760.2L263.4,757.3Z M389.8,630.7L386.7,633.3L387.6,636.6L394.0,638.6L394.6,637.3L392.5,632.4L389.8,630.7Z M422.1,693.8L422.8,691.8L425.0,689.3L424.4,687.9L421.4,684.1L419.3,678.8L417.3,675.4L417.4,672.1L416.1,668.2L415.6,664.7L412.8,664.1L415.5,660.3L416.1,651.1L414.9,646.9L415.1,642.9L413.1,639.5L412.6,645.0L412.1,649.9L410.8,651.6L408.4,652.3L407.3,650.8L404.8,647.5L398.9,643.9L394.7,643.8L393.3,645.4L393.8,653.8L393.6,657.1L393.3,658.1L391.7,660.1L392.9,664.9L392.0,667.5L391.0,669.8L389.5,669.9L385.8,667.7L383.9,667.2L379.4,662.9L377.5,662.8L374.2,664.7L371.2,668.0L370.4,671.5L368.4,677.7L368.9,680.4L367.2,683.3L363.3,684.5L357.0,684.7L352.9,686.9L351.2,688.3L349.1,689.0L343.4,694.5L340.6,696.4L339.6,696.7L340.5,700.1L338.9,702.5L344.4,705.9L345.1,707.2L346.9,708.7L349.6,708.7L352.1,707.6L356.8,706.9L356.8,704.0L357.8,702.6L355.6,699.3L357.1,696.6L361.6,695.3L362.5,692.5L366.4,692.1L367.6,690.5L370.4,691.1L372.8,689.8L373.3,688.2L374.1,686.5L374.6,686.0L378.3,687.3L380.3,686.6L382.2,689.9L384.5,696.8L387.6,702.2L391.4,707.3L393.6,711.8L395.4,715.0L395.2,717.4L394.8,719.8L396.6,720.4L397.2,721.8L400.0,723.0L401.2,722.7L403.3,723.7L406.7,723.5L408.3,721.6L413.1,718.8L415.1,719.1L416.7,716.9L419.5,714.0L419.4,712.6L424.2,709.8L424.6,706.0L423.8,697.1L422.1,693.8Z M339.3,692.9L345.8,690.4L350.5,685.3L349.6,679.4L349.9,677.0L347.3,669.1L343.8,663.6L340.8,661.5L338.4,661.2L337.3,660.3L336.1,664.6L335.6,665.4L336.8,692.6L339.3,692.9Z M469.0,698.0L468.3,695.8L464.3,693.9L460.7,694.7L456.9,694.8L451.8,696.6L448.2,694.0L447.2,694.6L446.2,697.4L442.3,695.5L440.5,695.6L435.5,694.0L422.4,694.7L424.0,698.5L424.4,703.8L424.9,708.0L420.9,712.9L419.5,714.0L416.7,716.9L416.3,718.6L415.0,719.5L415.2,721.3L416.2,724.2L415.1,726.3L415.6,731.9L415.0,735.4L417.7,739.7L417.2,742.8L416.2,743.9L410.9,751.7L407.7,752.7L407.3,755.3L407.1,761.2L408.5,766.0L409.8,769.3L409.3,771.8L410.4,772.9L414.9,771.3L416.4,772.1L418.6,771.3L420.5,769.0L421.4,768.2L423.2,770.6L425.5,778.4L428.0,784.1L429.3,792.0L427.0,800.1L426.6,803.7L421.7,813.1L419.6,815.3L420.8,816.3L423.8,815.5L428.8,807.0L435.7,797.1L437.5,792.6L437.5,785.3L432.5,772.8L431.7,771.3L431.6,769.9L430.4,767.7L428.7,767.4L426.8,765.4L426.5,764.8L424.3,763.8L424.6,765.4L422.2,763.5L422.3,757.4L423.0,753.6L427.4,747.5L428.0,744.3L430.6,741.9L433.4,741.1L435.0,739.1L435.2,735.2L435.1,731.8L436.4,730.6L437.7,729.7L444.7,727.0L444.5,732.7L446.7,738.8L450.9,743.4L451.4,749.3L455.2,752.8L455.9,757.0L455.6,759.0L455.0,762.7L455.7,765.9L456.3,769.7L458.5,774.6L459.2,775.9L460.4,778.2L461.2,777.8L461.6,773.1L461.7,771.1L462.1,762.0L462.5,754.7L459.3,748.9L460.5,750.0L460.9,746.7L462.3,747.2L465.8,751.6L465.3,752.7L467.0,754.3L467.9,753.2L466.9,750.3L465.9,747.5L468.4,744.1L472.7,743.5L475.3,738.3L476.4,736.1L477.5,733.6L478.2,733.6L479.8,729.4L478.0,729.3L478.0,727.9L477.9,724.1L478.0,721.8L479.7,720.9L479.9,718.7L478.4,715.5L478.3,713.6L478.4,713.2L478.0,708.1L473.3,704.5L471.7,703.5L469.4,701.9L469.0,698.0Z M440.4,749.7L441.4,745.5L441.3,740.4L441.4,737.3L437.1,734.6L436.0,740.7L438.4,742.1L439.0,747.3L440.4,749.7Z M425.9,822.8L426.8,825.1L427.4,822.9L427.7,820.6L426.6,820.0L425.9,822.8Z M419.9,825.4L421.8,826.4L424.3,826.0L423.4,823.1L420.7,824.5L419.9,825.4Z M394.7,718.0L390.6,714.4L380.2,718.1L378.7,722.2L376.5,726.1L374.6,729.3L376.4,732.4L376.5,733.1L378.8,733.4L379.5,735.7L381.5,739.2L381.3,742.0L382.0,742.2L384.2,740.1L383.9,738.3L384.4,739.6L385.8,739.8L386.8,738.4L386.7,740.1L386.3,741.0L386.9,742.5L389.3,742.5L389.6,743.7L390.4,742.5L389.6,741.7L388.4,739.9L389.5,739.7L388.8,737.5L391.2,738.4L390.7,737.6L389.1,735.6L388.4,734.4L389.4,733.1L390.4,731.5L390.8,733.6L391.2,735.4L392.6,733.7L394.1,735.9L393.6,736.8L393.9,738.3L394.7,740.7L395.7,742.0L395.2,752.2L395.8,753.5L397.2,754.8L401.6,756.5L402.7,758.8L399.5,761.6L397.9,763.2L396.6,764.0L393.6,763.2L393.2,760.5L393.9,759.7L389.8,754.3L386.9,750.3L385.4,750.7L384.5,753.8L382.2,755.3L381.2,757.2L378.8,757.8L369.8,757.5L367.5,757.6L357.5,758.0L359.2,764.6L358.9,766.7L359.6,767.4L358.3,768.5L358.6,772.2L359.9,774.7L363.2,779.8L364.8,781.9L367.0,784.9L369.3,786.9L397.1,800.4L403.1,801.5L408.3,800.9L408.1,799.3L410.9,792.4L412.2,789.2L417.3,791.3L417.6,796.1L416.4,798.6L414.5,800.7L413.1,803.1L412.4,804.7L415.0,807.8L417.3,809.4L418.0,810.7L418.7,813.4L418.9,815.9L419.4,816.1L421.0,813.8L422.7,811.6L426.9,802.2L428.5,793.9L429.5,790.3L428.2,786.4L427.6,782.3L425.6,778.9L424.3,775.9L423.2,770.6L422.8,769.2L420.1,767.6L419.6,769.9L417.4,771.7L415.4,772.5L413.6,771.3L409.3,771.8L409.8,769.3L409.9,767.0L407.2,763.7L407.0,759.0L406.9,755.1L407.6,754.0L408.4,752.4L411.9,750.7L414.2,747.9L417.2,742.8L417.8,741.9L417.5,738.2L415.0,732.8L416.1,730.4L417.1,725.1L415.5,723.4L411.9,718.6L410.3,721.0L407.3,722.4L405.5,724.0L402.6,723.7L400.0,723.0L398.6,722.8L396.7,720.9L395.0,719.4L394.7,718.0Z M219.2,353.5L215.6,353.8L213.4,355.2L212.5,355.9L211.4,356.2L211.7,357.5L210.9,357.8L212.6,361.9L212.5,362.7L213.4,364.2L213.2,370.1L214.8,373.5L215.4,374.4L216.9,372.2L218.6,366.6L219.5,364.7L220.5,359.8L220.4,358.5L220.0,356.7L220.2,353.1L219.2,353.5Z M203.5,281.6L205.6,276.3L207.8,273.8L208.9,266.1L211.1,261.4L215.8,261.3L222.0,259.4L228.4,258.2L228.4,256.6L229.3,255.4L231.2,252.1L239.7,248.7L241.4,243.9L241.0,234.0L240.0,225.3L242.6,221.3L244.2,219.6L244.8,215.9L243.0,212.9L241.8,213.3L237.6,209.8L236.5,207.4L235.3,206.6L232.1,201.0L229.8,198.6L229.4,192.4L231.7,187.9L236.5,185.7L237.3,182.5L237.2,177.7L236.6,175.5L226.2,169.4L225.1,167.2L222.4,164.7L220.1,163.6L218.7,164.4L216.5,164.4L211.9,169.8L211.0,178.8L212.1,183.9L211.4,187.5L211.5,190.3L210.7,193.2L206.2,193.2L202.3,195.9L200.8,198.0L199.3,199.5L194.2,201.6L189.2,216.3L194.6,217.5L192.6,224.0L193.9,225.8L197.2,227.4L198.9,229.1L200.3,232.5L204.3,233.3L203.8,235.8L203.6,245.2L198.2,246.2L194.8,250.3L194.3,257.8L191.3,262.8L190.2,264.4L189.7,265.3L188.5,271.1L189.3,272.5L190.3,274.8L191.7,279.8L197.0,282.3L203.5,281.6Z M448.4,605.4L447.6,606.6L447.3,608.1L447.8,610.9L447.5,613.3L449.8,615.1L450.8,609.7L449.6,607.3L449.5,606.7L448.4,605.4Z M469.0,698.0L470.6,696.1L471.9,694.3L471.2,692.9L472.4,681.5L467.0,683.8L466.7,682.0L469.4,678.5L467.1,676.8L467.3,675.6L469.3,672.2L468.6,671.0L469.8,669.8L469.3,668.0L468.8,666.9L467.7,666.6L464.7,666.7L460.6,666.1L460.7,667.5L458.1,667.0L456.1,663.6L455.5,663.0L457.6,661.0L461.2,658.9L462.2,658.3L462.4,656.6L465.3,655.0L465.8,653.8L466.9,650.2L466.6,648.9L466.3,647.9L465.5,647.0L465.1,644.8L464.3,644.4L459.3,637.9L460.6,627.9L453.7,631.5L450.9,626.7L450.2,623.9L448.2,624.1L446.6,622.1L449.5,620.9L449.1,619.7L448.1,619.8L447.2,619.0L445.7,617.8L444.1,616.4L439.8,615.3L434.0,612.6L432.8,610.9L433.0,608.0L432.6,605.7L431.5,605.5L427.7,604.6L427.3,603.8L425.0,603.6L422.9,606.0L423.0,612.2L429.2,634.6L428.0,643.1L423.9,644.8L417.3,644.0L414.4,642.1L414.9,644.5L415.4,649.1L415.6,651.7L415.0,660.9L415.6,664.7L416.0,665.9L416.3,671.1L417.2,673.3L417.9,677.1L420.4,681.2L422.3,684.9L424.8,689.6L422.1,692.7L435.5,694.0L439.8,694.8L441.4,696.5L445.1,696.6L447.4,696.6L448.2,694.0L450.8,695.1L453.7,697.3L459.0,694.4L462.2,694.2L468.3,695.8L469.0,698.0Z M434.6,597.6L432.1,601.6L432.7,602.6L436.4,600.7L435.2,600.2L434.6,597.6Z M450.1,595.2L448.2,598.0L447.7,599.7L450.6,596.0L450.1,595.2Z M454.9,590.5L453.2,592.4L450.3,598.2L449.6,600.8L449.7,602.1L453.2,605.7L456.8,605.6L459.2,603.3L457.4,601.4L456.3,600.3L456.8,598.6L454.9,590.5Z M434.6,569.6L433.2,572.2L431.7,575.3L430.0,574.7L429.9,577.1L428.7,577.9L429.0,582.0L429.1,583.8L428.1,583.6L428.0,584.0L426.9,588.1L429.2,590.2L430.2,589.4L431.4,589.4L432.1,589.9L431.4,594.3L432.7,595.1L434.7,598.5L436.2,600.0L437.4,599.5L437.0,597.6L435.3,595.8L436.3,594.3L437.0,589.3L435.5,586.6L435.9,584.6L435.5,583.4L434.8,577.9L435.9,572.5L434.6,569.6Z M179.8,408.7L180.6,407.3L180.1,407.0L179.2,405.5L179.7,404.7L178.5,402.7L177.0,401.1L176.1,400.9L170.7,399.7L172.3,403.2L179.0,407.5L179.8,408.7Z M181.5,400.6L179.5,402.0L181.9,403.1L182.5,401.8L181.5,400.6Z M263.1,432.4L264.4,429.6L264.7,428.2L268.1,422.9L266.9,420.6L267.5,420.6L267.0,418.5L265.0,418.5L263.8,418.0L263.5,416.4L261.3,416.0L258.0,416.0L256.5,414.8L255.1,414.4L254.8,416.4L252.9,420.0L254.2,425.6L256.4,428.6L260.1,431.0L261.7,432.1L263.1,432.4Z M217.9,475.9L220.0,476.7L218.9,479.2L220.5,480.6L224.8,481.3L226.2,482.2L228.5,478.4L231.6,476.5L232.6,477.9L233.5,477.9L233.1,474.3L235.4,474.3L234.1,472.4L234.6,469.9L235.4,466.5L238.5,465.0L240.7,461.4L239.0,456.3L237.3,452.9L237.8,443.6L237.7,441.0L240.9,437.6L239.8,435.4L235.1,434.4L235.5,432.5L234.9,431.1L231.9,429.1L223.6,421.2L216.7,421.6L212.9,418.1L212.5,417.2L212.6,416.7L209.4,417.4L202.4,419.0L193.2,417.1L189.1,416.9L184.3,416.6L183.2,417.4L181.7,420.8L184.1,423.1L185.7,423.1L186.5,421.6L187.7,421.0L189.5,422.5L191.0,429.1L192.1,430.0L192.2,431.0L195.9,432.5L198.2,433.6L199.4,435.7L203.6,444.8L204.8,456.3L207.8,456.9L210.3,460.6L211.3,464.6L211.3,467.9L217.9,475.9Z M261.9,486.4L263.0,487.1L263.2,485.3L264.5,484.1L265.0,483.2L264.2,480.7L265.7,476.6L267.7,466.2L268.1,464.4L267.9,460.9L269.4,460.2L268.0,459.4L261.9,463.5L262.3,468.6L261.8,470.8L260.6,472.6L259.2,474.0L258.1,477.5L262.6,481.6L260.8,482.9L260.3,481.8L260.2,484.1L261.9,486.4Z M275.2,461.4L273.8,464.9L275.3,468.5L277.0,468.1L277.1,465.2L275.2,461.4Z M287.7,467.3L283.0,469.3L282.4,472.0L288.1,475.2L289.4,477.5L291.9,478.5L294.4,475.6L294.4,471.6L292.1,468.4L287.7,467.3Z M167.7,492.7L171.2,493.0L172.4,493.3L172.9,491.9L173.7,491.6L175.3,491.6L177.8,493.2L179.8,492.8L181.7,492.9L182.4,491.2L182.9,489.1L182.4,487.9L179.6,486.2L179.0,485.4L177.1,484.2L176.1,486.0L173.9,485.6L171.2,482.5L169.9,482.6L166.9,479.6L163.9,478.7L162.5,476.6L161.0,476.9L162.4,479.3L160.3,480.9L160.6,482.2L160.4,485.0L161.6,482.4L162.2,483.2L164.7,488.8L166.6,492.6L167.7,492.7Z M219.8,484.7L219.9,482.8L219.5,481.3L218.0,477.8L216.5,478.2L217.7,481.9L219.8,484.7Z M179.3,498.2L178.5,494.0L176.7,496.5L179.2,501.4L179.3,498.2Z M164.4,509.9L167.3,508.3L169.2,506.1L169.0,505.2L169.7,503.8L169.6,502.6L169.1,501.0L170.0,499.3L167.8,497.0L167.0,496.1L164.4,496.3L164.2,495.3L160.9,494.3L161.1,496.1L160.4,496.1L162.0,501.4L163.6,504.8L165.1,503.5L165.7,503.3L166.6,504.0L164.0,506.7L164.4,509.9Z M154.1,520.7L156.6,522.7L157.3,521.8L158.8,522.0L158.5,524.1L159.0,523.4L160.5,519.7L160.2,517.6L158.2,517.5L159.6,519.1L158.5,519.5L156.8,518.9L155.9,519.4L156.7,520.3L154.9,520.1L153.5,519.3L154.1,520.7Z M33.9,677.3L42.9,669.1L49.1,667.1L50.1,662.7L51.0,660.9L51.8,660.0L55.4,660.5L60.7,658.5L67.3,652.1L72.6,648.9L75.7,643.2L76.2,642.1L76.4,641.0L77.2,639.7L78.5,636.2L79.4,636.4L86.8,634.5L89.0,634.2L92.8,629.5L95.9,627.5L106.4,611.0L107.0,610.8L108.3,609.1L106.3,609.2L106.5,608.0L105.1,607.3L105.3,604.6L107.0,605.4L108.0,607.1L108.8,605.0L108.4,602.6L107.5,600.5L108.7,596.9L112.1,595.3L115.4,594.6L129.2,590.3L132.3,581.3L135.3,577.5L142.1,574.7L146.9,573.2L153.6,567.3L151.0,564.5L150.2,560.3L149.6,558.8L146.9,559.2L147.6,556.4L146.8,551.2L144.4,551.8L142.8,548.5L144.3,542.2L146.4,541.8L145.1,539.6L143.6,535.7L145.2,533.1L146.3,528.0L145.4,526.2L144.1,526.6L143.8,525.6L142.1,521.8L141.6,525.3L139.5,530.1L138.4,533.2L138.2,534.5L138.8,535.8L139.6,536.6L138.2,541.3L135.1,538.3L135.4,541.5L136.6,543.1L135.3,542.6L134.3,543.8L135.3,545.9L135.8,548.0L136.8,549.4L139.3,550.2L140.9,551.7L140.7,553.9L141.1,557.1L139.9,556.1L137.0,553.6L133.2,550.5L133.1,547.4L132.1,545.8L131.2,547.0L130.6,546.4L131.0,547.7L131.1,549.0L129.5,550.1L130.2,550.6L131.9,552.2L134.0,554.3L135.9,557.4L133.5,565.4L130.9,566.6L132.3,567.8L130.3,568.9L125.6,574.0L123.6,569.3L123.9,570.6L123.9,572.3L123.2,572.8L122.3,573.9L120.6,572.8L119.2,573.7L118.4,575.4L120.2,576.1L118.5,578.3L117.3,579.4L116.1,583.3L112.5,583.2L110.5,584.1L111.4,587.7L111.2,588.6L109.9,591.7L108.8,591.4L107.8,590.1L107.6,589.4L108.4,587.6L107.5,589.1L105.0,591.9L103.1,594.2L102.0,597.1L101.3,599.0L100.4,600.0L96.0,605.5L92.2,608.3L90.7,610.3L89.0,610.6L87.9,611.9L86.9,614.8L84.2,617.8L81.6,620.6L80.3,623.4L78.2,624.5L77.7,626.6L74.5,629.5L72.8,631.5L71.2,630.4L70.9,630.0L69.4,630.7L66.6,631.4L65.3,632.7L61.6,636.0L59.7,640.5L56.0,640.3L51.9,645.8L50.6,646.9L44.9,655.1L44.1,656.1L41.2,658.1L37.4,663.8L37.3,664.7L35.4,668.1L34.6,672.6L33.0,676.8L33.9,677.3Z M146.4,536.1L149.5,534.3L148.3,533.3L145.9,535.4L146.4,536.1Z M149.6,543.3L149.2,541.2L148.3,538.9L146.2,539.9L146.6,540.9L149.6,543.3Z M214.5,551.2L216.3,553.2L217.2,551.1L218.1,549.7L217.4,548.9L217.6,547.7L214.5,551.2Z M157.8,571.2L160.9,569.1L162.7,567.9L162.4,565.8L164.0,567.8L164.6,567.3L166.3,566.4L166.5,564.9L167.0,565.3L166.8,564.7L165.8,563.1L162.0,562.5L159.1,561.4L156.6,565.2L155.2,565.2L154.9,566.7L155.8,567.5L156.3,570.7L157.8,571.2Z M38.4,684.6L41.0,681.9L41.0,678.5L38.7,678.1L37.4,680.5L38.0,684.1L38.4,684.6Z M25.8,690.4L27.2,689.0L25.9,687.5L24.3,689.5L25.8,690.4Z M25.7,703.8L28.2,700.9L28.8,697.3L27.3,694.7L27.8,693.8L28.4,690.8L27.2,690.2L24.9,691.2L23.0,692.4L22.6,692.5L22.0,697.5L22.0,698.3L23.8,700.7L25.2,703.8L25.7,703.8Z M394.7,718.0L395.5,715.9L394.1,712.3L392.5,710.6L390.4,706.3L387.6,702.2L386.4,700.6L383.5,694.2L381.7,689.0L378.3,687.3L374.1,686.5L374.2,688.1L372.6,689.4L370.4,691.1L366.8,691.5L365.0,692.7L362.0,692.9L358.2,696.3L356.8,698.4L355.5,700.3L357.5,703.3L356.5,705.8L354.8,707.8L350.1,708.3L350.3,709.2L355.0,710.7L356.7,711.8L357.5,712.1L362.7,719.7L363.4,721.7L363.4,722.3L365.4,723.7L368.5,723.8L368.9,726.7L366.9,727.0L365.9,731.5L363.0,735.9L359.2,737.7L356.8,742.6L354.7,749.6L355.4,751.2L354.9,753.7L356.1,755.7L358.0,755.2L359.3,757.2L368.4,756.5L369.8,757.5L376.3,757.9L381.2,757.2L382.2,755.6L384.1,754.6L385.3,751.8L385.4,750.7L386.9,750.3L388.4,751.5L389.8,754.3L391.1,755.1L394.0,760.5L394.0,761.9L395.1,763.7L398.1,763.5L398.4,762.2L400.9,759.6L404.5,757.6L401.8,756.6L399.0,755.0L395.8,753.5L394.9,752.2L394.8,750.2L394.7,740.7L393.3,739.9L394.5,737.5L394.1,735.9L392.6,733.7L391.9,734.0L390.4,734.8L390.4,731.5L388.4,732.7L388.8,734.0L389.8,736.6L391.2,738.4L388.2,739.2L389.4,740.6L388.2,740.4L389.6,741.7L390.4,743.2L389.0,742.9L388.3,742.5L386.3,741.0L387.3,740.6L386.0,738.0L384.7,740.0L383.3,740.1L383.8,741.0L381.3,742.0L381.5,739.2L379.6,736.7L379.5,734.3L378.2,732.8L374.6,729.9L375.9,726.0L378.1,722.9L380.0,718.8L384.7,713.6L392.5,715.3L394.7,718.0Z M398.6,728.6L395.4,730.5L392.9,731.2L394.7,732.5L395.3,733.9L395.3,736.7L397.4,735.8L398.6,732.8L399.8,731.2L399.1,728.6L398.6,728.6Z M97.5,746.1L96.6,744.8L97.0,742.3L95.9,741.8L92.6,743.9L94.3,745.2L97.5,746.1Z M257.9,760.6L255.6,761.0L253.1,761.1L253.5,765.2L256.2,766.7L256.2,769.5L260.4,773.8L264.7,773.5L271.2,771.0L271.3,768.1L272.4,764.9L276.7,764.6L277.4,763.1L272.4,761.3L268.5,760.5L267.3,758.2L265.7,757.8L264.1,756.9L264.0,760.2L263.5,763.6L260.1,766.2L258.8,765.8L259.1,763.4L257.9,760.6Z M243.8,766.4L243.5,761.3L242.2,760.8L243.8,766.4Z M192.4,782.5L194.8,779.8L194.8,775.1L193.2,776.7L191.1,781.4L189.8,781.8L192.4,782.5Z M250.5,789.9L251.7,792.0L256.3,794.4L258.6,792.2L254.3,792.8L250.5,789.9Z M227.9,801.6L232.2,798.8L232.9,798.5L233.3,797.4L234.6,795.4L233.1,794.0L229.3,794.4L226.8,793.9L223.2,793.5L220.9,790.6L219.7,790.0L215.0,791.1L210.0,794.1L208.5,797.7L211.7,800.0L216.4,799.0L218.3,800.5L225.4,797.5L225.9,800.2L227.0,800.6L227.9,801.6Z M247.4,794.6L247.9,792.4L246.3,791.8L246.5,793.9L246.2,795.1L247.4,794.6Z M220.7,804.2L222.5,805.5L224.0,803.7L220.8,803.3L220.7,804.2Z M208.8,809.1L209.9,809.6L211.3,808.7L210.2,806.6L208.8,809.1Z M204.7,811.2L208.3,810.6L208.5,809.8L205.1,809.7L204.7,811.2Z M206.0,816.2L206.8,819.7L209.2,819.3L209.6,817.2L207.5,815.3L206.0,816.2Z M203.6,819.9L205.1,817.6L203.3,816.7L203.0,819.8L203.6,819.9Z M158.1,838.7L159.4,842.5L160.4,841.7L165.7,840.4L167.9,836.8L169.7,836.0L172.1,836.4L173.5,835.0L175.7,836.0L175.9,838.3L177.4,838.0L178.9,830.6L177.2,829.0L176.9,827.3L173.8,828.8L167.5,833.1L165.0,833.6L163.7,835.4L161.2,837.0L158.6,837.7L158.1,838.7Z M179.7,836.1L181.7,834.2L179.4,832.3L178.9,835.8L179.7,836.1Z M155.2,843.1L158.5,841.5L157.4,838.9L154.7,842.5L155.2,843.1Z M157.0,849.2L158.7,852.1L159.9,850.1L158.9,849.7L157.5,848.6L157.0,849.2Z M141.2,862.4L143.2,859.0L143.5,855.6L140.9,849.2L141.6,858.3L141.2,862.4Z";
+function mapSVG(dotsId){
+  return `<svg viewBox="0 0 500 900" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto">
+  <rect width="500" height="900" fill="#0a1e30"/>
+  <path d="${PH_MAP_PATHS}" fill="#1e3d28" stroke="#2a5a3a" stroke-width="0.6" fill-rule="evenodd"/>
+  <text x="150" y="330" text-anchor="middle" font-size="9" fill="#B8966E" font-family="sans-serif" font-weight="500" opacity="0.5">LUZON</text>
+  <text x="330" y="560" text-anchor="middle" font-size="9" fill="#B8966E" font-family="sans-serif" font-weight="500" opacity="0.5">VISAYAS</text>
+  <text x="360" y="730" text-anchor="middle" font-size="9" fill="#B8966E" font-family="sans-serif" font-weight="500" opacity="0.5">MINDANAO</text>
+  <g transform="translate(460,50)"><circle cx="0" cy="0" r="14" fill="#112847" stroke="rgba(184,150,110,0.3)" stroke-width="1"/><polygon points="0,-9 2.5,-3 0,-5 -2.5,-3" fill="#B8966E"/><polygon points="0,9 2.5,3 0,5 -2.5,3" fill="rgba(250,248,244,0.3)"/><polygon points="-9,0 -3,-2.5 -5,0 -3,2.5" fill="rgba(250,248,244,0.3)"/><polygon points="9,0 3,-2.5 5,0 3,2.5" fill="rgba(250,248,244,0.3)"/><text x="0" y="-12" text-anchor="middle" font-size="6" fill="#B8966E" font-family="sans-serif" font-weight="600">N</text></g>
+  <g id="${dotsId}"></g>
+  </svg>`;
+}
+
+let currentIsland='luzon',activeProv=null;
+const visitedCities=new Set(),selectedProvs=new Set(),selectedExps=new Set();
+let leadData={};
+
+document.getElementById('map-host').innerHTML=mapSVG('city-dots');
+
+function setIsland(island){
+  currentIsland=island;activeProv=null;
+  document.querySelectorAll('.itab').forEach(t=>t.classList.toggle('active',t.dataset.island===island));
+  document.getElementById('city-panel').style.display='none';
+  renderProvList();
+}
+function renderProvList(){
+  document.getElementById('prov-list').innerHTML=PROVINCES.filter(p=>p.island===currentIsland).map(p=>{
+    const v=p.cities.filter(c=>visitedCities.has(c.name)).length;
+    return `<div class="pchip ${activeProv===p.prov?'active':''}" onclick="selectProv('${p.prov.replace(/'/g,"\\'")}')"><div><div class="pname">${p.prov}</div><div class="pregion">${p.region}</div></div><div class="pcnt">${v}/${p.cities.length}</div></div>`;
+  }).join('');
+}
+function selectProv(prov){
+  activeProv=prov;const pd=PROVINCES.find(p=>p.prov===prov);if(!pd)return;
+  document.getElementById('city-panel').style.display='block';
+  document.getElementById('city-prov-title').textContent=prov;
+  document.getElementById('city-chip-list').innerHTML=pd.cities.map(c=>`<div class="cchip ${visitedCities.has(c.name)?'sel':''}" onclick="toggleCity('${c.name.replace(/'/g,"\\'")}',this)"><span class="cchip-dot"></span>${c.name}</div>`).join('');
+  renderProvList();
+}
+function toggleCity(city,el){
+  if(visitedCities.has(city)){visitedCities.delete(city);el.classList.remove('sel');}
+  else{visitedCities.add(city);el.classList.add('sel');}
+  selectedProvs.clear();
+  PROVINCES.forEach(p=>{if(p.cities.some(c=>visitedCities.has(c.name)))selectedProvs.add(p.prov);});
+  updateDots('city-dots');renderProvList();
+  const n=visitedCities.size;
+  document.getElementById('s1-counts').textContent=n+' cit'+(n!==1?'ies':'y')+' visited';
+}
+function updateDots(id){
+  const g=document.getElementById(id);if(!g)return;g.innerHTML='';
+  PROVINCES.forEach(p=>p.cities.forEach(c=>{
+    if(!visitedCities.has(c.name))return;
+    const x=lngToX(c.lng),y=latToY(c.lat);
+    const ci=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    ci.setAttribute('cx',x.toFixed(1));ci.setAttribute('cy',y.toFixed(1));ci.setAttribute('r','4.5');
+    ci.setAttribute('fill','#B8966E');ci.setAttribute('stroke','#0B1F3A');ci.setAttribute('stroke-width','1.3');
+    ci.style.filter='drop-shadow(0 0 4px rgba(184,150,110,0.8))';
+    g.appendChild(ci);
+    const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',(x+6).toFixed(1));t.setAttribute('y',(y+3).toFixed(1));
+    t.setAttribute('font-size','5.5');t.setAttribute('fill','#FAF8F4');t.setAttribute('font-family','sans-serif');
+    t.textContent=c.name.length>15?c.name.slice(0,14)+'…':c.name;g.appendChild(t);
+  }));
+}
+function renderExps(){
+  document.getElementById('exp-grid').innerHTML=EXPERIENCES.map(e=>`<div class="exp-card ${selectedExps.has(e.id)?'sel':''}" onclick="toggleExp('${e.id}',this)"><div class="exp-icon">${e.icon}</div><div class="exp-name">${e.name}</div><div class="exp-desc">${e.desc}</div></div>`).join('');
+}
+function toggleExp(id,el){
+  if(selectedExps.has(id))selectedExps.delete(id);else selectedExps.add(id);
+  el.classList.toggle('sel');
+  document.getElementById('exp-count').textContent=selectedExps.size+' selected';
+  document.getElementById('s2next').disabled=selectedExps.size===0;
+}
+function archetype(){
+  const pct=Math.round((selectedProvs.size/PROVINCES.length)*100);
+  if(visitedCities.size===0)return{label:'ready to begin',pct:0,msg:"The Philippines is one of the great undiscovered luxuries left on earth. Every journey starts somewhere, and the best ones start here."};
+  if(pct<15)return{label:'at the beginning of something extraordinary',pct,msg:"You have touched the edges of the archipelago. What lies beyond is where the real story begins."};
+  if(pct<35)return{label:'a well-begun explorer of the islands',pct,msg:"You know enough to know how much remains. That is the most interesting position to be in."};
+  if(pct<60)return{label:'a seasoned traveller of the Philippines',pct,msg:"You have covered remarkable ground. What you have not found yet is precisely what we specialise in finding."};
+  return{label:'a true connoisseur of the archipelago',pct,msg:"You hold the deepest knowledge, and Arkipelago exists for travellers like you. Let us find the corners no one has shown you yet."};
+}
+function populateGate(){
+  const a=archetype();
+  document.getElementById('gate-stats').innerHTML=`<div class="gate-stat"><div class="gate-stat-num">${visitedCities.size}</div><div class="gate-stat-lbl">cities visited</div></div><div class="gate-stat"><div class="gate-stat-num">${selectedProvs.size}</div><div class="gate-stat-lbl">provinces</div></div><div class="gate-stat"><div class="gate-stat-num">${a.pct}%</div><div class="gate-stat-lbl">of the map</div></div>`;
+}
+async function submitLead(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const win=document.getElementById('f-window').value;
+  const grp=document.getElementById('f-group').value;
+  const err=document.getElementById('err-msg');err.textContent='';
+  if(!name){err.textContent='Please enter your first name.';return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Please enter a valid email address.';return;}
+  if(!win){err.textContent='Please choose a travel window.';return;}
+  if(!grp){err.textContent='Please choose a group size.';return;}
+  const btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Sending…';
+  const a=archetype();
+  const expLabels=[...selectedExps].map(id=>EXPERIENCES.find(e=>e.id===id)?.name).filter(Boolean);
+  leadData={firstName:name,email,travelWindow:win,groupSize:grp,provinceCount:selectedProvs.size,cityCount:visitedCities.size,cities:[...visitedCities].slice(0,20).join(', '),interests:expLabels.join(', '),archetype:a.label,coverage:a.pct+'%'};
+  if(APPS_SCRIPT_URL && APPS_SCRIPT_URL!=='PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(leadData)});}
+    catch(e){console.log('sheet sync note',e);}
+  }
+  goTo(4);
+}
+// returns true if a recommendation refers to a place the user already visited
+function recAlreadyVisited(recName){
+  const visitedLower=[...visitedCities].map(c=>c.toLowerCase());
+  const rn=recName.toLowerCase();
+  // match if any visited city name appears in the rec name, or vice versa
+  return visitedLower.some(v=>{
+    const vBase=v.split('(')[0].trim(); // strip "(whale sharks)" etc.
+    if(!vBase) return false;
+    return rn.includes(vBase) || vBase.includes(rn.split(',')[0].trim());
+  });
+}
+function buildResult(){
+  const a=archetype();
+  let recs=[];const seen=new Set();
+  [...selectedExps].forEach(x=>{(RECS[x]||[]).forEach(r=>{
+    if(!seen.has(r.name) && !recAlreadyVisited(r.name)){seen.add(r.name);recs.push(r);}
+  });});
+  // fallback: if everything got filtered out, offer a gentle default set
+  if(recs.length===0){
+    const pool=[{name:'Batanes',tag:'The unpublished Philippines',why:'Propeller plane only. Rolling hills, stone villages, not a single group tour in sight.'},{name:'Port Barton, Palawan',tag:'Before it is discovered',why:'No resort strip. Just the sea, a few guesthouses, and time.'},{name:'Bukidnon Highlands',tag:'Northern Mindanao',why:'Cool plateaus and tribal heritage almost no luxury traveller has seen.'},{name:'Siargao',tag:'Beyond the surf break',why:'Private mangroves, vanishing sandbars, sunsets that demand silence.'}];
+    pool.forEach(r=>{if(!recAlreadyVisited(r.name))recs.push(r);});
+  }
+  recs=recs.slice(0,4);
+  const fn=leadData.firstName||'';
+  const vtags=[...visitedCities].slice(0,14);
+  const expLabels=[...selectedExps].map(id=>EXPERIENCES.find(e=>e.id===id)?.name).filter(Boolean);
+  const enquiry=`${QUOTE_PAGE_URL}?source=explorer-map&name=${encodeURIComponent(fn)}&email=${encodeURIComponent(leadData.email||'')}&cities=${encodeURIComponent([...visitedCities].slice(0,12).join(', '))}&interests=${encodeURIComponent(expLabels.join(', '))}&window=${encodeURIComponent(leadData.travelWindow||'')}&group=${encodeURIComponent(leadData.groupSize||'')}`;
+  document.getElementById('result-content').innerHTML=`
+    <div class="result-hero">
+      <div class="result-tagline">${fn?fn+', your':'Your'} Philippines story so far</div>
+      <h2>You are ${a.label}.</h2>
+      <p>${a.msg}</p>
+    </div>
+    <div class="result-map-row">
+      <div>
+        <div class="stats-row">
+          <div class="stat-box"><div class="stat-num">${visitedCities.size}</div><div class="stat-lbl">cities visited</div></div>
+          <div class="stat-box"><div class="stat-num">${selectedProvs.size}</div><div class="stat-lbl">provinces</div></div>
+          <div class="stat-box"><div class="stat-num">${a.pct}%</div><div class="stat-lbl">of the map</div></div>
+        </div>
+        ${vtags.length?`<div class="vtags">${vtags.map(c=>`<span class="vtag">${c}</span>`).join('')}${visitedCities.size>14?`<span class="vtag">+${visitedCities.size-14} more</span>`:''}</div>`:''}
+      </div>
+      <div class="map-wrap">${mapSVG('result-dots')}</div>
+    </div>
+    ${recs.length?`<div class="recs-label">What you have not discovered yet</div><div class="rec-grid">${recs.map(r=>`<div class="rec-card"><div class="rec-tag">${r.tag}</div><div class="rec-name">${r.name}</div><div class="rec-why">${r.why}</div></div>`).join('')}</div>`:''}
+    <div class="cta-block">
+      <p>Every journey Arkipelago designs begins with exactly this: where you have been, and who you are as a traveller. ${fn?fn+', your':'Your'} brief is already half written.</p>
+      <a class="cta-main" href="${enquiry}">Begin your bespoke journey &rarr;</a>
+    </div>
+    <div class="restart-row"><button class="btn-back" onclick="restart()">Start over</button></div>`;
+  updateDots('result-dots');
+}
+function goTo(step){
+  document.querySelectorAll('.step').forEach((s,i)=>s.classList.toggle('active',i+1===step));
+  document.getElementById('prog').style.width=({1:12,2:45,3:72,4:100})[step]+'%';
+  if(step===2)renderExps();
+  if(step===3)populateGate();
+  if(step===4)buildResult();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function restart(){
+  visitedCities.clear();selectedProvs.clear();selectedExps.clear();leadData={};
+  currentIsland='luzon';activeProv=null;
+  document.getElementById('city-panel').style.display='none';
+  document.getElementById('s2next').disabled=true;
+  document.getElementById('s1-counts').textContent='0 cities visited';
+  document.getElementById('err-msg').textContent='';
+  ['f-name','f-email','f-window','f-group'].forEach(id=>document.getElementById(id).value='');
+  const btn=document.getElementById('submit-btn');btn.disabled=false;btn.innerHTML='Reveal my journey &rarr;';
+  updateDots('city-dots');renderProvList();goTo(1);setIsland('luzon');
+}
+renderProvList();
+</script>
+</body>
+</html>
