@@ -18,8 +18,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'EB Garamond',Georgia,serif;font-size:17px;color:var(--text);background:var(--bg);line-height:1.7}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.06;pointer-events:none;z-index:9999}
-.container{max-width:920px;margin:0 auto;padding:2rem 1.25rem}
-.brand-head{text-align:center;margin-bottom:1.5rem}
+.container{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem}
+.brand-head{text-align:center;margin-bottom:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
 .brand-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--warm-white);letter-spacing:0.1em;text-transform:uppercase}
 .brand-sub{font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-top:3px}
 .brand-tag{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-top:6px}
@@ -28,20 +28,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .prog-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s;width:12%}
 .step{display:none}.step.active{display:block;animation:fade 0.3s}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.step-label{font-size:10px;letter-spacing:0.12em;color:var(--text3);text-transform:uppercase;margin-bottom:5px}
+.step-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;opacity:0.7}
 .step-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--warm-white);margin-bottom:4px;line-height:1.2}
 .step-sub{font-family:'EB Garamond',serif;font-size:15px;color:var(--text2);margin-bottom:1.25rem;line-height:1.6}
-.layout{display:grid;grid-template-columns:1fr 250px;gap:16px;align-items:start}
+.layout{display:grid;grid-template-columns:1fr 260px;gap:20px;align-items:start}
 .island-tabs{display:flex;gap:6px;margin-bottom:10px}
 .itab{flex:1;padding:7px 4px;border-radius:20px;border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;color:var(--text2);background:transparent;text-align:center;transition:all 0.15s;font-weight:500}
 .itab.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
 .map-wrap{position:relative;border-radius:14px;border:1px solid var(--border);background:var(--ocean);overflow:hidden}
 .map-wrap svg{display:block;width:100%;height:auto}
-.sidebar{display:flex;flex-direction:column;gap:9px}
-.select-hint{font-size:11px;color:var(--text3);margin-bottom:2px}
+.sidebar{display:flex;flex-direction:column;gap:9px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px}
+.select-hint{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
 .prov-scroll{max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;padding-right:3px}
 .prov-scroll::-webkit-scrollbar{width:4px}
-.prov-scroll::-webkit-scrollbar-thumb{background:var(--navy);border-radius:2px}
+.prov-scroll::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;opacity:0.5}
 .pchip{padding:8px 10px;border-radius:9px;border:1px solid var(--border);font-size:12px;cursor:pointer;color:var(--text);background:var(--bg2);transition:all 0.12s;display:flex;align-items:center;justify-content:space-between;gap:6px}
 .pchip:hover{border-color:var(--gold)}
 .pchip.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
@@ -52,20 +52,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .city-prov-title{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:7px}
 .city-chips{display:flex;flex-direction:column;gap:4px;max-height:220px;overflow-y:auto;padding-right:3px}
 .city-chips::-webkit-scrollbar{width:4px}
-.city-chips::-webkit-scrollbar-thumb{background:var(--navy);border-radius:2px}
+.city-chips::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;opacity:0.5}
 .cchip{padding:6px 9px;border-radius:7px;border:1px solid var(--border);font-size:11px;cursor:pointer;color:var(--text2);background:var(--bg2);transition:all 0.12s;display:flex;align-items:center;gap:7px}
 .cchip:hover{border-color:var(--gold);color:var(--warm-white)}
 .cchip.sel{background:var(--navy-light);border-color:var(--gold);color:var(--warm-white)}
 .cchip-dot{width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor;flex-shrink:0}
 .cchip.sel .cchip-dot{background:var(--gold);border-color:var(--gold)}
-.map-legend{display:flex;gap:14px;margin-top:8px;font-size:11px;color:var(--text2)}
+.map-legend{display:flex;gap:14px;margin-top:8px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
 .leg-dot{width:9px;height:9px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:4px}
 .btn-row{display:flex;gap:8px;margin-top:1.5rem;align-items:center;flex-wrap:wrap}
 .btn-next{padding:10px 22px;border-radius:9px;background:var(--gold);color:var(--navy);border:none;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.15s;font-weight:600}
 .btn-next:hover{background:var(--gold-bright)}
 .btn-next:disabled{opacity:0.3;cursor:default}
 .btn-back{padding:10px 16px;border-radius:9px;background:transparent;color:var(--text2);border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.08em;cursor:pointer}
-.count-badge{font-size:12px;color:var(--text3)}
+.count-badge{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.1em;color:var(--text3)}
 .exp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px}
 .exp-card{padding:13px;border-radius:11px;border:1px solid var(--border);cursor:pointer;transition:all 0.15s;background:var(--bg2)}
 .exp-card:hover{border-color:var(--gold)}
@@ -87,11 +87,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .fg label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);font-weight:500}
 .fg input,.fg select{padding:10px;border-radius:8px;border:1px solid var(--border);font-size:15px;font-family:'EB Garamond',Georgia,serif;background:var(--navy);color:var(--text)}
 .fg input:focus,.fg select:focus{outline:none;border-color:var(--gold)}
-.err-msg{font-size:12px;color:#c0392b;text-align:center;margin-top:10px;min-height:16px}
+.err-msg{font-family:'Montserrat',sans-serif;font-size:11px;color:#e07070;text-align:center;margin-top:10px;min-height:16px;letter-spacing:0.04em}
 .submit-btn{width:100%;margin-top:14px;padding:12px;border-radius:9px;background:var(--gold);color:var(--navy);border:none;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.15s;font-weight:600}
 .submit-btn:hover{background:var(--gold-bright)}
 .submit-btn:disabled{opacity:0.5;cursor:default}
-.privacy-note{font-size:10px;color:var(--text3);text-align:center;margin-top:10px;line-height:1.5}
+.privacy-note{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.06em;color:var(--text3);text-align:center;margin-top:10px;line-height:1.6}
 .result-hero{text-align:center;padding:1rem 0 0.5rem}
 .result-tagline{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
 .result-hero h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--warm-white);margin-bottom:10px;line-height:1.2}
@@ -105,11 +105,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .vtag{padding:3px 9px;border-radius:11px;background:var(--navy-light);border:1px solid var(--border);color:var(--text2);font-size:11px}
 .recs-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin:1.25rem 0 8px}
 .rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.rec-card{padding:14px;border-radius:11px;border:1px solid var(--border);background:var(--bg2)}
+.rec-card{padding:14px;border-radius:11px;border:1px solid var(--border);background:var(--bg2);transition:border-color 0.15s}
+.rec-card:hover{border-color:rgba(184,150,110,0.5)}
 .rec-tag{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
 .rec-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--warm-white);margin-bottom:4px}
 .rec-why{font-size:14px;color:var(--text2);line-height:1.5}
-.cta-block{margin-top:1.5rem;padding:22px;border-radius:14px;border:1px solid var(--border);background:var(--bg2);text-align:center}
+.cta-block{margin-top:1.5rem;padding:22px;border-radius:14px;border:1px solid var(--border);border-top:2px solid var(--gold);background:var(--bg2);text-align:center}
 .cta-block p{font-size:15px;color:var(--text2);margin-bottom:14px;line-height:1.6}
 .cta-main{display:inline-block;padding:12px 28px;border-radius:9px;background:var(--gold);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;font-weight:600;transition:background 0.15s}
 .cta-main:hover{background:var(--gold-bright)}
@@ -118,6 +119,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .layout{grid-template-columns:1fr}
   .result-map-row{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
+  .sidebar{margin-top:8px}
+  .container{padding:1.5rem 1rem}
+  .step-title{font-size:24px}
 }
 </style>
 </head>
