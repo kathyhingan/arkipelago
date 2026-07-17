@@ -20,7 +20,7 @@
   <!-- Journal index -->
   <url>
     <loc>https://luxurytoursphilippines.com/journal/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -29,6 +29,14 @@
   <url>
     <loc>https://luxurytoursphilippines.com/journal/private-tours-philippines/</loc>
     <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog post: Philippines Proposal Planning Coron -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/journal/philippines-proposal-planning-coron/</loc>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
