@@ -3,20 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Suzanne: Honeymoon Journeys — Arkipelago</title>
+<title>Suzanne · A Philippines Honeymoon · Arkipelago</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --navy:#0B1F3A;
-    --navy-mid:#112847;
-    --gold:#B8966E;
-    --gold-bright:#D4A96A;
-    --warm-white:#FAF8F4;
-    --sand:#F5EDD8;
-    --slate:#4A5568;
-    --near-black:#2D2D2D;
+    --navy:#0B1F3A;--navy-mid:#112847;--gold:#B8966E;--gold-bright:#D4A96A;
+    --gold-pale:#F0E6D3;--warm-white:#FAF8F4;--sand:#F5EDD8;--slate:#4A5568;--near-black:#2D2D2D;
+    --tier1:#7B9E87;--tier2:#B8966E;--tier3:#8B7355;
   }
   html{scroll-behavior:smooth}
   body{background:var(--warm-white);color:var(--near-black);font-family:'EB Garamond',Georgia,serif;font-size:17px;line-height:1.75}
@@ -46,81 +41,120 @@
   #content{display:none}
   #content.visible{display:block}
 
-  .doc-header{background:var(--navy);padding:60px 40px 48px;position:relative;overflow:hidden}
+  /* HEADER */
+  .doc-header{background:var(--navy);padding:64px 40px 52px;position:relative;overflow:hidden}
   .doc-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:40px 40px}
   .doc-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
   .header-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
-  .doc-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .doc-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px}
   .doc-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
-  .doc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:300;color:var(--warm-white);line-height:1.1;margin-bottom:12px}
+  .doc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,58px);font-weight:300;color:var(--warm-white);line-height:1.08;margin-bottom:14px}
   .doc-title em{font-style:italic;color:var(--gold)}
-  .doc-subtitle{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-top:16px}
+  .doc-subtitle{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,248,244,.45);margin-top:14px}
+  .route-strip{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+  .route-strip .tag{display:inline-block;font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(184,150,110,.4);color:rgba(250,248,244,.7)}
 
-  .brief-box{margin-top:28px;padding:20px 24px;border-left:2px solid var(--gold);background:rgba(184,150,110,.08)}
-  .brief-box-title{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-  .brief-box p{font-family:'EB Garamond',serif;font-size:15px;color:rgba(250,248,244,.8);line-height:1.75;margin-bottom:8px}
-  .brief-box p:last-child{margin-bottom:0}
-  .brief-box strong{color:var(--warm-white)}
-
+  /* NAV */
   .doc-nav{background:var(--navy-mid);padding:0 40px;border-bottom:1px solid rgba(184,150,110,.15);position:sticky;top:0;z-index:100}
   .nav-inner{max-width:900px;margin:0 auto;display:flex;gap:0;overflow-x:auto}
   .nav-inner::-webkit-scrollbar{display:none}
-  .nav-tab{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,248,244,.4);padding:16px 20px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s}
-  .nav-tab:hover,.nav-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+  .nav-tab{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,248,244,.4);padding:16px 18px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;text-decoration:none;display:inline-block}
+  .nav-tab:hover{color:var(--gold);border-bottom-color:var(--gold)}
 
-  .content{max-width:900px;margin:0 auto;padding:0 40px 80px}
-  .section{padding:60px 0;border-bottom:1px solid rgba(184,150,110,.12)}
-  .section:last-child{border-bottom:none}
-  .section-eyebrow{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  /* CONTENT */
+  .content{max-width:900px;margin:0 auto;padding:0 40px 40px}
+
+  .intro-box{background:white;border:1px solid rgba(184,150,110,.2);border-left:3px solid var(--gold);padding:32px 36px;margin:48px 0 8px}
+  .intro-box p{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--navy);line-height:1.6}
+  .intro-box p + p{font-size:17px;font-style:normal;font-family:'EB Garamond',serif;color:var(--slate);margin-top:16px}
+
+  .section-eyebrow{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin:44px 0 8px;display:flex;align-items:center;gap:10px}
   .section-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold)}
-  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:8px}
-  .section-meta{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--slate);margin-bottom:18px}
-  .section-intro{font-size:17px;color:var(--slate);line-height:1.8;max-width:680px;margin-bottom:32px}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,32px);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:20px}
 
-  .option-picker{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
-  .option-tab{flex:1;min-width:220px;border:1px solid rgba(184,150,110,.3);padding:16px 18px;cursor:pointer;background:white;transition:all .2s}
-  .option-tab:hover,.option-tab.active{background:var(--navy);border-color:var(--navy)}
-  .option-tab-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-  .option-tab-title{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy)}
-  .option-tab.active .option-tab-title{color:var(--warm-white)}
-  .option-tab-sub{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.1em;color:var(--slate);margin-top:4px}
-  .option-tab.active .option-tab-sub{color:rgba(250,248,244,.6)}
+  /* LEG CARDS */
+  .leg{margin-top:24px}
+  .leg-card{background:white;border:1px solid rgba(184,150,110,.15);overflow:hidden}
+  .leg-header{background:var(--navy);padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .leg-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--warm-white)}
+  .leg-meta{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,244,.45);margin-top:5px}
+  .leg-badge{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--gold);color:var(--gold);white-space:nowrap;align-self:flex-start}
+  .leg-body{padding:26px}
 
-  .option-block{display:none}
-  .option-block.visible{display:block}
-  .option-intro{font-size:15px;color:var(--slate);line-height:1.8;margin-bottom:20px;max-width:680px}
+  .day-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+  .day-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .day-content{font-size:16.5px;color:var(--near-black);line-height:1.85}
+  .day-note{margin-top:14px;padding:12px 16px;border-left:2px solid var(--gold);background:var(--sand);font-size:14px;color:var(--slate);font-style:italic;line-height:1.7}
+  .day-note strong{font-style:normal;color:var(--navy)}
 
-  .itinerary-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-  .itin-tab{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(184,150,110,.3);cursor:pointer;color:var(--slate);background:white;transition:all .2s}
-  .itin-tab:hover,.itin-tab.active{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+  /* TIER TABS */
+  .tier-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0}
+  .tier-tab{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:12px 22px;border:1px solid rgba(184,150,110,.3);cursor:pointer;color:var(--slate);background:white;transition:all .2s}
+  .tier-tab:hover{background:var(--sand)}
+  .tier-tab.active{background:var(--navy);color:var(--gold);border-color:var(--navy)}
 
-  .itin-card{background:white;border:1px solid rgba(184,150,110,.15);margin-bottom:16px;overflow:hidden;display:none}
-  .itin-card.visible{display:block}
-  .itin-card-header{background:var(--navy);padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-  .itin-card-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--warm-white)}
-  .itin-card-meta{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-top:4px}
-  .itin-tier-badge{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--gold);color:var(--gold);white-space:nowrap;align-self:flex-start}
-  .itin-body{padding:24px;background:#fff}
-  .itin-day{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(184,150,110,.1)}
-  .itin-day:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
-  .day-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
-  .day-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);margin-bottom:8px}
-  .day-content{font-size:16px;color:#2D2D2D;line-height:1.8}
-  .day-note{margin-top:10px;padding:10px 14px;border-left:2px solid var(--gold);background:var(--sand);font-size:13px;color:#4A5568;font-style:italic}
-  .itin-footer{background:#f5edd8;padding:18px 24px;border-top:1px solid rgba(184,150,110,.2)}
-  .itin-footer-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:14px}
-  .itin-stat-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#4A5568;margin-bottom:2px}
-  .itin-price-highlight{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:#8B6A4E}
-  .itin-price-note{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--slate);margin-bottom:14px}
-  .diff-title{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;padding-top:14px;border-top:1px solid rgba(184,150,110,.25)}
-  .diff-list{list-style:none;font-size:13px;color:var(--slate);line-height:1.7}
-  .diff-list li::before{content:'—';color:var(--gold);margin-right:8px}
+  .tier-card{background:white;border:1px solid rgba(184,150,110,.15);border-top:none;display:none}
+  .tier-card.visible{display:block}
+  .tier-card-header{padding:24px 30px;border-bottom:1px solid rgba(184,150,110,.15)}
+  .tier-card.t3 .tier-card-header{background:var(--navy)}
+  .tier-card-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--navy)}
+  .tier-card.t3 .tier-card-name{color:var(--warm-white)}
+  .tier-card-desc{font-size:15px;color:var(--slate);margin-top:6px;line-height:1.7}
+  .tier-card.t3 .tier-card-desc{color:rgba(250,248,244,.7)}
+  .tier-card-body{padding:28px 30px}
 
-  .closing{padding:60px 40px 80px;max-width:900px;margin:0 auto}
-  .closing p{font-size:17px;color:var(--slate);line-height:1.9;margin-bottom:10px}
-  .closing strong{color:var(--navy)}
+  .tier-grid-row{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:26px}
+  @media(min-width:640px){.tier-grid-row{grid-template-columns:repeat(2,1fr)}}
+  .tier-detail{padding:16px 18px;background:var(--sand);border-left:2px solid var(--gold)}
+  .tier-card.t3 .tier-detail{background:rgba(184,150,110,.08)}
+  .tier-detail-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);margin-bottom:6px}
+  .tier-card.t3 .tier-detail-label{color:var(--gold)}
+  .tier-detail-text{font-size:14.5px;color:var(--near-black);line-height:1.6}
+  .tier-card.t3 .tier-detail-text{color:rgba(250,248,244,.85)}
 
-  @media(max-width:600px){.content{padding:0 18px 60px}.closing{padding:40px 18px 60px}.doc-header{padding:40px 18px 36px}.doc-nav{padding:0 18px}}
+  .investment-block{background:var(--navy);padding:30px 32px;margin-top:8px}
+  .investment-label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .investment-value{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--warm-white);margin-bottom:6px}
+  .investment-sub{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.05em;color:rgba(250,248,244,.55);line-height:1.7}
+
+  .whats-different{margin-top:24px;padding-top:20px;border-top:1px solid rgba(184,150,110,.2)}
+  .whats-different-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .whats-different ul{list-style:none;display:grid;gap:8px}
+  .whats-different li{padding-left:18px;position:relative;font-size:14.5px;color:var(--slate);line-height:1.6}
+  .whats-different li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--gold)}
+
+  /* SETTLE + CLOSING */
+  .settle{background:white;border:1px solid rgba(184,150,110,.2);padding:34px 36px;margin-top:44px}
+  .settle-eyebrow{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .settle-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold)}
+  .settle h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:10px}
+  .settle p.lead{font-size:16.5px;color:var(--slate);line-height:1.8;margin-bottom:20px}
+  .settle ul{list-style:none;display:grid;gap:14px}
+  .settle li{padding-left:22px;position:relative;font-size:16px;color:var(--near-black);line-height:1.7}
+  .settle li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--gold)}
+  .settle li strong{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--navy)}
+
+  .includes-wrap{display:grid;grid-template-columns:1fr;gap:20px;margin-top:24px}
+  @media(min-width:640px){.includes-wrap{grid-template-columns:1fr 1fr}}
+  .includes-card{background:white;border:1px solid rgba(184,150,110,.15);padding:22px}
+  .includes-title{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(184,150,110,.15)}
+  .includes-card ul{list-style:none;display:grid;gap:9px}
+  .includes-card li{padding-left:18px;position:relative;font-size:14.5px;color:var(--slate);line-height:1.6}
+  .includes-card li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--gold)}
+
+  .closing{background:var(--navy);padding:48px 40px;position:relative;overflow:hidden;text-align:center;margin-top:44px}
+  .closing::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:40px 40px}
+  .closing-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
+  .closing h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--warm-white);line-height:1.25;margin-bottom:16px}
+  .closing h3 em{font-style:italic;color:var(--gold)}
+  .closing p{font-size:16px;color:rgba(250,248,244,.72);line-height:1.8;margin-bottom:10px}
+  .closing .cta{display:inline-block;margin-top:22px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:14px 30px;text-decoration:none}
+  .gold-rule{width:44px;height:1px;background:var(--gold);margin:0 auto 22px}
+
+  .footer{text-align:center;padding:30px 40px 50px}
+  .footer p{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--slate)}
+
+  @media(max-width:560px){.content{padding:0 22px 30px}.leg-body{padding:22px}.tier-card-body{padding:22px}}
 </style>
 </head>
 <body>
@@ -144,318 +178,390 @@
 
 <div class="doc-header">
   <div class="header-inner">
-    <div class="doc-eyebrow">Honeymoon Journeys · Palawan &amp; Beyond</div>
-    <h1 class="doc-title">For <em>Suzanne</em></h1>
-    <div class="doc-subtitle">Prepared by Arkipelago · Luxury Tours Philippines</div>
-    <div class="brief-box">
-      <div class="brief-box-title">What Suzanne Told Us</div>
-      <p><strong>"A private and unique expedition from El Nido to Coron with minimal crowds for 4 days and 3 nights, starting December 22nd. Additionally, any other recommendations for our honeymoon from December 19th to January 2nd would be appreciated."</strong></p>
-      <p>A discovery call hasn't taken place yet, so pace, food interests, and any physical considerations are still unconfirmed. Pricing below is built from actual researched accommodation and flight rates (July 2026) with our standard margin applied, not a rough guess, but Amanpulo's mid and top casita/villa rates and a few smaller line items are flagged in each tier as pending a dated quote.</p>
+    <div class="doc-eyebrow">A Private Honeymoon Journey</div>
+    <h1 class="doc-title">Suzanne<br><em>The Philippines, Together</em></h1>
+    <div class="doc-subtitle">December 18 2026 to January 3 2027 · Arkipelago Luxury Tours Philippines</div>
+    <div class="route-strip">
+      <span class="tag">Manila</span>
+      <span class="tag">El Nido</span>
+      <span class="tag">Linapacan Expedition</span>
+      <span class="tag">Coron</span>
+      <span class="tag">Panglao, Bohol</span>
+      <span class="tag">Manila</span>
     </div>
   </div>
 </div>
 
-<div class="doc-nav">
+<nav class="doc-nav">
   <div class="nav-inner">
-    <div class="nav-tab active" onclick="scrollToSection('journey-one', this)">Journey One: El Nido to Coron</div>
-    <div class="nav-tab" onclick="scrollToSection('journey-two', this)">Journey Two: The Full Window</div>
+    <a class="nav-tab" href="#journey">The Journey</a>
+    <a class="nav-tab" href="#tiers">Choose Your Tier</a>
+    <a class="nav-tab" href="#settle">Before We Finalise</a>
   </div>
-</div>
+</nav>
 
 <div class="content">
 
-  <!-- JOURNEY ONE -->
-  <div class="section" id="journey-one">
-    <div class="section-eyebrow">Journey One</div>
-    <h2 class="section-title">El Nido to Coron, Privately</h2>
-    <div class="section-meta">December 22–25, 2026 · 4 Days, 3 Nights · 2 Pax</div>
-    <p class="section-intro">A crossing built around distance from other people, not distance covered. El Nido is experienced from the water only, never the town, and the route north into Coron opens onto shipwreck diving and a lake unlike anything else in the country. This is the fixed centrepiece of the trip, the dates Suzanne already gave us, and it sits inside all three options for the fuller journey below.</p>
+  <div class="intro-box">
+    <p>This is the shape of your honeymoon: the journey you set out, drawn day by day, with the water, the diving, and the quiet moments built in around it.</p>
+    <p>You chose the route and the places you wanted to stay, and they are lovely choices. What follows adds the connective tissue, the private boats, the crossings, the evenings worth setting apart, and answers the questions you sent. Below the day-by-day, you will find three ways to take this same journey, Refined, Elevated, and Sovereign, each with its own Investment Estimate. Nothing here is booked. It is a starting point we will refine together.</p>
+  </div>
 
-    <div class="itinerary-tabs">
-      <div class="itin-tab active" onclick="showTier('j1', 't1', this)">Tier 1 · Refined</div>
-      <div class="itin-tab" onclick="showTier('j1', 't2', this)">Tier 2 · Elevated</div>
-      <div class="itin-tab" onclick="showTier('j1', 't3', this)">Tier 3 · Sovereign</div>
-    </div>
+  <div class="section-eyebrow" id="journey">The Journey</div>
+  <h2 class="section-title">Sixteen Nights, Three Seas</h2>
 
-    <div class="itin-card visible" id="j1-t1">
-      <div class="itin-card-header">
-        <div><div class="itin-card-title">Refined</div><div class="itin-card-meta">4 Days · 3 Nights · 4-Star Boutique · Private Bangka</div></div>
-        <div class="itin-tier-badge">Tier 1</div>
+  <!-- LEG 1 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">Manila</div>
+          <div class="leg-meta">December 18 · One night</div>
+        </div>
+        <div class="leg-badge">Arrival</div>
       </div>
-      <div class="itin-body">
-        <div class="itin-day"><div class="day-label">Day 1 · Dec 22</div><div class="day-title">Arrival, El Nido</div><div class="day-content">A private transfer meets you and takes you directly to [ACCOMMODATION: 4-star boutique resort, outer bay location, El Nido], chosen for its distance from the town centre. No orientation tour today, just settling in. Dinner at the resort, looking out toward the limestone cliffs that will define tomorrow.</div></div>
-        <div class="itin-day"><div class="day-label">Day 2 · Dec 23</div><div class="day-title">The Bacuit Archipelago, Privately</div><div class="day-content">A full day on a private traditional bangka through the outer Bacuit Archipelago, timed around the standard tour-boat schedule so you're moving through lagoons and coves while the group boats are still at breakfast or already gone. Lunch on an island with no other boats in sight.<div class="day-note">[COUPLES NOTE: a specific quiet cove for a private swim confirmed with the guide day-of, based on conditions.]</div></div></div>
-        <div class="itin-day"><div class="day-label">Day 3 · Dec 24</div><div class="day-title">North to Coron</div><div class="day-content">A morning scheduled flight north, a short hop rather than a long crossing. Private transfer to [ACCOMMODATION: El Rio Y Mar Resort, Coron, deluxe room]. Afternoon at Kayangan Lake and Twin Lagoon with a private guide during standard visiting hours.</div></div>
-        <div class="itin-day"><div class="day-label">Day 4 · Dec 25</div><div class="day-title">Christmas at Coron, Departure</div><div class="day-content">A slow Christmas morning. A shallow-water shipwreck snorkel if conditions and interest allow, then a private transfer onward for the next leg of the trip.</div></div>
-      </div>
-      <div class="itin-footer">
-        <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 3,800 – 4,300</div></div></div>
-        <div class="itin-price-note">All-in estimate for 2 pax, based on researched El Nido/Coron property rates and current AirSWIFT fares. Excludes international flights. Peak-season (Dec) surcharges not yet confirmed with properties.</div>
-        <div class="diff-title">What's Different at This Tier</div>
-        <ul class="diff-list"><li>Traditional private bangka throughout</li><li>4-star boutique accommodation</li><li>Standard visiting windows at Kayangan Lake and Twin Lagoon</li><li>Comfortable, efficiently paced days</li></ul>
-      </div>
-    </div>
-
-    <div class="itin-card" id="j1-t2">
-      <div class="itin-card-header">
-        <div><div class="itin-card-title">Elevated</div><div class="itin-card-meta">4 Days · 3 Nights · 5-Star Villa · Private Speedboat</div></div>
-        <div class="itin-tier-badge">Tier 2</div>
-      </div>
-      <div class="itin-body">
-        <div class="itin-day"><div class="day-label">Day 1 · Dec 22</div><div class="day-title">Arrival, El Nido</div><div class="day-content">Private transfer to [ACCOMMODATION: 5-star private villa, outer bay location, El Nido]. A chef-prepared dinner on your own terrace, no restaurant seating, no other guests in view.</div></div>
-        <div class="itin-day"><div class="day-label">Day 2 · Dec 23</div><div class="day-title">The Bacuit Archipelago, Privately</div><div class="day-content">A full day by private speedboat, faster and quieter than a bangka, reaching further-out coves the group boats don't attempt. Lunch prepared by your boat crew on a beach with no name on any chart.</div></div>
-        <div class="itin-day"><div class="day-label">Day 3 · Dec 24</div><div class="day-title">North to Coron</div><div class="day-content">Private transfer to Coron, upgraded seating on the connecting flight. Check into [ACCOMMODATION: El Rio Y Mar Resort, Coron, premium room category]. Kayangan Lake at first light on a reserved-access window, ahead of the day's public arrivals, followed by Twin Lagoon.</div></div>
-        <div class="itin-day"><div class="day-label">Day 4 · Dec 25</div><div class="day-title">Christmas at Coron, Departure</div><div class="day-content">An unhurried Christmas morning, a private wreck snorkel with a dedicated guide, then a relaxed midday transfer onward.</div></div>
-      </div>
-      <div class="itin-footer">
-        <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 6,300 – 6,900</div></div></div>
-        <div class="itin-price-note">All-in estimate for 2 pax, based on Cauayan Boutique Private Island and El Rio y Mar researched rates. Excludes international flights. Peak-season (Dec) surcharges not yet confirmed.</div>
-        <div class="diff-title">What's Different at This Tier</div>
-        <ul class="diff-list"><li>Private speedboat throughout, not shared bangka</li><li>5-star villa-tier accommodation</li><li>Reserved, early-access windows at Kayangan Lake and Twin Lagoon</li><li>Chef-prepared meals in place of restaurant seating</li></ul>
-      </div>
-    </div>
-
-    <div class="itin-card" id="j1-t3">
-      <div class="itin-card-header">
-        <div><div class="itin-card-title">Sovereign</div><div class="itin-card-meta">4 Days · 3 Nights · Villa Buyout · Private Trimaran</div></div>
-        <div class="itin-tier-badge">Tier 3</div>
-      </div>
-      <div class="itin-body">
-        <div class="itin-day"><div class="day-label">Day 1 · Dec 22</div><div class="day-title">Arrival, El Nido</div><div class="day-content">Private transfer to [ACCOMMODATION: private villa buyout, El Nido]. An on-call private chef for the length of your stay. A styled evening dinner on arrival, candles and fresh flowers, echoing the evening they had in Coron in August.</div></div>
-        <div class="itin-day"><div class="day-label">Day 2 · Dec 23</div><div class="day-title">The Bacuit Archipelago, Privately</div><div class="day-content">A full day aboard a private trimaran with dedicated crew, more stable and more spacious than a speedboat for a full day on the water. Your chef prepares lunch on a beach reserved in advance, exclusively yours for the afternoon.</div></div>
-        <div class="itin-day"><div class="day-label">Day 3 · Dec 24</div><div class="day-title">North to Coron</div><div class="day-content">A private speedboat crossing directly to Coron, no shared terminal at any point. Kayangan Lake and Twin Lagoon reserved for private access before public hours. Check into [ACCOMMODATION: El Rio Y Mar Resort, Coron, top suite or private villa].</div></div>
-        <div class="itin-day"><div class="day-label">Day 4 · Dec 25</div><div class="day-title">Christmas at Coron, Departure</div><div class="day-content">A fully unhurried Christmas morning. An optional on-call photographer for a final portrait session, a quiet nod to where this all began. Private transfer, business-class connecting flight onward.</div></div>
-      </div>
-      <div class="itin-footer">
-        <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 8,300 – 9,000</div></div></div>
-        <div class="itin-price-note">All-in estimate for 2 pax, based on villa-buyout and El Rio y Mar top-suite researched rates. Excludes international flights. No business-class product exists on the El Nido/Coron routes; premium positioning is service-based, not cabin class. Peak-season surcharges not yet confirmed.</div>
-        <div class="diff-title">What's Different at This Tier</div>
-        <ul class="diff-list"><li>Private trimaran and dedicated crew</li><li>Full villa buyout where available, on-call private chef</li><li>Fully reserved-hours access at every site</li><li>Optional photographer add-on</li></ul>
+      <div class="leg-body">
+        <div class="day-label">December 18</div>
+        <div class="day-title">A Soft Landing</div>
+        <div class="day-content">You arrive into Manila in the evening and are met the moment you clear the airport, then driven to your hotel for the night. Nothing is asked of you today. Sleep off the flight. The islands begin in the morning.</div>
       </div>
     </div>
   </div>
 
-  <!-- JOURNEY TWO -->
-  <div class="section" id="journey-two">
-    <div class="section-eyebrow">Journey Two</div>
-    <h2 class="section-title">The Full Window: Three Ways to Close the Trip</h2>
-    <div class="section-meta">December 19, 2026 – January 2, 2027 · 15 Days, 14 Nights · 2 Pax</div>
-    <p class="section-intro">Suzanne asked for "any other recommendations" across the wider window. All three options below open the same way, Port Barton, then El Nido to Coron exactly as fixed in Journey One, and differ only in how the back half of the trip is built. None of this is confirmed yet, this is a real choice for her to react to, not a single guess.</p>
-
-    <div class="option-picker">
-      <div class="option-tab active" onclick="showOption('opt-a', this)">
-        <div class="option-tab-label">Option A</div>
-        <div class="option-tab-title">The Island Close</div>
-        <div class="option-tab-sub">Port Barton → El Nido/Coron → Amanpulo</div>
+  <!-- LEG 2 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">Cauayan Island Resort, El Nido</div>
+          <div class="leg-meta">December 19 to 22 · Three nights</div>
+        </div>
+        <div class="leg-badge">Bacuit Archipelago</div>
       </div>
-      <div class="option-tab" onclick="showOption('opt-b', this)">
-        <div class="option-tab-label">Option B</div>
-        <div class="option-tab-title">The Highlands Close</div>
-        <div class="option-tab-sub">Port Barton → El Nido/Coron → Baguio &amp; Sagada</div>
-      </div>
-      <div class="option-tab" onclick="showOption('opt-c', this)">
-        <div class="option-tab-label">Option C</div>
-        <div class="option-tab-title">The Mix and Match</div>
-        <div class="option-tab-sub">Port Barton → El Nido/Coron → Bohol &amp; Cebu → Vigan &amp; Ilocos</div>
+      <div class="leg-body">
+        <div class="day-label">December 19 to 22</div>
+        <div class="day-title">The First Water</div>
+        <div class="day-content">A morning flight carries you north to El Nido, where a boat brings you across to Cauayan Island and the mainland falls away behind you. Your days here move at whatever pace you and your partner set. When you want the water, a private bangka takes you into the outer Bacuit Archipelago early, before the day boats leave the bay, so the lagoons are yours: the quiet coves, a low-tide sandbar, reef bright enough to keep you in the water until lunch, which is laid out on an island with no one else on it.</div>
+        <div class="day-note"><strong>A note on pace.</strong> Every island day here is private and entirely optional. Some mornings the finest plan is the view from your own terrace and nowhere at all to be.</div>
       </div>
     </div>
-
-    <!-- OPTION A: ISLAND CLOSE -->
-    <div class="option-block visible" id="opt-a">
-      <p class="option-intro">The most water-forward of the three. After the expedition, a full week on Amanpulo's private island closes the trip in total seclusion, New Year's Eve included. The right choice if what they want most is to simply stop moving.</p>
-      <div class="itinerary-tabs">
-        <div class="itin-tab active" onclick="showTier('a', 't1', this)">Tier 1 · Refined</div>
-        <div class="itin-tab" onclick="showTier('a', 't2', this)">Tier 2 · Elevated</div>
-        <div class="itin-tab" onclick="showTier('a', 't3', this)">Tier 3 · Sovereign</div>
-      </div>
-
-      <div class="itin-card visible" id="a-t1">
-        <div class="itin-card-header"><div><div class="itin-card-title">Refined</div><div class="itin-card-meta">15 Days · 14 Nights · 4-Star &amp; Resort Casita</div></div><div class="itin-tier-badge">Tier 1</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">A quiet warm-up further south in Port Barton. Two nights at [ACCOMMODATION: 4-star beachfront resort, Port Barton], with a private banca morning to a nearby reef and unhurried afternoons.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Refined tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Days 8–14 · Dec 25 – Jan 1</div><div class="day-title">Amanpulo, Pamalican Island</div><div class="day-content">A full week at [ACCOMMODATION: Amanpulo, standard casita]. Seven nights with nothing required of you, a private stretch of beach, and New Year's Eve at the resort's own celebration.</div></div>
-          <div class="itin-day"><div class="day-label">Day 15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">A commercial connecting flight to Manila, a final night near the airport if needed, then home.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 31,000 – 33,000</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched Port Barton, El Nido/Coron, and Amanpulo entry-casita rates plus Amanpulo's private air transfer at peak-season pricing. Excludes international flights. Amanpulo rate is a live lead-in, not a locked quote — reconfirm before booking.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>4-star and standard-casita accommodation throughout</li><li>Commercial domestic flights, standard seaplane transfer to Amanpulo</li><li>Efficiently paced, no built-in buffer days</li></ul>
-        </div>
-      </div>
-
-      <div class="itin-card" id="a-t2">
-        <div class="itin-card-header"><div><div class="itin-card-title">Elevated</div><div class="itin-card-meta">15 Days · 14 Nights · 5-Star &amp; Deluxe Casita</div></div><div class="itin-tier-badge">Tier 2</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: private beachfront villa, Port Barton], a private speedboat reef morning, and long, genuinely unstructured afternoons.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Elevated tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Days 8–14 · Dec 25 – Jan 1</div><div class="day-title">Amanpulo, Pamalican Island</div><div class="day-content">Seven nights at [ACCOMMODATION: Amanpulo, deluxe casita], a private beachfront dinner mid-week, and New Year's Eve at a table set privately on your own stretch of sand.</div></div>
-          <div class="itin-day"><div class="day-label">Day 15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">A private seaplane to Manila, business-class connecting flight, a comfortable final night before departure.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 39,500 – 42,000</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched rates. Amanpulo mid-tier casita rate is an estimate pending a dated quote from Aman reservations. Excludes international flights.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>5-star and deluxe-casita accommodation throughout</li><li>Business-class flights, private seaplane to Amanpulo</li><li>Private New Year's Eve dinner rather than communal seating</li><li>Two additional rest days built into the pace</li></ul>
-        </div>
-      </div>
-
-      <div class="itin-card" id="a-t3">
-        <div class="itin-card-header"><div><div class="itin-card-title">Sovereign</div><div class="itin-card-meta">15 Days · 14 Nights · Villa Buyouts &amp; Top-Tier Casita</div></div><div class="itin-tier-badge">Tier 3</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: private villa buyout, Port Barton] with an on-call chef and a private speedboat reef morning.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Sovereign tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Days 8–14 · Dec 25 – Jan 1</div><div class="day-title">Amanpulo, Pamalican Island</div><div class="day-content">Seven nights in [ACCOMMODATION: Amanpulo, top-tier casita or two-bedroom villa], a dedicated chef on call, and a privately arranged New Year's Eve on your own stretch of beach, fireworks viewing coordinated separately from the resort's guests.</div></div>
-          <div class="itin-day"><div class="day-label">Day 15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">A private seaplane to Manila, business-class connecting service, and a final night at a top-tier property near the airport.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 63,000 – 66,000</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched rates. Amanpulo villa rate is an estimate pending a dated quote from Aman reservations, this is the single largest and least-confirmed line item in the whole document. Excludes international flights.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>Villa buyouts and top-tier casita accommodation throughout</li><li>Private aviation for every domestic leg</li><li>On-call private chef across Port Barton and Amanpulo</li><li>Four additional rest days built into the pace</li></ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- OPTION B: HIGHLANDS CLOSE -->
-    <div class="option-block" id="opt-b">
-      <p class="option-intro">The contrast option. Instead of another beach, the trip closes in the Cordillera highlands, pine forests, rice terraces, and mountain air, a genuinely different Philippines from the one they'll have just left. Best for a couple who wants the whole trip to feel like a journey, not a stay.</p>
-      <div class="itinerary-tabs">
-        <div class="itin-tab active" onclick="showTier('b', 't1', this)">Tier 1 · Refined</div>
-        <div class="itin-tab" onclick="showTier('b', 't2', this)">Tier 2 · Elevated</div>
-        <div class="itin-tab" onclick="showTier('b', 't3', this)">Tier 3 · Sovereign</div>
-      </div>
-
-      <div class="itin-card visible" id="b-t1">
-        <div class="itin-card-header"><div><div class="itin-card-title">Refined</div><div class="itin-card-meta">15 Days · 14 Nights · Heritage Lodge, Baguio &amp; Sagada</div></div><div class="itin-tier-badge">Tier 1</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: 4-star beachfront resort, Port Barton], a private banca reef morning, unhurried afternoons.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Refined tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Day 8 · Dec 26</div><div class="day-title">South to Manila, North to Baguio</div><div class="day-content">A connecting flight to Manila, then a private vehicle north into the Cordillera. The air changes noticeably as the road climbs, pine forest replacing palm. Check into [ACCOMMODATION: heritage boutique lodge, Baguio], a fireplace and a genuine change of climate.</div></div>
-          <div class="itin-day"><div class="day-label">Days 9–13 · Dec 27–31</div><div class="day-title">Sagada and the Mountain Province</div><div class="day-content">Five days moving slowly through the highlands: the Banaue Rice Terraces, a 2,000-year-old agricultural landscape carved into the mountainside, Sagada's hanging coffins and the Igorot culture that built them, and long mornings in Burnham Park back in Baguio. No beaches, no lagoons, an entirely different Philippines. New Year's Eve at the lodge, a bonfire and mountain air in place of a beach.</div></div>
-          <div class="itin-day"><div class="day-label">Days 14–15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">A private vehicle back down to Manila, a final night before the international departure.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 9,000 – 10,000</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched Manor at Camp John Hay rates and Cordillera touring costs. Excludes international flights. Materially lower than the beach-close options, this is real, not a discount version.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>Heritage boutique lodging in Baguio and Sagada</li><li>Private vehicle throughout the highlands</li><li>Standard-hours access to the terraces and cave sites</li></ul>
-        </div>
-      </div>
-
-      <div class="itin-card" id="b-t2">
-        <div class="itin-card-header"><div><div class="itin-card-title">Elevated</div><div class="itin-card-meta">15 Days · 14 Nights · Premium Lodge, Baguio &amp; Sagada</div></div><div class="itin-tier-badge">Tier 2</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: private beachfront villa, Port Barton], private speedboat reef morning, unstructured afternoons.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Elevated tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Day 8 · Dec 26</div><div class="day-title">South to Manila, North to Baguio</div><div class="day-content">Business-class connecting flight to Manila, private vehicle north. Check into [ACCOMMODATION: premium lodge, Baguio], the finest room category available.</div></div>
-          <div class="itin-day"><div class="day-label">Days 9–13 · Dec 27–31</div><div class="day-title">Sagada and the Mountain Province</div><div class="day-content">The same five days as Refined, with a dedicated private guide throughout rather than a shared one, an added spelunking morning in Sumaguing Cave, and a private New Year's Eve dinner arranged at the lodge with mountain views, not a shared common room.</div></div>
-          <div class="itin-day"><div class="day-label">Days 14–15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">Private vehicle to Manila, business-class connecting flight, a comfortable final night before departure.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 14,000 – 15,500</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched Manor rates plus a dedicated guide and vehicle across the highland touring days. Excludes international flights.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>Premium lodge accommodation, best available room category</li><li>Dedicated private guide throughout the highlands</li><li>Private New Year's Eve dinner, not a shared setting</li><li>Business-class domestic flights</li></ul>
-        </div>
-      </div>
-
-      <div class="itin-card" id="b-t3">
-        <div class="itin-card-header"><div><div class="itin-card-title">Sovereign</div><div class="itin-card-meta">15 Days · 14 Nights · Private Villa, Baguio &amp; Sagada</div></div><div class="itin-tier-badge">Tier 3</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: private villa buyout, Port Barton] with an on-call chef.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Sovereign tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Day 8 · Dec 26</div><div class="day-title">South to Manila, North to Baguio</div><div class="day-content">Business-class flight, private vehicle with dedicated driver. Check into [ACCOMMODATION: private villa, Baguio], on-call chef and fireplace.</div></div>
-          <div class="itin-day"><div class="day-label">Days 9–13 · Dec 27–31</div><div class="day-title">Sagada and the Mountain Province</div><div class="day-content">The full highland programme with a specialist senior guide, exclusive early-access arrangements at the rice terraces and Sagada's cave sites ahead of other visitors, and a fully private New Year's Eve dinner at the villa, mountain views and a fire in place of any beach.</div></div>
-          <div class="itin-day"><div class="day-label">Days 14–15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">Private vehicle to Manila, business-class connecting flight, a top-tier final night before departure.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 19,000 – 20,500</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched villa-rental comparables and premium ground transport. Excludes international flights. Baguio villa rate is a market comparable, confirm directly with host before quoting.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>Private villa accommodation, Port Barton and Baguio</li><li>On-call chef throughout the highland leg</li><li>Exclusive early-access arrangements at the terraces and caves</li><li>Fully private New Year's Eve</li></ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- OPTION C: MIX AND MATCH -->
-    <div class="option-block" id="opt-c">
-      <p class="option-intro">The most varied of the three, moving through the country rather than settling into one place at the end. After Coron, south to Bohol and Cebu for chocolate hills and centuries-old churches, then north to Vigan for the Philippines' best-preserved Spanish colonial town, New Year's Eve on cobblestone streets. Best for a couple who wants to feel they've genuinely seen the country.</p>
-      <div class="itinerary-tabs">
-        <div class="itin-tab active" onclick="showTier('c', 't1', this)">Tier 1 · Refined</div>
-        <div class="itin-tab" onclick="showTier('c', 't2', this)">Tier 2 · Elevated</div>
-        <div class="itin-tab" onclick="showTier('c', 't3', this)">Tier 3 · Sovereign</div>
-      </div>
-
-      <div class="itin-card visible" id="c-t1">
-        <div class="itin-card-header"><div><div class="itin-card-title">Refined</div><div class="itin-card-meta">15 Days · 14 Nights · Bohol, Cebu &amp; Vigan</div></div><div class="itin-tier-badge">Tier 1</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: 4-star beachfront resort, Port Barton], a private banca reef morning, unhurried afternoons.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Refined tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Days 8–11 · Dec 26–29</div><div class="day-title">Bohol and Cebu</div><div class="day-content">A connecting flight south to Bohol. Four nights at [ACCOMMODATION: 4-star resort, Panglao Island], the Chocolate Hills at dawn before the day-trip buses arrive, the Philippine Tarsier Sanctuary, a slow afternoon on the Loboc River, and a half-day in Cebu's historic quarter, Magellan's Cross and the Basilica del Santo Niño, the oldest church in the country.</div></div>
-          <div class="itin-day"><div class="day-label">Days 12–14 · Dec 29 – Jan 1</div><div class="day-title">Vigan and Ilocos</div><div class="day-content">A connecting flight north via Manila to Laoag, then a private transfer to Vigan. Three nights at [ACCOMMODATION: boutique heritage guesthouse, Vigan UNESCO quarter], Calle Crisologo by kalesa at dawn before the crowds, Paoay Church at sunset, and the windswept Bangui Windmills on the coast. New Year's Eve in the cobblestone heart of the best-preserved Spanish colonial town in Asia.</div></div>
-          <div class="itin-day"><div class="day-label">Day 15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">A connecting flight back to Manila, a final night before the international departure.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 8,300 – 9,200</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched Henann and Villa Angela/Hotel Luna rates plus four domestic flight legs, commercial. Excludes international flights.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>4-star and boutique-heritage accommodation throughout</li><li>Commercial domestic flights between each region</li><li>Standard-hours access at each site</li></ul>
-        </div>
-      </div>
-
-      <div class="itin-card" id="c-t2">
-        <div class="itin-card-header"><div><div class="itin-card-title">Elevated</div><div class="itin-card-meta">15 Days · 14 Nights · Bohol, Cebu &amp; Vigan</div></div><div class="itin-tier-badge">Tier 2</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: private beachfront villa, Port Barton], private speedboat reef morning, unstructured afternoons.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Elevated tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Days 8–11 · Dec 26–29</div><div class="day-title">Bohol and Cebu</div><div class="day-content">Business-class connecting flight south. Four nights at [ACCOMMODATION: 5-star resort, Panglao Island]. The same Chocolate Hills, tarsier sanctuary, and Loboc River programme with a private guide throughout, and a private dinner arranged in Cebu's historic quarter after the crowds have gone.</div></div>
-          <div class="itin-day"><div class="day-label">Days 12–14 · Dec 29 – Jan 1</div><div class="day-title">Vigan and Ilocos</div><div class="day-content">A private connecting flight and transfer to Vigan. Three nights at [ACCOMMODATION: premium heritage suite, Vigan]. Calle Crisologo by private kalesa at dawn, Paoay Church at sunset, Bangui Windmills, and a private New Year's Eve dinner arranged in a restored ancestral courtyard.</div></div>
-          <div class="itin-day"><div class="day-label">Day 15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">Business-class connecting flight to Manila, a comfortable final night before departure.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 12,500 – 13,500</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched Amorita and Hotel Luna rates plus business-class Manila connections where available. Excludes international flights.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>5-star and premium heritage-suite accommodation</li><li>Private guide throughout Bohol, Cebu, and Vigan</li><li>Business-class domestic flights</li><li>Private New Year's Eve dinner in a restored ancestral courtyard</li></ul>
-        </div>
-      </div>
-
-      <div class="itin-card" id="c-t3">
-        <div class="itin-card-header"><div><div class="itin-card-title">Sovereign</div><div class="itin-card-meta">15 Days · 14 Nights · Bohol, Cebu &amp; Vigan</div></div><div class="itin-tier-badge">Tier 3</div></div>
-        <div class="itin-body">
-          <div class="itin-day"><div class="day-label">Days 1–2 · Dec 19–21</div><div class="day-title">Arrival and Port Barton</div><div class="day-content">Two nights at [ACCOMMODATION: private villa buyout, Port Barton] with an on-call chef.</div></div>
-          <div class="itin-day"><div class="day-label">Day 3 · Dec 21</div><div class="day-title">Transfer to El Nido</div><div class="day-content">A private transfer north to El Nido, settling in ahead of the expedition.</div></div>
-          <div class="itin-day"><div class="day-label">Days 4–7 · Dec 22–25</div><div class="day-title">El Nido to Coron</div><div class="day-content">The Sovereign tier of Journey One in full, see above.</div></div>
-          <div class="itin-day"><div class="day-label">Days 8–11 · Dec 26–29</div><div class="day-title">Bohol and Cebu</div><div class="day-content">Private aviation south. Four nights at [ACCOMMODATION: private pool villa, Panglao Island], on-call chef, a specialist guide for the Chocolate Hills and tarsier sanctuary ahead of public hours, and a private dinner arranged inside Cebu's historic quarter after closing.</div></div>
-          <div class="itin-day"><div class="day-label">Days 12–14 · Dec 29 – Jan 1</div><div class="day-title">Vigan and Ilocos</div><div class="day-content">Private transfer to Vigan. Three nights at [ACCOMMODATION: restored ancestral house, private, Vigan], Calle Crisologo reserved at dawn before any other visitors, Paoay Church privately arranged at sunset, and a fully private New Year's Eve dinner in the courtyard of your ancestral house.</div></div>
-          <div class="itin-day"><div class="day-label">Day 15 · Jan 1–2</div><div class="day-title">Return to Manila, Departure</div><div class="day-content">Private transfer and business-class connecting flight to Manila, a top-tier final night before departure.</div></div>
-        </div>
-        <div class="itin-footer">
-          <div class="itin-footer-grid"><div><div class="itin-stat-label">Investment Estimate</div><div class="itin-price-highlight">USD 18,000 – 19,500</div></div></div>
-          <div class="itin-price-note">All-in estimate for 2 pax, built from researched Eskaya villa and Vigan Heritage Mansion comparables. Excludes international flights. Eskaya has a renovation window Feb–Apr 2026, confirm December availability before quoting.</div>
-          <div class="diff-title">What's Different at This Tier</div>
-          <ul class="diff-list"><li>Private villa and restored ancestral house accommodation</li><li>On-call private chef across Bohol and Vigan</li><li>Reserved-hours access ahead of other visitors at every site</li><li>Fully private New Year's Eve</li></ul>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-</div><!-- /content -->
+  <!-- LEG 3 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">The Private Expedition, El Nido to Coron</div>
+          <div class="leg-meta">December 22 to 25 · Three nights · Your own boat and crew</div>
+        </div>
+        <div class="leg-badge">Minimal Crowds</div>
+      </div>
+      <div class="leg-body">
+        <div class="day-label">December 22 to 25</div>
+        <div class="day-title">The Crossing, Privately</div>
+        <div class="day-content">On the 22nd you leave El Nido for the stretch of sea most travellers only pass straight through: the Linapacan and Culion islands, strung between El Nido and Coron, where the water turns a colour photographs never quite hold and the beaches carry a single set of footprints, yours. Three days on your own boat with your own crew, no fixed crowd anywhere near you. You wake to a different island each morning, snorkel reefs that see almost no one, and watch the sun drop from the deck with the engine off.</div>
+        <div class="day-note"><strong>This is the heart of what you asked for.</strong> Private, and far from the crowds. How you spend the nights out here, aboard or ashore, is the one choice we will settle with you, so the vessel matches exactly how you want to fall asleep under that sky.</div>
+      </div>
+    </div>
+  </div>
 
-<div class="closing">
-  <p><strong>This itinerary is a starting point, not a fixed plan.</strong></p>
-  <p>Every element is adjustable: the pace, the properties, the sequence, and which of the three closing options fits Suzanne best. A discovery call will confirm her interests, any physical considerations, and food or activity priorities, and this will be redesigned around exactly what she wants. Nothing is booked until she says so.</p>
+  <!-- LEG 4 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">Two Seasons Coron Island Resort &amp; Spa</div>
+          <div class="leg-meta">December 25 to 28 · Three nights</div>
+        </div>
+        <div class="leg-badge">Wrecks &amp; Lagoons</div>
+      </div>
+      <div class="leg-body">
+        <div class="day-label">December 25 to 28</div>
+        <div class="day-title">Coron, From the Water</div>
+        <div class="day-content">The expedition delivers you into Coron and out to your island at Two Seasons. Coron is the drama of this coast: limestone walls dropping straight into the sea, Kayangan Lake at first light before the boats arrive, the strange warm depths of Barracuda Lake, the marine garden at Siete Pecados. For divers, this is where the journey turns serious. The Japanese wrecks off Coron are among the finest anywhere to dive, and Barracuda Lake is a descent unlike any other. One evening, a private dinner is set for the two of you on a quiet beach, cooked to order, lit low, the day boats long gone.</div>
+        <div class="day-note"><strong>Diving and fishing, set to you.</strong> We match the wreck dives to your certification and recent time underwater, so the days below are pitched precisely to the two of you. And if a morning on the open water appeals, giant trevally run off Busuanga, an easy day to arrange with the right boat.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEG 5 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">Discovery Coron</div>
+          <div class="leg-meta">December 28 to 30 · Two nights</div>
+        </div>
+        <div class="leg-badge">The Quiet Islands</div>
+      </div>
+      <div class="leg-body">
+        <div class="day-label">December 28 to 30</div>
+        <div class="day-title">The Soft End of Palawan</div>
+        <div class="day-content">You move to Discovery Coron for the last of Palawan, and the rhythm eases. These are the days for the southern islands, Malcapuya, Bulog Dos, Banol, white sand over shallow, clear water, and for a sandbar picnic laid out at low tide with nothing on the horizon. Or for nothing at all, which is its own kind of luxury on a honeymoon.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEG 6 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">Across to Bohol</div>
+          <div class="leg-meta">December 30 · Travel day, handled end to end</div>
+        </div>
+        <div class="leg-badge">By Air</div>
+      </div>
+      <div class="leg-body">
+        <div class="day-label">December 30</div>
+        <div class="day-title">The Move East</div>
+        <div class="day-content">On the 30th you cross to Bohol. There is no direct hop between Coron and Panglao, so the smooth way, and the one that keeps you out of a long sea crossing, is to fly the whole way by air through Manila and land at Panglao that same afternoon. A short drive brings you to Amorita, on the cliff above Alona Beach, in time to settle before dinner.</div>
+        <div class="day-note"><strong>You will not feel the seams.</strong> The boat, the drive to the airport, both flights, and the transfer at the far end are arranged as one continuous handover, so the travel disappears and you simply arrive.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEG 7 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">Amorita Resort, Panglao</div>
+          <div class="leg-meta">December 30 to January 2 · Three nights</div>
+        </div>
+        <div class="leg-badge">Bohol &amp; New Year</div>
+      </div>
+      <div class="leg-body">
+        <div class="day-label">December 30 to January 2</div>
+        <div class="day-title">Bohol, and the Year's Turn</div>
+        <div class="day-content">Amorita sits above Alona Beach, and your final days are built gently around the water again. A private boat carries you out to Balicasag, where the reef falls away into a wall and turtles move through the blue, and to the Virgin Island sandbar at low tide. And on the 31st, the year turns: a private dinner set apart from everything, to close the trip the way it deserves to be closed.</div>
+        <div class="day-note"><strong>New Year's Eve is the natural high point of these last days.</strong> We build it around exactly the evening you and your partner want, quiet and just the two of you, or something with a little more spark.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEG 8 -->
+  <div class="leg">
+    <div class="leg-card">
+      <div class="leg-header">
+        <div>
+          <div class="leg-title">Manila, and Home</div>
+          <div class="leg-meta">January 2 to 3 · One night</div>
+        </div>
+        <div class="leg-badge">Departure</div>
+      </div>
+      <div class="leg-body">
+        <div class="day-label">January 2 to 3</div>
+        <div class="day-title">The Long Way Home</div>
+        <div class="day-content">A short flight returns you to Manila for a final night, and the next day you are taken to the airport for the journey home, carrying a honeymoon that touched three of the loveliest corners of the country and crossed the sea between them the way almost no one gets to.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIERS -->
+  <div class="section-eyebrow" id="tiers">Choose Your Tier</div>
+  <h2 class="section-title">The Same Journey, Three Ways to Take It</h2>
+
+  <div class="tier-tabs">
+    <div class="tier-tab active" onclick="showTier('t1', this)">Refined</div>
+    <div class="tier-tab" onclick="showTier('t2', this)">Elevated</div>
+    <div class="tier-tab" onclick="showTier('t3', this)">Sovereign</div>
+  </div>
+
+  <!-- TIER 1: REFINED -->
+  <div class="tier-card t1 visible" id="tier-t1">
+    <div class="tier-card-header">
+      <div class="tier-card-name">Refined</div>
+      <div class="tier-card-desc">The full journey above, exactly as it reads. Comfortable, well-appointed rooms throughout, private boats for every water day, and the pace already built into the itinerary.</div>
+    </div>
+    <div class="tier-card-body">
+      <div class="tier-grid-row">
+        <div class="tier-detail">
+          <div class="tier-detail-label">Accommodation</div>
+          <div class="tier-detail-text">Garden and gardenview-tier rooms at each named property, and a comfortable 4-star hotel for the two Manila nights.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">On the Water</div>
+          <div class="tier-detail-text">Private traditional bangka throughout, including the El Nido to Coron expedition and every island day.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Flights</div>
+          <div class="tier-detail-text">Direct commercial economy on all four domestic legs.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Diving &amp; Fishing</div>
+          <div class="tier-detail-text">One shared reef and wreck dive day in Coron. Giant trevally fishing available as an add-on, not included at this tier.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">The Moments</div>
+          <div class="tier-detail-text">One sandbar picnic included in the Palawan leg.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Manila Nights</div>
+          <div class="tier-detail-text">Standard room, private airport meet and greet both arrival and departure.</div>
+        </div>
+      </div>
+      <div class="investment-block">
+        <div class="investment-label">Investment Estimate</div>
+        <div class="investment-value">USD 18,500 &ndash; 20,500</div>
+        <div class="investment-sub">All-in for two travellers, sixteen nights. Includes domestic flights and transfers within the Philippines. Estimate pending final property, flight, and operator confirmation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 2: ELEVATED -->
+  <div class="tier-card t2" id="tier-t2">
+    <div class="tier-card-header">
+      <div class="tier-card-name">Elevated</div>
+      <div class="tier-card-desc">Villa-tier rooms at every stop, a private chef evening woven in, and the expedition itself upgraded to a more comfortable vessel. The same route, felt a little more spacious.</div>
+    </div>
+    <div class="tier-card-body">
+      <div class="tier-grid-row">
+        <div class="tier-detail">
+          <div class="tier-detail-label">Accommodation</div>
+          <div class="tier-detail-text">Villa or suite-tier rooms at each named property, and a 5-star hotel for the two Manila nights.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">On the Water</div>
+          <div class="tier-detail-text">Private speedboat throughout, with a more comfortable vessel for the three-night expedition.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Flights</div>
+          <div class="tier-detail-text">Commercial flights, upgraded to business class on the Manila connections.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Diving &amp; Fishing</div>
+          <div class="tier-detail-text">A full private dive day in Coron with a dedicated instructor, plus one private giant trevally charter off Busuanga.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">The Moments</div>
+          <div class="tier-detail-text">One private chef dinner on a Coron beach, plus a sandbar picnic.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Manila Nights</div>
+          <div class="tier-detail-text">Upgraded room, private vehicle transfers both nights.</div>
+        </div>
+      </div>
+      <div class="investment-block">
+        <div class="investment-label">Investment Estimate</div>
+        <div class="investment-value">USD 33,000 &ndash; 37,000</div>
+        <div class="investment-sub">All-in for two travellers, sixteen nights. Includes domestic flights and transfers within the Philippines. Estimate pending final property, flight, and operator confirmation.</div>
+      </div>
+      <div class="whats-different">
+        <div class="whats-different-label">What's Different at This Tier</div>
+        <ul>
+          <li>Villa-tier accommodation at every property, not just the base room category</li>
+          <li>A private chef evening added, beyond the base sandbar picnic</li>
+          <li>A dedicated dive day and a private fishing charter, both included rather than optional add-ons</li>
+          <li>Business class on the Manila connections, where the pace of the day benefits most</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 3: SOVEREIGN -->
+  <div class="tier-card t3" id="tier-t3">
+    <div class="tier-card-header">
+      <div class="tier-card-name">Sovereign</div>
+      <div class="tier-card-desc">The top suite or private pool villa at every stop, business class throughout, and two evenings, including New Year's Eve, set entirely apart. Less scheduled than Refined, not busier.</div>
+    </div>
+    <div class="tier-card-body">
+      <div class="tier-grid-row">
+        <div class="tier-detail">
+          <div class="tier-detail-label">Accommodation</div>
+          <div class="tier-detail-text">The top suite or a private pool villa at each named property, and the finest available room in Manila.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">On the Water</div>
+          <div class="tier-detail-text">A premium private vessel throughout, and the top-tier expedition option for the El Nido to Coron crossing.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Flights</div>
+          <div class="tier-detail-text">Business class on every leg where it is available.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Diving &amp; Fishing</div>
+          <div class="tier-detail-text">A private dive charter with a senior guide, flexible across your Coron days, and a premium giant trevally charter with a top local captain.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">The Moments</div>
+          <div class="tier-detail-text">Two private chef dinners, including New Year's Eve on Panglao, a half day with a private photographer, and a sandbar picnic.</div>
+        </div>
+        <div class="tier-detail">
+          <div class="tier-detail-label">Manila Nights</div>
+          <div class="tier-detail-text">The finest suite available, private VIP transfers both nights.</div>
+        </div>
+      </div>
+      <div class="investment-block">
+        <div class="investment-label">Investment Estimate</div>
+        <div class="investment-value">USD 58,000 &ndash; 64,000</div>
+        <div class="investment-sub">All-in for two travellers, sixteen nights. Includes domestic flights and transfers within the Philippines. Estimate pending final property, flight, and operator confirmation.</div>
+      </div>
+      <div class="whats-different">
+        <div class="whats-different-label">What's Different at This Tier</div>
+        <ul>
+          <li>Top suite or private pool villa at every property, not a shared floor plan</li>
+          <li>New Year's Eve built as its own dedicated evening, not folded into a standard dinner</li>
+          <li>A photographer included, so the crossing and the Panglao close are documented without you having to think about it</li>
+          <li>Business class throughout, not only on the longest legs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="includes-wrap">
+    <div class="includes-card">
+      <div class="includes-title">What's Included, All Tiers</div>
+      <ul>
+        <li>All private ground and boat transfers between properties, airports, and ports</li>
+        <li>Domestic flights between destinations</li>
+        <li>Private vessel and crew for every sea day</li>
+        <li>Dedicated local guide throughout</li>
+        <li>Daily breakfast, plus selected lunches and dinners as noted</li>
+        <li>All entrance fees and island-hopping permits</li>
+        <li>24/7 Arkipelago contact for the duration of your journey</li>
+      </ul>
+    </div>
+    <div class="includes-card">
+      <div class="includes-title">What's Not Included</div>
+      <ul>
+        <li>International flights to and from Manila</li>
+        <li>Alcoholic beverages and room charges</li>
+        <li>Personal shopping and souvenirs</li>
+        <li>Activities added outside the planned itinerary</li>
+        <li>Travel insurance, strongly recommended, we can refer providers</li>
+        <li>Gratuities for guides and crew, discretionary, guidelines provided</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SETTLE TOGETHER -->
+  <div class="settle" id="settle">
+    <div class="settle-eyebrow">Before We Finalise</div>
+    <h3>The Last Few Brushstrokes</h3>
+    <p class="lead">Three small things are still yours to decide, and each one changes how we book the day around it. A short call is the easiest way to settle them, and then this becomes real.</p>
+    <ul>
+      <li><strong>The nights on the expedition.</strong> Sleeping aboard the boat and waking already out among the islands, or coming ashore each evening. Tell us which you would prefer and we match the right vessel to it.</li>
+      <li><strong>Your diving.</strong> Your certification level and how recently you have dived. This is what lets us set the Coron wrecks to your experience, from a gentle first descent to the deeper wrecks that reward it.</li>
+      <li><strong>The fishing.</strong> We have read this as giant trevally off the open water near Busuanga. If that is right, we will brief the right boat. If you had something else in mind, tell us.</li>
+    </ul>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="closing-inner">
+      <div class="gold-rule"></div>
+      <h3>This itinerary is a starting point, <em>not a fixed plan.</em></h3>
+      <p>Every element is adjustable: the tier, the pace, the crossings, the moments we set apart.</p>
+      <p>Once we have spoken, we will shape this around exactly what you and your partner want. Nothing is booked until you say so.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Arkipelago Luxury Tours Philippines</p>
 </div>
 
 </div><!-- /#content -->
@@ -485,24 +591,10 @@ function unlock(){
   document.getElementById('content').classList.add('visible');
 }
 
-function scrollToSection(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
-  document.querySelectorAll('.doc-nav .nav-tab').forEach(function(t){t.classList.remove('active')});
-  el.classList.add('active');
-}
-
-function showTier(journey,tier,el){
-  document.querySelectorAll('[id^="'+journey+'-"]').forEach(function(c){c.classList.remove('visible');c.style.display='none'});
-  var target=document.getElementById(journey+'-'+tier);
-  if(target){target.style.display='block';target.classList.add('visible')}
-  el.closest('.itinerary-tabs').querySelectorAll('.itin-tab').forEach(function(t){t.classList.remove('active')});
-  el.classList.add('active');
-}
-
-function showOption(id,el){
-  document.querySelectorAll('.option-block').forEach(function(b){b.classList.remove('visible')});
-  document.getElementById(id).classList.add('visible');
-  document.querySelectorAll('.option-tab').forEach(function(t){t.classList.remove('active')});
+function showTier(id, el){
+  document.querySelectorAll('.tier-card').forEach(function(c){ c.classList.remove('visible'); });
+  document.getElementById('tier-'+id).classList.add('visible');
+  document.querySelectorAll('.tier-tab').forEach(function(t){ t.classList.remove('active'); });
   el.classList.add('active');
 }
 </script>
