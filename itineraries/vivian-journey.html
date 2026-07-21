@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Journey for Two · May 2027 · Arkipelago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#0B1F3A;--navy-mid:#112847;--navy-light:#1A3A5C;
+    --gold:#B8966E;--gold-bright:#D4A96A;--gold-pale:#F0E6D3;
+    --warm-white:#FAF8F4;--sand:#F5EDD8;--slate:#4A5568;--near-black:#2D2D2D;
+    --tier1:#7B9E87;--tier2:#B8966E;--tier3:#8B7355;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--warm-white);color:var(--near-black);font-family:'EB Garamond',Georgia,serif;font-size:17px;line-height:1.75}
+
+  /* ── LOGIN GATE ── */
+  #gate{
+    position:fixed;inset:0;z-index:9999;
+    background:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+  }
+  #gate.hidden{display:none}
+  .gate-box{width:100%;max-width:400px;text-align:center}
+  .gate-logo{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:300;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:40px}
+  .gate-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--warm-white);line-height:1.25;margin-bottom:8px}
+  .gate-title em{font-style:italic;color:var(--gold)}
+  .gate-sub{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-bottom:36px}
+  .gate-divider{width:40px;height:1px;background:rgba(184,150,110,.3);margin:0 auto 36px}
+  .gate-field{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(184,150,110,.3);color:var(--warm-white);font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.04em;padding:14px 16px;margin-bottom:12px;outline:none;transition:border-color .2s}
+  .gate-field::placeholder{color:rgba(250,248,244,.35)}
+  .gate-field:focus{border-color:var(--gold)}
+  .gate-btn{width:100%;background:var(--gold);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);padding:15px;margin-top:4px;transition:background .2s}
+  .gate-btn:hover{background:var(--gold-bright)}
+  .gate-error{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.08em;color:#e07070;margin-top:14px;min-height:18px}
+
+  /* ── MAIN CONTENT ── */
+  #content{display:none}
+  #content.visible{display:block}
+
+  /* HEADER */
+  .doc-header{background:var(--navy);padding:64px 40px 52px;position:relative;overflow:hidden}
+  .doc-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:40px 40px}
+  .doc-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .header-inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
+  .doc-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+  .doc-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+  .doc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5.5vw,58px);font-weight:300;color:var(--warm-white);line-height:1.08;margin-bottom:10px}
+  .doc-title em{font-style:italic;color:var(--gold)}
+  .doc-lede{font-family:'EB Garamond',serif;font-size:18px;color:rgba(250,248,244,.72);line-height:1.7;max-width:620px;margin-top:18px}
+  .doc-subtitle{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-top:22px}
+
+  /* BRIEF BOX */
+  .brief{max-width:900px;margin:0 auto;padding:0 40px}
+  .brief-box{background:#fff;border:1px solid rgba(184,150,110,.25);border-left:3px solid var(--gold);padding:28px 32px;margin-top:-28px;position:relative;z-index:5;box-shadow:0 18px 40px rgba(11,31,58,.10)}
+  .brief-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .brief-box p{font-size:16px;color:var(--slate);line-height:1.8}
+  .brief-box p+p{margin-top:12px}
+  .brief-box strong{color:var(--navy);font-weight:600}
+  .brief-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(184,150,110,.18)}
+  .brief-meta div{min-width:120px}
+  .brief-meta .m-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+  .brief-meta .m-value{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--navy)}
+
+  /* CONTENT */
+  .content{max-width:900px;margin:0 auto;padding:56px 40px 90px}
+  .section-eyebrow{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .section-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold)}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:10px}
+  .section-intro{font-size:17px;color:var(--slate);line-height:1.8;max-width:700px;margin-bottom:36px}
+
+  /* TIER TABS */
+  .itin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+  .itin-tab{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:11px 20px;border:1px solid rgba(184,150,110,.35);cursor:pointer;color:var(--slate);background:#fff;transition:all .2s}
+  .itin-tab:hover,.itin-tab.active{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+
+  .itin-card{display:none}
+  .itin-card.visible{display:block}
+  .itin-card-header{background:var(--navy);padding:24px 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+  .itin-card-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.05) 1px,transparent 1px);background-size:32px 32px}
+  .itin-card-header>*{position:relative;z-index:2}
+  .itin-card-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--warm-white)}
+  .itin-card-meta{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,244,.45);margin-top:6px}
+  .itin-tier-badge{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;padding:5px 14px;border:1px solid var(--gold);color:var(--gold);white-space:nowrap;align-self:flex-start}
+  .itin-body{padding:28px;background:#fff;border:1px solid rgba(184,150,110,.15);border-top:none}
+  .itin-day{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(184,150,110,.1)}
+  .itin-day:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .day-eyebrow{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .day-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--navy);margin-bottom:3px}
+  .day-place{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.15em;color:var(--slate);margin-bottom:12px}
+  .day-body{font-size:16px;color:#3a4453;line-height:1.8}
+  .day-note{margin-top:12px;padding:11px 16px;border-left:2px solid var(--gold);background:var(--sand);font-size:14px;color:#4A5568;font-style:italic}
+
+  /* SIGNATURE FLAG */
+  .signature-day{border:1px solid rgba(184,150,110,.45);background:linear-gradient(180deg,rgba(240,230,211,.35),rgba(255,255,255,0));padding:20px;margin-bottom:22px}
+  .signature-tag{display:inline-block;font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:4px 12px;margin-bottom:12px}
+  .signature-day .day-note{background:#fff;border-left-color:var(--gold-bright)}
+
+  /* INVESTMENT */
+  .invest{background:var(--navy);padding:26px 28px;position:relative;overflow:hidden;border:1px solid rgba(184,150,110,.2);border-top:none}
+  .invest::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
+  .invest-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .invest-figure{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--warm-white);line-height:1.2}
+  .invest-figure span{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.05em;color:rgba(250,248,244,.55);font-weight:400}
+  .invest-pp{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.05em;color:var(--gold-bright);margin-top:6px}
+  .invest-note{font-size:13px;color:rgba(250,248,244,.55);line-height:1.7;margin-top:14px;max-width:640px}
+
+  /* DIFFERENT FOOTER */
+  .diff{background:var(--sand);padding:20px 28px;border:1px solid rgba(184,150,110,.2);border-top:none}
+  .diff-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);margin-bottom:12px}
+  .diff ul{list-style:none}
+  .diff li{position:relative;padding-left:20px;font-size:15px;color:#3a4453;line-height:1.7;margin-bottom:7px}
+  .diff li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--gold)}
+
+  /* UPSELL + CLOSE */
+  .addons{margin-top:56px}
+  .addon-grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:640px){.addon-grid{grid-template-columns:1fr 1fr}}
+  .addon{background:#fff;border:1px solid rgba(184,150,110,.2);padding:24px}
+  .addon-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .addon-body{font-size:15px;color:var(--slate);line-height:1.7}
+
+  .close{margin-top:56px;background:var(--navy);padding:44px 40px;position:relative;overflow:hidden}
+  .close::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:40px 40px}
+  .close-inner{position:relative;z-index:2;max-width:640px}
+  .close h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--warm-white);line-height:1.2;margin-bottom:16px}
+  .close h3 em{color:var(--gold);font-style:italic}
+  .close p{font-size:16px;color:rgba(250,248,244,.72);line-height:1.8;margin-bottom:14px}
+  .cta{display:inline-block;margin-top:12px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:15px 30px;text-decoration:none}
+  .signoff{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--gold-pale);margin-top:26px}
+
+  .foot{max-width:900px;margin:0 auto;padding:30px 40px 60px;text-align:center}
+  .foot p{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate)}
+</style>
+</head>
+<body>
+
+<!-- ── LOGIN GATE ── -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-logo">Arkipelago</div>
+    <div class="gate-divider"></div>
+    <h1 class="gate-title">A <em>Journey</em> for Two<br>in the Philippines</h1>
+    <p class="gate-sub">Private Itinerary · Vivian · May 2027</p>
+    <input class="gate-field" id="gate-user" type="text" placeholder="Username" autocomplete="username" />
+    <input class="gate-field" id="gate-pass" type="password" placeholder="Password" autocomplete="current-password" />
+    <button class="gate-btn" onclick="checkLogin()">View Itinerary</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<!-- ── ITINERARY CONTENT ── -->
+<div id="content">
+
+<div class="doc-header">
+  <div class="header-inner">
+    <div class="doc-eyebrow">Private Journey · May 2027</div>
+    <h1 class="doc-title">Fourteen Days,<br><em>Two First Times</em></h1>
+    <p class="doc-lede">Your first trip to the Philippines together, and the first time abroad as a couple. A journey built so that the only thing you have to do is be present for it.</p>
+    <div class="doc-subtitle">Boracay · Puerto Princesa · Port Barton · El Nido · Coron</div>
+  </div>
+</div>
+
+<div class="brief">
+  <div class="brief-box">
+    <div class="brief-label">What you told us</div>
+    <p>This is the <strong>first trip to the Philippines you'll take together</strong>, your partner's first visit, and your first time travelling abroad as a couple. You want it to be a journey worth remembering, not a checklist.</p>
+    <p>You asked for one seamless arrangement covering everything from the moment you land until you fly home: transfers, domestic flights, the finest accommodation, private island days, the experiences worth having, and someone reachable throughout so you never have to organise a thing yourselves. You named <strong>Palawan and Boracay</strong>, across roughly two weeks, for two.</p>
+    <p>So we've done exactly that. What follows is one journey, shown at three levels of comfort and privacy. Every element is a starting point, and every element moves once we've spoken.</p>
+    <div class="brief-meta">
+      <div><div class="m-label">Travellers</div><div class="m-value">2 adults</div></div>
+      <div><div class="m-label">When</div><div class="m-value">May 2027</div></div>
+      <div><div class="m-label">Route</div><div class="m-value">Boracay → Coron</div></div>
+      <div><div class="m-label">Length</div><div class="m-value">14 nights</div></div>
+      <div><div class="m-label">Getting around</div><div class="m-value">4 flights · 2 private drives</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="section-eyebrow">The Journey</div>
+  <h2 class="section-title">One route, three ways to travel it</h2>
+  <p class="section-intro">The path stays the same at every level: north up the islands, from the wide beaches of Boracay to the quiet lagoons of Palawan, ending among the shipwrecks and limestone of Coron. What changes between tiers is not how much you do. It is how privately you do it, how much of each day is yours to waste, and where you lay your head at night. Tap between the three to see how each one feels.</p>
+
+  <div class="itin-tabs">
+    <div class="itin-tab active" onclick="showTier('t1',this)">Refined</div>
+    <div class="itin-tab" onclick="showTier('t2',this)">Elevated</div>
+    <div class="itin-tab" onclick="showTier('t3',this)">Sovereign</div>
+  </div>
+
+  <!-- ============ TIER 1 : REFINED ============ -->
+  <div class="itin-card visible" id="t1">
+    <div class="itin-card-header">
+      <div>
+        <div class="itin-card-title">The Archipelago, Unhurried</div>
+        <div class="itin-card-meta">14 Nights · 2 Guests · Refined · Private island days throughout</div>
+      </div>
+      <div class="itin-tier-badge">Refined</div>
+    </div>
+    <div class="itin-body">
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 1</div>
+        <div class="day-title">Arrival, and the first sunset</div>
+        <div class="day-place">Manila → Boracay</div>
+        <div class="day-body">You land in Manila and connect on a direct flight to Caticlan, where a private vehicle and boat carry you across to Boracay. By late afternoon you're on the sand with nothing left to do. White Beach at sunset is the gentlest possible way to begin, and the walk along it is the only item on the agenda.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 2 to 3</div>
+        <div class="day-title">Two days to arrive properly</div>
+        <div class="day-place">Boracay</div>
+        <div class="day-body">Boracay does one thing better than anywhere: it lets you slow down without asking. Two open days for the beach, the spa, and the long lunches that jet lag makes necessary. On either morning, a private island hopping trip is yours if you want it, out to the quieter coves and snorkel reefs away from the main stretch. If you'd rather not move, that is also the right answer.</div>
+        <div class="day-note">Island hopping is always private and always optional. Nothing here is scheduled for you unless you want it to be.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 4</div>
+        <div class="day-title">South to Palawan's gateway</div>
+        <div class="day-place">Boracay → Puerto Princesa</div>
+        <div class="day-body">A morning flight brings you to Puerto Princesa, the start of the Palawan stretch. The afternoon is easy: settle in, a first taste of Palawan cooking, an early night before tomorrow's centrepiece.</div>
+      </div>
+
+      <div class="signature-day">
+        <div class="signature-tag">Our Signature Experience</div>
+        <div class="itin-day">
+          <div class="day-eyebrow">Day 5</div>
+          <div class="day-title">In search of the whale sharks</div>
+          <div class="day-place">Puerto Princesa</div>
+          <div class="day-body">This is the day we build the Palawan gateway around. A private boat carries you out into the plankton-rich waters off Puerto Princesa in search of the gentle giants of the Sulu Sea, the whale sharks, the largest fish in the ocean and entirely harmless. Your crew know where they feed and how to read the season, and when one glides up out of the blue you slip into the water beside it, on your own terms, at a respectful distance. It is the encounter people fly across the world for, and here it is yours privately. In the afternoon, the UNESCO-listed Puerto Princesa Subterranean River, a navigable river running straight through a mountain, is there for those who want a second wonder in one day.</div>
+          <div class="day-note">Our signature experience. The whale shark expedition is fully private and timed to the calmest morning water, when sightings are at their best. Sightings are wild and never guaranteed, but Puerto Princesa is among the finest places in the country to seek them.</div>
+        </div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 6</div>
+        <div class="day-title">North, to where it goes quiet</div>
+        <div class="day-place">Puerto Princesa → Port Barton</div>
+        <div class="day-body">A private drive north, about three hours through rice country and forest, delivers you to Port Barton: a small bay with no crowds and no rush, the Palawan that El Nido was twenty years ago. The afternoon asks nothing of you.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 7</div>
+        <div class="day-title">Sandbars and sea turtles</div>
+        <div class="day-place">Port Barton</div>
+        <div class="day-body">Port Barton's water is the reason to be here. A private boat, if you want one, out to the reefs where sea turtles feed, the vanishing sandbars, and the empty beaches you'll likely have to yourselves. Or the hammock. The hammock is a legitimate plan.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 8</div>
+        <div class="day-title">On to the famous bay</div>
+        <div class="day-place">Port Barton → El Nido</div>
+        <div class="day-body">A shorter private drive, about two hours, up to El Nido. You base yourselves on the calmer edge of town, away from the noise, within reach of Bacuit Bay and its limestone.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 9 to 11</div>
+        <div class="day-title">The lagoons, at the right hour</div>
+        <div class="day-place">El Nido</div>
+        <div class="day-body">Three days in the bay that put Palawan on every map. Your island hopping through Bacuit Bay is private, which is the whole difference: you reach the Big and Small Lagoons in the early light or the late afternoon, when the day boats have gone and the water is yours. Between water days there's Nacpan Beach, a long curve of sand up the coast, and the good kind of doing nothing.</div>
+        <div class="day-note">One of these three days is deliberately left open. No boat, no plan. It's the day the trip becomes a rest, not a tour.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 12</div>
+        <div class="day-title">The short flight to the shipwrecks</div>
+        <div class="day-place">El Nido → Coron</div>
+        <div class="day-body">A brief flight across to Coron, the most dramatic water in the Philippines. The afternoon is gentle: the Maquinit hot springs, warm saltwater at dusk, a slow first evening.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 13 to 14</div>
+        <div class="day-title">Lakes inside islands</div>
+        <div class="day-place">Coron</div>
+        <div class="day-body">Coron closes the journey with its best hand: a private boat day to Kayangan Lake, the clearest water you'll ever stand in, ringed by karst; Twin Lagoon, entered under a limestone wall; and the shallow Japanese shipwrecks, close enough to the surface to snorkel over. A second Coron day is yours to shape, whether that's another island run to Malcapuya's white sand or a final slow morning.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 15</div>
+        <div class="day-title">Home, changed a little</div>
+        <div class="day-place">Coron → Manila</div>
+        <div class="day-body">A private transfer to the airport and your flight to Manila, connecting to your journey home. You leave having seen five distinct corners of one country, and none of them the crowded version.</div>
+      </div>
+
+    </div>
+    <div class="invest">
+      <div class="invest-label">Investment Estimate · Refined</div>
+      <div class="invest-figure">USD 8,000 to 9,500 <span>total, for two guests</span></div>
+      <div class="invest-pp">Approximately USD 4,000 to 4,750 per person</div>
+      <div class="invest-note">All-inclusive within the Philippines from arrival to departure: domestic flights, all private transfers, accommodation, private island days, the private whale shark expedition, entrance fees and permits, daily breakfast with selected lunches, and a coordinator reachable throughout. International flights to and from Manila are not included. This is a working estimate pending final property and flight confirmation, not a fixed quote. Your figure is set once we've spoken and locked your dates.</div>
+    </div>
+    <div class="diff">
+      <div class="diff-label">What Refined gives you</div>
+      <ul>
+        <li>Established four and five-star hotels and boutique island resorts at every base</li>
+        <li>Our signature private whale shark expedition off Puerto Princesa</li>
+        <li>Every island hopping day private, never shared, never on a schedule but yours</li>
+        <li>Direct commercial flights and private air-conditioned vehicles throughout</li>
+        <li>Daily breakfast, selected lunches, and one coordinator reachable the whole way</li>
+        <li>One open, unplanned day already built into El Nido</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ TIER 2 : ELEVATED ============ -->
+  <div class="itin-card" id="t2">
+    <div class="itin-card-header">
+      <div>
+        <div class="itin-card-title">The Archipelago, in Comfort</div>
+        <div class="itin-card-meta">14 Nights · 2 Guests · Elevated · Private speedboats · Beachfront and island resorts</div>
+      </div>
+      <div class="itin-tier-badge">Elevated</div>
+    </div>
+    <div class="itin-body">
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 1</div>
+        <div class="day-title">Arrival, and the first sunset</div>
+        <div class="day-place">Manila → Boracay</div>
+        <div class="day-body">You land in Manila and connect to Caticlan on a premium flight, met on arrival and carried by private vehicle and boat to a beachfront five-star resort on Boracay's quieter northern coast. The rest of the day belongs to White Beach and its sunset, and to the first proper exhale of the trip.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 2 to 3</div>
+        <div class="day-title">Two days to arrive properly</div>
+        <div class="day-place">Boracay</div>
+        <div class="day-body">Two unhurried days on the island's calmest stretch, with the spa, the long lunches, and a private speedboat waiting for the mornings you want to explore the reefs and coves away from the crowds. A private sunset sail is there for one evening if you'd like the light from the water.</div>
+        <div class="day-note">Island hopping and the sail are private and optional. The default is rest.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 4</div>
+        <div class="day-title">South to Palawan's gateway</div>
+        <div class="day-place">Boracay → Puerto Princesa</div>
+        <div class="day-body">A morning flight to Puerto Princesa and a private transfer to a refined city retreat. The afternoon is soft: a first Palawan dinner, an early night before the whale sharks.</div>
+      </div>
+
+      <div class="signature-day">
+        <div class="signature-tag">Our Signature Experience</div>
+        <div class="itin-day">
+          <div class="day-eyebrow">Day 5</div>
+          <div class="day-title">In search of the whale sharks</div>
+          <div class="day-place">Puerto Princesa</div>
+          <div class="day-body">The centrepiece of your Palawan gateway, on a private speedboat with a dedicated guide. You run out into the Sulu Sea where the whale sharks feed, the largest fish in the ocean and utterly gentle, and when one rises through the blue you enter the water beside it, calmly and at a respectful distance, with no other group anywhere near you. It is the encounter couples remember above all others. The UNESCO-listed Subterranean River, with priority permits arranged so there's no queue, is yours the same stay for those who want both of Palawan's great wonders.</div>
+          <div class="day-note">Our signature experience. The private whale shark expedition is timed to the best water of the morning, guide and boat yours alone. Sightings are wild and never guaranteed, but Puerto Princesa is among the finest places in the country to seek them.</div>
+        </div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 6</div>
+        <div class="day-title">North, to where it goes quiet</div>
+        <div class="day-place">Puerto Princesa → Port Barton</div>
+        <div class="day-body">A private drive north through the interior to Port Barton, the bay time forgot. You stay at the best small property on the water, and the afternoon is entirely unstructured.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 7</div>
+        <div class="day-title">Sandbars and sea turtles</div>
+        <div class="day-place">Port Barton</div>
+        <div class="day-body">A private speedboat day through Port Barton's reefs and sandbars, where sea turtles feed in clear shallow water and the beaches are still empty. Lunch is set up on one of them. The pace is yours to set.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 8</div>
+        <div class="day-title">On to the famous bay</div>
+        <div class="day-place">Port Barton → El Nido</div>
+        <div class="day-body">A private drive up to El Nido and a beachfront resort on the calm Lio side, set apart from the town's noise and open straight onto Bacuit Bay.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 9 to 11</div>
+        <div class="day-title">The lagoons, at the right hour</div>
+        <div class="day-place">El Nido</div>
+        <div class="day-body">Three days in Bacuit Bay by private speedboat, timed against the crowds: the Big and Small Lagoons in first light, the secret beaches at the hour the day trippers leave, lunches laid out on sand you'll have to yourselves. Nacpan's long beach on a slower day, and a wellness afternoon at the resort spa when the water has done its work.</div>
+        <div class="day-note">A full rest day sits inside these three, with the boat stood down and the day open. It is the point of the tier, not a gap in it.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 12</div>
+        <div class="day-title">The short flight to the shipwrecks</div>
+        <div class="day-place">El Nido → Coron</div>
+        <div class="day-body">A short flight to Coron and a private transfer to a beachfront or island resort. The afternoon eases in at the Maquinit hot springs, warm saltwater as the light goes.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 13 to 14</div>
+        <div class="day-title">Lakes inside islands</div>
+        <div class="day-place">Coron</div>
+        <div class="day-body">A private speedboat day to Kayangan Lake, Twin Lagoon, Barracuda Lake, and the shallow shipwrecks, with your own guide and no other group sharing the boat. The final full day is yours to shape: a run to Malcapuya's white sand, a dive over a wreck, or the resort and nothing else.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 15</div>
+        <div class="day-title">Home, changed a little</div>
+        <div class="day-place">Coron → Manila</div>
+        <div class="day-body">A private transfer and your flight to Manila to connect home, with the whole return handled so the last day is as calm as the first.</div>
+      </div>
+
+    </div>
+    <div class="invest">
+      <div class="invest-label">Investment Estimate · Elevated</div>
+      <div class="invest-figure">USD 14,500 to 17,500 <span>total, for two guests</span></div>
+      <div class="invest-pp">Approximately USD 7,250 to 8,750 per person</div>
+      <div class="invest-note">All-inclusive within the Philippines from arrival to departure: premium domestic flights, private speedboats for open water, the private whale shark expedition, five-star and private-island accommodation, private island days with dedicated guides, priority permits, daily breakfast with most lunches and several dinners, and a guide on call at each base. International flights to and from Manila are not included. This is a working estimate pending final property and flight confirmation, not a fixed quote.</div>
+    </div>
+    <div class="diff">
+      <div class="diff-label">What Elevated adds over Refined</div>
+      <ul>
+        <li>Five-star beachfront and private-island resorts at every base</li>
+        <li>The signature whale shark expedition run privately by speedboat with a dedicated guide</li>
+        <li>Private speedboats on the open-water legs, for comfort and for reaching the quiet spots first</li>
+        <li>Premium flights and priority permits, so the queue is never yours to stand in</li>
+        <li>More meals included, several of them dinners, and a guide on call at each stop</li>
+        <li>A genuine full rest day held inside El Nido</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ TIER 3 : SOVEREIGN ============ -->
+  <div class="itin-card" id="t3">
+    <div class="itin-card-header">
+      <div>
+        <div class="itin-card-title">The Archipelago, Entirely Yours</div>
+        <div class="itin-card-meta">14 Nights · 2 Guests · Sovereign · Finest villas · Business class · Guide throughout</div>
+      </div>
+      <div class="itin-tier-badge">Sovereign</div>
+    </div>
+    <div class="itin-body">
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 1</div>
+        <div class="day-title">Arrival, and the first sunset</div>
+        <div class="day-place">Manila → Boracay</div>
+        <div class="day-body">You land in Manila and connect to Caticlan in business class on the legs that offer it, met the moment you clear the aircraft and carried by private vehicle and boat to a private pool villa on Boracay's finest beachfront. The first evening is a private dinner set on the sand as the sun goes, and nothing to think about beyond it.</div>
+        <div class="day-note">A private beach dinner on your first night, quietly arranged. The first trip abroad together deserves a proper opening.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 2 to 3</div>
+        <div class="day-title">Two days that ask nothing</div>
+        <div class="day-place">Boracay</div>
+        <div class="day-body">Two days in the villa's own rhythm: private speedboat when you want the water, in-villa spa when you want stillness, a sunset sail on the evening that calls for it. A private chef dinner at the villa on one night, cooked around what you like, not a menu.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 4</div>
+        <div class="day-title">South to Palawan's gateway</div>
+        <div class="day-place">Boracay → Puerto Princesa</div>
+        <div class="day-body">A private, unhurried transfer and flight to Puerto Princesa, and the finest suite in the city. The afternoon is entirely yours, with your guide already on the ground and every detail of tomorrow handled.</div>
+      </div>
+
+      <div class="signature-day">
+        <div class="signature-tag">Our Signature Experience</div>
+        <div class="itin-day">
+          <div class="day-eyebrow">Day 5</div>
+          <div class="day-title">In search of the whale sharks</div>
+          <div class="day-place">Puerto Princesa</div>
+          <div class="day-body">The signature day of the journey, arranged as fully your own. A private expedition boat and a senior guide take you out across the Sulu Sea to where the whale sharks feed, the largest fish in the ocean and entirely gentle, with no crowd, no queue, and no other group anywhere in sight. When one rises through the blue you enter the water beside it calmly and at a respectful distance, and the encounter unfolds at exactly the pace the two of you want it to. The UNESCO Subterranean River, permits and timing arranged so you enter the cave without a soul near you, is yours the same stay should you want both of Palawan's great wonders in privacy.</div>
+          <div class="day-note">Our signature experience, run entirely privately, boat and guide yours alone and timed to the finest water of the day. Sightings are wild and never guaranteed, but Puerto Princesa is among the finest places in the country to seek them, and we build the day to give you the best possible chance.</div>
+        </div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 6</div>
+        <div class="day-title">North, to where it goes quiet</div>
+        <div class="day-place">Puerto Princesa → Port Barton</div>
+        <div class="day-body">A private drive north to Port Barton and the best villa on the bay, held for you alone. The afternoon is empty by design, which in Port Barton is the entire luxury.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 7</div>
+        <div class="day-title">Sandbars and sea turtles</div>
+        <div class="day-place">Port Barton</div>
+        <div class="day-body">Your own boat and crew through Port Barton's reefs, sandbars, and turtle grounds, with a private lunch laid out on a beach you'll share with no one. Return whenever the light tells you to.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 8</div>
+        <div class="day-title">On to the famous bay</div>
+        <div class="day-place">Port Barton → El Nido</div>
+        <div class="day-body">A private drive up to El Nido and a private-island resort in Bacuit Bay itself, the kind of address that puts the lagoons at your doorstep and the crowds on the far side of the water.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 9 to 11</div>
+        <div class="day-title">The bay, on your own clock</div>
+        <div class="day-place">El Nido</div>
+        <div class="day-body">Three days with a private expedition boat and your own guide, moving through Bacuit Bay entirely on your schedule: the lagoons before anyone else is awake, hidden beaches for private lunches, a stretch of the bay closed to day boats. Two of the three days are left completely open, to spend in the water, at the spa, or doing nothing at all, because at this level the rest is the point.</div>
+        <div class="day-note">A private chef dinner under the stars on one El Nido evening, set wherever on the island you'd most want to eat it.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 12</div>
+        <div class="day-title">Across to the shipwrecks</div>
+        <div class="day-place">El Nido → Coron</div>
+        <div class="day-body">A private transfer to the finest island resort in Coron. The afternoon settles gently, the Maquinit hot springs to yourselves as the light fades.</div>
+        <div class="day-note">If you'd rather cross by sea, a private expedition boat can run El Nido to Coron through the islands instead of the flight. It is a slow, remarkable day on the water, offered only if you want it.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Days 13 to 14</div>
+        <div class="day-title">Lakes inside islands</div>
+        <div class="day-place">Coron</div>
+        <div class="day-body">A private expedition day to Kayangan Lake, Twin Lagoon, Barracuda Lake, and the shipwrecks, timed so the famous spots are empty when you reach them, your own guide leading and the boat yours alone. The final day stays open: a run to Malcapuya's white sand, a guided wreck dive, or a last slow morning before the archipelago lets you go.</div>
+      </div>
+
+      <div class="itin-day">
+        <div class="day-eyebrow">Day 15</div>
+        <div class="day-title">Home, changed a little</div>
+        <div class="day-place">Coron → Manila</div>
+        <div class="day-body">A private transfer and business-class connection to Manila, the whole return arranged around you, so the last hours feel like the first: nothing to carry, nothing to solve.</div>
+      </div>
+
+    </div>
+    <div class="invest">
+      <div class="invest-label">Investment Estimate · Sovereign</div>
+      <div class="invest-figure">USD 27,000 to 33,000 <span>total, for two guests</span></div>
+      <div class="invest-pp">Approximately USD 13,500 to 16,500 per person</div>
+      <div class="invest-note">Fully inclusive within the Philippines from arrival to departure: business class where the routes offer it, private expedition boats, the private whale shark expedition, the finest villa or private-island accommodation at every base, a dedicated guide travelling with you, private chef dinners, priority on every permit, and door-to-door handling so nothing is ever yours to arrange. International flights to and from Manila are not included. This is a working estimate pending final property and flight confirmation, not a fixed quote.</div>
+    </div>
+    <div class="diff">
+      <div class="diff-label">What Sovereign adds over Elevated</div>
+      <ul>
+        <li>The finest villa or private-island address at every base, held for the two of you</li>
+        <li>The signature whale shark expedition on a private expedition boat with a senior guide, entirely your own</li>
+        <li>Business class on the flights that offer it, and private expedition boats on the water</li>
+        <li>A dedicated guide travelling the whole route with you, not one per stop</li>
+        <li>Two private chef dinners and a private beach dinner on the first night</li>
+        <li>Two fully open rest days in El Nido, and the pace set entirely by you</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ADD-ONS -->
+  <div class="addons">
+    <div class="section-eyebrow">Worth Considering</div>
+    <h2 class="section-title">Two ways to mark the milestone</h2>
+    <p class="section-intro">A first trip abroad together only happens once. These sit outside the tiers and can be added to any of the three.</p>
+    <div class="addon-grid">
+      <div class="addon">
+        <div class="addon-title">A private photographer, for a morning</div>
+        <div class="addon-body">A half day with a photographer in El Nido or Coron, working quietly while you go about your day on the water. You come home with the two of you in the lagoons and on the sand, not just the scenery. It is the single thing couples tell us afterwards they were most glad they added.</div>
+      </div>
+      <div class="addon">
+        <div class="addon-title">A private dinner on the sand</div>
+        <div class="addon-body">A table set for two on an empty beach in Boracay or El Nido, arranged discreetly, lit for the evening, with a menu built around what you love. Included already at the Sovereign level, and easily added at either of the others.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="close">
+    <div class="close-inner">
+      <h3>Nothing here is booked. <em>Everything here can change.</em></h3>
+      <p>This is a first sketch, not a fixed plan. The route, the pace, the balance of beach and rest, the level you travel at: all of it moves once we understand the two of you a little better. The numbers are honest estimates, and they settle into a firm figure the moment we've talked and locked your dates.</p>
+      <p>The best next step is a short call, twenty minutes, so we can ask a few more questions and start shaping this around exactly what you both want it to be. We're reachable across Manila, Sydney, and US time zones.</p>
+      <a class="cta" href="#">Reply with a few times that suit you</a>
+      <div class="signoff">We've been designing journeys like this for a long time. We're very good at it. We're looking forward to designing yours.</div>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <p>Arkipelago · Private Journeys Across the Philippines · Prepared for Vivian, May 2027</p>
+</div>
+
+</div><!-- /#content -->
+
+<script>
+(function(){
+  if(sessionStorage.getItem('ark_auth_vv')==='1') unlock();
+  document.getElementById('gate-pass').addEventListener('keydown',function(e){if(e.key==='Enter') checkLogin()});
+  document.getElementById('gate-user').addEventListener('keydown',function(e){if(e.key==='Enter') document.getElementById('gate-pass').focus()});
+})();
+
+function checkLogin(){
+  var u=document.getElementById('gate-user').value.trim().toLowerCase();
+  var p=document.getElementById('gate-pass').value;
+  if(u==='vivian'&&p==='philippines2027'){
+    sessionStorage.setItem('ark_auth_vv','1');
+    unlock();
+  } else {
+    document.getElementById('gate-error').textContent='Incorrect username or password.';
+    document.getElementById('gate-pass').value='';
+    document.getElementById('gate-pass').focus();
+  }
+}
+
+function unlock(){
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('content').classList.add('visible');
+}
+
+function showTier(id, el){
+  document.querySelectorAll('.itin-card').forEach(function(c){c.classList.remove('visible');});
+  document.getElementById(id).classList.add('visible');
+  document.querySelectorAll('.itin-tab').forEach(function(t){t.classList.remove('active');});
+  el.classList.add('active');
+  window.scrollTo({top: document.getElementById(id).getBoundingClientRect().top + window.scrollY - 120, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
