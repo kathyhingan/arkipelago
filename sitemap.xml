@@ -121,6 +121,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Destinations index / hub page -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/destinations/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Coron, Palawan destination page -->
   <url>
     <loc>https://luxurytoursphilippines.com/destinations/coron/</loc>
