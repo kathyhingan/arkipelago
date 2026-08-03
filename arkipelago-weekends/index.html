@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arkipelago Weekends: Small Group Departures for Filipino Joiners</title>
+<meta name="description" content="Small-group weekend departures across the Philippines for Filipino joiners. One weekend, one destination, ten travellers at most — Friday to Sunday out of Calamba, Laguna.">
+<link rel="canonical" href="https://luxurytoursphilippines.com/arkipelago-weekends/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#0B1F3A;
+    --navy-mid:#112847;
+    --navy-light:#1A3A5C;
+    --gold:#B8966E;
+    --gold-bright:#D4A96A;
+    --gold-pale:#F0E6D3;
+    --warm-white:#FAF8F4;
+    --sand:#F5EDD8;
+    --slate:#4A5568;
+    --near-black:#2D2D2D;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--warm-white);color:var(--near-black);font-family:'EB Garamond',Georgia,serif;font-size:17px;line-height:1.75}
+
+  /* ─── NAV (shared site navigation) ─── */
+  #nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .5s}
+  #nav.scrolled{background:rgba(11,31,58,.97);backdrop-filter:blur(12px);padding:14px 24px;border-bottom:1px solid rgba(184,150,110,.15)}
+  .nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+  .nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:.1em;color:#FAF8F4}
+  .nav-logo-sub{font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:.3em;color:#B8966E;text-transform:uppercase}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .nav-cta-stack{display:inline-flex;flex-direction:column;gap:7px}
+  .nav-hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-hamburger span{display:block;width:24px;height:1px;background:#FAF8F4;transition:all .3s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  @media(min-width:1024px){
+  #nav{padding:28px 60px}
+  #nav.scrolled{padding:18px 60px}
+  .nav-links{display:flex;gap:36px;list-style:none}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.8);text-decoration:none;transition:color .3s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#B8966E;transition:width .3s}
+  .nav-links a:hover{color:#B8966E}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B8966E;border:1px solid rgba(184,150,110,.5);padding:10px 22px;background:none;cursor:pointer;transition:all .3s;white-space:nowrap}
+  .nav-cta:hover{background:#B8966E;color:#0B1F3A}
+  .nav-hamburger{display:none}
+  }
+  .nav-item-dropdown{position:relative}
+  .nav-dropdown{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(11,31,58,.98);backdrop-filter:blur(12px);border:1px solid rgba(184,150,110,.15);min-width:220px;padding:8px 0;z-index:600}
+  .nav-item-dropdown:hover .nav-dropdown{display:block}
+  .nav-dropdown a{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,244,.7);padding:12px 20px;text-decoration:none;transition:all .2s;border:none}
+  .nav-dropdown a::after{display:none}
+  .nav-dropdown a:hover{color:#B8966E;background:rgba(184,150,110,.07);padding-left:26px}
+  .nav-drawer{position:fixed;top:0;left:0;right:0;bottom:0;background:#0B1F3A;z-index:490;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);padding:100px 40px 60px;display:flex;flex-direction:column;overflow-y:auto}
+  .nav-drawer.open{transform:translateX(0)}
+  .nav-drawer a,.nav-drawer button.dl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#FAF8F4;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(184,150,110,.1);display:block;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;text-align:left;transition:color .3s;width:100%}
+  .nav-drawer a:hover{color:#B8966E}
+  .nav-drawer .dcta{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#B8966E;margin-top:28px;border:1px solid rgba(184,150,110,.4)!important;padding:16px 24px;text-align:center;background:none;cursor:pointer;display:block;width:100%;transition:all .3s;text-decoration:none}
+  .nav-drawer .dcta.alt{margin-top:14px;background:#B8966E;color:#0B1F3A}
+  .nav-drawer .dcta:hover{background:#B8966E;color:#0B1F3A}
+
+  /* HEADER */
+  .doc-header{background:var(--navy);padding:118px 24px 56px;position:relative;overflow:hidden}
+  .doc-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:40px 40px}
+  .doc-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .header-inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+  .doc-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+  .doc-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+  .doc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6vw,52px);font-weight:300;color:var(--warm-white);line-height:1.15;margin-bottom:16px}
+  .doc-title em{font-style:italic;color:var(--gold)}
+  .doc-lede{font-size:17px;color:rgba(250,248,244,.75);max-width:560px;line-height:1.8}
+  .doc-meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:24px}
+  .meta-item{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,244,.5)}
+  .meta-item strong{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--gold);margin-top:4px}
+
+  /* CONTENT */
+  .content{max-width:760px;margin:0 auto;padding:0 24px 80px}
+  .section{padding:48px 0}
+  .section-eyebrow{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .section-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold)}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,34px);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:14px}
+  .section-intro{font-size:16px;color:var(--slate);line-height:1.8;margin-bottom:8px}
+
+  /* HOW IT WORKS */
+  .how-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+  @media(min-width:640px){.how-grid{grid-template-columns:repeat(3,1fr)}}
+  .how-card{background:white;border:1px solid rgba(184,150,110,.2);padding:22px}
+  .how-num{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-bottom:8px}
+  .how-title{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+  .how-text{font-size:14.5px;color:var(--slate);line-height:1.7}
+
+  /* MONTH LABEL */
+  .month-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid rgba(184,150,110,.25)}
+  .month-label:first-of-type{margin-top:0}
+
+  /* PRICE DISCLAIMER */
+  .price-disclaimer{background:var(--sand);border-left:3px solid var(--gold);padding:16px 20px;margin:24px 0 32px;font-size:14.5px;color:var(--near-black);line-height:1.7}
+  .price-disclaimer strong{color:var(--navy)}
+
+  /* WEEKEND CARD */
+  .weekend-card{background:white;border:1px solid rgba(184,150,110,.2);margin-bottom:14px;padding:22px 24px;position:relative;display:flex;flex-direction:column;gap:10px}
+  .weekend-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
+  .wk-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .wk-dates{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .wk-spots{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)}
+  .wk-dest{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--navy);margin:2px 0 4px}
+  .wk-desc{font-size:15px;color:var(--slate);line-height:1.7;max-width:520px}
+  .wk-deadline{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.05em;color:var(--slate)}
+  .wk-deadline strong{color:var(--navy)}
+  .wk-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:8px;padding-top:12px;border-top:1px solid rgba(184,150,110,.15)}
+  .wk-price{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)}
+  .wk-price strong{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--navy);letter-spacing:0;text-transform:none;display:block;margin-top:2px}
+
+  /* CTA BUTTON — unified across all destination and weekend pages */
+  .arki-cta-btn{display:inline-block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:13px 26px;border:none;cursor:pointer;white-space:nowrap;transition:background .2s}
+  .arki-cta-btn:hover{background:var(--gold-bright)}
+  .arki-cta-btn.large{padding:16px 36px;font-size:10px}
+
+  /* MEETING POINT */
+  .meet-block{background:var(--navy);padding:28px 26px;margin-top:8px}
+  .meet-title{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .meet-text{font-size:15.5px;color:rgba(250,248,244,.8);line-height:1.8}
+  .meet-text + .meet-text{margin-top:14px}
+
+  /* FOOTER CTA */
+  .final-cta{text-align:center;padding:56px 24px;background:var(--navy);margin-top:20px}
+  .final-cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,34px);color:var(--warm-white);margin-bottom:14px;font-weight:300}
+  .final-cta-title em{color:var(--gold);font-style:italic}
+  .final-cta-text{font-size:15.5px;color:rgba(250,248,244,.7);max-width:480px;margin:0 auto 26px}
+
+  /* MODAL */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(11,31,58,.75);z-index:1000;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay.open{display:flex}
+  .modal-box{background:var(--warm-white);max-width:420px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+  .modal-box::before{content:'';display:block;height:3px;background:var(--gold)}
+  .modal-inner{padding:32px 28px}
+  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--slate);cursor:pointer;line-height:1}
+  .modal-eyebrow{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .modal-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);margin-bottom:6px}
+  .modal-sub{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--slate);margin-bottom:22px}
+  .form-field{margin-bottom:16px}
+  .form-field label{display:block;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--navy);margin-bottom:6px}
+  .form-field input,.form-field textarea{width:100%;padding:11px 12px;border:1px solid rgba(184,150,110,.35);background:white;font-family:'EB Garamond',serif;font-size:15px;color:var(--near-black)}
+  .form-field textarea{resize:vertical;min-height:60px}
+  .form-note{font-size:12.5px;color:var(--slate);line-height:1.6;margin-bottom:18px;background:var(--sand);padding:10px 14px;border-left:2px solid var(--gold)}
+  .modal-submit{width:100%;margin-top:6px}
+  .modal-status{margin-top:14px;font-family:'Montserrat',sans-serif;font-size:11px;text-align:center;color:var(--slate)}
+
+  /* FOOTER (shared site footer) */
+  footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,150,110,.1)}
+  @media(min-width:768px){footer{padding:80px 40px 40px}}
+  @media(min-width:1024px){footer{padding:80px 60px 40px}}
+  .footer-top{display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(184,150,110,.08);margin-bottom:32px}
+  @media(min-width:640px){.footer-top{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}}
+  .footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.1em;color:var(--warm-white);margin-bottom:4px}
+  .footer-brand-sub{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+  .footer-tagline{font-family:'EB Garamond',serif;font-size:15px;font-style:italic;color:rgba(250,248,244,.28);line-height:1.7}
+  .footer-col-title{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .footer-links{list-style:none}
+  .footer-links li{margin-bottom:10px}
+  .footer-links a{font-family:'EB Garamond',serif;font-size:15px;color:rgba(250,248,244,.36);text-decoration:none;transition:color .3s;display:block}
+  .footer-links a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;flex-direction:column;gap:8px}
+  @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center}}
+  .footer-copy{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.13em;color:rgba(250,248,244,.15)}
+  .footer-coords-bottom{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(184,150,110,.18)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo"><div class="nav-logo-main">ARKIPELAGO</div><div class="nav-logo-sub">Luxury Tours Philippines</div></a>
+  <ul class="nav-links">
+    <li class="nav-item-dropdown">
+      <a href="/#destinations">Destinations</a>
+      <div class="nav-dropdown">
+        <a href="/destinations/coron/">Coron, Palawan</a>
+        <a href="/destinations/port-barton/">Port Barton, Palawan</a>
+        <a href="/destinations/el-nido/">El Nido, Palawan</a>
+        <a href="/destinations/palawan/">Palawan</a>
+        <a href="/destinations/puerto-galera-diving-tour/">Puerto Galera</a>
+        <a href="/destinations/batanes-private-tour/">Batanes</a>
+        <a href="/destinations/vigan-ilocos-heritage-tour/">Vigan &amp; Ilocos</a>
+        <a href="/destinations/baguio-sagada/">Baguio &amp; Sagada</a>
+        <a href="/destinations/bohol-cebu-private-tour/">Bohol &amp; Cebu</a>
+        <a href="/destinations/siargao/">Siargao</a>
+        <a href="/destinations/bukidnon-highlands-tour/">Bukidnon Highlands</a>
+      </div>
+    </li>
+    <li class="nav-item-dropdown">
+      <a href="/#experiences">Experiences</a>
+      <div class="nav-dropdown">
+        <a href="/experiences/private-tours/">Private Journeys</a>
+        <a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a>
+        <a href="/experiences/family-tours/">Family Tours</a>
+        <a href="/experiences/retirement-travel/">Retiree Journeys</a>
+        <a href="/experiences/corporate-mice/">Corporate &amp; MICE</a>
+        <a href="/experiences/corporate-mice/one-day-executive-intensive/" style="padding-left:34px;font-size:9px;opacity:.85">↳ One-Day Executive Intensive</a>
+        <a href="/experiences/corporate-mice/two-day-bootcamp/" style="padding-left:34px;font-size:9px;opacity:.85">↳ Two-Day Bootcamp</a>
+        <a href="/experiences/corporate-mice/three-day-executive-war-room/" style="padding-left:34px;font-size:9px;opacity:.85">↳ Three-Day Executive War Room</a>
+        <a href="/experiences/corporate-mice/five-day-installation-retreat/" style="padding-left:34px;font-size:9px;opacity:.85">↳ Five-Day Installation Retreat</a>
+      </div>
+    </li>
+    <li><a href="/#quiz">Find My Journey</a></li>
+    <li><a href="/journal/">Journal</a></li>
+    <li><a href="/philippines-travel-bucket-list-map/">Explorer Map</a></li>
+    <li><a href="/arkipelago-weekends/">Weekends</a></li>
+    <li><a href="/about/">Our Philosophy</a></li>
+  </ul>
+  <span class="nav-cta-stack">
+    <button class="nav-cta" onclick="window.location.href='/#begin'">Begin Your Journey</button>
+    <button class="nav-cta" style="background:#B8966E;color:#0B1F3A;border-color:#B8966E" onclick="window.location.href='/arkipelago-weekends/'">For Filipino Joiners</button>
+  </span>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="/#destinations" onclick="toggleMenu()">Destinations</a>
+  <a href="/destinations/coron/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Coron, Palawan</a>
+  <a href="/destinations/port-barton/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Port Barton, Palawan</a>
+  <a href="/destinations/el-nido/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ El Nido, Palawan</a>
+  <a href="/destinations/palawan/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Palawan</a>
+  <a href="/destinations/puerto-galera-diving-tour/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Puerto Galera</a>
+  <a href="/destinations/batanes-private-tour/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Batanes</a>
+  <a href="/destinations/vigan-ilocos-heritage-tour/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Vigan &amp; Ilocos</a>
+  <a href="/destinations/baguio-sagada/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Baguio &amp; Sagada</a>
+  <a href="/destinations/bohol-cebu-private-tour/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Bohol &amp; Cebu</a>
+  <a href="/destinations/siargao/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Siargao</a>
+  <a href="/destinations/bukidnon-highlands-tour/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Bukidnon Highlands</a>
+  <a href="/#experiences" onclick="toggleMenu()">Experiences</a>
+  <a href="/experiences/private-tours/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Private Journeys</a>
+  <a href="/experiences/honeymoon-proposals/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Honeymoons &amp; Proposals</a>
+  <a href="/experiences/family-tours/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Family Tours</a>
+  <a href="/experiences/retirement-travel/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Retiree Journeys</a>
+  <a href="/experiences/corporate-mice/" onclick="toggleMenu()" style="padding-left:24px;font-size:20px;opacity:.7">↳ Corporate &amp; MICE</a>
+  <a href="/experiences/corporate-mice/one-day-executive-intensive/" onclick="toggleMenu()" style="padding-left:44px;font-size:17px;opacity:.6">↳ One-Day Executive Intensive</a>
+  <a href="/experiences/corporate-mice/two-day-bootcamp/" onclick="toggleMenu()" style="padding-left:44px;font-size:17px;opacity:.6">↳ Two-Day Bootcamp</a>
+  <a href="/experiences/corporate-mice/three-day-executive-war-room/" onclick="toggleMenu()" style="padding-left:44px;font-size:17px;opacity:.6">↳ Three-Day Executive War Room</a>
+  <a href="/experiences/corporate-mice/five-day-installation-retreat/" onclick="toggleMenu()" style="padding-left:44px;font-size:17px;opacity:.6">↳ Five-Day Installation Retreat</a>
+  <a href="/#quiz" onclick="toggleMenu()">Find My Journey</a>
+  <a href="/journal/" onclick="toggleMenu()">Journal</a>
+  <a href="/philippines-travel-bucket-list-map/" onclick="toggleMenu()">Explorer Map</a>
+  <a href="/arkipelago-weekends/" onclick="toggleMenu()">Arkipelago Weekends</a>
+  <a href="/about/" onclick="toggleMenu()">Our Philosophy</a>
+  <a href="/#begin" class="dcta" onclick="toggleMenu()">Begin Your Journey →</a>
+  <a href="/arkipelago-weekends/" class="dcta alt" onclick="toggleMenu()">For Filipino Joiners →</a>
+</div>
+
+<div class="doc-header">
+  <div class="header-inner">
+    <div class="doc-eyebrow">Arkipelago Weekends</div>
+    <h1 class="doc-title">A small group.<br><em>A new corner of the archipelago,</em><br>every other week.</h1>
+    <p class="doc-lede">You don't need ten days and a private itinerary to see the Philippines the way we see it. You need a Friday afternoon, a seat among nine other travellers, and a guide who already knows exactly where you're going.</p>
+    <div class="doc-meta">
+      <div class="meta-item">Departs<strong>Friday PM</strong></div>
+      <div class="meta-item">Returns<strong>Sunday PM</strong></div>
+      <div class="meta-item">Group Size<strong>Max 10</strong></div>
+      <div class="meta-item">Starting Point<strong>Calamba, Laguna</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">One weekend. One destination. Ten travellers, at most.</h2>
+    <p class="section-intro">Every departure starts from Calamba, Laguna on Friday afternoon, with pickup available along the way at the closest expressway exit to you, and closes Sunday afternoon, back where you started. Between those two points, the destination changes, but the standard doesn't: a guide who lives there, a group small enough that nobody gets left behind on the trail, and a pace built around the place, not a checklist.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <div class="how-title">Reserve Your Seat</div>
+        <div class="how-text">Choose your weekend from the calendar below and hold it with a PHP 1,000 deposit. Booking closes the Wednesday before the week of departure.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <div class="how-title">Meet Along the Way</div>
+        <div class="how-text">Friday afternoon, starting from Calamba, with pickup available at the closest expressway exits to you. From there, the logistics are ours to carry, not yours.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <div class="how-title">Come Home Sunday</div>
+        <div class="how-text">Back at Calamba by Sunday afternoon, in time for the work week, with a weekend that didn't feel like one.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <div class="section-eyebrow">The Calendar</div>
+    <h2 class="section-title">August through October</h2>
+    <p class="section-intro">Twelve weekends, six destinations, drawn only from routes that genuinely fit a Friday-to-Sunday window out of Calamba. Batanes and Vigan sit outside this calendar for now. Both deserve more than a weekend, and we'd rather send you there properly, with the full journey, than rush you through either one.</p>
+
+    <div class="price-disclaimer">
+      <strong>On pricing:</strong> figures marked with an asterisk (*) are starting-from estimates per person, twin-share. Your PHP 1,000 deposit is what confirms your place in the group. Once the booking deadline passes and the final group size is known, we confirm your final per-person price before any further payment is due.
+    </div>
+
+    <div class="month-label">August 2026</div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Aug 14 – Aug 16</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Baguio Highlands</div>
+      <div class="wk-desc">Pine air, cool mornings, and a slower version of the mountains than the one most weekend travellers settle for.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 5</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 12,800+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Baguio Highlands" data-dates="Aug 14 – Aug 16, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Aug 21 – Aug 23</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Bohol & Cebu</div>
+      <div class="wk-desc">Chocolate Hills at first light, centuries-old churches by mid-morning, and a group small enough that nobody's waiting on a tour bus.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 12</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 19,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Aug 21 – Aug 23, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Aug 28 – Aug 30</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Coron, Palawan</div>
+      <div class="wk-desc">Shipwreck dives, the mineral blue of Kayangan Lake, and the Calamian islands at a fraction of the crowd you'd meet further south.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 19</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 22,000+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Coron, Palawan" data-dates="Aug 28 – Aug 30, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="month-label">September 2026</div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Sep 4 – Sep 6</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Puerto Galera</div>
+      <div class="wk-desc">The nearest of all our weekends, and one of the reasons it keeps a place on the calendar every month.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 26</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 14,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Puerto Galera" data-dates="Sep 4 – Sep 6, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Sep 11 – Sep 13</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Siargao</div>
+      <div class="wk-desc">Past the surf break, into the mangroves and the vanishing sandbars that only show themselves at low tide.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 2</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 24,000+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Siargao" data-dates="Sep 11 – Sep 13, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Sep 18 – Sep 20</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Bukidnon Highlands</div>
+      <div class="wk-desc">Plateaus that surprise every traveller who came expecting only beaches, and highland air that feels nothing like the rest of Mindanao.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 9</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 20,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Bukidnon Highlands" data-dates="Sep 18 – Sep 20, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Sep 25 – Sep 27</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Bohol & Cebu</div>
+      <div class="wk-desc">Our second run this quarter, timed for those who missed the August seats.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 16</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 19,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Sep 25 – Sep 27, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="month-label">October 2026</div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Oct 2 – Oct 4</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Coron, Palawan</div>
+      <div class="wk-desc">Dry season settling in early. This is the first of two October runs to Coron.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 23</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 22,000+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Coron, Palawan" data-dates="Oct 2 – Oct 4, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Oct 9 – Oct 11</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Puerto Galera</div>
+      <div class="wk-desc">The nearest weekend on the calendar, back again for the third time this quarter.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 30</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 14,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Puerto Galera" data-dates="Oct 9 – Oct 11, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Oct 16 – Oct 18</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Baguio Highlands</div>
+      <div class="wk-desc">Cooler nights as the season turns, and the mountain air that keeps people coming back to this one.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, October 7</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 12,800+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Baguio Highlands" data-dates="Oct 16 – Oct 18, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Oct 23 – Oct 25</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Siargao</div>
+      <div class="wk-desc">Our second run of the quarter, and the last chance before the calendar resets for November.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, October 14</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 24,000+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Siargao" data-dates="Oct 23 – Oct 25, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Oct 30 – Nov 1</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Bohol & Cebu</div>
+      <div class="wk-desc">The quarter's final departure, closing out the calendar before we open the next three months.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, October 21</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 19,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Oct 30 – Nov 1, 2026">Reserve Your Seat</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="meet-block">
+    <div class="meet-title">Starting Point & Deposit</div>
+    <p class="meet-text">Every departure starts from Calamba, Laguna on Friday afternoon. Joiners coming from along the way can be picked up at the closest expressway exit to them, SLEX and STAR Tollway included, rather than travelling to Calamba first. Exact pickup points and times are confirmed once your seat is reserved. From there, transport to the destination, whether by van, ferry, or connecting flight, is arranged as part of your seat.</p>
+    <p class="meet-text">A deposit of PHP 1,000 per person holds your seat. Booking for any weekend closes the Wednesday before the week of departure, to give us time to confirm the group and lock in transport and accommodation.</p>
+  </div>
+
+</div>
+
+<div class="final-cta">
+  <h2 class="final-cta-title">Ten seats. <em>One weekend.</em> Wherever we're going next.</h2>
+  <p class="final-cta-text">Tell us which weekend calls to you, and we'll hold your seat with a PHP 1,000 deposit while the rest of the group fills in around you.</p>
+  <button class="arki-cta-btn large reserve-btn" data-dest="" data-dates="">Reserve Your Seat</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand-name">ARKIPELAGO</div><div class="footer-brand-sub">Luxury Tours Philippines</div><p class="footer-tagline">Curated. Sovereign. Unforgettable.</p></div>
+    <div><div class="footer-col-title">Experiences</div><ul class="footer-links"><li><a href="/experiences/private-tours/">Private Journeys</a></li><li><a href="/experiences/honeymoon-proposals/">Honeymoons &amp; Proposals</a></li><li><a href="/experiences/family-tours/">Family Travel</a></li><li><a href="/experiences/retirement-travel/">Retiree Journeys</a></li><li><a href="/experiences/corporate-mice/">Corporate &amp; MICE</a></li></ul></div>
+    <div><div class="footer-col-title">Destinations</div><ul class="footer-links"><li><a href="/destinations/coron/">Coron, Palawan</a></li><li><a href="/destinations/port-barton/">Port Barton, Palawan</a></li><li><a href="/destinations/el-nido/">El Nido, Palawan</a></li><li><a href="/destinations/palawan/">Palawan</a></li><li><a href="/destinations/puerto-galera-diving-tour/">Puerto Galera</a></li><li><a href="/destinations/batanes-private-tour/">Batanes</a></li><li><a href="/destinations/vigan-ilocos-heritage-tour/">Vigan &amp; Ilocos</a></li><li><a href="/destinations/baguio-sagada/">Baguio &amp; Sagada</a></li><li><a href="/destinations/bohol-cebu-private-tour/">Bohol &amp; Cebu</a></li><li><a href="/destinations/siargao/">Siargao</a></li><li><a href="/destinations/bukidnon-highlands-tour/">Bukidnon Highlands</a></li></ul></div>
+    <div><div class="footer-col-title">Arkipelago</div><ul class="footer-links"><li><a href="/philippines-travel-bucket-list-map/">Explorer Map</a></li>
+    <li><a href="/arkipelago-weekends/">Arkipelago Weekends</a></li>
+    <li><a href="/about/">Our Philosophy</a></li><li><a href="/journal/">Journal</a></li><li><a href="/#begin" onclick="scrollToForm(event)">Begin Your Journey</a></li><li><a href="/arkipelago-weekends/" class="reserve-btn" data-dest="" data-dates="">For Filipino Joiners</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Arkipelago Luxury Tours Philippines. All rights reserved.</div><div class="footer-coords-bottom">9°30′N 118°30′E · Philippine Archipelago</div></div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-inner">
+      <div class="modal-eyebrow">Arkipelago Weekends</div>
+      <div class="modal-title" id="modalDest">Reserve Your Seat</div>
+      <div class="modal-sub" id="modalDates"></div>
+
+      <form id="bookingForm">
+        <div class="form-field">
+          <label for="fName">Full Name</label>
+          <input type="text" id="fName" required>
+        </div>
+        <div class="form-field">
+          <label for="fEmail">Email</label>
+          <input type="email" id="fEmail" required>
+        </div>
+        <div class="form-field">
+          <label for="fMobile">Mobile Number</label>
+          <input type="tel" id="fMobile" required>
+        </div>
+        <div class="form-field">
+          <label for="fJoiners">Number of Joiners (including you)</label>
+          <input type="number" id="fJoiners" min="1" max="10" value="1" required>
+        </div>
+        <div class="form-field">
+          <label for="fNotes">Notes (optional)</label>
+          <textarea id="fNotes" placeholder="Dietary needs, travel companions, questions"></textarea>
+        </div>
+        <div class="form-note">A PHP 1,000 per person deposit confirms your seat. We'll follow up with payment details and pickup information after you submit.</div>
+        <button type="submit" class="arki-cta-btn modal-submit">Submit Reservation</button>
+        <div class="modal-status" id="modalStatus"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden iframe sink for reliable cross-origin form POST to Google Apps Script -->
+<iframe name="weekendSink" style="display:none" aria-hidden="true" tabindex="-1"></iframe>
+
+<script>
+  /* Nav scroll + drawer toggle (shared site behaviour) */
+  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+  function toggleMenu(){
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('navDrawer').classList.toggle('open');
+    document.body.style.overflow=document.getElementById('navDrawer').classList.contains('open')?'hidden':'';
+  }
+  /* Footer "Begin Your Journey" points at the homepage form */
+  function scrollToForm(e){ if(e) e.preventDefault(); window.location.href='/#begin'; }
+</script>
+
+<script>
+  // Same Google Apps Script Web App / spreadsheet used by the homepage
+  // "Begin Your Journey" form. Weekend reservations are logged as new rows
+  // in that same sheet, tagged with source "arkipelago-weekends".
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec";
+
+  const modal = document.getElementById('bookingModal');
+  const modalDest = document.getElementById('modalDest');
+  const modalDates = document.getElementById('modalDates');
+  const form = document.getElementById('bookingForm');
+  const statusEl = document.getElementById('modalStatus');
+  const sink = document.querySelector('iframe[name="weekendSink"]');
+  let currentDest = "";
+  let currentDates = "";
+
+  document.querySelectorAll('.reserve-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if (btn.tagName === 'A') e.preventDefault();
+      currentDest = btn.dataset.dest || "General Inquiry";
+      currentDates = btn.dataset.dates || "Not yet selected";
+      modalDest.textContent = currentDest === "General Inquiry" ? "Reserve Your Seat" : currentDest;
+      modalDates.textContent = currentDates === "Not yet selected" ? "" : currentDates;
+      statusEl.textContent = "";
+      form.reset();
+      document.getElementById('fJoiners').value = 1;
+      modal.classList.add('open');
+    });
+  });
+
+  document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    statusEl.textContent = "Submitting...";
+
+    const dest = currentDest || "General Inquiry";
+    const dates = currentDates || "Not yet selected";
+    const notes = document.getElementById('fNotes').value;
+
+    // Map to the same column names the homepage form writes, so weekend
+    // bookings land cleanly as new rows in the existing spreadsheet.
+    const params = new URLSearchParams({
+      name: document.getElementById('fName').value,
+      email: document.getElementById('fEmail').value,
+      phone: document.getElementById('fMobile').value,
+      journey_type: "Arkipelago Weekends",
+      dates: dates,
+      group_size: document.getElementById('fJoiners').value,
+      message: "Weekend: " + dest + (notes ? " — " + notes : ""),
+      destination: dest,
+      departure_dates: dates,
+      joiners: document.getElementById('fJoiners').value,
+      notes: notes,
+      source: "arkipelago-weekends",
+      timestamp: new Date().toISOString(),
+      page: window.location.href
+    });
+
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    }).then(() => {
+      statusEl.textContent = "Seat request received. We'll be in touch shortly with deposit details.";
+      form.reset();
+    }).catch(() => {
+      statusEl.textContent = "Something went wrong. Please try again or contact us directly.";
+    });
+  });
+</script>
+
+</body>
+</html>
