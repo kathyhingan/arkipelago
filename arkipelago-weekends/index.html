@@ -600,12 +600,23 @@
     const dates = currentDates || "Not yet selected";
     const notes = document.getElementById('fNotes').value;
 
+    // Accept any country's number. Validate by digit count, and store a
+    // leading "+" as "00" so Google Sheets saves it as text (a leading "+"
+    // is treated as a formula and the value is lost).
+    const rawPhone = document.getElementById('fMobile').value.trim();
+    const phoneDigits = rawPhone.replace(/[^\d]/g, '');
+    if (phoneDigits.length < 7 || phoneDigits.length > 15) {
+      statusEl.textContent = "Please enter a valid phone number including your country code, e.g. +63 917 123 4567.";
+      return;
+    }
+    const phone = rawPhone.charAt(0) === '+' ? '00' + rawPhone.slice(1) : rawPhone;
+
     // Map to the same column names the homepage form writes, so weekend
     // bookings land cleanly as new rows in the existing spreadsheet.
     const params = new URLSearchParams({
       name: document.getElementById('fName').value,
       email: document.getElementById('fEmail').value,
-      phone: document.getElementById('fMobile').value,
+      phone: phone,
       journey_type: "Arkipelago Weekends",
       dates: dates,
       group_size: document.getElementById('fJoiners').value,
