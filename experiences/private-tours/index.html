@@ -1009,7 +1009,7 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
       </div>
       <div class="form-group">
         <label class="form-label" for="fieldPhone">Phone Number</label>
-        <input type="tel" id="fieldPhone" name="phone" class="form-input" placeholder="+1 555 123 4567 (with country code)" pattern="\+[0-9][0-9 ()\-]{6,}" title="Please include your full number with country code, e.g. +1 555 123 4567" inputmode="tel" required>
+        <input type="tel" id="fieldPhone" name="phone" class="form-input" placeholder="e.g. +63 917 123 4567 (any country)" pattern="[+0-9][0-9 ()\-.]{6,}" title="Enter your full number with country code — any country. e.g. +63 917 123 4567 or 0063 917 123 4567" inputmode="tel" required>
       </div>
       <div class="form-row">
         <div class="form-group">
@@ -1287,12 +1287,17 @@ function submitForm(e){
     note.style.color='#c0392b';
     return;
   }
-  if(!/^\+[0-9][0-9 ()\-]{6,}$/.test(phone)){
+  // Accept any country's number: count digits, ignore spaces/dashes/parens/+/dots.
+  const phoneDigits=phone.replace(/[^\d]/g,'');
+  if(phoneDigits.length<7||phoneDigits.length>15){
     e.preventDefault();
-    note.textContent='Please enter your phone number with country code, e.g. +1 555 123 4567.';
+    note.textContent='Please enter a valid phone number including your country code, e.g. +63 917 123 4567.';
     note.style.color='#c0392b';
     return;
   }
+  // Normalise a leading "+" to "00" so the value saves as text in the
+  // Google Sheet (a leading "+" is treated as a formula and dropped).
+  document.getElementById('fieldPhone').value=phone.charAt(0)==='+'?'00'+phone.slice(1):phone;
 
   document.getElementById('formTimestamp').value=new Date().toISOString();
   document.getElementById('formPage').value=window.location.href;

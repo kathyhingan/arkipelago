@@ -1601,7 +1601,7 @@ h2.title--light em{color:var(--gold)}
         </div>
         <div class="form-group">
           <label class="form-label" for="phone">Phone number</label>
-          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+65 or +61 with country code" pattern="\+[0-9][0-9 ()\-]{6,}" title="Please include your full number with country code, e.g. +65 1234 5678" inputmode="tel" required>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+65 or +61 with country code" pattern="[+0-9][0-9 ()\-.]{6,}" title="Enter your full number with country code — any country. e.g. +63 917 123 4567 or 0063 917 123 4567" inputmode="tel" required>
         </div>
       </div>
 
@@ -1779,6 +1779,9 @@ const formSuccess = document.getElementById('formSuccess');
 form.addEventListener('submit', (e) => {
   // Honeypot: a filled hidden field means a bot (paid traffic attracts junk). Drop silently.
   if (document.getElementById('company_website').value) { e.preventDefault(); return; }
+  // Normalise phone: accept any country code; store a leading "+" as "00" so
+  // Google Sheets saves it as text instead of treating it as a formula.
+  (function(){var p=document.getElementById('phone');if(p){var v=p.value.trim();p.value=v.charAt(0)==='+'?'00'+v.slice(1):v;}})();
   document.getElementById('formTimestamp').value = new Date().toISOString();
   document.getElementById('formPage').value = window.location.href;
   // Conversion tracking for paid campaigns.
