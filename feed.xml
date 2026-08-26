@@ -12,7 +12,7 @@
     <managingEditor>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</managingEditor>
     <webMaster>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</webMaster>
     <copyright>© 2026 Arkipelago Luxury Tours Philippines</copyright>
-    <lastBuildDate>Thu, 17 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Aug 2026 00:00:00 +0000</lastBuildDate>
     <ttl>1440</ttl>
     <image>
       <url>https://luxurytoursphilippines.com/images/logo.png</url>
@@ -25,6 +25,22 @@
          ADD NEW POSTS ABOVE OLDER ONES (newest first)
          Copy the <item> block below and fill in the details.
          ═══════════════════════════════════════════════════════ -->
+
+    <item>
+      <title>Three Journeys Through the Philippines: A Couple's Luxury Itinerary</title>
+      <link>https://luxurytoursphilippines.com/journal/three-journeys-philippines/</link>
+      <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/three-journeys-philippines/</guid>
+      <pubDate>Tue, 26 Aug 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Kathy, Arkipelago</dc:creator>
+      <category>Sample Itinerary</category>
+      <category>Palawan</category>
+      <category>Visayas</category>
+      <description><![CDATA[Beach, mountains, city, and countryside — three complete ways to experience the Philippines as a foodie couple in 15 to 23 days, from El Nido to Coron to Cebu, each in three tiers.]]></description>
+      <content:encoded><![CDATA[
+        <p>Three journeys, nine tiers, one archipelago. Whether you have two weeks or three, prefer the calm lagoons of El Nido, the freshwater lakes of Coron, or all of Palawan plus the Visayas in a single trip — this itinerary maps it out with wellness, food, and rest built in at every stage.</p>
+        <p><a href="https://luxurytoursphilippines.com/journal/three-journeys-philippines/">Explore the full itinerary →</a></p>
+      ]]></content:encoded>
+    </item>
 
     <item>
       <title>Philippines Proposal Planning: The Anatomy of a Private Evening in Coron</title>
