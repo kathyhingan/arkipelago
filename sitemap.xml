@@ -57,6 +57,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Blog post: Three Journeys Through the Philippines -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/journal/three-journeys-philippines/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Honeymoons & Proposals experience page -->
   <url>
     <loc>https://luxurytoursphilippines.com/experiences/honeymoon-proposals/</loc>
