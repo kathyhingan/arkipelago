@@ -57,6 +57,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Blog post: Luxury Solo Travel Philippines (Alina itinerary, anonymized) -->
+  <url>
+    <loc>https://luxurytoursphilippines.com/journal/luxury-solo-travel-philippines/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Blog post: Three Journeys Through the Philippines -->
   <url>
     <loc>https://luxurytoursphilippines.com/journal/three-journeys-philippines/</loc>

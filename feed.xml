@@ -12,7 +12,7 @@
     <managingEditor>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</managingEditor>
     <webMaster>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</webMaster>
     <copyright>© 2026 Arkipelago Luxury Tours Philippines</copyright>
-    <lastBuildDate>Tue, 26 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 00:00:00 +0000</lastBuildDate>
     <ttl>1440</ttl>
     <image>
       <url>https://luxurytoursphilippines.com/images/logo.png</url>
@@ -25,6 +25,21 @@
          ADD NEW POSTS ABOVE OLDER ONES (newest first)
          Copy the <item> block below and fill in the details.
          ═══════════════════════════════════════════════════════ -->
+
+    <item>
+      <title>Luxury Solo Travel in the Philippines: Mountains First, Then the Sea</title>
+      <link>https://luxurytoursphilippines.com/journal/luxury-solo-travel-philippines/</link>
+      <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/luxury-solo-travel-philippines/</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+      <dc:creator>Kathy, Arkipelago</dc:creator>
+      <category>Insight</category>
+      <category>Solo Travel</category>
+      <description><![CDATA[Luxury solo travel in the Philippines: a real hike, a food trip done right, and the best sunsets in the archipelago. Nine days, mountains first, then the sea.]]></description>
+      <content:encoded><![CDATA[
+        <p>There is a bath in the foothills of the Sierra Madre that is not really a bath at all. It is a giant iron cauldron, heated over a wood fire, with the whole mountain range spread out below it. This itinerary starts there, in a barangay most visitors never hear of, and only reaches the sea once you've earned it.</p>
+        <p><a href="https://luxurytoursphilippines.com/journal/luxury-solo-travel-philippines/">Read the full guide →</a></p>
+      ]]></content:encoded>
+    </item>
 
     <item>
       <title>Three Journeys Through the Philippines: A Couple's Luxury Itinerary</title>
