@@ -23,7 +23,15 @@
 
     <!-- ═══════════════════════════════════════════════════════
          ADD NEW POSTS ABOVE OLDER ONES (newest first)
-         Copy the <item> block below and fill in the details.
+         Copy the
+  <item>
+    <title>Sinulog and Whale Sharks: A Three-Week Loop Through Seven Islands</title>
+    <link>https://luxurytoursphilippines.com/journal/sinulog-festival-whale-sharks-philippines/</link>
+    <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/sinulog-festival-whale-sharks-philippines/</guid>
+    <description>A three-week Philippines journey anchored on the Sinulog Grand Parade in Cebu, then whale sharks in Oslob, Bohol, Palawan south to north and a kitesurfing finish in Boracay. Seven bases, three nights each.</description>
+    <pubDate>Mon, 13 Oct 2026 00:00:00 +0800</pubDate>
+  </item>
+ <item> block below and fill in the details.
          ═══════════════════════════════════════════════════════ -->
 
     <item>
