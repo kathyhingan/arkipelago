@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arkipelago Weekends: Small Group Departures for Filipino Joiners</title>
-<meta name="description" content="Small-group weekend departures across the Philippines for Filipino joiners. One weekend, one destination, ten travellers at most — Friday to Sunday out of Calamba, Laguna.">
+<meta name="description" content="Small-group weekend departures across the Philippines for Filipino joiners. One weekend, one destination, ten travellers at most, Friday to Sunday out of Calamba, Laguna.">
 <link rel="canonical" href="https://luxurytoursphilippines.com/arkipelago-weekends/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -67,6 +67,14 @@
   .nav-drawer .dcta.alt{margin-top:14px;background:#B8966E;color:#0B1F3A}
   .nav-drawer .dcta:hover{background:#B8966E;color:#0B1F3A}
 
+  /* SOLD-OUT STICKY BANNER (slides in below the nav once the page scrolls) */
+  .soldout-banner{position:fixed;top:52px;left:0;right:0;z-index:450;background:rgba(11,31,58,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,150,110,.35);padding:10px 24px;text-align:center;transform:translateY(calc(-100% - 120px));transition:transform .45s cubic-bezier(.16,1,.3,1)}
+  .soldout-banner.show{transform:translateY(0)}
+  .soldout-banner p{font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);line-height:1.9;margin:0}
+  .soldout-banner strong{color:var(--warm-white);font-weight:600}
+  .soldout-banner a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:2px}
+  @media(min-width:1024px){.soldout-banner{top:113px;padding:12px 24px}.soldout-banner p{font-size:11px}}
+
   /* HEADER */
   .doc-header{background:var(--navy);padding:118px 24px 56px;position:relative;overflow:hidden}
   .doc-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,150,110,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,110,.04) 1px,transparent 1px);background-size:40px 40px}
@@ -119,7 +127,7 @@
   .wk-price{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)}
   .wk-price strong{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--navy);letter-spacing:0;text-transform:none;display:block;margin-top:2px}
 
-  /* CTA BUTTON — unified across all destination and weekend pages */
+  /* CTA BUTTON, unified across all destination and weekend pages */
   .arki-cta-btn{display:inline-block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:13px 26px;border:none;cursor:pointer;white-space:nowrap;transition:background .2s}
   .arki-cta-btn:hover{background:var(--gold-bright)}
   .arki-cta-btn.large{padding:16px 36px;font-size:10px}
@@ -256,6 +264,10 @@
   <a href="/arkipelago-weekends/" class="dcta alt" onclick="toggleMenu()">For Filipino Joiners →</a>
 </div>
 
+<div class="soldout-banner" id="soldoutBanner">
+  <p><strong>November, December and January are sold out.</strong> The next departures run February through April 2027 &middot; <a href="#calendar">see the calendar below</a></p>
+</div>
+
 <div class="doc-header">
   <div class="header-inner">
     <div class="doc-eyebrow">Arkipelago Weekends</div>
@@ -295,186 +307,178 @@
     </div>
   </div>
 
-  <div class="section" style="padding-top:0">
+  <div class="section" id="calendar" style="padding-top:0">
     <div class="section-eyebrow">The Calendar</div>
-    <h2 class="section-title">August through October</h2>
+    <h2 class="section-title">February through April 2027</h2>
     <p class="section-intro">Twelve weekends, six destinations, drawn only from routes that genuinely fit a Friday-to-Sunday window out of Calamba. Batanes and Vigan sit outside this calendar for now. Both deserve more than a weekend, and we'd rather send you there properly, with the full journey, than rush you through either one.</p>
+    <p class="section-intro">One weekend in late March is deliberately missing: it lands on Easter, when every beach in the country is at its most crowded, and we'd rather run each departure properly the week after than compete with the holiday rush.</p>
 
     <div class="price-disclaimer">
       <strong>On pricing:</strong> figures marked with an asterisk (*) are starting-from estimates per person, twin-share. Your PHP 1,000 deposit is what confirms your place in the group. Once the booking deadline passes and the final group size is known, we confirm your final per-person price before any further payment is due.
     </div>
 
-    <div class="month-label">August 2026</div>
+    <div class="month-label">February 2027</div>
 
     <div class="weekend-card">
       <div class="wk-row">
-        <div class="wk-dates">Aug 14 – Aug 16</div>
+        <div class="wk-dates">Feb 5 – Feb 7</div>
         <div class="wk-spots">10 seats</div>
       </div>
-      <div class="wk-dest">Baguio Highlands</div>
-      <div class="wk-desc">Pine air, cool mornings, and a slower version of the mountains than the one most weekend travellers settle for.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 5</strong></div>
+      <div class="wk-dest">Coron, Palawan</div>
+      <div class="wk-desc">Dry season at its clearest: the best water of the year on the wrecks and in Kayangan Lake.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, January 27</strong></div>
       <div class="wk-footer">
-        <div class="wk-price">Starting from<strong>PHP 12,800+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Baguio Highlands" data-dates="Aug 14 – Aug 16, 2026">Reserve Your Seat</button>
+        <div class="wk-price">Starting from<strong>PHP 22,000+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Coron, Palawan" data-dates="Feb 5 – Feb 7, 2027">Reserve Your Seat</button>
       </div>
     </div>
-
     <div class="weekend-card">
       <div class="wk-row">
-        <div class="wk-dates">Aug 21 – Aug 23</div>
+        <div class="wk-dates">Feb 12 – Feb 14</div>
         <div class="wk-spots">10 seats</div>
       </div>
       <div class="wk-dest">Bohol & Cebu</div>
       <div class="wk-desc">Chocolate Hills at first light, centuries-old churches by mid-morning, and a group small enough that nobody's waiting on a tour bus.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 12</strong></div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, February 3</strong></div>
       <div class="wk-footer">
         <div class="wk-price">Starting from<strong>PHP 19,500+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Aug 21 – Aug 23, 2026">Reserve Your Seat</button>
+        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Feb 12 – Feb 14, 2027">Reserve Your Seat</button>
       </div>
     </div>
-
     <div class="weekend-card">
       <div class="wk-row">
-        <div class="wk-dates">Aug 28 – Aug 30</div>
+        <div class="wk-dates">Feb 19 – Feb 21</div>
         <div class="wk-spots">10 seats</div>
       </div>
-      <div class="wk-dest">Coron, Palawan</div>
-      <div class="wk-desc">Shipwreck dives, the mineral blue of Kayangan Lake, and the Calamian islands at a fraction of the crowd you'd meet further south.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 19</strong></div>
+      <div class="wk-dest">Baguio Highlands</div>
+      <div class="wk-desc">The highlands at their coolest, pine air all day, and a slower version of the mountains than the one most weekend travellers settle for.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, February 10</strong></div>
       <div class="wk-footer">
-        <div class="wk-price">Starting from<strong>PHP 22,000+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Coron, Palawan" data-dates="Aug 28 – Aug 30, 2026">Reserve Your Seat</button>
+        <div class="wk-price">Starting from<strong>PHP 12,800+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Baguio Highlands" data-dates="Feb 19 – Feb 21, 2027">Reserve Your Seat</button>
       </div>
     </div>
-
-    <div class="month-label">September 2026</div>
-
     <div class="weekend-card">
       <div class="wk-row">
-        <div class="wk-dates">Sep 4 – Sep 6</div>
-        <div class="wk-spots">10 seats</div>
-      </div>
-      <div class="wk-dest">Puerto Galera</div>
-      <div class="wk-desc">The nearest of all our weekends, and one of the reasons it keeps a place on the calendar every month.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, August 26</strong></div>
-      <div class="wk-footer">
-        <div class="wk-price">Starting from<strong>PHP 14,500+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Puerto Galera" data-dates="Sep 4 – Sep 6, 2026">Reserve Your Seat</button>
-      </div>
-    </div>
-
-    <div class="weekend-card">
-      <div class="wk-row">
-        <div class="wk-dates">Sep 11 – Sep 13</div>
+        <div class="wk-dates">Feb 26 – Feb 28</div>
         <div class="wk-spots">10 seats</div>
       </div>
       <div class="wk-dest">Siargao</div>
       <div class="wk-desc">Past the surf break, into the mangroves and the vanishing sandbars that only show themselves at low tide.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 2</strong></div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, February 17</strong></div>
       <div class="wk-footer">
         <div class="wk-price">Starting from<strong>PHP 24,000+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Siargao" data-dates="Sep 11 – Sep 13, 2026">Reserve Your Seat</button>
+        <button class="arki-cta-btn reserve-btn" data-dest="Siargao" data-dates="Feb 26 – Feb 28, 2027">Reserve Your Seat</button>
       </div>
     </div>
 
+<div class="month-label">March 2027</div>
+
     <div class="weekend-card">
       <div class="wk-row">
-        <div class="wk-dates">Sep 18 – Sep 20</div>
+        <div class="wk-dates">Mar 5 – Mar 7</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Puerto Galera</div>
+      <div class="wk-desc">The nearest of all our weekends, and one of the reasons it keeps a place on the calendar every month.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, February 24</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 14,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Puerto Galera" data-dates="Mar 5 – Mar 7, 2027">Reserve Your Seat</button>
+      </div>
+    </div>
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Mar 12 – Mar 14</div>
         <div class="wk-spots">10 seats</div>
       </div>
       <div class="wk-dest">Bukidnon Highlands</div>
       <div class="wk-desc">Plateaus that surprise every traveller who came expecting only beaches, and highland air that feels nothing like the rest of Mindanao.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 9</strong></div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, March 3</strong></div>
       <div class="wk-footer">
         <div class="wk-price">Starting from<strong>PHP 20,500+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Bukidnon Highlands" data-dates="Sep 18 – Sep 20, 2026">Reserve Your Seat</button>
+        <button class="arki-cta-btn reserve-btn" data-dest="Bukidnon Highlands" data-dates="Mar 12 – Mar 14, 2027">Reserve Your Seat</button>
       </div>
     </div>
-
     <div class="weekend-card">
       <div class="wk-row">
-        <div class="wk-dates">Sep 25 – Sep 27</div>
-        <div class="wk-spots">10 seats</div>
-      </div>
-      <div class="wk-dest">Bohol & Cebu</div>
-      <div class="wk-desc">Our second run this quarter, timed for those who missed the August seats.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 16</strong></div>
-      <div class="wk-footer">
-        <div class="wk-price">Starting from<strong>PHP 19,500+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Sep 25 – Sep 27, 2026">Reserve Your Seat</button>
-      </div>
-    </div>
-
-    <div class="month-label">October 2026</div>
-
-    <div class="weekend-card">
-      <div class="wk-row">
-        <div class="wk-dates">Oct 2 – Oct 4</div>
+        <div class="wk-dates">Mar 19 – Mar 21</div>
         <div class="wk-spots">10 seats</div>
       </div>
       <div class="wk-dest">Coron, Palawan</div>
-      <div class="wk-desc">Dry season settling in early. This is the first of two October runs to Coron.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 23</strong></div>
+      <div class="wk-desc">The second Coron run of the quarter, deep in the dry season.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, March 10</strong></div>
       <div class="wk-footer">
         <div class="wk-price">Starting from<strong>PHP 22,000+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Coron, Palawan" data-dates="Oct 2 – Oct 4, 2026">Reserve Your Seat</button>
+        <button class="arki-cta-btn reserve-btn" data-dest="Coron, Palawan" data-dates="Mar 19 – Mar 21, 2027">Reserve Your Seat</button>
       </div>
     </div>
 
-    <div class="weekend-card">
-      <div class="wk-row">
-        <div class="wk-dates">Oct 9 – Oct 11</div>
-        <div class="wk-spots">10 seats</div>
-      </div>
-      <div class="wk-dest">Puerto Galera</div>
-      <div class="wk-desc">The nearest weekend on the calendar, back again for the third time this quarter.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, September 30</strong></div>
-      <div class="wk-footer">
-        <div class="wk-price">Starting from<strong>PHP 14,500+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Puerto Galera" data-dates="Oct 9 – Oct 11, 2026">Reserve Your Seat</button>
-      </div>
-    </div>
+<div class="month-label">April 2027</div>
 
     <div class="weekend-card">
       <div class="wk-row">
-        <div class="wk-dates">Oct 16 – Oct 18</div>
-        <div class="wk-spots">10 seats</div>
-      </div>
-      <div class="wk-dest">Baguio Highlands</div>
-      <div class="wk-desc">Cooler nights as the season turns, and the mountain air that keeps people coming back to this one.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, October 7</strong></div>
-      <div class="wk-footer">
-        <div class="wk-price">Starting from<strong>PHP 12,800+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Baguio Highlands" data-dates="Oct 16 – Oct 18, 2026">Reserve Your Seat</button>
-      </div>
-    </div>
-
-    <div class="weekend-card">
-      <div class="wk-row">
-        <div class="wk-dates">Oct 23 – Oct 25</div>
-        <div class="wk-spots">10 seats</div>
-      </div>
-      <div class="wk-dest">Siargao</div>
-      <div class="wk-desc">Our second run of the quarter, and the last chance before the calendar resets for November.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, October 14</strong></div>
-      <div class="wk-footer">
-        <div class="wk-price">Starting from<strong>PHP 24,000+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Siargao" data-dates="Oct 23 – Oct 25, 2026">Reserve Your Seat</button>
-      </div>
-    </div>
-
-    <div class="weekend-card">
-      <div class="wk-row">
-        <div class="wk-dates">Oct 30 – Nov 1</div>
+        <div class="wk-dates">Apr 2 – Apr 4</div>
         <div class="wk-spots">10 seats</div>
       </div>
       <div class="wk-dest">Bohol & Cebu</div>
-      <div class="wk-desc">The quarter's final departure, closing out the calendar before we open the next three months.</div>
-      <div class="wk-deadline">Booking deadline: <strong>Wednesday, October 21</strong></div>
+      <div class="wk-desc">Our second run of the quarter, timed for those who missed February's seats.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, March 24</strong></div>
       <div class="wk-footer">
         <div class="wk-price">Starting from<strong>PHP 19,500+*</strong></div>
-        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Oct 30 – Nov 1, 2026">Reserve Your Seat</button>
+        <button class="arki-cta-btn reserve-btn" data-dest="Bohol & Cebu" data-dates="Apr 2 – Apr 4, 2027">Reserve Your Seat</button>
+      </div>
+    </div>
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Apr 9 – Apr 11</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Baguio Highlands</div>
+      <div class="wk-desc">Cool nights that outlast the lowland summer, and the mountain air that keeps people coming back to this one.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, March 31</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 12,800+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Baguio Highlands" data-dates="Apr 9 – Apr 11, 2027">Reserve Your Seat</button>
+      </div>
+    </div>
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Apr 16 – Apr 18</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Siargao</div>
+      <div class="wk-desc">Past the surf break, into the mangroves and the vanishing sandbars that only show themselves at low tide.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, April 7</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 24,000+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Siargao" data-dates="Apr 16 – Apr 18, 2027">Reserve Your Seat</button>
+      </div>
+    </div>
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Apr 23 – Apr 25</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Puerto Galera</div>
+      <div class="wk-desc">The nearest weekend on the calendar, back for its second run of the quarter.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, April 14</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 14,500+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Puerto Galera" data-dates="Apr 23 – Apr 25, 2027">Reserve Your Seat</button>
+      </div>
+    </div>
+    <div class="weekend-card">
+      <div class="wk-row">
+        <div class="wk-dates">Apr 30 – May 2</div>
+        <div class="wk-spots">10 seats</div>
+      </div>
+      <div class="wk-dest">Coron, Palawan</div>
+      <div class="wk-desc">The quarter's final departure, closing out the calendar before the summer heat peaks.</div>
+      <div class="wk-deadline">Booking deadline: <strong>Wednesday, April 21</strong></div>
+      <div class="wk-footer">
+        <div class="wk-price">Starting from<strong>PHP 22,000+*</strong></div>
+        <button class="arki-cta-btn reserve-btn" data-dest="Coron, Palawan" data-dates="Apr 30 – May 2, 2027">Reserve Your Seat</button>
       </div>
     </div>
 
@@ -550,7 +554,7 @@
 
 <script>
   /* Nav scroll + drawer toggle (shared site behaviour) */
-  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>80));
+  window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>80);document.getElementById('soldoutBanner').classList.toggle('show',scrollY>300);});
   function toggleMenu(){
     document.getElementById('hamburger').classList.toggle('open');
     document.getElementById('navDrawer').classList.toggle('open');
@@ -620,7 +624,7 @@
       journey_type: "Arkipelago Weekends",
       dates: dates,
       group_size: document.getElementById('fJoiners').value,
-      message: "Weekend: " + dest + (notes ? " — " + notes : ""),
+      message: "Weekend: " + dest + (notes ? ", " + notes : ""),
       destination: dest,
       departure_dates: dates,
       joiners: document.getElementById('fJoiners').value,
