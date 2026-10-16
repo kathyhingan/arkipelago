@@ -76,11 +76,16 @@ body{overflow-x:hidden;background:#FAF8F4;color:#2D2D2D;font-family:'EB Garamond
   @media(min-width:1024px){
   #nav{padding:28px 60px}
   #nav.scrolled{padding:18px 60px}
-  .nav-links{display:flex;gap:36px;list-style:none}
-  .nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,244,.8);text-decoration:none;transition:color .3s;position:relative}
+  .nav-links{display:flex;gap:12px;list-style:none;flex-wrap:nowrap;flex:1 1 auto;justify-content:center;min-width:0}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:8.8px;letter-spacing:.09em;text-transform:uppercase;color:rgba(250,248,244,.8);text-decoration:none;transition:color .3s;position:relative;white-space:nowrap;display:block}
   .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#B8966E;transition:width .3s}
   .nav-links a:hover{color:#B8966E}
   .nav-links a:hover::after{width:100%}
+  #nav{padding:24px 24px;gap:14px}
+  .nav-logo{flex-shrink:0}
+  .nav-cta{padding:10px 14px;font-size:9px;letter-spacing:.16em;white-space:nowrap}
+  @media(min-width:1200px){.nav-links a{font-size:9.5px;letter-spacing:.11em}.nav-links{gap:16px}#nav{padding:26px 32px}}
+  @media(min-width:1560px){#nav{padding:28px 60px}#nav.scrolled{padding:18px 60px}.nav-links{gap:36px}.nav-links a{font-size:11px;letter-spacing:.18em}.nav-cta{padding:10px 22px;font-size:10px;letter-spacing:.22em}}
   .nav-cta{display:block;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B8966E;border:1px solid rgba(184,150,110,.5);padding:10px 22px;background:none;cursor:pointer;transition:all .3s}
   .nav-cta:hover{background:#B8966E;color:#0B1F3A}
   .nav-hamburger{display:none}
