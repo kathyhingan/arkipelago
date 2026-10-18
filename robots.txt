@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+Disallow: /kx7-ops-view/
+
 Sitemap: https://luxurytoursphilippines.com/sitemap.xml
