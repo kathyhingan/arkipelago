@@ -468,7 +468,7 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 // ============================================================
 // CONFIG
 // ============================================================
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1VUkrRAZwgSk22E7WyCfQp7ieUFdBuhSsA8Q46Uak5zZIN-FkUP-26yhhWw4yWAeF/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuGYvXjz4u3hqSdxI0XcLgdtQ2HImVVrLlzijnRKbcbSnuEXvziZTYf_NKzWAuFiBm/exec";
 const QUOTE_PAGE_URL = "https://luxurytoursphilippines.com/#begin";
 
 const PROVINCES=[
@@ -671,10 +671,30 @@ async function submitLead(){
   const btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Sending…';
   const a=archetype();
   const expLabels=[...selectedExps].map(id=>EXPERIENCES.find(e=>e.id===id)?.name).filter(Boolean);
-  leadData={firstName:name,email,travelWindow:win,groupSize:grp,provinceCount:selectedProvs.size,cityCount:visitedCities.size,cities:[...visitedCities].slice(0,20).join(', '),interests:expLabels.join(', '),archetype:a.label,coverage:a.pct+'%'};
+  const citiesList=[...visitedCities].slice(0,20).join(', ');
+  const detail='Provinces visited: '+selectedProvs.size+' | Cities visited: '+visitedCities.size+' ('+citiesList+') | Interests: '+expLabels.join(', ')+' | Map coverage: '+a.pct+'%';
+  leadData={name:name,email:email,journey_type:'Explorer Map',dates:win,group_size:grp,
+    message:detail,quiz_archetype:a.label,source:'arkipelago-explorer-map',page:location.href,
+    timestamp:new Date().toISOString()};
   if(APPS_SCRIPT_URL && APPS_SCRIPT_URL!=='PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
-    try{await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(leadData)});}
-    catch(e){console.log('sheet sync note',e);}
+    // Native form POST into a hidden iframe: the same transport the homepage form uses,
+    // which is proven to work from real browsers (fetch/no-cors is unreliable here).
+    const frame=document.createElement('iframe');
+    frame.name='leadSink'+Date.now();
+    frame.style.display='none';
+    document.body.appendChild(frame);
+    const form=document.createElement('form');
+    form.method='POST';
+    form.action=APPS_SCRIPT_URL;
+    form.target=frame.name;
+    Object.keys(leadData).forEach(function(k){
+      const inp=document.createElement('input');
+      inp.type='hidden'; inp.name=k; inp.value=String(leadData[k]==null?'':leadData[k]);
+      form.appendChild(inp);
+    });
+    document.body.appendChild(form);
+    form.submit();
+    setTimeout(function(){ frame.remove(); form.remove(); },30000);
   }
   goTo(4);
 }
