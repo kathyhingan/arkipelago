@@ -125,7 +125,7 @@
 }
 </script>
 
-<!-- ═══ FONTS — matching homepage: Cormorant Garamond + Montserrat ════════ -->
+<!-- ═══ FONTS - matching homepage: Cormorant Garamond + Montserrat ════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -231,7 +231,7 @@ body{
 }
 @media(min-width:1100px){.hero{padding:120px 80px 100px}}
 
-/* Subtle grid overlay — same as homepage */
+/* Subtle grid overlay - same as homepage */
 .hero::before{
   content:'';position:absolute;inset:0;
   background-image:
@@ -316,7 +316,7 @@ body{
   color:rgba(255,255,255,.5);margin-top:6px;display:block;line-height:1.5;
 }
 
-/* Hero right panel — outcomes card */
+/* Hero right panel - outcomes card */
 .hero-panel{
   background:rgba(255,255,255,.04);
   border:1px solid rgba(184,150,110,.2);
@@ -449,7 +449,7 @@ h2.title--light em{color:var(--gold)}
 }
 .deliver-card--dark .deliver-body{color:rgba(255,255,255,.75)}
 
-/* ── TESTIMONIAL — DARYL ─────────────────────────────────────────────── */
+/* ── TESTIMONIAL - DARYL ─────────────────────────────────────────────── */
 .daryl-block{
   background:var(--navy);padding:88px 40px;
   position:relative;overflow:hidden;
@@ -1041,7 +1041,7 @@ h2.title--light em{color:var(--gold)}
       </p>
     </div>
 
-    <!-- Stat band — Daryl result figures -->
+    <!-- Stat band - Daryl result figures -->
     <div class="stat-band reveal">
       <div class="stat-band-card">
         <span class="stat-band-n">$1.6M</span>
@@ -1334,7 +1334,7 @@ h2.title--light em{color:var(--gold)}
 
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     WHY DARYL LEADS — E-A-T
+     WHY DARYL LEADS - E-A-T
 ════════════════════════════════════════════════════════════════════════ -->
 <section class="daryl-block" id="daryl">
   <div class="daryl-inner">
@@ -1351,11 +1351,11 @@ h2.title--light em{color:var(--gold)}
         Fractional CMO · Founder, Best Business Coach · Singapore &amp; Australia
       </div>
 
-      <a href="https://darylurbanski.com" target="_blank" rel="noopener" style="display:block;margin-top:40px;max-width:280px;">
+      
         <img src="/images/daryl-urbanski-executive-coach.jpg"
              alt="Daryl Urbanski, Fractional CMO who leads the one-day executive retreat sessions"
              style="width:100%;height:auto;display:block;border:2px solid rgba(184,150,110,.25);">
-      </a>
+      
     </div>
 
     <div class="daryl-profile">
@@ -1374,11 +1374,7 @@ h2.title--light em{color:var(--gold)}
           automated sales from cold traffic for the business of Michael E. Gerber, author of
           <em>The E-Myth</em>; and a 106% repeat-purchase lift in 90 days with zero additional ad
           spend. Gerber called Daryl "one in a million" and "beyond the very best I've ever worked
-          with." His practice is public at
-          <a href="https://bestbusinesscoach.ca" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,150,110,.4)">bestbusinesscoach.ca</a>
-          and
-          <a href="https://darylurbanski.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,150,110,.4)">darylurbanski.com</a>,
-          so a CFO can check the record.
+          with." His practice is public, so a CFO can check the record.
         </p>
         <p>
           <strong>The pairing that makes the day work.</strong> Daryl brings the growth system and
@@ -1392,12 +1388,7 @@ h2.title--light em{color:var(--gold)}
       </div>
 
       <div style="margin-top:8px">
-        <a href="https://bestbusinesscoach.ca" target="_blank" rel="noopener"
-          style="font-family:'Montserrat',sans-serif;font-size:9.5px;letter-spacing:.2em;
-          text-transform:uppercase;font-weight:600;color:var(--gold);text-decoration:none;
-          border-bottom:1px solid rgba(184,150,110,.4);padding-bottom:2px;transition:border-color .2s">
-          bestbusinesscoach.ca →
-        </a>
+        
       </div>
     </div>
   </div>
@@ -1571,7 +1562,7 @@ h2.title--light em{color:var(--gold)}
         </div>
         <div class="form-group">
           <label class="form-label" for="phone">Phone number</label>
-          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+65 or +61 with country code" pattern="[+0-9][0-9 ()\-.]{6,}" title="Enter your full number with country code — any country. e.g. +63 917 123 4567 or 0063 917 123 4567" inputmode="tel" required>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+65 or +61 with country code" pattern="[+0-9][0-9 ()\-.]{6,}" title="Enter your full number with country code, any country. e.g. +63 917 123 4567 or 0063 917 123 4567" inputmode="tel" required>
         </div>
       </div>
 
@@ -1725,7 +1716,7 @@ if(window.innerWidth >= 641){
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
-// Form — native POST via hidden iframe (no fetch/CORS)
+// Form, native POST via hidden iframe (no fetch/CORS)
 const form = document.getElementById('briefForm');
 const submitBtn = document.getElementById('submitBtn');
 const formSuccess = document.getElementById('formSuccess');
