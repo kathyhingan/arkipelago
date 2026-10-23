@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /proposals/
 
 Disallow: /kx7-ops-view/
 
