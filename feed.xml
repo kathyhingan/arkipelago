@@ -12,7 +12,7 @@
     <managingEditor>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</managingEditor>
     <webMaster>hello@luxurytoursphilippines.com (Kathy, Arkipelago)</webMaster>
     <copyright>© 2026 Arkipelago Luxury Tours Philippines</copyright>
-    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 00:00:00 +0800</lastBuildDate>
     <ttl>1440</ttl>
     <image>
       <url>https://luxurytoursphilippines.com/apple-touch-icon.png</url>
@@ -21,9 +21,18 @@
     </image>
     <atom:link href="https://luxurytoursphilippines.com/feed.xml" rel="self" type="application/rss+xml"/>
 
-    <!-- ═══════════════════════════════════════════════════════
-         ADD NEW POSTS ABOVE OLDER ONES (newest first)
-         Copy the
+        <!-- ══════════════════════════════════════════════════
+         ADD NEW POSTS ABOVE OLDER ONES (newest first).
+         Copy the <item> block template at the bottom of this file and fill in the details.
+         ═════════════════════════════════════════════════════════ -->
+
+    <item>
+      <title>Philippines Catamaran Itinerary: El Nido to Coron by Private Boat</title>
+      <link>https://luxurytoursphilippines.com/journal/philippines-catamaran-itinerary/</link>
+      <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/philippines-catamaran-itinerary/</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+      <description>A private catamaran crossing from El Nido to Coron through the Linapacan islands, built into a Bohol to Boracay journey. What the sailing corridor is really like, and how to do it.</description>
+    </item>
     <item>
       <title>21-Day Philippines Itinerary: Manila, Bohol, Coron, El Nido and Boracay</title>
       <link>https://luxurytoursphilippines.com/journal/21-day-philippines-itinerary-manila-bohol-coron-elnido-boracay/</link>
@@ -31,15 +40,13 @@
       <pubDate>Tue, 20 Oct 2026 00:00:00 +0800</pubDate>
       <description>A 21-day Philippines itinerary across five bases, Manila, Bohol, Coron, El Nido and Boracay, with no backtracking, short nonstop flights between islands and slow days built in. Private throughout.</description>
     </item>
-  <item>
+    <item>
     <title>Sinulog and Whale Sharks: A Three-Week Loop Through Seven Islands</title>
     <link>https://luxurytoursphilippines.com/journal/sinulog-festival-whale-sharks-philippines/</link>
     <guid isPermaLink="true">https://luxurytoursphilippines.com/journal/sinulog-festival-whale-sharks-philippines/</guid>
     <description>A three-week Philippines journey anchored on the Sinulog Grand Parade in Cebu, then whale sharks in Oslob, Bohol, Palawan south to north and a kitesurfing finish in Boracay. Seven bases, three nights each.</description>
     <pubDate>Mon, 13 Oct 2026 00:00:00 +0800</pubDate>
   </item>
- <item> block below and fill in the details.
-         ═══════════════════════════════════════════════════════ -->
 
     <item>
       <title>12-Day Philippines Itinerary for Families: Bohol, Siargao and Cebu</title>
