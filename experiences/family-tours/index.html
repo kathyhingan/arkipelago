@@ -76,55 +76,37 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can you plan a Philippines trip with a baby or infant?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we have travelled with our own daughters since they were 4 months old. We pre-source everything before you arrive: cot, steriliser, high chair, baby carrier, infant life jackets for all sea days. We know which destinations work for very young babies (calm water, no rough roads, good shade) and which to save for when children are a little older. We design the itinerary around nap times and feeding schedules, not the other way around."
+      {
+        "@type": "Question",
+        "name": "Can you plan a Philippines trip with a baby or infant?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we have travelled with our own daughters since they were 4 months old. We pre-source everything before you arrive: cot, steriliser, high chair, baby carrier, infant life jackets for all sea days. We know which destinations work for very young babies (calm water, no rough roads, good shade) and which to save for later. We design the itinerary around nap times and feeding schedules, not the other way around."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can we bring our dog or cat?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we have travelled extensively with our own pets, and we treat them as family members, not complications. We verify pet-friendly accommodation at every stop, arrange private transport only, identify a veterinary contact at each destination before you depart, and brief local staff on your pet's routine. For families who travel with animals, this is often the single detail that makes the decision, because no other operator handles it this way."}
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if a child gets sick mid-trip?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Every itinerary we design for families includes a built-in flexibility layer, a lighter version of each day that works if someone is under the weather. We document the nearest clinic or hospital at every destination, carry contact numbers for English-speaking paediatricians, and build in rest time so a sick day doesn't destroy the week. We plan for the version where it might happen, so you don't have to think about it."}
+      },
+      {
+        "@type": "Question",
+        "name": "Are the boats safe for very young children?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Safety on the water is the first conversation we have. We only use private vessels, never shared tour boats. We source child-appropriate life jackets, including infant PFDs, for every sea day. Captains are briefed on the children's ages. We check sea conditions the night before any boat day, not the morning of. And we always have a fallback plan if conditions change."}
+      },
+      {
+        "@type": "Question",
+        "name": "Which Philippines destinations work best for families with young children?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Bohol is our strongest destination for families, gentle terrain, calm shallow beaches at Panglao, the Chocolate Hills, the tarsier sanctuary, whale shark snorkelling in Oslob with guides. It works for every age from infants to teenagers. Puerto Galera is excellent for families based in Manila, two hours away, genuinely diverse activities. Coron in Palawan works well for families with children over 8 who can snorkel. We always discuss ages honestly before recommending destinations."}
+      },
+      {
+        "@type": "Question",
+        "name": "What do you pre-source before we arrive?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Everything on the list you give us, and several things you haven't thought of yet. Typically: cot, steriliser, high chair, baby carrier, child life jackets (sized to your children), stroller-friendly vehicle confirmation, sunscreen stock at accommodation, nanny referral contacts at each destination, and a medical kit. If travelling with a pet: veterinary contact, food sourcing confirmation, staff briefing notes. We send you the complete pre-arrival list once we've designed your itinerary."}
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you travel with pets? Can we bring our dog?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we have travelled extensively with our own pets, and we treat them as family members, not complications. We verify pet-friendly accommodation at every stop, arrange private transport only (no shared vehicles where pets aren't welcome), identify a veterinary contact at each destination before you depart, and brief local staff on your pet's routine. For families who travel with animals, this is often the single detail that closes the decision, because no other operator handles it this way."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if a child gets sick mid-trip?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Every itinerary we design for families includes a built-in flexibility layer, a lighter version of each day that works if someone is under the weather. We document the nearest clinic or hospital at every destination. We carry contact numbers for English-speaking paediatricians. And nothing in the itinerary is so fixed that a sick day destroys the trip. We plan for the version where it might happen, so you don't have to think about it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are the boats and vessels safe for young children?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Safety on the water is one of the first conversations we have. We only use private vessels, never shared tour boats, and we source child-appropriate life jackets (including infant PFDs) for every sea day. We brief captains on the children's ages before departure. We check sea conditions the night before any boat day, not the morning of. And we always have a backup plan if conditions change."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which Philippines destinations work best for families with young children?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bohol is our strongest destination for families, gentle terrain, calm shallow beaches at Panglao, the Chocolate Hills, the tarsier sanctuary, whale shark snorkelling in Oslob with guides. It works for every age from toddler to teenager. Puerto Galera is excellent for families based in Manila, two hours away, world-class diving for older children, Tamaraw Falls for younger ones. Coron in Palawan works well for families with children over 8 who can snorkel. We always discuss ages honestly before recommending destinations."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What do you pre-source before we arrive?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Everything on the list you give us, and several things you haven't thought of yet. Typically: cot, steriliser, high chair, baby carrier, child life jackets (sized to your children), stroller-friendly vehicle confirmation, sunscreen stock at accommodation, nanny referral contacts at each destination, and a medical kit. If you're travelling with a pet, we add: veterinary contact, food sourcing confirmation, staff briefing notes. We send you the complete pre-arrival sourcing list once we've designed your itinerary."
-      }
-    }
-  ]
+    ]
 }
 </script>
 
@@ -781,6 +763,11 @@ h2.section-title--light .accent{color:var(--coral)}
 @media(min-width:768px){
   .pets-photo{max-height:360px}
 }
+
+/* Quick answer (AIO/GEO visibility) */
+.aio-answer{max-width:880px;margin:0 auto;padding:24px 28px;border:1px solid rgba(184,150,110,.3);border-left:3px solid var(--gold);background:rgba(240,230,211,.15)}
+.aio-answer-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.aio-answer p{margin:0;font-size:17px;line-height:1.75}
 </style>
 </head>
 
@@ -1063,6 +1050,11 @@ h2.section-title--light .accent{color:var(--coral)}
     </p>
   </div>
 </section>
+<section class="aio-answer" aria-label="Quick answer">
+  <div class="aio-answer-label">Quick answer</div>
+  <p>Bohol is our strongest destination for families: gentle terrain, calm shallow beaches at Panglao, the Chocolate Hills, the tarsier sanctuary, and whale shark snorkelling in Oslob with guides. Puerto Galera suits families based in Manila, two hours away. Coron works for families with children over 8 who can snorkel. We design every itinerary around nap schedules and ages, and pre-source cots, sterilisers, and infant life jackets before you arrive.</p>
+</section>
+
 
 
 <!-- ═══════════════════════════════════════════════════════════════════════

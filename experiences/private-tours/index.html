@@ -77,31 +77,37 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What makes Arkipelago different from other private tour operators in the Philippines?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Arkipelago builds every itinerary from scratch, no templates, no fixed routes, no standard packages. We maintain a maximum of 8 guests per journey and use access that comes from 30+ years of personal travel across the archipelago: private boat captains, fixers, and local contacts in destinations most operators have never visited. Every journey is designed for the specific traveller, not adapted from a shelf."
+      {
+        "@type": "Question",
+        "name": "What makes Arkipelago different from other private tour operators in the Philippines?",
+        "acceptedAnswer": {"@type": "Answer", "text": "We build every itinerary from scratch, no templates, no fixed routes, no standard packages. We maintain a maximum of 8 guests per journey and use access that comes from 30+ years of personal travel across the archipelago: private boat captains, fixers, and local contacts in destinations most operators have never visited. Every journey is designed for the specific traveller, not adapted from a shelf."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do you take solo travellers on private tours?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Solo travellers are one of our most valued clients. A private journey for one is still entirely private, your vessel, your guide, your pace, your route. There are no other guests. The experience is designed entirely around what you want to see and how you want to move through the islands."}
+      },
+      {
+        "@type": "Question",
+        "name": "Which destinations do you recommend for independent travellers who want to avoid the tourist trail?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Coron and Port Barton in Palawan offer everything El Nido promised before it was overrun. Batanes, the northernmost Philippines, receives a fraction of visitors and is genuinely unlike anywhere else. Siargao's outer islands, the Bukidnon Highlands, and the cultural heritage trail through Vigan and Sagada all deliver extraordinary depth with none of the crowds. We'll recommend based on your interests and travel dates."}
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a private guided tour in the Philippines cost?",
+        "acceptedAnswer": {"@type": "Answer", "text": "We don't publish price grids, every journey is different, and cost depends entirely on duration, destinations, accommodation tier, and inclusions. What we can tell you is that a private journey for two through the Philippines is comparable in cost to a standard resort holiday in the Maldives, and returns something the Maldives cannot offer. The conversation starts with a brief. The pricing follows."}
+      },
+      {
+        "@type": "Question",
+        "name": "How far in advance do I need to book?",
+        "acceptedAnswer": {"@type": "Answer", "text": "For most journeys, 3 to 6 months gives us the best access to properties and private vessels. That said, we've designed extraordinary journeys with 6 weeks' notice. The earlier you reach out, the more options we have. Contact us and we'll tell you honestly what's possible."}
+      },
+      {
+        "@type": "Question",
+        "name": "What's the best time of year to visit the Philippines?",
+        "acceptedAnswer": {"@type": "Answer", "text": "November to May is the dry season across most of the archipelago, the easiest time to travel, especially in Palawan and the Visayas. Siargao is best March to October. Batanes has its own seasonal logic: February to June is accessible, but the dramatic skies in shoulder season have their own character. We'll recommend timing based on your chosen destinations and what you want to see."}
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you take solo travellers on private tours in the Philippines?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Solo travellers are one of our most valued clients. A private journey for one is still entirely private, your vessel, your guide, your pace, your route. There are no other guests. The experience is designed entirely around what you want to see and how you want to move through the islands."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which destinations do you recommend for independent travellers who want to avoid the tourist trail?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Coron and Port Barton in Palawan offer everything El Nido promised before it was overrun. Batanes, the northernmost Philippines, receives a fraction of visitors and is genuinely unlike anywhere else. Siargao's outer islands, the Bukidnon Highlands, and the cultural heritage trail through Vigan and Sagada all deliver extraordinary depth with none of the crowds. We'll recommend based on your interests and travel dates."
-      }
-    }
-  ]
+    ]
 }
 </script>
 
@@ -452,6 +458,11 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Quick answer (AIO/GEO visibility) */
+.aio-answer{max-width:880px;margin:0 auto;padding:24px 28px;border:1px solid rgba(184,150,110,.3);border-left:3px solid var(--gold);background:rgba(240,230,211,.15)}
+.aio-answer-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.aio-answer p{margin:0;font-size:17px;line-height:1.75}
 </style>
 </head>
 <body>
@@ -610,6 +621,11 @@ footer{background:#070F1C;padding:64px 24px 36px;border-top:1px solid rgba(184,1
     <div class="hero-stat"><div class="hero-stat-num">30+</div><div class="hero-stat-label">Years of personal travel here</div></div>
   </div>
 </section>
+<section class="aio-answer" aria-label="Quick answer">
+  <div class="aio-answer-label">Quick answer</div>
+  <p>A private tour of the Philippines with Arkipelago is 100% custom: private vessels, local fixers, routes drawn from 30+ years in the country, and never a shared group, with a maximum of 8 guests across 7,641 islands. From a single day tour to a multi-island route, the journey is built around you, not the other way around.</p>
+</section>
+
 
 <!-- CREDIBILITY / PHILOSOPHY -->
 <section class="cred-strip">
