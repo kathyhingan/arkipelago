@@ -691,17 +691,39 @@
       page: window.location.href
     });
 
-    fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
-    }).then(() => {
-      statusEl.textContent = "Seat request received. We'll be in touch shortly with deposit details.";
-      form.reset();
-    }).catch(() => {
-      statusEl.textContent = "Something went wrong. Please try again or contact us directly.";
-    });
+    // Native form POST into a hidden iframe: the same transport the homepage
+    // and every other capture form uses. fetch/no-cors proved unreliable from
+    // real browsers here (submissions died silently while users saw success),
+    // so the request now rides the proven path.
+    let sink = document.getElementById('weekendFormSink');
+    if (!sink) {
+      sink = document.createElement('iframe');
+      sink.name = 'weekendFormSink';
+      sink.id = 'weekendFormSink';
+      sink.style.display = 'none';
+      sink.setAttribute('aria-hidden', 'true');
+      sink.tabIndex = -1;
+      document.body.appendChild(sink);
+    }
+    const relay = document.createElement('form');
+    relay.action = APPS_SCRIPT_URL;
+    relay.method = 'POST';
+    relay.target = 'weekendFormSink';
+    relay.style.display = 'none';
+    for (const pair of params) {
+      const field = document.createElement('input');
+      field.type = 'hidden';
+      field.name = pair[0];
+      field.value = pair[1];
+      relay.appendChild(field);
+    }
+    document.body.appendChild(relay);
+    relay.submit();
+    setTimeout(() => {
+      relay.remove();
+    }, 3000);
+    statusEl.textContent = "Seat request received. We'll be in touch shortly with deposit details.";
+    form.reset();
   });
 </script>
 
